@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <control
+    namespace="CpShelter"
+    constructor="MatsOverlay"
+    version="1.0.0"
+    display-name-key="MatsOverlay_DisplayName"
+    description-key="MatsOverlay_Description"
+    control-type="standard">
+
+    <!-- ================= DATASET ================= -->
+    <data-set
+      name="cp_mat"
+      display-name-key="Mats_DataSet_DisplayName"
+      description-key="Mats_DataSet_Description"
+      cds-data-set-options="displayCommandBar:false;displayViewSelector:false;displayQuickFind:false">
+
+      <!-- IMPORTANT: Use actual Dataverse logical names -->
+      <property-set
+        name="cp_matlabel"
+        display-name-key="mat_label_Display"
+        description-key="mat_label_Desc"
+        of-type="SingleLine.Text"
+        usage="bound"
+        required="false" />
+
+      <property-set
+        name="cp_matnumber"
+        display-name-key="mat_number_Display"
+        description-key="mat_number_Desc"
+        of-type="Decimal"
+        usage="bound"
+        required="false" />
+
+      <property-set
+        name="cp_matwidth"
+        display-name-key="cp_matwidth_Display"
+        description-key="cp_matwidth_Desc"
+        of-type="Decimal"
+        usage="bound"
+        required="true" />
+
+      <property-set
+        name="cp_matheight"
+        display-name-key="cp_matheight_Display"
+        description-key="cp_matheight_Desc"
+        of-type="Decimal"
+        usage="bound"
+        required="true" />
+
+      <property-set
+        name="cp_xposition"
+        display-name-key="cp_xposition_Display"
+        description-key="cp_xposition_Desc"
+        of-type="Decimal"
+        usage="bound"
+        required="true" />
+
+      <property-set
+        name="cp_yposition"
+        display-name-key="cp_yposition_Display"
+        description-key="cp_yposition_Desc"
+        of-type="Decimal"
+        usage="bound"
+        required="true" />
+
+      <property-set
+        name="cp_fillcolor"
+        display-name-key="cp_fillcolor_Display"
+        description-key="cp_fillcolor_Desc"
+        of-type="SingleLine.Text"
+        usage="bound"
+        required="false" />
+
+      <property-set
+        name="cp_strokecolor"
+        display-name-key="cp_strokecolor_Display"
+        description-key="cp_strokecolor_Desc"
+        of-type="SingleLine.Text"
+        usage="bound"
+        required="false" />
+    </data-set>
+
+    <!-- ================= DESIGNER INPUTS ================= -->
+    <property name="Scale"
+              of-type="Decimal"
+              usage="input"
+              display-name-key="Prop_Scale"
+              description-key="Prop_Scale_Desc" />
+
+    <property name="OffsetX"
+              of-type="Decimal"
+              usage="input"
+              display-name-key="Prop_OffsetX"
+              description-key="Prop_OffsetX_Desc" />
+
+    <property name="OffsetY"
+              of-type="Decimal"
+              usage="input"
+              display-name-key="Prop_OffsetY"
+              description-key="Prop_OffsetY_Desc" />
+
+    <property name="BaseW"
+              of-type="Whole.None"
+              usage="input"
+              display-name-key="Prop_BaseW"
+              description-key="Prop_BaseW_Desc" />
+
+    <property name="BaseH"
+              of-type="Whole.None"
+              usage="input"
+              display-name-key="Prop_BaseH"
+              description-key="Prop_BaseH_Desc" />
+
+    <property name="IsLayoutMode"
+              of-type="TwoOptions"
+              usage="input"
+              display-name-key="Prop_IsLayoutMode"
+              description-key="Prop_IsLayoutMode_Desc" />
+
+    <!-- ================= OUTPUTS ================= -->
+    <property name="SelectedId"
+              of-type="SingleLine.Text"
+              usage="output"
+              display-name-key="Prop_SelectedId"
+              description-key="Prop_SelectedId_Desc" />
+
+    <property name="ChangeKind"
+              of-type="SingleLine.Text"
+              usage="output"
+              display-name-key="Prop_ChangeKind"
+              description-key="Prop_ChangeKind_Desc" />
+
+    <property name="NewX"
+              of-type="Decimal"
+              usage="output"
+              display-name-key="Prop_NewX"
+              description-key="Prop_NewX_Desc" />
+
+    <property name="NewY"
+              of-type="Decimal"
+              usage="output"
+              display-name-key="Prop_NewY"
+              description-key="Prop_NewY_Desc" />
+
+    <property name="NewW"
+              of-type="Decimal"
+              usage="output"
+              display-name-key="Prop_NewW"
+              description-key="Prop_NewW_Desc" />
+
+    <property name="NewH"
+              of-type="Decimal"
+              usage="output"
+              display-name-key="Prop_NewH"
+              description-key="Prop_NewH_Desc" />
+
+    <!-- ================= RESOURCES ================= -->
+    <resources>
+      <code path="index.ts" order="1" />
+      <!-- <css path="css/MatsOverlay.css" order="1" /> -->
+      <!-- <resx path="strings/MatsOverlay.1033.resx" version="1.0.0" /> -->
+    </resources>
+
+    <!-- ================= FEATURE USAGE ================= -->
+    <feature-usage>
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+
+  </control>
+</manifest>
