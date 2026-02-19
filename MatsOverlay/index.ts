@@ -365,3 +365,5 @@ private offsetY = 0;
     return issues;
   }
 }
+
+// Commit message: Initial implementation of MatsOverlay control with SVG rendering, drag-and-drop layout, and overlap detection.
