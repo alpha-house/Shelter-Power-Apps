@@ -12,6 +12,8 @@ interface MatRow {
   cp_yposition?: number | null;
   cp_fillcolor?: string | null;
   cp_strokecolor?: string | null;
+  // Whether this mat already has a check-in assigned — drives click behaviour
+  hasCheckin: boolean;
   x: number;
   y: number;
   w: number;
@@ -218,17 +220,20 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
           this.dragStartY  = mat.y;
         });
       } else {
-        // ── Normal mode: left-click = assign, right-click = remove dialog ──
-        g.addEventListener("click", () => {
-          this.pickAndAssign(mat).catch((err: unknown) => {
-            console.error("[MatsOverlay] pickAndAssign error:", err);
-          });
-        });
-
-        // Right-click opens removal dialog
-        g.addEventListener("contextmenu", (e: MouseEvent) => {
-          e.preventDefault();
-          this.showRemoveDialog(mat, e.clientX, e.clientY);
+        // ── Normal mode: left-click behaviour depends on assignment state ──
+        //
+        //   Mat HAS a check-in assigned → show removal dialog
+        //   Mat has NO check-in         → open Xrm lookup to assign one
+        //
+        g.addEventListener("click", (e: MouseEvent) => {
+          e.stopPropagation(); // prevent SVG background click from dismissing immediately
+          if (mat.hasCheckin) {
+            this.showRemoveDialog(mat, e.clientX, e.clientY);
+          } else {
+            this.pickAndAssign(mat).catch((err: unknown) => {
+              console.error("[MatsOverlay] pickAndAssign error:", err);
+            });
+          }
         });
       }
 
@@ -270,7 +275,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
 
     svg.addEventListener("mouseleave", () => { this.dragging = false; });
 
-    // Dismiss any open context menu when clicking the SVG background
+    // Clicking the SVG background dismisses any open removal dialog
     svg.addEventListener("click", () => {
       this.dismissRemoveDialog();
     });
@@ -293,76 +298,67 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     this.container.appendChild(wrapper);
   }
 
-  // ── Remove dialog ───────────────────────────────────────────────────────────
+  // ── Remove dialog ────────────────────────────────────────────────────────────
 
   /**
-   * Shows a small custom context-menu dialog near the right-clicked mat.
-   * Offers three actions:
-   *   • Remove Check-In only
-   *   • Remove Client only
-   *   • Remove Both
+   * Floating dialog shown when a mat that already has a check-in is clicked.
+   * Lets the user selectively remove the check-in, the client, or both.
    */
   private showRemoveDialog(mat: MatRow, clientX: number, clientY: number): void {
-    this.dismissRemoveDialog(); // close any existing one first
+    this.dismissRemoveDialog();
 
     const matLabel = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : mat.id);
     const doc      = this.container.ownerDocument!;
 
-    // ── Backdrop (transparent, closes menu on outside click) ─────────────────
+    // Transparent backdrop — clicks outside dismiss the dialog
     const backdrop = doc.createElement("div");
     backdrop.id = "matsOverlay-remove-backdrop";
-    backdrop.style.cssText = `
-      position: fixed; inset: 0; z-index: 99998;
-      background: transparent;
-    `;
+    backdrop.style.cssText = "position:fixed;inset:0;z-index:99998;background:transparent;";
     backdrop.addEventListener("click", () => this.dismissRemoveDialog());
 
-    // ── Menu panel ────────────────────────────────────────────────────────────
+    // Floating panel
     const menu = doc.createElement("div");
     menu.id = "matsOverlay-remove-menu";
     menu.style.cssText = `
-      position: fixed;
-      left: ${clientX}px;
-      top:  ${clientY}px;
-      z-index: 99999;
-      background: #fff;
-      border: 1px solid #d0d0d0;
-      border-radius: 6px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-      font-family: Segoe UI, sans-serif;
-      font-size: 13px;
-      min-width: 220px;
-      overflow: hidden;
+      position:fixed; left:${clientX}px; top:${clientY}px;
+      z-index:99999; background:#fff;
+      border:1px solid #d0d0d0; border-radius:8px;
+      box-shadow:0 6px 24px rgba(0,0,0,0.18);
+      font-family:Segoe UI,sans-serif; font-size:13px;
+      min-width:230px; overflow:hidden;
     `;
 
     // Header
     const header = doc.createElement("div");
     header.style.cssText = `
-      background: #2b579a; color: #fff;
-      padding: 8px 14px; font-weight: 600; font-size: 13px;
+      background:#2b579a; color:#fff;
+      padding:10px 16px; font-weight:600; font-size:13px;
     `;
-    header.textContent = `🗑️ Remove from: ${matLabel}`;
+    header.textContent = `⚙️ ${matLabel} — manage assignment`;
     menu.appendChild(header);
 
-    // Divider helper
     const divider = (): HTMLElement => {
       const d = doc.createElement("div");
-      d.style.cssText = "height:1px; background:#eee; margin:0;";
+      d.style.cssText = "height:1px;background:#eee;";
       return d;
     };
 
-    // Button helper
-    const makeBtn = (label: string, danger: boolean, onClick: () => void): HTMLElement => {
+    const makeBtn = (icon: string, label: string, danger: boolean, onClick: () => void): HTMLElement => {
       const btn = doc.createElement("div");
       btn.style.cssText = `
-        padding: 10px 16px;
-        cursor: pointer;
-        color: ${danger ? "#c00" : "#1f2d3d"};
-        display: flex; align-items: center; gap: 8px;
-        transition: background 0.12s;
+        padding:11px 16px; cursor:pointer;
+        color:${danger ? "#c00" : "#333"};
+        display:flex; align-items:center; gap:10px;
+        transition:background 0.12s;
       `;
-      btn.textContent = label;
-      btn.addEventListener("mouseenter", () => { btn.style.background = danger ? "#fff5f5" : "#f0f4ff"; });
+      const iconEl = doc.createElement("span");
+      iconEl.textContent = icon;
+      iconEl.style.fontSize = "15px";
+      const labelEl = doc.createElement("span");
+      labelEl.textContent = label;
+      btn.appendChild(iconEl);
+      btn.appendChild(labelEl);
+      btn.addEventListener("mouseenter", () => { btn.style.background = danger ? "#fff5f5" : "#f4f7ff"; });
       btn.addEventListener("mouseleave", () => { btn.style.background = "#fff"; });
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -372,8 +368,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       return btn;
     };
 
-    // ── Actions ───────────────────────────────────────────────────────────────
-    menu.appendChild(makeBtn("❌ Remove Check-In", true, () => {
+    menu.appendChild(makeBtn("❌", "Remove Check-In", true, () => {
       this.removeFields(mat, true, false).catch((err: unknown) => {
         console.error("[MatsOverlay] removeFields error:", err);
       });
@@ -381,7 +376,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
 
     menu.appendChild(divider());
 
-    menu.appendChild(makeBtn("👤 Remove Client", true, () => {
+    menu.appendChild(makeBtn("👤", "Remove Client", true, () => {
       this.removeFields(mat, false, true).catch((err: unknown) => {
         console.error("[MatsOverlay] removeFields error:", err);
       });
@@ -389,7 +384,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
 
     menu.appendChild(divider());
 
-    menu.appendChild(makeBtn("🗑️ Remove Both", true, () => {
+    menu.appendChild(makeBtn("🗑️", "Remove Both", true, () => {
       this.removeFields(mat, true, true).catch((err: unknown) => {
         console.error("[MatsOverlay] removeFields error:", err);
       });
@@ -397,16 +392,15 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
 
     menu.appendChild(divider());
 
-    menu.appendChild(makeBtn("✕ Cancel", false, () => { /* already dismissed */ }));
+    menu.appendChild(makeBtn("✕", "Cancel", false, () => { /* already dismissed */ }));
 
-    // Keep menu inside viewport
     doc.body.appendChild(backdrop);
     doc.body.appendChild(menu);
 
-    // Nudge left/up if it would overflow the viewport
-    const rect = menu.getBoundingClientRect();
-    if (rect.right  > window.innerWidth)  menu.style.left = `${clientX - rect.width  - 4}px`;
-    if (rect.bottom > window.innerHeight) menu.style.top  = `${clientY - rect.height - 4}px`;
+    // Nudge inside viewport if it overflows
+    const r = menu.getBoundingClientRect();
+    if (r.right  > window.innerWidth)  menu.style.left = `${clientX - r.width  - 4}px`;
+    if (r.bottom > window.innerHeight) menu.style.top  = `${clientY - r.height - 4}px`;
   }
 
   private dismissRemoveDialog(): void {
@@ -415,12 +409,8 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     doc.getElementById("matsOverlay-remove-menu")?.remove();
   }
 
-  // ── Remove fields ────────────────────────────────────────────────────────────
+  // ── Remove fields ─────────────────────────────────────────────────────────────
 
-  /**
-   * Clears the check-in and/or client lookup from a cp_mat record.
-   * Passing null for a nav property explicitly clears it in Dataverse WebAPI v9.
-   */
   private async removeFields(
     mat: MatRow,
     removeCheckin: boolean,
@@ -438,15 +428,13 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
 
     const what = removeCheckin && removeClient
       ? "Check-in & client removed."
-      : removeCheckin
-        ? "Check-in removed."
-        : "Client removed.";
+      : removeCheckin ? "Check-in removed." : "Client removed.";
 
     await this.showAlert(`✅ ${matLabel}: ${what}`);
     await this.context.parameters.cp_mat.refresh();
   }
 
-  // ── Pick & Assign (unchanged) ────────────────────────────────────────────────
+  // ── Pick & Assign (unchanged) ─────────────────────────────────────────────────
 
   private async pickAndAssign(mat: MatRow): Promise<void> {
     const xrm      = this.getXrm();
@@ -504,7 +492,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     await this.context.parameters.cp_mat.refresh();
   }
 
-  // ── Helpers ─────────────────────────────────────────────────────────────────
+  // ── Helpers ───────────────────────────────────────────────────────────────────
 
   private async showAlert(text: string, title = "Mats Overlay"): Promise<void> {
     const strings: AlertDialogStrings = { text, title };
@@ -550,6 +538,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     for (const id of ds.sortedRecordIds) {
       const rec = ds.records[id];
       if (!rec) continue;
+
       const cp_matlabel    = this.getString(rec, "cp_matlabel");
       const cp_matnumber   = this.getNumber(rec, "cp_matnumber");
       const cp_matwidth    = this.getNumber(rec, "cp_matwidth");
@@ -558,6 +547,14 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       const cp_yposition   = this.getNumber(rec, "cp_yposition");
       const cp_fillcolor   = this.getString(rec, "cp_fillcolor");
       const cp_strokecolor = this.getString(rec, "cp_strokecolor");
+
+      // Detect whether a check-in is already assigned.
+      // The dataset exposes lookup fields as the formatted value string when bound,
+      // or we can check the raw value of _cp_sheltercheckin_value.
+      // Try both the property-set name and the underlying _value column.
+      const checkinRaw = rec.getValue("cp_sheltercheckin");
+      const hasCheckin = checkinRaw != null && checkinRaw !== "";
+
       rows.push({
         id,
         cp_matlabel,
@@ -568,6 +565,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
         cp_yposition,
         cp_fillcolor,
         cp_strokecolor,
+        hasCheckin,
         x: cp_xposition ?? 0,
         y: cp_yposition ?? 0,
         w: cp_matwidth  ?? 0,
