@@ -71,16 +71,10 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
   private offsetY = 0;
 
   // ── Navigation property names — confirmed from $metadata NavProp query ──────
-  //
-  //   cp_ShelterCheckin  → confirmed by: fetch $metadata, NavProp on cp_mat
-  //   cp_Client          → confirmed by: working processAssessmentAndCreateAdmission JS
-  //
-  // Entity set names (stable for custom entities — logical name + "s"):
-  //   cp_sheltercheckin → cp_sheltercheckins
-  //   contact           → contacts
-  //
-  private static readonly NAV_CHECKIN = "cp_ShelterCheckin";  // ✅ confirmed
-  private static readonly NAV_CLIENT  = "cp_Client";           // ✅ confirmed
+  //   cp_ShelterCheckin  → confirmed by $metadata NavProp query on cp_mat
+  //   cp_Client          → confirmed by working processAssessmentAndCreateAdmission JS
+  private static readonly NAV_CHECKIN = "cp_ShelterCheckin";
+  private static readonly NAV_CLIENT  = "cp_Client";
   private static readonly SET_CHECKIN = "cp_sheltercheckins";
   private static readonly SET_CONTACT = "contacts";
 
@@ -199,12 +193,12 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       if (label) {
         const fontSize = Math.max(10, Math.min(14, pw / 5)) * this.scale;
         const text = doc.createElementNS(svgNS, "text");
-        text.setAttribute("x",                  String(px + pw / 2));
-        text.setAttribute("y",                  String(py + ph / 2));
-        text.setAttribute("text-anchor",        "middle");
-        text.setAttribute("dominant-baseline",  "middle");
-        text.setAttribute("font-size",          String(fontSize));
-        text.setAttribute("font-family",        "Segoe UI, sans-serif");
+        text.setAttribute("x",                 String(px + pw / 2));
+        text.setAttribute("y",                 String(py + ph / 2));
+        text.setAttribute("text-anchor",       "middle");
+        text.setAttribute("dominant-baseline", "middle");
+        text.setAttribute("font-size",         String(fontSize));
+        text.setAttribute("font-family",       "Segoe UI, sans-serif");
         text.setAttribute("fill",              "#fff");
         text.setAttribute("pointer-events",    "none");
         text.textContent = label;
@@ -224,11 +218,17 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
           this.dragStartY  = mat.y;
         });
       } else {
-        // ── Normal mode: click to assign a check-in ────────────────────────
+        // ── Normal mode: left-click = assign, right-click = remove dialog ──
         g.addEventListener("click", () => {
           this.pickAndAssign(mat).catch((err: unknown) => {
             console.error("[MatsOverlay] pickAndAssign error:", err);
           });
+        });
+
+        // Right-click opens removal dialog
+        g.addEventListener("contextmenu", (e: MouseEvent) => {
+          e.preventDefault();
+          this.showRemoveDialog(mat, e.clientX, e.clientY);
         });
       }
 
@@ -270,6 +270,11 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
 
     svg.addEventListener("mouseleave", () => { this.dragging = false; });
 
+    // Dismiss any open context menu when clicking the SVG background
+    svg.addEventListener("click", () => {
+      this.dismissRemoveDialog();
+    });
+
     wrapper.appendChild(svg);
 
     // ── Overlap warning ───────────────────────────────────────────────────────
@@ -288,25 +293,169 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     this.container.appendChild(wrapper);
   }
 
-  // ── Pick & Assign ───────────────────────────────────────────────────────────
+  // ── Remove dialog ───────────────────────────────────────────────────────────
 
   /**
-   * 1. Opens the Xrm native lookup dialog filtered to active check-in records.
-   * 2. Fetches _cp_client_value from the selected check-in automatically.
-   * 3. Writes both lookups to cp_mat with a single WebAPI PATCH using
-   *    the confirmed navigation property names:
-   *      cp_ShelterCheckin  (confirmed from $metadata NavProp query)
-   *      cp_Client          (confirmed from working JS)
+   * Shows a small custom context-menu dialog near the right-clicked mat.
+   * Offers three actions:
+   *   • Remove Check-In only
+   *   • Remove Client only
+   *   • Remove Both
    */
+  private showRemoveDialog(mat: MatRow, clientX: number, clientY: number): void {
+    this.dismissRemoveDialog(); // close any existing one first
+
+    const matLabel = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : mat.id);
+    const doc      = this.container.ownerDocument!;
+
+    // ── Backdrop (transparent, closes menu on outside click) ─────────────────
+    const backdrop = doc.createElement("div");
+    backdrop.id = "matsOverlay-remove-backdrop";
+    backdrop.style.cssText = `
+      position: fixed; inset: 0; z-index: 99998;
+      background: transparent;
+    `;
+    backdrop.addEventListener("click", () => this.dismissRemoveDialog());
+
+    // ── Menu panel ────────────────────────────────────────────────────────────
+    const menu = doc.createElement("div");
+    menu.id = "matsOverlay-remove-menu";
+    menu.style.cssText = `
+      position: fixed;
+      left: ${clientX}px;
+      top:  ${clientY}px;
+      z-index: 99999;
+      background: #fff;
+      border: 1px solid #d0d0d0;
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      font-family: Segoe UI, sans-serif;
+      font-size: 13px;
+      min-width: 220px;
+      overflow: hidden;
+    `;
+
+    // Header
+    const header = doc.createElement("div");
+    header.style.cssText = `
+      background: #2b579a; color: #fff;
+      padding: 8px 14px; font-weight: 600; font-size: 13px;
+    `;
+    header.textContent = `🗑️ Remove from: ${matLabel}`;
+    menu.appendChild(header);
+
+    // Divider helper
+    const divider = (): HTMLElement => {
+      const d = doc.createElement("div");
+      d.style.cssText = "height:1px; background:#eee; margin:0;";
+      return d;
+    };
+
+    // Button helper
+    const makeBtn = (label: string, danger: boolean, onClick: () => void): HTMLElement => {
+      const btn = doc.createElement("div");
+      btn.style.cssText = `
+        padding: 10px 16px;
+        cursor: pointer;
+        color: ${danger ? "#c00" : "#1f2d3d"};
+        display: flex; align-items: center; gap: 8px;
+        transition: background 0.12s;
+      `;
+      btn.textContent = label;
+      btn.addEventListener("mouseenter", () => { btn.style.background = danger ? "#fff5f5" : "#f0f4ff"; });
+      btn.addEventListener("mouseleave", () => { btn.style.background = "#fff"; });
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        this.dismissRemoveDialog();
+        onClick();
+      });
+      return btn;
+    };
+
+    // ── Actions ───────────────────────────────────────────────────────────────
+    menu.appendChild(makeBtn("❌ Remove Check-In", true, () => {
+      this.removeFields(mat, true, false).catch((err: unknown) => {
+        console.error("[MatsOverlay] removeFields error:", err);
+      });
+    }));
+
+    menu.appendChild(divider());
+
+    menu.appendChild(makeBtn("👤 Remove Client", true, () => {
+      this.removeFields(mat, false, true).catch((err: unknown) => {
+        console.error("[MatsOverlay] removeFields error:", err);
+      });
+    }));
+
+    menu.appendChild(divider());
+
+    menu.appendChild(makeBtn("🗑️ Remove Both", true, () => {
+      this.removeFields(mat, true, true).catch((err: unknown) => {
+        console.error("[MatsOverlay] removeFields error:", err);
+      });
+    }));
+
+    menu.appendChild(divider());
+
+    menu.appendChild(makeBtn("✕ Cancel", false, () => { /* already dismissed */ }));
+
+    // Keep menu inside viewport
+    doc.body.appendChild(backdrop);
+    doc.body.appendChild(menu);
+
+    // Nudge left/up if it would overflow the viewport
+    const rect = menu.getBoundingClientRect();
+    if (rect.right  > window.innerWidth)  menu.style.left = `${clientX - rect.width  - 4}px`;
+    if (rect.bottom > window.innerHeight) menu.style.top  = `${clientY - rect.height - 4}px`;
+  }
+
+  private dismissRemoveDialog(): void {
+    const doc = this.container.ownerDocument!;
+    doc.getElementById("matsOverlay-remove-backdrop")?.remove();
+    doc.getElementById("matsOverlay-remove-menu")?.remove();
+  }
+
+  // ── Remove fields ────────────────────────────────────────────────────────────
+
+  /**
+   * Clears the check-in and/or client lookup from a cp_mat record.
+   * Passing null for a nav property explicitly clears it in Dataverse WebAPI v9.
+   */
+  private async removeFields(
+    mat: MatRow,
+    removeCheckin: boolean,
+    removeClient: boolean
+  ): Promise<void> {
+    const matLabel = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : mat.id);
+    const payload: Record<string, null> = {};
+
+    if (removeCheckin) payload[`${MatsOverlay.NAV_CHECKIN}@odata.bind`] = null;
+    if (removeClient)  payload[`${MatsOverlay.NAV_CLIENT}@odata.bind`]  = null;
+
+    console.log(`[MatsOverlay] Clearing from ${matLabel}:`, JSON.stringify(payload));
+
+    await this.context.webAPI.updateRecord("cp_mat", mat.id, payload);
+
+    const what = removeCheckin && removeClient
+      ? "Check-in & client removed."
+      : removeCheckin
+        ? "Check-in removed."
+        : "Client removed.";
+
+    await this.showAlert(`✅ ${matLabel}: ${what}`);
+    await this.context.parameters.cp_mat.refresh();
+  }
+
+  // ── Pick & Assign (unchanged) ────────────────────────────────────────────────
+
   private async pickAndAssign(mat: MatRow): Promise<void> {
     const xrm      = this.getXrm();
     const matLabel = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : mat.id);
 
-    // ── Step 1: Native Xrm lookup dialog — filtered to active check-ins ──────
     let scPick: LookupResult[];
     try {
       scPick = await xrm.Utility.lookupObjects({
-        entityTypes:    ["cp_sheltercheckin"],
+        entityTypes:      ["cp_sheltercheckin"],
         allowMultiSelect: false,
         filters: [{
           entityLogicalName: "cp_sheltercheckin",
@@ -318,14 +467,12 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
         }]
       });
     } catch {
-      return; // user dismissed the dialog
+      return;
     }
     if (!scPick || scPick.length === 0) return;
 
     const shelterCheckinId: Guid = scPick[0].id.replace(/[{}]/g, "");
 
-    // ── Step 2: Read _cp_client_value from the chosen check-in ───────────────
-    //    Copies the client automatically — no second lookup dialog needed.
     let contactId: Guid | null = null;
     try {
       const ciRecord = await this.context.webAPI.retrieveRecord(
@@ -339,11 +486,6 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       console.warn("[MatsOverlay] Could not read _cp_client_value:", err);
     }
 
-    // ── Step 3: Build PATCH payload with confirmed nav property names ─────────
-    //
-    //   ✅ cp_ShelterCheckin  — confirmed from $metadata NavProp query on cp_mat
-    //   ✅ cp_Client          — confirmed from working processAssessmentAndCreateAdmission JS
-    //
     const payload: Record<string, string | null> = {
       [`${MatsOverlay.NAV_CHECKIN}@odata.bind`]:
         `/${MatsOverlay.SET_CHECKIN}(${shelterCheckinId})`,
@@ -353,32 +495,12 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
 
     console.log(`[MatsOverlay] PATCH cp_mat/${mat.id}:`, JSON.stringify(payload));
 
-    // ── Step 4: Write to Dataverse ────────────────────────────────────────────
     await this.context.webAPI.updateRecord("cp_mat", mat.id, payload);
 
     const clientMsg = contactId
       ? "Check-in & client assigned."
       : "Check-in assigned (no client linked to this check-in).";
     await this.showAlert(`✅ ${matLabel}: ${clientMsg}`);
-
-    // Refresh dataset so colours/labels reflect the new state immediately
-    await this.context.parameters.cp_mat.refresh();
-  }
-
-  /**
-   * Clears both the Shelter Check-In and Client lookups on a cp_mat record.
-   * Wire to a right-click context menu or toolbar button as needed.
-   */
-  private async clearAssignments(mat: MatRow): Promise<void> {
-    const payload: Record<string, string | null> = {
-      [`${MatsOverlay.NAV_CHECKIN}@odata.bind`]: null,
-      [`${MatsOverlay.NAV_CLIENT}@odata.bind`]:  null,
-    };
-
-    console.log(`[MatsOverlay] Clearing cp_mat/${mat.id}:`, JSON.stringify(payload));
-
-    await this.context.webAPI.updateRecord("cp_mat", mat.id, payload);
-    await this.showAlert(`🗑️ Assignment cleared for ${mat.cp_matlabel ?? "mat"}.`);
     await this.context.parameters.cp_mat.refresh();
   }
 
@@ -408,6 +530,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
   }
 
   public destroy(): void {
+    this.dismissRemoveDialog();
     this.container.innerHTML = "";
   }
 
