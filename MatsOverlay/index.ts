@@ -14,6 +14,8 @@ interface MatRow {
   cp_strokecolor?: string | null;
   // Whether this mat already has a check-in assigned — drives click behaviour
   hasCheckin: boolean;
+  // Resolved id of the linked cp_sheltercheckin record, lower-cased, no braces
+  checkinId: string | null;
   x: number;
   y: number;
   w: number;
@@ -72,6 +74,11 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
   private offsetX = 0;
   private offsetY = 0;
 
+  // ── Breathing round status cache — keyed by lower-cased cp_sheltercheckin id ─
+  private breathingRoundById = new Map<string, boolean>();
+  private breathingRoundFetchInFlight = false;
+  private breathingRoundLastFetch = 0;
+
   // ── Navigation property names — confirmed from $metadata NavProp query ──────
   //   cp_ShelterCheckin  → confirmed by $metadata NavProp query on cp_mat
   //   cp_Client          → confirmed by working processAssessmentAndCreateAdmission JS
@@ -115,6 +122,10 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     const mats = this.readMatsFromDataset(ds);
     this.currentMats = mats;
     const overlaps = this.findOverlaps(mats);
+
+    this.refreshBreathingRoundIndicators().catch((err: unknown) => {
+      console.error("[MatsOverlay] refreshBreathingRoundIndicators error:", err);
+    });
 
     this.container.innerHTML = "";
 
@@ -206,6 +217,24 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
         text.textContent = label;
         g.appendChild(text);
       }
+
+      // ── Breathing round indicator — small badge in the top-right corner ─────
+      // Green once cp_breathinground is true on the linked check-in, amber otherwise.
+      // Inset from the corner by radius + half the stroke width so the whole
+      // badge (including its stroke) sits fully inside the mat's rectangle.
+      const breathingDone     = !!mat.checkinId && this.breathingRoundById.get(mat.checkinId) === true;
+      const badgeRadius       = Math.max(6, Math.min(12, Math.min(pw, ph) / 3)) * this.scale;
+      const badgeStrokeWidth  = 3 * this.scale;
+      const badgeInset        = badgeRadius + badgeStrokeWidth / 2;
+      const badge = doc.createElementNS(svgNS, "circle");
+      badge.setAttribute("cx",           String(px + pw - badgeInset));
+      badge.setAttribute("cy",           String(py + badgeInset));
+      badge.setAttribute("r",            String(badgeRadius));
+      badge.setAttribute("fill",         breathingDone ? "#00E676" : "#FFC400");
+      badge.setAttribute("stroke",       "#fff");
+      badge.setAttribute("stroke-width", String(badgeStrokeWidth));
+      badge.setAttribute("pointer-events", "none");
+      g.appendChild(badge);
 
       if (isLayoutMode) {
         // ── Layout mode: drag to reposition ───────────────────────────────
@@ -451,9 +480,51 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     }
 
     await this.context.webAPI.updateRecord("cp_sheltercheckin", checkinId, { cp_breathinground: true });
+    this.breathingRoundById.set(checkinId.toLowerCase(), true);
 
     await this.showAlert(`✅ ${matLabel}: Breathing round completed.`);
     await this.context.parameters.cp_mat.refresh();
+  }
+
+  // ── Breathing round status cache ─────────────────────────────────────────────
+
+  /**
+   * Batches a single query for the cp_breathinground status of all active check-ins,
+   * rather than one WebAPI call per mat. Throttled since updateView can fire on
+   * every pan/zoom tick; re-renders once if the fetched statuses actually changed.
+   */
+  private async refreshBreathingRoundIndicators(): Promise<void> {
+    const now = Date.now();
+    if (this.breathingRoundFetchInFlight || now - this.breathingRoundLastFetch < 2000) return;
+    this.breathingRoundFetchInFlight = true;
+
+    try {
+      const result = await this.context.webAPI.retrieveMultipleRecords(
+        "cp_sheltercheckin",
+        "?$select=cp_breathinground&$filter=statecode eq 0"
+      );
+
+      const next = new Map<string, boolean>();
+      for (const rec of result.entities) {
+        const id = (rec["cp_sheltercheckinid"] as string | undefined)?.toLowerCase();
+        if (!id) continue;
+        next.set(id, rec["cp_breathinground"] === true);
+      }
+      this.breathingRoundLastFetch = Date.now();
+
+      let changed = next.size !== this.breathingRoundById.size;
+      if (!changed) {
+        for (const [id, val] of next) {
+          if (this.breathingRoundById.get(id) !== val) { changed = true; break; }
+        }
+      }
+      this.breathingRoundById = next;
+      if (changed) this.updateView(this.context);
+    } catch (err) {
+      console.error("[MatsOverlay] Could not load breathing round status:", err);
+    } finally {
+      this.breathingRoundFetchInFlight = false;
+    }
   }
 
   // ── Pick & Assign (unchanged) ─────────────────────────────────────────────────
@@ -577,6 +648,13 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       const checkinRaw = rec.getValue("cp_sheltercheckin");
       const hasCheckin = checkinRaw != null && checkinRaw !== "";
 
+      let checkinId: string | null = null;
+      if (checkinRaw && typeof checkinRaw === "object" && "id" in checkinRaw) {
+        checkinId = (checkinRaw as ComponentFramework.EntityReference).id.guid
+          .replace(/[{}]/g, "")
+          .toLowerCase();
+      }
+
       rows.push({
         id,
         cp_matlabel,
@@ -588,6 +666,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
         cp_fillcolor,
         cp_strokecolor,
         hasCheckin,
+        checkinId,
         x: cp_xposition ?? 0,
         y: cp_yposition ?? 0,
         w: cp_matwidth  ?? 0,
