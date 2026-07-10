@@ -447,6 +447,17 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
 
     await this.context.webAPI.updateRecord("cp_mat", mat.id, payload);
 
+    if (removeCheckin && removeClient && mat.checkinId) {
+      try {
+        await this.context.webAPI.updateRecord("cp_sheltercheckin", mat.checkinId, {
+          cp_removedfrommat:    true,
+          cp_timeremovedfrommat: new Date().toISOString(),
+        });
+      } catch (err) {
+        console.error("[MatsOverlay] Could not record removal time on check-in:", err);
+      }
+    }
+
     const what = removeCheckin && removeClient
       ? "Check-in & client removed."
       : removeCheckin ? "Check-in removed." : "Client removed.";
@@ -577,6 +588,15 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     console.log(`[MatsOverlay] PATCH cp_mat/${mat.id}:`, JSON.stringify(payload));
 
     await this.context.webAPI.updateRecord("cp_mat", mat.id, payload);
+
+    try {
+      await this.context.webAPI.updateRecord("cp_sheltercheckin", shelterCheckinId, {
+        cp_assignedtomat:    true,
+        cp_timeassignedtomat: new Date().toISOString(),
+      });
+    } catch (err) {
+      console.error("[MatsOverlay] Could not record assignment time on check-in:", err);
+    }
 
     const clientMsg = contactId
       ? "Check-in & client assigned."
