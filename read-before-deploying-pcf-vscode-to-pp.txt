@@ -1,0 +1,9 @@
+Deployed successfully. The CpShelter.MatsOverlay control was built, pushed to the Alpha House Sandbox environment, the solution imported, and all customizations published.
+
+Summary:
+
+Root cause of the earlier failures: OneDrive actively syncing obj\PowerAppsToolsTemp_cp was intermittently locking folders during pac's cleanup step. Clearing that temp folder before retrying resolved it.
+
+The updated menu (Remove Both + Cancel only) is now live in Sandbox — reload the Floor Plan form (or hard-refresh the browser tab) to see it.
+
+One heads-up: if you push again later and hit the same Access to the path ... is denied error, it's this same OneDrive-lock pattern — just delete shelter_code/obj/PowerAppsToolsTemp_cp and retry.

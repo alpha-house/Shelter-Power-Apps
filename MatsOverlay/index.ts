@@ -368,22 +368,6 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       return btn;
     };
 
-    menu.appendChild(makeBtn("❌", "Remove Check-In", true, () => {
-      this.removeFields(mat, true, false).catch((err: unknown) => {
-        console.error("[MatsOverlay] removeFields error:", err);
-      });
-    }));
-
-    menu.appendChild(divider());
-
-    menu.appendChild(makeBtn("👤", "Remove Client", true, () => {
-      this.removeFields(mat, false, true).catch((err: unknown) => {
-        console.error("[MatsOverlay] removeFields error:", err);
-      });
-    }));
-
-    menu.appendChild(divider());
-
     menu.appendChild(makeBtn("🗑️", "Remove Both", true, () => {
       this.removeFields(mat, true, true).catch((err: unknown) => {
         console.error("[MatsOverlay] removeFields error:", err);
