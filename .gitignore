@@ -21,3 +21,6 @@
 
 # macos
 .DS_Store
+
+# Reference image
+/reference_image.png

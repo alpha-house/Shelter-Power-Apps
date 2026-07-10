@@ -368,6 +368,14 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       return btn;
     };
 
+    menu.appendChild(makeBtn("🫁", "Complete Breathing Round", false, () => {
+      this.completeBreathingRound(mat).catch((err: unknown) => {
+        console.error("[MatsOverlay] completeBreathingRound error:", err);
+      });
+    }));
+
+    menu.appendChild(divider());
+
     menu.appendChild(makeBtn("🗑️", "Remove Both", true, () => {
       this.removeFields(mat, true, true).catch((err: unknown) => {
         console.error("[MatsOverlay] removeFields error:", err);
@@ -415,6 +423,36 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       : removeCheckin ? "Check-in removed." : "Client removed.";
 
     await this.showAlert(`✅ ${matLabel}: ${what}`);
+    await this.context.parameters.cp_mat.refresh();
+  }
+
+  // ── Complete Breathing Round ─────────────────────────────────────────────────
+
+  private async completeBreathingRound(mat: MatRow): Promise<void> {
+    const matLabel = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : mat.id);
+
+    let checkinId: Guid;
+    try {
+      const matRecord = await this.context.webAPI.retrieveRecord(
+        "cp_mat",
+        mat.id,
+        "?$select=_cp_sheltercheckin_value"
+      );
+      const raw = matRecord["_cp_sheltercheckin_value"] as string | null | undefined;
+      if (!raw) {
+        await this.showAlert(`⚠️ ${matLabel}: No check-in assigned.`);
+        return;
+      }
+      checkinId = raw.replace(/[{}]/g, "");
+    } catch (err) {
+      console.error("[MatsOverlay] Could not resolve check-in for breathing round:", err);
+      await this.showAlert(`❌ ${matLabel}: Could not resolve check-in record.`);
+      return;
+    }
+
+    await this.context.webAPI.updateRecord("cp_sheltercheckin", checkinId, { cp_breathinground: true });
+
+    await this.showAlert(`✅ ${matLabel}: Breathing round completed.`);
     await this.context.parameters.cp_mat.refresh();
   }
 
