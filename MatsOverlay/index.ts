@@ -82,10 +82,13 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
   // ── Navigation property names — confirmed from $metadata NavProp query ──────
   //   cp_ShelterCheckin  → confirmed by $metadata NavProp query on cp_mat
   //   cp_Client          → confirmed by working processAssessmentAndCreateAdmission JS
+  //   cp_BreathingRoundModifiedBy → confirmed by $metadata ManyToOneRelationships query on cp_sheltercheckin
   private static readonly NAV_CHECKIN = "cp_ShelterCheckin";
   private static readonly NAV_CLIENT  = "cp_Client";
-  private static readonly SET_CHECKIN = "cp_sheltercheckins";
-  private static readonly SET_CONTACT = "contacts";
+  private static readonly NAV_BREATHING_ROUND_MODIFIED_BY = "cp_BreathingRoundModifiedBy";
+  private static readonly SET_CHECKIN     = "cp_sheltercheckins";
+  private static readonly SET_CONTACT     = "contacts";
+  private static readonly SET_SYSTEMUSER  = "systemusers";
 
   public init(
     context: ComponentFramework.Context<IInputs>,
@@ -490,7 +493,14 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       return;
     }
 
-    await this.context.webAPI.updateRecord("cp_sheltercheckin", checkinId, { cp_breathinground: true });
+    const currentUserId = this.context.userSettings.userId.replace(/[{}]/g, "");
+
+    await this.context.webAPI.updateRecord("cp_sheltercheckin", checkinId, {
+      cp_breathinground: true,
+      [`${MatsOverlay.NAV_BREATHING_ROUND_MODIFIED_BY}@odata.bind`]:
+        `/${MatsOverlay.SET_SYSTEMUSER}(${currentUserId})`,
+      cp_breathingroundmodifiedon: new Date().toISOString(),
+    });
     this.breathingRoundById.set(checkinId.toLowerCase(), true);
 
     await this.showAlert(`✅ ${matLabel}: Breathing round completed.`);
