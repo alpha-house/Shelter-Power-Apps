@@ -569,13 +569,18 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     body.style.cssText = "padding:12px 16px; display:flex; flex-direction:column; gap:10px;";
 
     const inputStyle = `
+      box-sizing:border-box; width:100%;
       padding:6px 8px; border:1px solid #ccc; border-radius:4px;
       font-size:13px; font-family:Segoe UI,sans-serif;
     `;
 
     const makeFieldRow = (labelText: string): HTMLElement => {
       const row = doc.createElement("label");
-      row.style.cssText = "display:flex; flex-direction:column; gap:3px; font-size:12px; color:#555;";
+      // min-width:0 lets this shrink below the number <input>'s intrinsic
+      // width instead of overflowing its grid track (default min-width:auto
+      // on grid/flex items is the content's min size, which for number
+      // inputs with spinners is wider than the 2-up column width here).
+      row.style.cssText = "display:flex; flex-direction:column; gap:3px; font-size:12px; color:#555; min-width:0;";
       const span = doc.createElement("span");
       span.textContent = labelText;
       row.appendChild(span);
