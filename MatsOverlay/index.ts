@@ -352,7 +352,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
   /**
    * Floating dialog shown when a mat is clicked in normal mode. Occupied mats
    * (already have a check-in) get breathing-round / removal actions; vacant
-   * mats get an "Assign Check-in" action. Both get "Edit Mat Properties".
+   * mats get an "Assign Client" action. Both get "Edit Mat Properties".
    */
   private showMatMenu(mat: MatRow, clientX: number, clientY: number): void {
     this.dismissAllDialogs();
@@ -426,7 +426,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       }));
       menu.appendChild(divider());
     } else {
-      menu.appendChild(makeBtn("📌", "Assign Check-in", false, () => {
+      menu.appendChild(makeBtn("📌", "Assign Client", false, () => {
         this.pickAndAssign(mat).catch((err: unknown) => {
           console.error("[MatsOverlay] pickAndAssign error:", err);
         });
@@ -441,7 +441,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     menu.appendChild(divider());
 
     if (mat.hasCheckin) {
-      menu.appendChild(makeBtn("🗑️", "Remove Both", true, () => {
+      menu.appendChild(makeBtn("🗑️", "Remove Client", true, () => {
         this.removeFields(mat, true, true).catch((err: unknown) => {
           console.error("[MatsOverlay] removeFields error:", err);
         });
