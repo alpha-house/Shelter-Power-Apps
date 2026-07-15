@@ -12,6 +12,7 @@ interface MatRow {
   cp_yposition?: number | null;
   cp_fillcolor?: string | null;
   cp_strokecolor?: string | null;
+  cp_matgender?: string | null;
   // Whether this mat already has a check-in assigned — drives click behaviour
   hasCheckin: boolean;
   // Resolved id of the linked cp_sheltercheckin record, lower-cased, no braces
@@ -40,8 +41,17 @@ interface LookupOptions {
   searchText?: string;
   filters?: LookupFilter[];
 }
+interface PageContextEntityFormInput {
+  pageType: string;
+  entityName?: string;
+  entityId?: string;
+}
+interface PageContext {
+  input?: PageContextEntityFormInput;
+}
 interface XrmUtilityLike {
   lookupObjects(opts: LookupOptions): Promise<LookupResult[]>;
+  getPageContext(): PageContext;
 }
 interface XrmLike {
   Utility: XrmUtilityLike;
@@ -83,12 +93,20 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
   //   cp_ShelterCheckin  → confirmed by $metadata NavProp query on cp_mat
   //   cp_Client          → confirmed by working processAssessmentAndCreateAdmission JS
   //   cp_BreathingRoundModifiedBy → confirmed by $metadata ManyToOneRelationships query on cp_sheltercheckin
+  //   cp_MatPlan         → NOT YET CONFIRMED against $metadata. Assumed by convention
+  //                        (matches the PascalCase-of-schema-name pattern used by the
+  //                        two confirmed nav props above). Verify via:
+  //                        {org}/api/data/v9.2/EntityDefinitions(LogicalName='cp_mat')/ManyToOneRelationships?$select=ReferencingEntityNavigationPropertyName,ReferencingAttribute&$filter=ReferencingAttribute eq 'cp_matplan'
+  //                        and update this constant if it differs.
   private static readonly NAV_CHECKIN = "cp_ShelterCheckin";
   private static readonly NAV_CLIENT  = "cp_Client";
   private static readonly NAV_BREATHING_ROUND_MODIFIED_BY = "cp_BreathingRoundModifiedBy";
+  private static readonly NAV_MATPLAN = "cp_MatPlan";
   private static readonly SET_CHECKIN     = "cp_sheltercheckins";
   private static readonly SET_CONTACT     = "contacts";
   private static readonly SET_SYSTEMUSER  = "systemusers";
+  private static readonly SET_MATPLAN     = "cp_matplans";
+  private static readonly MATGENDER_OPTIONS = ["Male", "Female"];
 
   public init(
     context: ComponentFramework.Context<IInputs>,
@@ -251,21 +269,14 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
           this.dragStartX  = mat.x;
           this.dragStartY  = mat.y;
         });
+        // Swallow the click that follows mouseup so it doesn't bubble to the
+        // background handler and get mistaken for an empty-canvas click.
+        g.addEventListener("click", (e: MouseEvent) => { e.stopPropagation(); });
       } else {
-        // ── Normal mode: left-click behaviour depends on assignment state ──
-        //
-        //   Mat HAS a check-in assigned → show removal dialog
-        //   Mat has NO check-in         → open Xrm lookup to assign one
-        //
+        // ── Normal mode: left-click always opens the manage menu ───────────
         g.addEventListener("click", (e: MouseEvent) => {
           e.stopPropagation(); // prevent SVG background click from dismissing immediately
-          if (mat.hasCheckin) {
-            this.showRemoveDialog(mat, e.clientX, e.clientY);
-          } else {
-            this.pickAndAssign(mat).catch((err: unknown) => {
-              console.error("[MatsOverlay] pickAndAssign error:", err);
-            });
-          }
+          this.showMatMenu(mat, e.clientX, e.clientY);
         });
       }
 
@@ -307,9 +318,15 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
 
     svg.addEventListener("mouseleave", () => { this.dragging = false; });
 
-    // Clicking the SVG background dismisses any open removal dialog
-    svg.addEventListener("click", () => {
-      this.dismissRemoveDialog();
+    // Clicking the SVG background (i.e. not on an existing mat — mat groups
+    // stop propagation) dismisses any open dialog and opens the "Add Mat"
+    // dialog at the clicked location.
+    svg.addEventListener("click", (e: MouseEvent) => {
+      this.dismissAllDialogs();
+      const svgRect = (svg as unknown as HTMLElement).getBoundingClientRect();
+      const rawX = (e.clientX - svgRect.left) / this.scale - this.offsetX;
+      const rawY = (e.clientY - svgRect.top)  / this.scale - this.offsetY;
+      this.showAddMatDialog(rawX, rawY, e.clientX, e.clientY);
     });
 
     wrapper.appendChild(svg);
@@ -330,14 +347,15 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     this.container.appendChild(wrapper);
   }
 
-  // ── Remove dialog ────────────────────────────────────────────────────────────
+  // ── Mat menu ──────────────────────────────────────────────────────────────────
 
   /**
-   * Floating dialog shown when a mat that already has a check-in is clicked.
-   * Lets the user selectively remove the check-in, the client, or both.
+   * Floating dialog shown when a mat is clicked in normal mode. Occupied mats
+   * (already have a check-in) get breathing-round / removal actions; vacant
+   * mats get an "Assign Check-in" action. Both get "Edit Mat Properties".
    */
-  private showRemoveDialog(mat: MatRow, clientX: number, clientY: number): void {
-    this.dismissRemoveDialog();
+  private showMatMenu(mat: MatRow, clientX: number, clientY: number): void {
+    this.dismissAllDialogs();
 
     const matLabel = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : mat.id);
     const doc      = this.container.ownerDocument!;
@@ -346,7 +364,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     const backdrop = doc.createElement("div");
     backdrop.id = "matsOverlay-remove-backdrop";
     backdrop.style.cssText = "position:fixed;inset:0;z-index:99998;background:transparent;";
-    backdrop.addEventListener("click", () => this.dismissRemoveDialog());
+    backdrop.addEventListener("click", () => this.dismissMatMenu());
 
     // Floating panel
     const menu = doc.createElement("div");
@@ -394,27 +412,42 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       btn.addEventListener("mouseleave", () => { btn.style.background = "#fff"; });
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
-        this.dismissRemoveDialog();
+        this.dismissMatMenu();
         onClick();
       });
       return btn;
     };
 
-    menu.appendChild(makeBtn("🫁", "Complete Breathing Round", false, () => {
-      this.completeBreathingRound(mat).catch((err: unknown) => {
-        console.error("[MatsOverlay] completeBreathingRound error:", err);
-      });
+    if (mat.hasCheckin) {
+      menu.appendChild(makeBtn("🫁", "Complete Breathing Round", false, () => {
+        this.completeBreathingRound(mat).catch((err: unknown) => {
+          console.error("[MatsOverlay] completeBreathingRound error:", err);
+        });
+      }));
+      menu.appendChild(divider());
+    } else {
+      menu.appendChild(makeBtn("📌", "Assign Check-in", false, () => {
+        this.pickAndAssign(mat).catch((err: unknown) => {
+          console.error("[MatsOverlay] pickAndAssign error:", err);
+        });
+      }));
+      menu.appendChild(divider());
+    }
+
+    menu.appendChild(makeBtn("✏️", "Edit Mat Properties", false, () => {
+      this.showEditMatDialog(mat, clientX, clientY);
     }));
 
     menu.appendChild(divider());
 
-    menu.appendChild(makeBtn("🗑️", "Remove Both", true, () => {
-      this.removeFields(mat, true, true).catch((err: unknown) => {
-        console.error("[MatsOverlay] removeFields error:", err);
-      });
-    }));
-
-    menu.appendChild(divider());
+    if (mat.hasCheckin) {
+      menu.appendChild(makeBtn("🗑️", "Remove Both", true, () => {
+        this.removeFields(mat, true, true).catch((err: unknown) => {
+          console.error("[MatsOverlay] removeFields error:", err);
+        });
+      }));
+      menu.appendChild(divider());
+    }
 
     menu.appendChild(makeBtn("✕", "Cancel", false, () => { /* already dismissed */ }));
 
@@ -427,10 +460,290 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     if (r.bottom > window.innerHeight) menu.style.top  = `${clientY - r.height - 4}px`;
   }
 
-  private dismissRemoveDialog(): void {
+  private dismissMatMenu(): void {
     const doc = this.container.ownerDocument!;
     doc.getElementById("matsOverlay-remove-backdrop")?.remove();
     doc.getElementById("matsOverlay-remove-menu")?.remove();
+  }
+
+  private dismissAllDialogs(): void {
+    this.dismissMatMenu();
+    this.dismissMatFormDialog();
+  }
+
+  // ── Mat properties dialog (Add / Edit) ───────────────────────────────────────
+
+  private dismissMatFormDialog(): void {
+    const doc = this.container.ownerDocument!;
+    doc.getElementById("matsOverlay-form-backdrop")?.remove();
+    doc.getElementById("matsOverlay-form-dialog")?.remove();
+  }
+
+  /**
+   * Opens the "Add Mat" dialog pre-filled with defaults, centered on the
+   * clicked canvas location. rawX/rawY are unscaled canvas coordinates
+   * (same space as cp_xposition/cp_yposition).
+   */
+  private showAddMatDialog(rawX: number, rawY: number, clientX: number, clientY: number): void {
+    const defaultWidth  = 69;
+    const defaultHeight = 150;
+    const snap = (n: number): number => Math.round(n / 5) * 5;
+    const xPosition = Math.max(0, snap(rawX - defaultWidth  / 2));
+    const yPosition = Math.max(0, snap(rawY - defaultHeight / 2));
+
+    this.showMatFormDialog({
+      title: "➕ Add Mat",
+      clientX,
+      clientY,
+      saveLabel: "Add Mat",
+      initial: {
+        label:  "Overflow",
+        width:  defaultWidth,
+        height: defaultHeight,
+        x:      xPosition,
+        y:      yPosition,
+        gender: MatsOverlay.MATGENDER_OPTIONS[0],
+      },
+      onSave: (values) => this.createMat(values),
+    });
+  }
+
+  /** Opens the "Edit Mat Properties" dialog pre-filled with the mat's current values. */
+  private showEditMatDialog(mat: MatRow, clientX: number, clientY: number): void {
+    const matLabel = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : mat.id);
+    this.showMatFormDialog({
+      title: `✏️ Edit ${matLabel}`,
+      clientX,
+      clientY,
+      saveLabel: "Save",
+      initial: {
+        label:  mat.cp_matlabel ?? "",
+        width:  mat.cp_matwidth  ?? 0,
+        height: mat.cp_matheight ?? 0,
+        x:      mat.cp_xposition ?? 0,
+        y:      mat.cp_yposition ?? 0,
+        gender: mat.cp_matgender ?? MatsOverlay.MATGENDER_OPTIONS[0],
+      },
+      onSave: (values) => this.updateMatProperties(mat, values),
+    });
+  }
+
+  private showMatFormDialog(opts: {
+    title: string;
+    clientX: number;
+    clientY: number;
+    saveLabel: string;
+    initial: { label: string; width: number; height: number; x: number; y: number; gender: string };
+    onSave: (values: { label: string; width: number; height: number; x: number; y: number; gender: string }) => Promise<void>;
+  }): void {
+    this.dismissAllDialogs();
+
+    const doc = this.container.ownerDocument!;
+
+    const backdrop = doc.createElement("div");
+    backdrop.id = "matsOverlay-form-backdrop";
+    backdrop.style.cssText = "position:fixed;inset:0;z-index:99998;background:transparent;";
+    backdrop.addEventListener("click", () => this.dismissMatFormDialog());
+
+    const dialog = doc.createElement("div");
+    dialog.id = "matsOverlay-form-dialog";
+    dialog.style.cssText = `
+      position:fixed; left:${opts.clientX}px; top:${opts.clientY}px;
+      z-index:99999; background:#fff;
+      border:1px solid #d0d0d0; border-radius:8px;
+      box-shadow:0 6px 24px rgba(0,0,0,0.18);
+      font-family:Segoe UI,sans-serif; font-size:13px;
+      width:260px; overflow:hidden;
+    `;
+    dialog.addEventListener("click", (e) => e.stopPropagation());
+
+    const header = doc.createElement("div");
+    header.style.cssText = `
+      background:#2b579a; color:#fff;
+      padding:10px 16px; font-weight:600; font-size:13px;
+    `;
+    header.textContent = opts.title;
+    dialog.appendChild(header);
+
+    const body = doc.createElement("div");
+    body.style.cssText = "padding:12px 16px; display:flex; flex-direction:column; gap:10px;";
+
+    const inputStyle = `
+      padding:6px 8px; border:1px solid #ccc; border-radius:4px;
+      font-size:13px; font-family:Segoe UI,sans-serif;
+    `;
+
+    const makeFieldRow = (labelText: string): HTMLElement => {
+      const row = doc.createElement("label");
+      row.style.cssText = "display:flex; flex-direction:column; gap:3px; font-size:12px; color:#555;";
+      const span = doc.createElement("span");
+      span.textContent = labelText;
+      row.appendChild(span);
+      return row;
+    };
+
+    const labelRow = makeFieldRow("Label");
+    const labelInput = doc.createElement("input");
+    labelInput.type = "text";
+    labelInput.value = opts.initial.label;
+    labelInput.style.cssText = inputStyle;
+    labelRow.appendChild(labelInput);
+    body.appendChild(labelRow);
+
+    const genderRow = makeFieldRow("Gender");
+    const genderInput = doc.createElement("select");
+    genderInput.style.cssText = inputStyle;
+    for (const opt of MatsOverlay.MATGENDER_OPTIONS) {
+      const optionEl = doc.createElement("option");
+      optionEl.value = opt;
+      optionEl.textContent = opt;
+      if (opt === opts.initial.gender) optionEl.selected = true;
+      genderInput.appendChild(optionEl);
+    }
+    genderRow.appendChild(genderInput);
+    body.appendChild(genderRow);
+
+    const numberGrid = doc.createElement("div");
+    numberGrid.style.cssText = "display:grid; grid-template-columns:1fr 1fr; gap:8px;";
+
+    const makeNumberField = (labelText: string, value: number): HTMLInputElement => {
+      const row = makeFieldRow(labelText);
+      const input = doc.createElement("input");
+      input.type = "number";
+      input.value = String(value);
+      input.style.cssText = inputStyle;
+      row.appendChild(input);
+      numberGrid.appendChild(row);
+      return input;
+    };
+
+    const widthInput  = makeNumberField("Width",      opts.initial.width);
+    const heightInput = makeNumberField("Height",     opts.initial.height);
+    const xInput       = makeNumberField("X Position", opts.initial.x);
+    const yInput       = makeNumberField("Y Position", opts.initial.y);
+
+    body.appendChild(numberGrid);
+    dialog.appendChild(body);
+
+    const errorMsg = doc.createElement("div");
+    errorMsg.style.cssText = "padding:0 16px 10px; color:#c00; font-size:12px; display:none;";
+    dialog.appendChild(errorMsg);
+
+    const footer = doc.createElement("div");
+    footer.style.cssText = "display:flex; justify-content:flex-end; gap:8px; padding:10px 16px; border-top:1px solid #eee;";
+
+    const cancelBtn = doc.createElement("button");
+    cancelBtn.type = "button";
+    cancelBtn.textContent = "Cancel";
+    cancelBtn.style.cssText = "padding:6px 12px; border:1px solid #ccc; border-radius:4px; background:#fff; cursor:pointer; font-size:13px;";
+    cancelBtn.addEventListener("click", () => this.dismissMatFormDialog());
+
+    const saveBtn = doc.createElement("button");
+    saveBtn.type = "button";
+    saveBtn.textContent = opts.saveLabel;
+    saveBtn.style.cssText = "padding:6px 12px; border:none; border-radius:4px; background:#2b579a; color:#fff; cursor:pointer; font-size:13px;";
+    saveBtn.addEventListener("click", () => {
+      const label  = labelInput.value.trim();
+      const width  = Number(widthInput.value);
+      const height = Number(heightInput.value);
+      const x      = Number(xInput.value);
+      const y      = Number(yInput.value);
+      const gender = genderInput.value;
+
+      if (!Number.isFinite(width) || width <= 0 || !Number.isFinite(height) || height <= 0) {
+        errorMsg.textContent = "Width and height must be positive numbers.";
+        errorMsg.style.display = "block";
+        return;
+      }
+      if (!Number.isFinite(x) || !Number.isFinite(y)) {
+        errorMsg.textContent = "X and Y position must be numbers.";
+        errorMsg.style.display = "block";
+        return;
+      }
+
+      errorMsg.style.display = "none";
+      saveBtn.disabled = true;
+      cancelBtn.disabled = true;
+      opts.onSave({ label, width, height, x, y, gender })
+        .then(() => this.dismissMatFormDialog())
+        .catch((err: unknown) => {
+          console.error("[MatsOverlay] mat form save error:", err);
+          errorMsg.textContent = err instanceof Error ? err.message : "Save failed.";
+          errorMsg.style.display = "block";
+          saveBtn.disabled = false;
+          cancelBtn.disabled = false;
+        });
+    });
+
+    footer.appendChild(cancelBtn);
+    footer.appendChild(saveBtn);
+    dialog.appendChild(footer);
+
+    doc.body.appendChild(backdrop);
+    doc.body.appendChild(dialog);
+
+    // Nudge inside viewport if it overflows
+    const r = dialog.getBoundingClientRect();
+    if (r.right  > window.innerWidth)  dialog.style.left = `${opts.clientX - r.width  - 4}px`;
+    if (r.bottom > window.innerHeight) dialog.style.top  = `${opts.clientY - r.height - 4}px`;
+  }
+
+  // ── Create / update mat records ──────────────────────────────────────────────
+
+  /**
+   * Resolves the current Mat Plan record from the host page via
+   * Xrm.Utility.getPageContext() (Unified Interface only). This control has
+   * no bound entityId/entityName input property, so this is the only way to
+   * learn which Mat Plan a newly-created mat belongs to.
+   */
+  private async getCurrentMatPlanRef(): Promise<{ id: Guid; entityName: string }> {
+    const xrm = this.getXrm();
+    const input = xrm.Utility.getPageContext()?.input;
+    if (!input?.entityId || !input.entityName) {
+      throw new Error("Could not resolve the current Mat Plan record from the page context.");
+    }
+    return { id: input.entityId.replace(/[{}]/g, ""), entityName: input.entityName };
+  }
+
+  private async createMat(values: {
+    label: string; width: number; height: number; x: number; y: number; gender: string;
+  }): Promise<void> {
+    const matPlan = await this.getCurrentMatPlanRef();
+
+    const payload: Record<string, string | number | null> = {
+      cp_matlabel:  values.label || null,
+      cp_matwidth:  values.width,
+      cp_matheight: values.height,
+      cp_xposition: values.x,
+      cp_yposition: values.y,
+      cp_matgender: values.gender,
+      [`${MatsOverlay.NAV_MATPLAN}@odata.bind`]: `/${MatsOverlay.SET_MATPLAN}(${matPlan.id})`,
+    };
+
+    console.log("[MatsOverlay] CREATE cp_mat:", JSON.stringify(payload));
+
+    await this.context.webAPI.createRecord("cp_mat", payload);
+    await this.showAlert(`✅ ${values.label || "Mat"}: created.`);
+    await this.context.parameters.cp_mat.refresh();
+  }
+
+  private async updateMatProperties(mat: MatRow, values: {
+    label: string; width: number; height: number; x: number; y: number; gender: string;
+  }): Promise<void> {
+    const payload: Record<string, string | number | null> = {
+      cp_matlabel:  values.label || null,
+      cp_matwidth:  values.width,
+      cp_matheight: values.height,
+      cp_xposition: values.x,
+      cp_yposition: values.y,
+      cp_matgender: values.gender,
+    };
+
+    console.log(`[MatsOverlay] PATCH cp_mat/${mat.id} (properties):`, JSON.stringify(payload));
+
+    await this.context.webAPI.updateRecord("cp_mat", mat.id, payload);
+    await this.showAlert(`✅ ${values.label || "Mat"}: properties updated.`);
+    await this.context.parameters.cp_mat.refresh();
   }
 
   // ── Remove fields ─────────────────────────────────────────────────────────────
@@ -641,7 +954,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
   }
 
   public destroy(): void {
-    this.dismissRemoveDialog();
+    this.dismissAllDialogs();
     this.container.innerHTML = "";
   }
 
@@ -670,6 +983,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       const cp_yposition   = this.getNumber(rec, "cp_yposition");
       const cp_fillcolor   = this.getString(rec, "cp_fillcolor");
       const cp_strokecolor = this.getString(rec, "cp_strokecolor");
+      const cp_matgender   = this.getString(rec, "cp_matgender");
 
       // Detect whether a check-in is already assigned.
       // The dataset exposes lookup fields as the formatted value string when bound,
@@ -695,6 +1009,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
         cp_yposition,
         cp_fillcolor,
         cp_strokecolor,
+        cp_matgender,
         hasCheckin,
         checkinId,
         x: cp_xposition ?? 0,

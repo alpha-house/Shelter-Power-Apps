@@ -79,6 +79,14 @@
         of-type="SingleLine.Text"
         usage="bound"
         required="false" />
+
+      <property-set
+        name="cp_matgender"
+        display-name-key="cp_matgender_Display"
+        description-key="cp_matgender_Desc"
+        of-type="SingleLine.Text"
+        usage="bound"
+        required="false" />
     </data-set>
 
     <!-- ================= DESIGNER INPUTS ================= -->
