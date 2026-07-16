@@ -106,7 +106,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
   private static readonly SET_CONTACT     = "contacts";
   private static readonly SET_SYSTEMUSER  = "systemusers";
   private static readonly SET_MATPLAN     = "cp_matplans";
-  private static readonly MATGENDER_OPTIONS = ["Male", "Female"];
+  private static readonly MATGENDER_OPTIONS = ["Male", "Female", "High Intox"];
 
   public init(
     context: ComponentFramework.Context<IInputs>,
