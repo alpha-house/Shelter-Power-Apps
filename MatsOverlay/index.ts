@@ -326,10 +326,11 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     svg.addEventListener("mouseleave", () => { this.dragging = false; });
 
     // Clicking the SVG background (i.e. not on an existing mat — mat groups
-    // stop propagation) dismisses any open dialog and opens the "Add Mat"
-    // dialog at the clicked location.
+    // stop propagation) dismisses any open dialog and, in layout mode, opens
+    // the "Add Mat" dialog at the clicked location.
     svg.addEventListener("click", (e: MouseEvent) => {
       this.dismissAllDialogs();
+      if (!isLayoutMode) return;
       const svgRect = (svg as unknown as HTMLElement).getBoundingClientRect();
       const rawX = (e.clientX - svgRect.left) / this.scale - this.offsetX;
       const rawY = (e.clientY - svgRect.top)  / this.scale - this.offsetY;
