@@ -107,6 +107,8 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
   private static readonly SET_SYSTEMUSER  = "systemusers";
   private static readonly SET_MATPLAN     = "cp_matplans";
   private static readonly MATGENDER_OPTIONS = ["Male", "Female", "High Intox"];
+  // Overlap detection still runs every render; this only hides the banner.
+  private static readonly SHOW_OVERLAP_BANNER = false;
 
   public init(
     context: ComponentFramework.Context<IInputs>,
@@ -340,7 +342,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     wrapper.appendChild(svg);
 
     // ── Overlap warning ───────────────────────────────────────────────────────
-    if (overlaps.length > 0) {
+    if (MatsOverlay.SHOW_OVERLAP_BANNER && overlaps.length > 0) {
       const banner = doc.createElement("div");
       banner.style.cssText = `
         background:#fff3cd; border:1px solid #ffc107;
