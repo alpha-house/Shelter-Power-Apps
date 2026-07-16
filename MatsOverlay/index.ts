@@ -313,6 +313,13 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
         this.selectedId = this.dragMatId;
         this.changeKind = "move";
         this.notifyOutputChanged();
+
+        const mat = this.currentMats.find(m => m.id === this.dragMatId);
+        if (mat) {
+          this.persistMatMove(mat, this.newX, this.newY).catch((err: unknown) => {
+            console.error("[MatsOverlay] persistMatMove error:", err);
+          });
+        }
       }
     });
 
@@ -749,6 +756,21 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     await this.context.webAPI.updateRecord("cp_mat", mat.id, payload);
     await this.showAlert(`✅ ${values.label || "Mat"}: properties updated.`);
     await this.context.parameters.cp_mat.refresh();
+  }
+
+  /** Persists a drag-to-reposition move. Silent on success; alerts on failure. */
+  private async persistMatMove(mat: MatRow, x: number, y: number): Promise<void> {
+    const payload: Record<string, number> = { cp_xposition: x, cp_yposition: y };
+
+    console.log(`[MatsOverlay] PATCH cp_mat/${mat.id} (move):`, JSON.stringify(payload));
+
+    try {
+      await this.context.webAPI.updateRecord("cp_mat", mat.id, payload);
+      await this.context.parameters.cp_mat.refresh();
+    } catch (err) {
+      await this.showAlert(`⚠️ Failed to save new position for ${mat.cp_matlabel ?? mat.id}. Please try again.`);
+      throw err;
+    }
   }
 
   // ── Remove fields ─────────────────────────────────────────────────────────────
