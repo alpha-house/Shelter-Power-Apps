@@ -2,77 +2,67 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps": {
-        "runtimeSource": "embedded",
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
         "connection": {
           "connectionReferenceLogicalName": "ahb_sharedcommondataserviceforapps_c4d89"
         },
-        "api": {
-          "name": "shared_commondataserviceforapps"
-        }
+        "runtimeSource": "embedded"
       }
     },
     "definition": {
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "$connections": {
-          "defaultValue": {},
-          "type": "Object"
-        },
         "$authentication": {
           "defaultValue": {},
           "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
         }
       },
       "triggers": {
         "Recurrence": {
+          "type": "Recurrence",
           "recurrence": {
             "frequency": "Minute",
             "interval": 30,
             "timeZone": "Mountain Standard Time",
             "startTime": "2026-07-15T14:55:00Z"
           },
-          "evaluatedRecurrence": {
-            "frequency": "Minute",
-            "interval": 30,
-            "startTime": "2026-07-15T14:55:00Z",
-            "timeZone": "Mountain Standard Time"
-          },
           "metadata": {
             "operationMetadataId": "b01ef9c3-d096-4447-84dd-8ebdc5449079"
-          },
-          "type": "Recurrence"
+          }
         }
       },
       "actions": {
         "list_shelter_checkins": {
-          "runAfter": {},
-          "metadata": {
-            "operationMetadataId": "e4b73626-26c8-4371-a0a7-da406a3d622a"
-          },
           "type": "OpenApiConnection",
           "inputs": {
             "parameters": {
               "entityName": "cp_sheltercheckins",
               "$select": "cp_sheltercheckinid,cp_breathinground,modifiedby,modifiedon",
-              "$filter": "cp_checkinstatus eq 121570000"
+              "$filter": "cp_checkinstatus eq 121570000 and cp_highintox ne true"
             },
             "host": {
-              "connectionName": "shared_commondataserviceforapps",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
-            "authentication": "@parameters('$authentication')"
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "e4b73626-26c8-4371-a0a7-da406a3d622a"
           }
         },
         "For_each": {
+          "type": "Foreach",
           "foreach": "@outputs('list_shelter_checkins')?['body/value']",
           "actions": {
             "Update_each_shelter_checkin": {
-              "runAfter": {},
-              "metadata": {
-                "operationMetadataId": "cf7e4bd5-971a-4c99-a420-c38bc52fae60"
-              },
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
@@ -81,11 +71,13 @@
                   "item/cp_breathinground": false
                 },
                 "host": {
-                  "connectionName": "shared_commondataserviceforapps",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "operationId": "UpdateOnlyRecord",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                },
-                "authentication": "@parameters('$authentication')"
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "cf7e4bd5-971a-4c99-a420-c38bc52fae60"
               }
             }
           },
@@ -96,12 +88,11 @@
           },
           "metadata": {
             "operationMetadataId": "6348f85b-cd53-44e2-943e-ab05ce11bad3"
-          },
-          "type": "Foreach"
+          }
         }
       }
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }

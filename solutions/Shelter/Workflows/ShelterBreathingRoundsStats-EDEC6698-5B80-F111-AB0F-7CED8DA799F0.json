@@ -2,37 +2,32 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps": {
-        "runtimeSource": "embedded",
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
         "connection": {
           "connectionReferenceLogicalName": "ahb_sharedcommondataserviceforapps_c4d89"
         },
-        "api": {
-          "name": "shared_commondataserviceforapps"
-        }
+        "runtimeSource": "embedded"
       }
     },
     "definition": {
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "$connections": {
-          "defaultValue": {},
-          "type": "Object"
-        },
         "$authentication": {
           "defaultValue": {},
           "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
         }
       },
       "triggers": {
         "Recurrence": {
+          "type": "Recurrence",
           "recurrence": {
-            "frequency": "Minute",
-            "interval": 30,
-            "timeZone": "Mountain Standard Time",
-            "startTime": "2026-07-15T15:15:00Z"
-          },
-          "evaluatedRecurrence": {
             "frequency": "Minute",
             "interval": 30,
             "timeZone": "Mountain Standard Time",
@@ -40,39 +35,29 @@
           },
           "metadata": {
             "operationMetadataId": "39b5bad0-f864-4aee-a622-3bd7b129795f"
-          },
-          "type": "Recurrence"
+          }
         }
       },
       "actions": {
         "List_Shelter_Checkins": {
-          "runAfter": {},
-          "metadata": {
-            "operationMetadataId": "a58d64e5-28f0-46a7-8425-df6aa2b156e3"
-          },
           "type": "OpenApiConnection",
           "inputs": {
             "parameters": {
               "entityName": "cp_sheltercheckins",
-              "$filter": "cp_checkinstatus eq 121570000"
+              "$filter": "cp_checkinstatus eq 121570000 and cp_highintox ne true"
             },
             "host": {
-              "connectionName": "shared_commondataserviceforapps",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
-            "authentication": "@parameters('$authentication')"
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "a58d64e5-28f0-46a7-8425-df6aa2b156e3"
           }
         },
         "Initialize_variable_list_of_missed_client": {
-          "runAfter": {
-            "List_Shelter_Checkins": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "2e5a4a2b-2063-4589-a5a3-eb4f2fdfcf21"
-          },
           "type": "InitializeVariable",
           "inputs": {
             "variables": [
@@ -81,17 +66,17 @@
                 "type": "string"
               }
             ]
-          }
-        },
-        "Initialize_missed_client_count": {
+          },
           "runAfter": {
-            "Initialize_variable_list_of_missed_client": [
+            "List_Shelter_Checkins": [
               "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "568a58b5-96ec-441a-908a-54bc9cff8416"
-          },
+            "operationMetadataId": "2e5a4a2b-2063-4589-a5a3-eb4f2fdfcf21"
+          }
+        },
+        "Initialize_missed_client_count": {
           "type": "InitializeVariable",
           "inputs": {
             "variables": [
@@ -101,18 +86,34 @@
                 "value": 0
               }
             ]
+          },
+          "runAfter": {
+            "Initialize_variable_list_of_missed_client": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "568a58b5-96ec-441a-908a-54bc9cff8416"
           }
         },
         "For_each": {
+          "type": "Foreach",
           "foreach": "@outputs('List_Shelter_Checkins')?['body/value']",
           "actions": {
             "Condition": {
+              "type": "If",
+              "expression": {
+                "and": [
+                  {
+                    "equals": [
+                      "@items('For_each')?['cp_breathinground']",
+                      true
+                    ]
+                  }
+                ]
+              },
               "actions": {
                 "Add_new_breathing_round_record": {
-                  "runAfter": {},
-                  "metadata": {
-                    "operationMetadataId": "188a6de0-47a2-4117-80c0-34bd3cf44558"
-                  },
                   "type": "OpenApiConnection",
                   "inputs": {
                     "parameters": {
@@ -125,29 +126,34 @@
                       "item/cp_dateandtime": "@items('For_each')?['cp_breathingroundmodifiedon']"
                     },
                     "host": {
-                      "connectionName": "shared_commondataserviceforapps",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                       "operationId": "CreateRecord",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                    },
-                    "authentication": "@parameters('$authentication')"
+                      "connectionName": "shared_commondataserviceforapps"
+                    }
+                  },
+                  "metadata": {
+                    "operationMetadataId": "188a6de0-47a2-4117-80c0-34bd3cf44558"
                   }
                 }
               },
-              "runAfter": {},
               "else": {
                 "actions": {
                   "Append_to_string_variable": {
-                    "runAfter": {},
-                    "metadata": {
-                      "operationMetadataId": "d972c2a2-75a4-4b1b-b356-bc37bbe08efb"
-                    },
                     "type": "AppendToStringVariable",
                     "inputs": {
                       "name": "list_of_missed_client",
                       "value": "@concat(\r\n  string(items('For_each')?['cp_sheltercheckin']),\r\n  decodeUriComponent('%0A')\r\n)"
+                    },
+                    "metadata": {
+                      "operationMetadataId": "d972c2a2-75a4-4b1b-b356-bc37bbe08efb"
                     }
                   },
                   "Increment_missed_client_count": {
+                    "type": "IncrementVariable",
+                    "inputs": {
+                      "name": "number_of_missed_clients",
+                      "value": 1
+                    },
                     "runAfter": {
                       "Append_to_string_variable": [
                         "Succeeded"
@@ -155,29 +161,13 @@
                     },
                     "metadata": {
                       "operationMetadataId": "54d9e84f-d2bb-477c-99cb-5a9025ca3e2a"
-                    },
-                    "type": "IncrementVariable",
-                    "inputs": {
-                      "name": "number_of_missed_clients",
-                      "value": 1
                     }
                   }
                 }
               },
-              "expression": {
-                "and": [
-                  {
-                    "equals": [
-                      "@items('For_each')?['cp_breathinground']",
-                      true
-                    ]
-                  }
-                ]
-              },
               "metadata": {
                 "operationMetadataId": "007142e8-f539-40bd-94a5-e97da33a2e92"
-              },
-              "type": "If"
+              }
             }
           },
           "runAfter": {
@@ -187,10 +177,11 @@
           },
           "metadata": {
             "operationMetadataId": "8f9bb230-9b77-4719-89d6-b3e7890c2cbb"
-          },
-          "type": "Foreach"
+          }
         },
         "number_of_missed_clients": {
+          "type": "Compose",
+          "inputs": "@variables('number_of_missed_clients')",
           "runAfter": {
             "For_each": [
               "Succeeded"
@@ -198,19 +189,9 @@
           },
           "metadata": {
             "operationMetadataId": "e0c36077-c884-4fc4-aed7-52ec59ae008f"
-          },
-          "type": "Compose",
-          "inputs": "@variables('number_of_missed_clients')"
+          }
         },
         "Add_a_missed_breathing_round_record": {
-          "runAfter": {
-            "number_of_missed_clients": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "b90468b7-d012-4c6f-95d3-99d73f5cff01"
-          },
           "type": "OpenApiConnection",
           "inputs": {
             "parameters": {
@@ -222,16 +203,23 @@
               "item/cp_time": "@formatDateTime(\r\n  addMinutes(\r\n    convertToUtc(\r\n      convertFromUtc(utcNow(), 'Mountain Standard Time'),\r\n      'Mountain Standard Time'\r\n    ),\r\n    -15\r\n  ),\r\n  'yyyy-MM-ddTHH:mm:ssZ'\r\n)"
             },
             "host": {
-              "connectionName": "shared_commondataserviceforapps",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "operationId": "CreateRecord",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
-            "authentication": "@parameters('$authentication')"
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {
+            "number_of_missed_clients": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b90468b7-d012-4c6f-95d3-99d73f5cff01"
           }
         }
       }
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }
