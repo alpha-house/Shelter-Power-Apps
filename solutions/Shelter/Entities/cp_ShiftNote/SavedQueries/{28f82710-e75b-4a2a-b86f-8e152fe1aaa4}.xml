@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{28f82710-e75b-4a2a-b86f-8e152fe1aaa4}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_shiftnote" select="1" icon="1" preview="1">
+        <row name="result" id="cp_shiftnoteid">
+          <cell name="cp_shiftnote" width="300" />
+          <cell name="cp_businessunit" width="119" />
+          <cell name="cp_client" width="100" />
+          <cell name="ahb_intake" width="100" />
+          <cell name="cp_admission" width="101" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_shiftnote">
+          <attribute name="cp_shiftnoteid" />
+          <attribute name="cp_shiftnote" />
+          <order attribute="cp_shiftnote" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="cp_shiftnote" operator="like" value="{0}" />
+            <condition attribute="cp_businessunit" operator="like" value="{0}" />
+            <condition attribute="cp_client" operator="like" value="{0}" />
+            <condition attribute="ahb_intake" operator="like" value="{0}" />
+            <condition attribute="cp_admission" operator="like" value="{0}" />
+          </filter>
+          <attribute name="cp_businessunit" />
+          <attribute name="cp_client" />
+          <attribute name="ahb_intake" />
+          <attribute name="cp_admission" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Shift Notes" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

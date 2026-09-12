@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{701c72e9-a8aa-f011-bbd3-7c1e525489df}</formid>
+    <IntroducedVersion>1.0.0.164</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="ACBA75B7-97B6-4116-AA55-51312992B721" name="tab_1" showlabel="false" labelid="{5309ae8d-c91f-4b01-bcf4-a59754a915e3}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="AD49B5BF-256F-46A8-9C75-947146172EB9" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{752b46a8-36fd-44ed-af0a-455ff0739a9d}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="C0550AC7-0F44-45A4-8EF5-D2911C0689D9" labelid="{a461b8b7-0ae0-4093-8a28-db959401b72a}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e144a38b-41f9-4996-9ec6-196b60463e19}" locklevel="0" colspan="1" rowspan="1" labelid="{f9673aa7-844f-42d9-94cd-bdc9e71e3bf4}">
+                        <labels>
+                          <label description="HMIS File Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_hmisfilenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_hmisfilenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b06e1864-8696-45ce-a1de-c1eee9df459d}" locklevel="0" colspan="1" rowspan="1" labelid="{25bb6cb6-5820-46c5-ac21-cc279fc6cc8d}">
+                        <labels>
+                          <label description="Referring Agency or Individual" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_referringagencyorindividual" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_referringagencyorindividual" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bc81ad03-78d0-46a3-a6f0-3b96b8a26b30}" locklevel="0" colspan="1" rowspan="1" labelid="{b4c7c6f5-156f-4167-8718-a8bf72e3bede}">
+                        <labels>
+                          <label description="Phone" languagecode="1033" />
+                        </labels>
+                        <control id="cp_phone" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_phone" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ea8e0796-71d5-4bc1-93c5-eb5299f1e2a0}" locklevel="0" colspan="1" rowspan="1" labelid="{999a5b3f-a72a-40b7-98a6-8f51b7fc42cd}">
+                        <labels>
+                          <label description="Email" languagecode="1033" />
+                        </labels>
+                        <control id="emailaddress1" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="emailaddress1" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{55260ee6-413f-4690-9b95-d79952b1d00b}" locklevel="0" colspan="1" rowspan="1" labelid="{061cc0eb-db6a-467d-835e-1508c322b95e}">
+                        <labels>
+                          <label description="Referral Destination" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_referraldestination" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_referraldestination" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3737947f-f195-4214-95e1-aca3d586db38}" locklevel="0" colspan="1" rowspan="1" labelid="{c232cf97-0f30-42f1-9763-1492f57251aa}">
+                        <labels>
+                          <label description="Has ID" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_hasid" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="ahb_hasid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e6b893a3-cea5-4992-9a23-b72706427d0f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Type of ID (Deprecated)" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_typeofid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_typeofid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3308a0c9-3635-4f20-bd8a-3626bc7dda9e}" locklevel="0" colspan="1" rowspan="1" labelid="{4d59a8b8-32bc-4264-8002-199799a46f2a}">
+                        <labels>
+                          <label description="Date of Referral" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_dateofreferral" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ahb_dateofreferral" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{84ded235-9ffb-4cef-8f45-eefdeab7297c}" locklevel="0" colspan="1" rowspan="1" labelid="{c2503fd4-78fb-401a-8e91-057e933230d9}">
+                        <labels>
+                          <label description="First Contact Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_firstcontactdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_firstcontactdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0ceef093-029e-4576-91d6-64fac1cc8c12}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Does Client Have Pet" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_doesclienthavepet" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_doesclienthavepet" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d2910816-48d0-471c-a1c8-e20b3121edea}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Is Client a Couple" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_isclientacouple" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_isclientacouple" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="8" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+        <Role Id="{9797e917-12d5-480a-8553-1d367337039f}" />
+        <Role Id="{584c22a6-f7ff-4775-a000-c0c185dd8639}" />
+        <Role Id="{57f12fb3-afc3-4e52-b9c2-fc6842abb82a}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Quick View Boreal Check-in" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="This form is for rapid response use on check-in forms." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

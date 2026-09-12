@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{a878de11-7582-4581-b11c-f4e6a5f49c59}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{6592c890-7f00-497d-be1e-cd207f0e4a42}" IsUserDefined="1">
+          <labels>
+            <label description="Shift Note" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{7c7ea37f-822d-4ae9-bc04-c32948b32cdf}" columns="11">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{da1724d8-2939-424c-a558-17a97745acc6}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="header_cp_client" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_client" disabled="false">
+                          <parameters>
+                            <DependentAttributeName>cp_shiftnote.cp_admission</DependentAttributeName>
+                            <DependentAttributeType>cp_cp_admission</DependentAttributeType>
+                            <FilterRelationshipName>cp_cp_admission_Client_contact</FilterRelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell locklevel="0" id="{8bf0f047-5410-4e08-9b4d-532910ec40a9}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1f56892d-3823-4ea0-8819-57118287eafc}" locklevel="0" colspan="1" rowspan="1" visible="true">
+                        <labels>
+                          <label description="Shift Note Type" languagecode="1033" />
+                        </labels>
+                        <control id="cp_shiftnotetype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_shiftnotetype" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{1adbc692-60f3-4878-9feb-4fdd11424a20}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1a3614bf-97c1-4b66-9f71-1063842e5b2d}" locklevel="0" colspan="1" rowspan="1" visible="true">
+                        <labels>
+                          <label description="Shift Date and Time" languagecode="1033" />
+                        </labels>
+                        <control id="cp_shiftdateandtime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_shiftdateandtime" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{90e90a9d-fdb1-472f-a4c5-fc637d6e94d1}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{df75b1c4-097f-4e5f-8cab-9b834addfa0e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Shift Period" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_shiftperiod" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_shiftperiod" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{310a1063-0eba-4d54-b9f5-e44954cb6eb4}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{09ef8df0-617a-4e16-8c5d-1067ccc8fb55}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Recorded By" languagecode="1033" />
+                        </labels>
+                        <control id="cp_recordedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_recordedby" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{ad2b4062-510a-4c8f-951c-f6b733235c94}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="notes" id="a2ff2329-1776-4090-8102-6141a0b3f187" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Notes" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{50d460be-2ed5-481f-9505-4d62432c1e7c}" locklevel="0" colspan="1" rowspan="10">
+                        <labels>
+                          <label description="Notes" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_notes" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="ahb_notes" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="null_section_3" id="f9dec2f9-1922-4bfd-9335-816d430e1971" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Supervisor Sign Off" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{aea01d98-5263-4be5-bc75-d4e03b61340c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Shift Supervisor Signed Off" languagecode="1033" />
+                        </labels>
+                        <control id="cp_shiftsupervisorsignedoff" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_shiftsupervisorsignedoff" disabled="false" />
+                      </cell>
+                      <cell id="{80fc44b3-4e46-423a-a1b2-b5a896506307}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Shift Supervisor Signature" languagecode="1033" />
+                        </labels>
+                        <control id="cp_shiftsupervisorsignature" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_shiftsupervisorsignature" disabled="false" uniqueid="{05abf78e-f2e7-449a-8153-7b823e4ed59a}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5ff40b7e-ee31-41e4-8b3c-b892b0761116}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Signoff Supervisor Name" languagecode="1033" />
+                        </labels>
+                        <control id="cp_signoffsupervisorname" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_signoffsupervisorname" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{e2ca7fe9-6f2d-4183-a8f3-d9db75d81949}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{11de551e-bf03-4a8d-8d5a-7168c9fcf449}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{8a3de77e-7141-4def-b997-0be8e897840e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{34d471a1-692f-4ed4-89b9-ec253f2c2560}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3276c34b-b343-40a9-8df5-a1fbb0029019}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell locklevel="0" id="{e9ce3cf5-fa25-4534-bc9f-daa9aead074f}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{bb835eb3-9ec4-4688-a335-3d7f759a8f71}" colspan="1" rowspan="1" visible="false">
+              <labels>
+                <label description="Shift Note" languagecode="1033" />
+              </labels>
+              <control id="header_cp_shiftnote" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_shiftnote" />
+            </cell>
+            <cell id="{d86314e9-ac88-406a-80ff-a245cc941ba2}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owning Business Unit" languagecode="1033" />
+              </labels>
+              <control id="header_owningbusinessunit" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="owningbusinessunit" disabled="false" />
+            </cell>
+            <cell id="{0944ccbb-f45b-4774-a784-9d2e0961679c}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Admission" languagecode="1033" />
+              </labels>
+              <control id="header_cp_admission" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_admission" disabled="false" />
+            </cell>
+            <cell id="{64056ec9-7e4e-4793-a5a0-259bc9c2aaea}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{914de0ad-5c93-4f8c-bcb7-d55c727c5cd7}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{97e7e7f4-d59e-4ec8-a312-1517bde5a2f1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{02558d89-8ea0-4816-818d-61221b19a84d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6b4fddd3-bd0f-4d28-bd17-09d8b3a4b412}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="2" FallbackForm="false">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{05abf78e-f2e7-449a-8153-7b823e4ed59a}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>cp_shiftsupervisorsignature</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_shiftsupervisorsignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_shiftsupervisorsignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_shiftsupervisorsignature</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <formLibraries>
+        <Library name="cr6ca_detox_admission_form" libraryUniqueId="{c1091b90-8a9e-46fd-80b0-5da94a4d289a}" />
+        <Library name="cp_detox_javascript_functions" libraryUniqueId="{fc455f9e-20dd-4dac-8245-257c939e1818}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="ShiftSupervisorSignedoffVisibility" libraryName="cp_detox_javascript_functions" handlerUniqueId="{8897911c-56e4-4369-a5c9-acf922f35490}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="setCurrentShiftDateTime" libraryName="cp_detox_javascript_functions" handlerUniqueId="{b5c62087-6031-4997-9698-8514c51e82c5}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Detox" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{9988de94-9514-f011-998a-6045bd6057d5}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="fullname" select="1" icon="1" preview="1">
+        <row name="result" id="contactid">
+          <cell name="fullname" width="136" />
+          <cell name="cp_dateofbirth" width="114" />
+          <cell name="cp_age" width="100" />
+          <cell name="cp_gender" width="100" />
+          <cell name="cp_ethnicity" width="100" />
+          <cell name="cp_alphahousenumber" width="163" />
+          <cell name="cp_hmisfilenumber" width="150" />
+          <cell name="cp_ahcnumber" width="118" />
+          <cell name="cp_phone" width="100" />
+          <cell name="cp_mrpnumber" width="119" />
+          <cell name="cp_foipconsent" width="100" />
+          <cell name="cp_preferredpronoun" width="144" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="contact">
+          <attribute name="fullname" />
+          <attribute name="contactid" />
+          <attribute name="cp_hmisfilenumber" />
+          <attribute name="cp_dateofbirth" />
+          <attribute name="cp_age" />
+          <attribute name="cp_phone" />
+          <attribute name="cp_ahcnumber" />
+          <attribute name="cp_mrpnumber" />
+          <attribute name="cp_ethnicity" />
+          <attribute name="cp_foipconsent" />
+          <attribute name="cp_gender" />
+          <attribute name="cp_preferredpronoun" />
+          <attribute name="cp_alphahousenumber" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Clients" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

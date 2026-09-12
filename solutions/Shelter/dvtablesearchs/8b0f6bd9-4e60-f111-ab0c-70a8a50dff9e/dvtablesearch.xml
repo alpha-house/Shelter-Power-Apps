@@ -1,0 +1,11 @@
+<dvtablesearch dvtablesearchid="8b0f6bd9-4e60-f111-ab0c-70a8a50dff9e">
+  <appmoduleuniquename>cp_Shelter</appmoduleuniquename>
+  <iscustomizable>1</iscustomizable>
+  <m365appmoduleid>
+    <uniquename>cp_Shelter</uniquename>
+  </m365appmoduleid>
+  <name>M365_Primary_model_cp_Shelter</name>
+  <searchtype>0</searchtype>
+  <statecode>1</statecode>
+  <statuscode>2</statuscode>
+</dvtablesearch>

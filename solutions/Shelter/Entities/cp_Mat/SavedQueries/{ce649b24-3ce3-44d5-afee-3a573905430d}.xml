@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{ce649b24-3ce3-44d5-afee-3a573905430d}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_mat" select="1" icon="1" preview="1">
+        <row name="result" id="cp_matid">
+          <cell name="cp_mat" width="300" />
+          <cell name="cp_matlabel" width="100" />
+          <cell name="cp_client" width="100" />
+          <cell name="cp_matnumber" width="112" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_mat">
+          <attribute name="cp_matid" />
+          <attribute name="cp_mat" />
+          <order attribute="cp_mat" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="cp_mat" operator="like" value="{0}" />
+            <condition attribute="cp_client" operator="like" value="{0}" />
+            <condition attribute="cp_matlabel" operator="like" value="{0}" />
+            <condition attribute="cp_matnumber" operator="eq" value="{1}" />
+          </filter>
+          <attribute name="cp_matlabel" />
+          <attribute name="cp_client" />
+          <attribute name="cp_matnumber" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Mats" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

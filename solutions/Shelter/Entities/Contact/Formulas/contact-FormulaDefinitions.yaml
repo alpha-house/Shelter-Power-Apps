@@ -1,0 +1,5 @@
+ahb_fullnames: =firstname & " " & lastname
+ahb_initials: =Concatenate(Left(firstname, 1), ".", Left(lastname, 1))
+cp_age: =RoundDown(DateDiff(cp_dateofbirth, UTCToday()) / 365.25, 0)
+cp_clientname: =Concatenate(firstname, " ", lastname)
+cp_creationtimetracker: =DateDiff(createdon, Now(), TimeUnit.Seconds)

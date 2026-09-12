@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{3a00c47f-ccc7-44b2-821e-2221b1800bc2}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_sheltercheckin" select="1" icon="1" preview="1">
+        <row name="result" id="cp_sheltercheckinid">
+          <cell name="cp_sheltercheckin" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>1</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_sheltercheckin">
+          <attribute name="cp_sheltercheckinid" />
+          <attribute name="cp_sheltercheckin" />
+          <attribute name="createdon" />
+          <order attribute="cp_sheltercheckin" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Shelter Checkin Advanced Find View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

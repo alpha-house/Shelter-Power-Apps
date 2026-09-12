@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{db3af609-523a-f011-8779-000d3af3d874}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="ahb_ahhelp" select="1" icon="1" preview="1">
+        <row name="result" id="ahb_ahhelpid">
+          <cell name="ahb_ahhelp" width="125" />
+          <cell name="ahb_ticketdate" width="106" />
+          <cell name="ownerid" width="100" />
+          <cell name="owningbusinessunit" width="167" />
+          <cell name="ahb_selecttheappyouarehavinganissuewith" width="307" />
+          <cell name="ahb_ticketstatus" width="113" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" distinct="true">
+        <entity name="ahb_ahhelp">
+          <attribute name="ahb_ahhelpid" />
+          <attribute name="ahb_ahhelp" />
+          <order attribute="ahb_ahhelp" descending="false" />
+          <attribute name="owningbusinessunit" />
+          <attribute name="ownerid" />
+          <attribute name="ahb_selecttheappyouarehavinganissuewith" />
+          <attribute name="ahb_ticketstatus" />
+          <filter type="and">
+            <condition attribute="ahb_ticketstatus" operator="eq" value="747630002" />
+            <condition attribute="ahb_selecttheappyouarehavinganissuewith" operator="eq" value="747630000" />
+          </filter>
+          <attribute name="ahb_ticketdate" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.103</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Detox Inactive Tickets" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26085.133" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26085.00142">
+  <Entities />
+  <Roles />
+  <Workflows />
+  <FieldSecurityProfiles />
+  <Templates />
+  <EntityImageConfigs>
+    <EntityImageConfig>
+      <parententitylogicalname>ahb_ahhelp</parententitylogicalname>
+      <primaryimageattribute>ahb_upload</primaryimageattribute>
+    </EntityImageConfig>
+    <EntityImageConfig>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <primaryimageattribute>cp_scenelocationphoto</primaryimageattribute>
+    </EntityImageConfig>
+  </EntityImageConfigs>
+  <AttributeImageConfigs>
+    <AttributeImageConfig>
+      <attributelogicalname>ahb_upload</attributelogicalname>
+      <parententitylogicalname>ahb_ahhelp</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_agencyregistrationslipphoto</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_thirdpartylicenseplatephoto</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_thirdpartyinsurancepolicyphoto</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_thirdpartyvehicledamagephoto2</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_scenelocationphoto</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_cpdecollisiondocumentationphoto</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_othersupportingdocumentphoto1</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_agencylicenseplatephoto</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_agencyinsurancepolicyphoto</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_agencyvehicledamagephoto1</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_agencyvehicledamagephoto2</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_agencyvehicledamagephoto3</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_agencyvehicledamagephoto4</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_thirdpartyvehicledamagephoto1</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_othersupportingdocumentphoto4</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_thirdpartyregistrationslipphoto</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_thirdpartyvehicledamagephoto3</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_thirdpartyvehicledamagephoto4</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_othersupportingdocumentphoto2</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_othersupportingdocumentphoto3</attributelogicalname>
+      <parententitylogicalname>cp_incidentreport</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+  </AttributeImageConfigs>
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings />
+  <optionsets />
+  <WebResources />
+  <CustomControls />
+  <AppModuleSiteMaps />
+  <AppModules />
+  <EntityDataProviders />
+  <Languages>
+    <Language>1033</Language>
+  </Languages>
+</ImportExportXml>

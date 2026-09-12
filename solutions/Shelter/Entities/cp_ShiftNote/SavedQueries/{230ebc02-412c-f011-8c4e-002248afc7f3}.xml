@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{230ebc02-412c-f011-8c4e-002248afc7f3}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_shiftnote" select="1" icon="1" preview="1">
+        <row name="result" id="cp_shiftnoteid">
+          <cell name="cp_shiftnote" width="100" />
+          <cell name="cp_client" width="100" />
+          <cell name="createdon" width="105" />
+          <cell name="cp_shiftdateandtime" width="154" />
+          <cell name="ahb_unit" width="100" />
+          <cell name="ahb_notes" width="100" />
+          <cell name="ahb_shiftperiod" width="108" />
+          <cell name="cp_shiftnotetype" width="130" />
+          <cell name="owningbusinessunit" width="167" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="cp_shiftnote">
+          <attribute name="cp_shiftnoteid" />
+          <attribute name="cp_client" />
+          <attribute name="ahb_notes" />
+          <attribute name="cp_shiftnote" />
+          <attribute name="cp_shiftdateandtime" />
+          <attribute name="createdon" />
+          <attribute name="cp_shiftnotetype" />
+          <attribute name="ahb_shiftperiod" />
+          <attribute name="ahb_unit" />
+          <order attribute="cp_shiftdateandtime" descending="true" />
+          <order attribute="ahb_unit" descending="false" />
+          <attribute name="owningbusinessunit" />
+          <filter type="and">
+            <condition attribute="ahb_shiftperiod" operator="eq" value="747630001" />
+            <condition attribute="cp_businessunit" operator="eq" value="Boreal" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Boreal Night Shift" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

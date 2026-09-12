@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{7703352d-a0a7-4784-b551-3aca26f4abef}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_shiftnote" select="1" icon="1" preview="1">
+        <row name="result" id="cp_shiftnoteid">
+          <cell name="cp_shiftnote" width="100" />
+          <cell name="cp_client" width="100" />
+          <cell name="ahb_notes" width="100" />
+          <cell name="createdon" width="105" />
+          <cell name="cp_shiftdateandtime" width="154" />
+          <cell name="ahb_unit" width="100" />
+          <cell name="ahb_shiftperiod" width="108" />
+          <cell name="cp_shiftnotetype" width="130" />
+          <cell name="owningbusinessunit" width="167" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" distinct="true">
+        <entity name="cp_shiftnote">
+          <attribute name="cp_shiftnoteid" />
+          <attribute name="cp_client" />
+          <attribute name="cp_shiftdateandtime" />
+          <attribute name="ahb_notes" />
+          <attribute name="cp_shiftnote" />
+          <attribute name="createdon" />
+          <attribute name="cp_shiftnotetype" />
+          <attribute name="ahb_shiftperiod" />
+          <attribute name="ahb_unit" />
+          <order attribute="cp_shiftdateandtime" descending="true" />
+          <order attribute="ahb_unit" descending="false" />
+          <attribute name="owningbusinessunit" />
+          <filter type="and">
+            <condition attribute="createdon" operator="last-x-hours" value="48" />
+            <condition attribute="cp_businessunit" operator="eq" value="Boreal" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Boreal Shift Notes For Last 12 Hours" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

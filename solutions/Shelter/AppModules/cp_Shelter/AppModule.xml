@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>cp_Shelter</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="ahb_ahhelp" />
+    <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="1" schemaName="cp_clientalert" />
+    <AppModuleComponent type="1" schemaName="cp_incidentreport" />
+    <AppModuleComponent type="1" schemaName="cp_mat" />
+    <AppModuleComponent type="1" schemaName="cp_matplan" />
+    <AppModuleComponent type="1" schemaName="cp_shelterbreathinground" />
+    <AppModuleComponent type="1" schemaName="cp_sheltercheckin" />
+    <AppModuleComponent type="1" schemaName="cp_sheltermissedbreathinground" />
+    <AppModuleComponent type="1" schemaName="cp_shiftnote" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000000666400}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001210}" />
+    <AppModuleComponent type="26" id="{3664a7b3-1d0b-403a-aa66-1b91ea902187}" />
+    <AppModuleComponent type="26" id="{af4ee71c-4530-4c0a-84ca-3a11b02298e6}" />
+    <AppModuleComponent type="26" id="{f5b6f4cb-3ba4-44e9-8f93-524ca9c55e68}" />
+    <AppModuleComponent type="26" id="{56339f12-5990-4a13-8f28-5d8264237c27}" />
+    <AppModuleComponent type="26" id="{36b1da00-2188-f011-b4cc-6045bd5dcd15}" />
+    <AppModuleComponent type="26" id="{9988de94-9514-f011-998a-6045bd6057d5}" />
+    <AppModuleComponent type="26" id="{dab564c1-0f39-4e68-989e-769fcdb178a2}" />
+    <AppModuleComponent type="26" id="{3fbf186f-f450-42b6-8592-775aef5c3577}" />
+    <AppModuleComponent type="26" id="{ce5a5253-ca7f-f111-ab0f-7c1e5253346f}" />
+    <AppModuleComponent type="26" id="{10f06008-cb7f-f111-ab0f-7c1e5253346f}" />
+    <AppModuleComponent type="26" id="{8a7cee2c-4a84-f111-8076-7ced8da799f0}" />
+    <AppModuleComponent type="26" id="{a5213e30-cb7f-f111-ab0f-7ced8da799f0}" />
+    <AppModuleComponent type="26" id="{a57e4aec-5b81-4a3d-bd15-7d0a46137b1d}" />
+    <AppModuleComponent type="26" id="{3602e910-e6b2-4481-a7b7-7fba5663cf1f}" />
+    <AppModuleComponent type="26" id="{a2d479c5-53e3-4c69-addd-802327e67a0d}" />
+    <AppModuleComponent type="26" id="{27ccf99e-21cc-49c2-81c6-82f01d718836}" />
+    <AppModuleComponent type="26" id="{3daaa955-f896-453c-a830-885f2989ac37}" />
+    <AppModuleComponent type="26" id="{28f82710-e75b-4a2a-b86f-8e152fe1aaa4}" />
+    <AppModuleComponent type="26" id="{2366085c-0901-421e-a302-8ee388f944e6}" />
+    <AppModuleComponent type="26" id="{a940e3a2-d63e-4ed0-b198-8f4747ac2dfa}" />
+    <AppModuleComponent type="26" id="{311b51f8-42eb-478b-b05e-9ac32adc90e4}" />
+    <AppModuleComponent type="26" id="{aa72865f-2801-4bce-abe1-aa57e0505318}" />
+    <AppModuleComponent type="26" id="{33ffcdfb-79d1-453e-b639-b19cc37ad537}" />
+    <AppModuleComponent type="26" id="{5ffee96e-1e08-4ade-9604-ce3217e9e9e7}" />
+    <AppModuleComponent type="26" id="{b3ec7d85-d0a5-4b9c-a07b-d1b18827f674}" />
+    <AppModuleComponent type="26" id="{8df19b44-a073-40c3-9d6d-ee1355d8c4ba}" />
+    <AppModuleComponent type="60" id="{6e970b13-000d-f111-8342-000d3ae9ad6b}" />
+    <AppModuleComponent type="60" id="{fed18126-ca7f-f111-ab0f-7c1e5253346f}" />
+    <AppModuleComponent type="60" id="{785045ae-0d7b-f111-ab0f-7ced8da5852f}" />
+    <AppModuleComponent type="62" schemaName="cp_Shelter" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{8bfc300e-997f-f111-ab0f-7c1e5253346f}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Shelter" languagecode="1033" />
+  </LocalizedNames>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="AppChannel">
+      <iscustomizable>1</iscustomizable>
+      <value>1</value>
+    </appsetting>
+  </appsettings>
+</AppModule>

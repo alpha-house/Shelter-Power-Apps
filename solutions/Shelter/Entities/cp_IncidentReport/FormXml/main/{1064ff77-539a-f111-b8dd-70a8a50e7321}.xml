@@ -1,0 +1,734 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{1064ff77-539a-f111-b8dd-70a8a50e7321}</formid>
+    <IntroducedVersion>1.0.0.34</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{bb757637-d785-434b-b7b4-ce7064999033}" IsUserDefined="1" labelid="{e8d5f0aa-c99b-47f6-baee-e3e2316a68c0}">
+          <labels>
+            <label description="Incident Report" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="incident_type" id="0809a918-cfae-4a96-807c-c5e38f2eca27" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115" labelid="{91d01bb5-96ff-43c2-9a88-7b8ab42a9d29}">
+                  <labels>
+                    <label description="Incident Type" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{468bc585-2bb1-49af-a0f3-f6b8fa63e788}" labelid="{a97f3baf-b6d5-43e0-8f2f-e8e5a2045a15}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{d3514c59-fff9-493c-809e-9502c6382d74}" labelid="{33ec6b0d-0de6-4a2f-943d-f0c6e4ed3005}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{c6d1dc82-2ec7-46f0-91af-47b7aa9893ab}" labelid="{d6c92c15-6474-441d-ae29-0a63dd52b146}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4fc5a925-e153-471a-b1dd-01a6490250ab}" locklevel="0" colspan="1" rowspan="1" labelid="{f47c77bd-3306-42a0-8d7f-80991727b7d9}">
+                        <labels>
+                          <label description="Incident Type" languagecode="1033" />
+                        </labels>
+                        <control id="cp_incidenttype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_incidenttype" disabled="false" />
+                      </cell>
+                      <cell id="{ba6d37e3-97dd-4cb1-b405-3dc05e859a0d}" locklevel="0" colspan="1" rowspan="1" labelid="{0baa170a-772a-41a8-aa13-a064ef6560b1}">
+                        <labels>
+                          <label description="Please Select The Service For This Report" languagecode="1033" />
+                        </labels>
+                        <control id="cp_pleaseselecttheserviceforthisreport" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_pleaseselecttheserviceforthisreport" disabled="false" />
+                      </cell>
+                      <cell id="{a46784d3-5423-4365-b6cd-f15d3ee81ed1}" locklevel="0" colspan="1" rowspan="1" labelid="{95421717-8a85-436b-86cf-003aad867a6e}">
+                        <labels>
+                          <label description="Are There Additional Clients Involved" languagecode="1033" />
+                        </labels>
+                        <control id="cp_arethereadditionalclientsinvolved" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_arethereadditionalclientsinvolved" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="follow_up_type" id="9717584f-edc3-4700-a59f-a9c4ff69dacc" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{eeee0cd9-822f-4e93-a392-854c58ab2623}">
+                  <labels>
+                    <label description="Follow Up Type and Severity" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{abf3713d-fa11-48ae-b799-26c0e8e9a9e4}" labelid="{971be5b1-a78b-4b90-a15f-f0df87b5602d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{4b9adec9-12b8-4b11-b838-bb0c3d0fb24f}" locklevel="0" colspan="1" rowspan="1" labelid="{a8049696-4126-4148-849e-d403845a54ed}">
+                        <labels>
+                          <label description="Incident Severity" languagecode="1033" />
+                        </labels>
+                        <control id="cp_incidentseverity" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_incidentseverity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cefbab21-b5ce-4a25-aa30-fa2d47596941}" locklevel="0" colspan="1" rowspan="1" labelid="{11cae9fb-10e2-4c7f-9929-6c504e67164c}">
+                        <labels>
+                          <label description="Follow Up Type Needed" languagecode="1033" />
+                        </labels>
+                        <control id="cp_followuptypeneeded" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_followuptypeneeded" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="incident_details" id="13e97ce1-9b10-4f88-bf57-a0bb3c37eae5" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{80f9af07-e90c-40e6-8cd3-7c12d12de7bf}">
+                  <labels>
+                    <label description="Incident Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{c201a4bf-1867-43ba-a443-7bc3afc04b3a}" locklevel="0" colspan="1" rowspan="1" labelid="{391c4ce4-cddb-4eeb-81d5-4971ed84c8ae}">
+                        <labels>
+                          <label description="Date and Time of Incident" languagecode="1033" />
+                        </labels>
+                        <control id="cp_dateofincident" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_dateofincident" disabled="false" />
+                      </cell>
+                      <cell id="{02ff3e52-0bca-46f4-b3ad-5c37ce3875c7}" locklevel="0" colspan="1" rowspan="1" labelid="{415c4ea9-9856-4241-be2e-2894378d7d36}">
+                        <labels>
+                          <label description="Time of Incident" languagecode="1033" />
+                        </labels>
+                        <control id="cp_timeofincident" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_timeofincident" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{801ac888-c4c1-4d90-832d-5d5006426deb}" labelid="{52aa1ef7-8013-4a6f-b7a1-a14a3bf37e19}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{cc4b9715-9623-4ec8-b6d3-e5ce15bb360b}" locklevel="0" colspan="1" rowspan="1" labelid="{10f273c7-4ebe-45d9-ae8c-ba80eaefb593}">
+                        <labels>
+                          <label description="Incident Recorded By" languagecode="1033" />
+                        </labels>
+                        <control id="cp_incidentrecordedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_incidentrecordedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0185aaba-cf68-4cfb-9390-dd8746a4ff9e}" locklevel="0" colspan="1" rowspan="1" labelid="{f4027ad4-4e75-429b-ae45-ec296c7cb99d}">
+                        <labels>
+                          <label description="Building Name Or Address (if in the community)" languagecode="1033" />
+                        </labels>
+                        <control id="cp_buildingnameoraddress" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_buildingnameoraddress" disabled="false" />
+                      </cell>
+                      <cell id="{69e6c91d-cc37-4fcc-85f7-ec6ed1379ea0}" locklevel="0" colspan="1" rowspan="1" labelid="{c97a8e79-3ba8-457b-8eb0-60f22e165fe6}">
+                        <labels>
+                          <label description="Area (Location or Unit Number)" languagecode="1033" />
+                        </labels>
+                        <control id="cp_area" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_area" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="description_of_incident" id="131a53dc-0979-468a-9123-1c4e37d78488" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115" labelid="{73266e3f-75c9-49fe-a1fa-64d1cba77ea1}">
+                  <labels>
+                    <label description="Description of Incident" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4997b71e-20ed-4e14-894c-d75f4fa756b6}" locklevel="0" colspan="1" rowspan="1" labelid="{849e7ed3-7969-45b3-a58f-843ab659552f}">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="cp_client" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_client" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{80ca562e-4dfe-4ac7-9f4c-014453d08780}" colspan="1" rowspan="1" labelid="{d74d75db-1bd1-4357-968f-8f995f31f17a}">
+                        <labels>
+                          <label description="New QV control 1757364261716" languagecode="1033" />
+                        </labels>
+                        <control id="QuickviewControl1757364261716" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="cp_client">
+                          <parameters>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="contact"&gt;c66d2aea-09d8-ef11-a730-6045bd610ed6&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{41c35bba-6d47-4082-bdf7-f07c703f4e06}" locklevel="0" colspan="1" rowspan="1" labelid="{fc1a82d3-945a-47c4-935b-9a23fa800c66}">
+                        <labels>
+                          <label description="Level of Intoxication" languagecode="1033" />
+                        </labels>
+                        <control id="cp_levelofintoxication" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_levelofintoxication" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ee094d80-23c5-4b02-824f-aa99cf5ade2f}" locklevel="0" colspan="3" rowspan="5" labelid="{f7affd00-0885-4b9a-8f0d-5a40b6bdb6f6}">
+                        <labels>
+                          <label description="Summary of incident" languagecode="1033" />
+                        </labels>
+                        <control id="cp_descriptionofincident" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_descriptionofincident" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{bf23fe40-b1e8-42de-846a-cb4c5c186837}" locklevel="0" colspan="1" rowspan="1" labelid="{f0e89d07-da5b-4dfb-b034-cc89f324274c}">
+                        <labels>
+                          <label description="Shift Supervisor/Manager Present" languagecode="1033" />
+                        </labels>
+                        <control id="cp_shiftsupervisormanagerpresent" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_shiftsupervisormanagerpresent" disabled="false" />
+                      </cell>
+                      <cell id="{ce34ad16-f8e0-4218-a585-17f2eef598cc}" locklevel="0" colspan="1" rowspan="1" labelid="{1cc045fa-f106-47d1-a0db-a80a55cf08e4}">
+                        <labels>
+                          <label description="Other Staff Involved" languagecode="1033" />
+                        </labels>
+                        <control id="cp_peopleinvolved" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_peopleinvolved" disabled="false" />
+                      </cell>
+                      <cell id="{06fabc43-9c45-46b9-9ba9-3b12924cf23e}" locklevel="0" colspan="1" rowspan="1" labelid="{511b23be-5290-45b7-8f83-f03be4d9d1d7}">
+                        <labels>
+                          <label description="Other People Involved" languagecode="1033" />
+                        </labels>
+                        <control id="cp_otherpeopleinvolved" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_otherpeopleinvolved" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4164c3e6-574f-46fc-b416-90b01bb10ec8}" locklevel="0" colspan="1" rowspan="1" labelid="{09f468c0-7551-4e18-a266-7dabeb3f3dba}">
+                        <labels>
+                          <label description="SS/TL/Mngr on Site" languagecode="1033" />
+                        </labels>
+                        <control id="cp_sstlmngronsite" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_sstlmngronsite" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{08e00c09-051b-40bb-a76a-e2b401a61718}" labelid="{766d78b0-cc0d-42a9-8c56-d807f3e3767a}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{d21ee6eb-4383-4b14-9b93-abf65280d678}" labelid="{7160401a-119a-4d08-b10e-4b0deac77f65}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{98e98ffe-e7f7-41d0-83ab-5d202421e4c5}" locklevel="0" colspan="3" rowspan="5" labelid="{3d24b9d8-ec50-4e11-b42a-d1704c76b556}">
+                        <labels>
+                          <label description="Protocols Followed/Action Taken" languagecode="1033" />
+                        </labels>
+                        <control id="cp_protocolsfollowed" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_protocolsfollowed" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{6e57e647-7ef9-49bb-b5b8-625f7c4e1bc3}" locklevel="0" colspan="3" rowspan="5" labelid="{d5323f81-c5e1-4817-a907-e16f1f1d755f}">
+                        <labels>
+                          <label description="Action Taken by EMS/Police (include if charges were laid and case file number):" languagecode="1033" />
+                        </labels>
+                        <control id="cp_actiontakenasaresultofoutsideassistance" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_actiontakenasaresultofoutsideassistance" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{2992414f-64aa-43a5-9078-9eec212bc190}" locklevel="0" colspan="1" rowspan="1" labelid="{03047a16-c3e9-4e89-b273-99e6fe242a76}">
+                        <labels>
+                          <label description="Outside Assistance Required" languagecode="1033" />
+                        </labels>
+                        <control id="cp_outsideassistancerequired" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="cp_outsideassistancerequired" disabled="false" />
+                      </cell>
+                      <cell id="{1c77d822-0e80-424b-81a3-a37d5bfe63aa}" locklevel="0" colspan="1" rowspan="1" labelid="{9e9b62f8-9962-44b5-90d1-6b91ecd8b265}">
+                        <labels>
+                          <label description="Overdose Stats Added To Overdose Stat Collection S" languagecode="1033" />
+                        </labels>
+                        <control id="cp_overdosestatsaddedtooverdosestatcollections" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="cp_overdosestatsaddedtooverdosestatcollections" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6f8af2bb-364a-40f3-bf8d-d8fda540892b}" locklevel="0" colspan="3" rowspan="1" labelid="{3a7b8607-a200-4bb7-82c7-7e9ff47ea780}">
+                        <labels>
+                          <label description="EMS/Police Responding (include badge #)" languagecode="1033" />
+                        </labels>
+                        <control id="cp_outsidepersonnelnamebadge" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_outsidepersonnelnamebadge" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9959dac2-0709-4edf-afba-205bcba7fbc7}" locklevel="0" colspan="3" rowspan="1" labelid="{346f71a9-3f11-4df0-a413-db266b9b3694}">
+                        <labels>
+                          <label description="Other Remarks, Recommendations or Comments to Note:" languagecode="1033" />
+                        </labels>
+                        <control id="cp_supplementaryremarks" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_supplementaryremarks" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="signoff" id="1f16791d-ec2c-426d-b539-287c8a9f81f7" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115" labelid="{1b152ceb-1fbc-4977-9b4b-10ded58c2904}">
+                  <labels>
+                    <label description="signoff" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{9dfb74d5-3259-45e1-9b6a-24513431cedf}" labelid="{8532df50-34f2-46e4-a8b2-19abc99eff49}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{7deaf431-368c-451b-9d96-c679eb08f7aa}" labelid="{d9f82651-654a-4f62-bc0d-18263fcec654}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{ad3bfbaf-0838-4b72-9354-de28476d37f3}" labelid="{489f2ab8-19dd-4979-9ff6-9ccf9ef74a33}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{777a9107-1819-41e2-aee0-ad7fd388ff1d}" locklevel="0" colspan="1" rowspan="1" labelid="{cd16ce94-9a34-4551-b206-175ef049df61}">
+                        <labels>
+                          <label description="Manager Signoff Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_managersignoffdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_managersignoffdate" disabled="false" />
+                      </cell>
+                      <cell id="{e416dd00-541e-47d0-a728-6630d513d821}" locklevel="0" colspan="1" rowspan="1" labelid="{57dac131-f28b-4960-a2a3-cdbddd480975}">
+                        <labels>
+                          <label description="Manager Signature" languagecode="1033" />
+                        </labels>
+                        <control id="cp_managersignature" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_managersignature" disabled="false" uniqueid="{59dd38d9-318b-41d7-acb3-8a715a499e08}" />
+                      </cell>
+                      <cell id="{48eefbaf-c633-427b-8aef-f6232a9cdb43}" locklevel="0" colspan="1" rowspan="1" labelid="{879cbfa5-93dd-4510-abb8-40930c63a94a}">
+                        <labels>
+                          <label description="Writers Signature" languagecode="1033" />
+                        </labels>
+                        <control id="cp_writerssignature" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_writerssignature" disabled="false" uniqueid="{d1d9b7b1-ffee-4a97-b2fc-9415d278ec30}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="staff_injury" id="0c6fd7ee-7447-4511-b6da-75833b86083f" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{134f6bc4-57e4-45de-a3c7-aee992a3098c}">
+                  <labels>
+                    <label description="Staff Injury" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e49ee521-b053-48df-995d-2ffe7f3b7777}" locklevel="0" colspan="1" rowspan="1" labelid="{9a1d0af2-8428-403a-9e24-24a7fd920c5b}">
+                        <labels>
+                          <label description="Was There A Staff Injury" languagecode="1033" />
+                        </labels>
+                        <control id="cp_wasthereastaffinjury" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="cp_wasthereastaffinjury" disabled="false" />
+                      </cell>
+                      <cell id="{b888d50c-8efe-433a-8842-f3a6fcce1590}" locklevel="0" colspan="1" rowspan="1" labelid="{9d9fee4c-1997-4124-9238-43b4e619b255}">
+                        <labels>
+                          <label description="Incident and Injury Report Sent To Manager and HR" languagecode="1033" />
+                        </labels>
+                        <control id="cp_cidentandinjuryreportsenttomanagerandhr" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="cp_cidentandinjuryreportsenttomanagerandhr" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4d7dc42f-bd34-4933-a40d-07332acd0031}" locklevel="0" colspan="1" rowspan="1" labelid="{2203d329-4a05-4be2-988c-f271bdb687ad}">
+                        <labels>
+                          <label description="Date Incident Report sent to HR and Manager" languagecode="1033" />
+                        </labels>
+                        <control id="cp_dateincidentreportsenttohrandmanager" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_dateincidentreportsenttohrandmanager" disabled="false" />
+                      </cell>
+                      <cell id="{51ca5d93-e138-4252-87da-9427b2bbb747}" locklevel="0" colspan="1" rowspan="1" labelid="{46bf682f-c024-414b-9d7b-293c872e001f}">
+                        <labels>
+                          <label description="Type of Aid provided" languagecode="1033" />
+                        </labels>
+                        <control id="cp_typeofaidprovided" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_typeofaidprovided" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{22d64634-c60a-4697-90c8-358a1568f568}" locklevel="0" colspan="2" rowspan="2" labelid="{dd40aee3-2989-4b7d-b894-4eff7b5a9178}">
+                        <labels>
+                          <label description="List Injured Staff and Injuries" languagecode="1033" />
+                        </labels>
+                        <control id="cp_listinjuredstaffandinjuries" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_listinjuredstaffandinjuries" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row>
+                      <cell id="{57cb2fb8-85e3-4063-b3cf-bb0c60b4ee81}" locklevel="0" colspan="2" rowspan="3" labelid="{6068755e-b448-4abd-bd67-3c3ba042e7ba}">
+                        <labels>
+                          <label description="If Employee left work (to recover or seek medical attention, who escorted them, when and to where)" languagecode="1033" />
+                        </labels>
+                        <control id="cp_ifemployeeleftworkforrecovery" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_ifemployeeleftworkforrecovery" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="administration" id="bac3fe3d-1bb5-46d3-bc8d-1075ec69c7e7" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{3c523f2a-0c24-416a-9297-3e267eee4c4e}">
+                  <labels>
+                    <label description="Administration" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{22ef501a-9e14-442b-802a-e647789b996b}" locklevel="0" colspan="1" rowspan="1" labelid="{cb96cef8-d090-4868-89c2-8ee111a958f4}">
+                        <labels>
+                          <label description="Staff Debrief Done" languagecode="1033" />
+                        </labels>
+                        <control id="cp_staffdebriefdone" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="cp_staffdebriefdone" disabled="false" />
+                      </cell>
+                      <cell id="{1bbde4fc-54aa-4ee7-b6a6-02e9b77a925f}" locklevel="0" colspan="1" rowspan="1" labelid="{c4ed8ecc-8005-427a-9804-e7a9c421d58a}">
+                        <labels>
+                          <label description="When Was Staff Debriefed" languagecode="1033" />
+                        </labels>
+                        <control id="cp_whenwasstaffdebriefed" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_whenwasstaffdebriefed" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1205d43f-fc33-4b94-9282-59404926fc4e}" locklevel="0" colspan="1" rowspan="1" labelid="{bd4cf610-e1bb-4b84-bd0e-abea60bf7f3a}">
+                        <labels>
+                          <label description="Staff Present For Debrief" languagecode="1033" />
+                        </labels>
+                        <control id="cp_workerspresentfordebrief" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_workerspresentfordebrief" disabled="false" />
+                      </cell>
+                      <cell id="{e6734012-90f1-44d3-8a46-d9881e8e24b3}" locklevel="0" colspan="1" rowspan="1" labelid="{9550151a-ada3-4ab5-8f6c-136371e9db61}">
+                        <labels>
+                          <label description="Staff Not Present For Debrief" languagecode="1033" />
+                        </labels>
+                        <control id="cp_workersnotpresentfordebrief" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_workersnotpresentfordebrief" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{61c7c539-337c-4264-901d-85aaf6ee4ba5}" locklevel="0" colspan="1" rowspan="1" labelid="{6fc3de35-fc45-4e5b-87cf-88170be76925}">
+                        <labels>
+                          <label description="Reviewing Manager" languagecode="1033" />
+                        </labels>
+                        <control id="cp_reviewingmanager" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_reviewingmanager" disabled="false" />
+                      </cell>
+                      <cell id="{d90f1ead-926a-4c81-ac84-42b48d98d0a0}" locklevel="0" colspan="1" rowspan="1" labelid="{8a3ad55f-ed00-4a56-bea8-0b15b5c00ef4}">
+                        <labels>
+                          <label description="Date Reviewed" languagecode="1033" />
+                        </labels>
+                        <control id="cp_datereviewed" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_datereviewed" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{106bf37b-8efd-4cb6-9075-04349d0c203b}" locklevel="0" colspan="2" rowspan="2" labelid="{473ed7e8-c008-4699-a00f-b38eb3aa027f}">
+                        <labels>
+                          <label description="Manager Comments" languagecode="1033" />
+                        </labels>
+                        <control id="cp_managercomments" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_managercomments" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row>
+                      <cell id="{f07db1c9-8780-47ba-bb96-b8a5a044080f}" locklevel="0" colspan="1" rowspan="1" labelid="{ffb51923-7d01-4ce1-98d1-c6a562b48fd8}">
+                        <labels>
+                          <label description="Staff Injury Resulted In Lost Time" languagecode="1033" />
+                        </labels>
+                        <control id="cp_staffinjuryresultedinlosttime" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_staffinjuryresultedinlosttime" disabled="false" />
+                      </cell>
+                      <cell id="{3d1b9143-00fe-4765-9c1c-f6259e6cad13}" locklevel="0" colspan="1" rowspan="1" labelid="{5f27f4c6-e87d-4760-9c40-4192189457b9}">
+                        <labels>
+                          <label description="OIS Clinic Info Provided" languagecode="1033" />
+                        </labels>
+                        <control id="cp_oisclinicinfoprovided" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_oisclinicinfoprovided" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f96b7243-a9e7-4fc5-b3fa-ef01dbed1ffd}" locklevel="0" colspan="1" rowspan="1" labelid="{59052c99-bbd9-4d50-abfd-9619fe420d2a}">
+                        <labels>
+                          <label description="Did The Injury Result In An Active WCB Claim" languagecode="1033" />
+                        </labels>
+                        <control id="cp_didtheinjuryresultinanactivewcbclaim" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_didtheinjuryresultinanactivewcbclaim" disabled="false" />
+                      </cell>
+                      <cell id="{fbb6ee64-eaae-4704-8fbe-de2e94809688}" locklevel="0" colspan="1" rowspan="1" labelid="{d3cb9277-ba02-4886-8612-0304ab778160}">
+                        <labels>
+                          <label description="Who Conducted Staff Debrief" languagecode="1033" />
+                        </labels>
+                        <control id="cp_whoconductedstaffdebrief" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_whoconductedstaffdebrief" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="incident_category" id="d3306f12-66ea-4aba-b591-8363caee4542" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{d66d0ae5-9ce4-4c5b-bb4c-c4b1b7f3b51c}">
+                  <labels>
+                    <label description="Incident Category" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{57a22cac-80c9-4ff7-8f8c-0f15b7b1150c}" locklevel="0" colspan="1" rowspan="1" labelid="{ae3afebf-95f2-4e68-a1c4-8944369d39fd}">
+                        <labels>
+                          <label description="Incident Category" languagecode="1033" />
+                        </labels>
+                        <control id="cp_incidentcategory" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_incidentcategory" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{3a67a771-42ac-4455-b17e-325bcc3c76d2}" labelid="{f61f1e4b-e30d-4ab3-a1b1-99921a1fa4e1}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ef6913c7-bd9e-4819-819b-efb7f0cc4436}" locklevel="0" colspan="2" rowspan="1" labelid="{6ec1803e-7c65-4bca-925d-727cdc59ad22}">
+                        <labels>
+                          <label description="Incident Category" languagecode="1033" />
+                        </labels>
+                        <control id="cp_incidentcategory2" classid="{4AA28AB7-9C13-4F57-A73D-AD894D048B5F}" datafieldname="cp_incidentcategory2" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="request_approval" id="e7d22e43-8998-455a-9792-9196763edbd3" IsUserDefined="0" locklevel="0" showlabel="true" labelid="{1e760bf9-07bc-4d06-9096-300d3735c8f1}">
+          <labels>
+            <label description="Request Approval" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="request_approval" id="418b754c-6ad0-4780-bf0b-d312e93498d3" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{bc2cd9fc-9bc7-4e26-87d7-e77e5fbc1b57}">
+                  <labels>
+                    <label description="Request Approval" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{a4852746-55a1-44d4-ab7f-9293f54fa68e}" labelid="{2f74afce-3d17-44a5-9be0-6b1d150aecc5}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{e816dbda-af32-4547-b2cb-7f48bb683c23}" labelid="{f7002c63-1fcf-40f3-9b6f-4a97e07720e6}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c67f6235-c94c-467a-9481-c728e8af649b}" locklevel="0" colspan="1" rowspan="1" labelid="{cf1c1ce1-620c-45ea-a707-26209421ea2a}">
+                        <labels>
+                          <label description="Request Approval" languagecode="1033" />
+                        </labels>
+                        <control id="cp_requestapproval" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_requestapproval" disabled="false" uniqueid="{71668a75-cd32-478e-938c-60728ba8b4a2}" />
+                      </cell>
+                      <cell id="{1c7035a6-7c4c-4039-bbf4-0d96ad5775e7}" locklevel="0" colspan="1" rowspan="1" labelid="{77a62306-dd6a-4f2e-8dc4-3ce189f3ef79}">
+                        <labels>
+                          <label description="IR Approval Status" languagecode="1033" />
+                        </labels>
+                        <control id="cp_irapprovalstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_irapprovalstatus" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{219eadba-1849-4b7a-b74e-aacdadebd98a}" locklevel="0" colspan="2" rowspan="5" labelid="{3fc187ac-98ab-47de-b241-07ef9ec13d27}">
+                        <labels>
+                          <label description="Approval Requester Comments" languagecode="1033" />
+                        </labels>
+                        <control id="cp_approvalrequestercomments" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_approvalrequestercomments" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{5de96558-f441-4d7a-9c71-72a2ba263c2e}" locklevel="0" colspan="2" rowspan="5" labelid="{3998a8c6-5b9a-4a76-8f6f-dbe24254d73a}">
+                        <labels>
+                          <label description="Approvers Comments" languagecode="1033" />
+                        </labels>
+                        <control id="cp_approverscomments" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_approverscomments" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{a5df2eee-a0bf-4a4b-aac9-383ad7b84e2a}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{951a2d09-0854-42f8-87b0-872d8c9fdd40}" showlabel="false" labelid="{11050ae0-9534-41c3-91a7-53e311014807}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4ddcad9c-9cfa-48fa-8557-07bdb440b8e9}" showlabel="false" labelid="{b9b67c6a-a33e-4832-a198-24a82b425963}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{97ed3ce8-faec-4dfb-8a8f-e50dbd165128}" showlabel="false" labelid="{aa798079-c5c4-402b-b483-9577bbdaf9ec}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell locklevel="0" id="{8281b58d-3c08-4637-abc3-862edfb958ae}" labelid="{d3c69586-6572-440d-b6f7-2b5e79df20f8}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{fe967ccc-b921-4897-8f1c-d8cd67d183af}" locklevel="0" colspan="1" rowspan="1" labelid="{fcb3201f-d1d9-4e08-a60f-93707d9b526d}">
+              <labels>
+                <label description="Related Incident" languagecode="1033" />
+              </labels>
+              <control id="header_cp_relatedincident" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_relatedincident" disabled="false" />
+            </cell>
+            <cell id="{a974fc37-efe5-4037-a615-cea300288c58}" locklevel="0" colspan="1" rowspan="1" labelid="{9db2c355-1f24-4c9d-ba60-79096055f3a0}">
+              <labels>
+                <label description="Owning Business Unit" languagecode="1033" />
+              </labels>
+              <control id="header_owningbusinessunit" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="owningbusinessunit" disabled="false" />
+            </cell>
+            <cell locklevel="0" id="{e8511d2b-4316-4088-ac2d-e7cabf56b0df}" labelid="{94457400-61e3-472d-b785-6f80c65a649f}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d91a22af-c3fc-41cf-aba0-0463b07eda79}" colspan="1" rowspan="1" labelid="{d65397de-45d6-4633-97cb-1f5d75c2a32f}">
+              <labels>
+                <label description="Incident Report" languagecode="1033" />
+              </labels>
+              <control id="header_cp_incidentreport" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_incidentreport" />
+            </cell>
+            <cell id="{e03aa96f-1335-4372-9c4c-807662567212}" colspan="1" rowspan="1" labelid="{3c57aec1-df15-48da-8359-3807a3cbff96}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{5e09fda9-d150-428b-8854-17d6e2a95ad8}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{b1caa6e8-cac9-4195-bd17-10845c153ea6}" showlabel="false" labelid="{0bba3591-32e8-44e1-a688-05b3bbf6cf5b}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{9b0932d8-cbaa-4b62-949f-bbe81292924b}" showlabel="false" labelid="{93032f19-d0df-4a59-9cd1-53d13bf26610}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8bc87f26-16d4-44a2-bdb6-e23a33b76198}" showlabel="false" labelid="{8d944d60-f078-4dcc-a3a5-1745ddba1ece}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="4" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+        <Role Id="{9797e917-12d5-480a-8553-1d367337039f}" />
+        <Role Id="{65b583c0-bdde-6355-728a-3efc4bab70c7}" />
+        <Role Id="{584c22a6-f7ff-4775-a000-c0c185dd8639}" />
+        <Role Id="{57f12fb3-afc3-4e52-b9c2-fc6842abb82a}" />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{59dd38d9-318b-41d7-acb3-8a715a499e08}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>cp_managersignature</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_managersignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_managersignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_managersignature</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{d1d9b7b1-ffee-4a97-b2fc-9415d278ec30}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>cp_writerssignature</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_writerssignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_writerssignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_writerssignature</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{71668a75-cd32-478e-938c-60728ba8b4a2}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_requestapproval</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_requestapproval</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_requestapproval</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_requestapproval</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <formLibraries>
+        <Library name="cp_detox_javascript_functions" libraryUniqueId="{282a16a2-63d7-4521-86f7-b65f90dab1a0}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="field_visibility_control" libraryName="cp_detox_javascript_functions" handlerUniqueId="{81292ac9-12da-45ee-b539-22fa87d87e9a}" enabled="true" parameters="&quot;cp_incidentcategory,cp_incidentcategory2,cp_incidentseverity&quot;,&quot;System Administrator,Detox Managers,Detox Directors,Detox Senior Management&quot;" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Detox" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

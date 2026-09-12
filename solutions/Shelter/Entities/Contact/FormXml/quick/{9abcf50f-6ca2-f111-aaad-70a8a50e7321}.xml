@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{9abcf50f-6ca2-f111-aaad-70a8a50e7321}</formid>
+    <IntroducedVersion>1.0.0.190</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="ACBA75B7-97B6-4116-AA55-51312992B721" name="tab_1" showlabel="false" labelid="{311566da-cff3-48d0-96ce-85760ca769a5}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="AD49B5BF-256F-46A8-9C75-947146172EB9" name="income_summary" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{afe0b93d-cd49-44d9-ab48-fe5ffca1b49a}">
+                  <labels>
+                    <label description="Income Summary" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="C0550AC7-0F44-45A4-8EF5-D2911C0689D9" labelid="{f3468036-5912-4d0d-a70c-bf5428ff9a02}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4cf84570-b911-4d70-98cd-29fdeb149ee4}" locklevel="0" colspan="1" rowspan="1" labelid="{4de42536-4a28-4867-936d-fa4fc44e3b81}">
+                        <labels>
+                          <label description="Monthly Income" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_monthlyincome" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="ahb_monthlyincome" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{44560623-f285-4e59-b7c3-0580bab9c326}" locklevel="0" colspan="1" rowspan="1" labelid="{564465c6-7ce0-4365-9cd1-71316fe20f22}">
+                        <labels>
+                          <label description="Income sources (active)" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_incomesourcecount" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="ahb_incomesourcecount" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="9" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+        <Role Id="{9797e917-12d5-480a-8553-1d367337039f}" />
+        <Role Id="{65b583c0-bdde-6355-728a-3efc4bab70c7}" />
+        <Role Id="{584c22a6-f7ff-4775-a000-c0c185dd8639}" />
+        <Role Id="{57f12fb3-afc3-4e52-b9c2-fc6842abb82a}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Quick View - Income" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Client income source" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

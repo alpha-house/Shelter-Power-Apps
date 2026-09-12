@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{d6190b35-9474-4098-9698-33f6627eb3bf}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true">
+      <DisplayConditions FallbackForm="false" Order="5" solutionaction="Modified" />
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Invite Web Form" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="This form is used by the portal to invite other's to join the portal" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

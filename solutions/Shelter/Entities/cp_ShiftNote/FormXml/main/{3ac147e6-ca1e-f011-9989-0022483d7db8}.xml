@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3ac147e6-ca1e-f011-9989-0022483d7db8}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{6592c890-7f00-497d-be1e-cd207f0e4a42}" IsUserDefined="1" labelid="{fe4ec39c-824d-4a1b-a224-68884a4e8514}" name="shift_note">
+          <labels>
+            <label description="Shift Note" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{7c7ea37f-822d-4ae9-bc04-c32948b32cdf}" labelid="{7a98d6b7-bd3e-41f3-bad3-f3a800c84bd6}" columns="11">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{da1724d8-2939-424c-a558-17a97745acc6}" locklevel="0" colspan="1" rowspan="1" labelid="{c4ac4f7b-878c-49fd-9e7a-61b5a50f71c0}" visible="true">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="header_cp_client" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_client" disabled="false">
+                          <parameters>
+                            <DependentAttributeName>cp_shiftnote.ahb_progression</DependentAttributeName>
+                            <DependentAttributeType>ahb_progression</DependentAttributeType>
+                            <FilterRelationshipName>ahb_progression_Client_contact</FilterRelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{c94f30e1-6ca0-4db0-ab87-ef4c7594677d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Unit" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_unit2" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_unit2" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{49a9d46e-c008-4996-83b3-e6d862d1d48f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Shift Note Type" languagecode="1033" />
+                        </labels>
+                        <control id="cp_shiftnotetype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_shiftnotetype" disabled="false" />
+                      </cell>
+                      <cell id="{03fe8b93-ceca-4e89-af64-30c658ad7db8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Shift Period" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_shiftperiod" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_shiftperiod" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{618ddaa9-93fe-4724-82c8-e00bec8d571f}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Created On" languagecode="1033" />
+                        </labels>
+                        <control id="createdon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                      </cell>
+                      <cell id="{c76e3d81-bac6-42b0-b9d8-bd0076369584}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Submitted By" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_submittedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ahb_submittedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1a3614bf-97c1-4b66-9f71-1063842e5b2d}" locklevel="0" colspan="1" rowspan="1" labelid="{57568bfa-3fdb-47f8-a621-5bbc21164a60}" visible="true">
+                        <labels>
+                          <label description="Shift Date and Time" languagecode="1033" />
+                        </labels>
+                        <control id="cp_shiftdateandtime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_shiftdateandtime" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{a8b8d495-7c75-4a45-a135-f2d065cdd363}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{83578b35-39fb-418a-9683-15b9fa50c0b7}" locklevel="0" colspan="2" rowspan="5">
+                        <labels>
+                          <label description="Notes" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_notes" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="ahb_notes" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{11de551e-bf03-4a8d-8d5a-7168c9fcf449}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{8a3de77e-7141-4def-b997-0be8e897840e}" showlabel="false" labelid="{6f1e724a-ddd1-4a0d-b98b-d94dc41da81f}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{34d471a1-692f-4ed4-89b9-ec253f2c2560}" showlabel="false" labelid="{7f4111bb-f7a6-44af-aff6-c9f275615e79}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3276c34b-b343-40a9-8df5-a1fbb0029019}" showlabel="false" labelid="{9fdc133c-36ff-4182-bf40-8043626e6763}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell locklevel="0" id="{e9ce3cf5-fa25-4534-bc9f-daa9aead074f}" labelid="{927c30ce-e262-4582-b163-58524f703657}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{bb835eb3-9ec4-4688-a335-3d7f759a8f71}" colspan="1" rowspan="1" visible="true" labelid="{d7234f0b-c623-46ee-ad4e-b92c73bbdec9}">
+              <labels>
+                <label description="Shift Note" languagecode="1033" />
+              </labels>
+              <control id="header_cp_shiftnote" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_shiftnote" />
+            </cell>
+            <cell locklevel="0" id="{de484650-1afe-4e99-a508-c685bd5060f5}" labelid="{90cee5e6-1616-4fac-9707-29aafec3637b}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell locklevel="0" id="{7736c74d-8fb5-46a4-8428-78f91b788455}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell locklevel="0" id="{ae3593bb-0280-4437-897b-a5b2e9aad5c7}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d59703e0-1496-4ad4-be09-29107202df3d}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owning Business Unit" languagecode="1033" />
+              </labels>
+              <control id="header_owningbusinessunit" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="owningbusinessunit" disabled="false" />
+            </cell>
+            <cell id="{f2d1cbe2-e48a-4aa1-85c3-29de56444305}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Intake" languagecode="1033" />
+              </labels>
+              <control id="header_ahb_intake" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ahb_intake" disabled="false" />
+            </cell>
+            <cell id="{64056ec9-7e4e-4793-a5a0-259bc9c2aaea}" colspan="1" rowspan="1" labelid="{570d4e79-5a17-48d9-a1b4-53cb9d63a29e}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{914de0ad-5c93-4f8c-bcb7-d55c727c5cd7}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{97e7e7f4-d59e-4ec8-a312-1517bde5a2f1}" showlabel="false" labelid="{ee3de09c-e88c-42fe-bc1a-7c70b05c7629}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{02558d89-8ea0-4816-818d-61221b19a84d}" showlabel="false" labelid="{39bbab68-b678-40d8-bdc3-1530ce385817}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6b4fddd3-bd0f-4d28-bd17-09d8b3a4b412}" showlabel="false" labelid="{12be6135-55a2-46e6-82eb-c88beafeb217}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="1" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions />
+      <formLibraries>
+        <Library name="ahb_boreal_javascript_functions" libraryUniqueId="{88c83432-6907-45fc-972d-0636ce217df7}" />
+      </formLibraries>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Boreal" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

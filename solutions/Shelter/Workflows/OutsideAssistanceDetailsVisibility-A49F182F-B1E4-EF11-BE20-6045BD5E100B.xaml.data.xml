@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{a49f182f-b1e4-ef11-be20-6045bd5e100b}" Name="Outside Assistance Details Visibility" Description="Show or hide details relating to outside assistance depending on whether there was outside assistance or not" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/OutsideAssistanceDetailsVisibility-A49F182F-B1E4-EF11-BE20-6045BD5E100B.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>2</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>cp_IncidentReport</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Outside Assistance Details Visibility" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="Show or hide details relating to outside assistance depending on whether there was outside assistance or not" />
+  </Descriptions>
+</Workflow>

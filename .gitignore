@@ -24,3 +24,7 @@
 
 # Reference image
 /reference_image.png
+
+.env
+.dataverse/
+__pycache__/

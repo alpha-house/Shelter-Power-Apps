@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{cd45b7db-7e3f-4b22-9daf-89415a4ae315}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{5bf0dffd-dc1e-4694-80c2-6fbd0a6e5441}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{9fceb064-6fdb-4cd6-8be7-d10961ee10e0}" columns="11">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e8f25771-4934-4f53-8a49-7dbfb8c79467}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Select The App You Are Having An Issue With" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_selecttheappyouarehavinganissuewith" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_selecttheappyouarehavinganissuewith" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{0e8ba950-657f-459c-9fbb-ebfd821feb23}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{70b75695-354c-459c-9a1c-0ead9911c3aa}" locklevel="0" colspan="2" rowspan="1">
+                        <labels>
+                          <label description="Please Describe The Issue You Are Having In Detail" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="ahb_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c288537f-ae64-49b3-a500-2f6739e76b4e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="How Frequently Have You Experienced This Issue" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_frequency" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_frequency" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{d8237df4-63c3-4dce-abc3-00d7171ce967}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{815cfc9a-a01e-4a12-9219-5c70505036c9}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Which Device Are You Using" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_device" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_device" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{49e05c6a-2e32-421d-bc2e-7a0ec0a4f336}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="upload" id="8e1be24a-5ba9-40b7-af36-8f78b998519b" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Upload" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell rowspan="2" id="{daf0370f-4794-40d0-9d6a-3f59c12bca4e}" showlabel="false" colspan="1">
+                        <labels>
+                          <label description="help_page_image_upload_info" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_new_1" classid="{9FDF5F91-88B1-47F4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>ahb_help_page_image_upload_info</Url>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>false</Border>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <WebResourceId>{127ed80c-573a-f011-8779-000d3af3d874}</WebResourceId>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false" active="false" />
+                        </events>
+                      </cell>
+                      <cell locklevel="0" id="{9da8e9b6-1f07-440e-a3af-d818449fbc29}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row />
+                    <row>
+                      <cell id="{8b6408f4-c5ac-4db6-a03c-5f019e45d91c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Upload" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_upload" classid="{7E548B0D-209C-477B-9DCD-F0F44472381D}" datafieldname="ahb_upload" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{42cc160a-dd00-4040-8b40-e557c3901690}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="status" id="48ce07d8-9848-434a-ac46-664cf56beaed" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Status" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{f6b0a52c-ddad-40fe-ac6f-dcc67b8cff79}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Ticket Status" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_ticketstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_ticketstatus" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{105ab38e-b45d-43e0-9dc8-cb5372db3e9e}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{b9d3cf36-76dd-412b-9b2b-ee5ee3d6fd5b}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{448a9a45-fec8-4ecd-bfe5-385be9168a85}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8d17abd5-5253-4578-83a8-4ff496453ca8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{49e22722-80d5-401c-b80e-44ce1d9ca925}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{87e064d2-a793-41b5-8469-5fc5568e5594}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owning Business Unit" languagecode="1033" />
+              </labels>
+              <control id="header_owningbusinessunit" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="owningbusinessunit" disabled="false" />
+            </cell>
+            <cell id="{41f5f7b5-2631-4745-b642-07dbf64468ca}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Ticket Date" languagecode="1033" />
+              </labels>
+              <control id="header_ahb_ticketdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ahb_ticketdate" disabled="false" />
+            </cell>
+            <cell locklevel="0" id="{aa93b121-bf34-4535-8181-df319ec9573b}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c8d84f75-3470-46f5-a067-7663c5f8bc92}" colspan="1" rowspan="1">
+              <labels>
+                <label description="AH Help" languagecode="1033" />
+              </labels>
+              <control id="header_ahb_ahhelp" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ahb_ahhelp" />
+            </cell>
+            <cell id="{6a002694-ac8d-42a5-9862-5e93904786aa}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{f3c81b80-6e2d-4571-94cc-f952dd19d7aa}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{b9380125-6bd5-4424-905b-600a60c06f04}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{525aa792-482a-489d-8405-24778276743b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8f4f11ff-208e-4646-81ea-0fac09f58088}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="ahb_boreal_javascript_functions" libraryUniqueId="{f30e40b3-dc89-4e9e-adb2-7396e2ae4770}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="HelpTicketApprovalVisibility" libraryName="ahb_boreal_javascript_functions" handlerUniqueId="{5f08fc7c-c250-431e-94df-33d13b257baf}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Help" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{3602e910-e6b2-4481-a7b7-7fba5663cf1f}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_sheltermissedbreathingroundname" select="1" icon="1" preview="1">
+        <row name="result" id="cp_sheltermissedbreathingroundid">
+          <cell name="cp_sheltermissedbreathingroundname" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="cp_date" width="100" />
+          <cell name="cp_time" width="100" />
+          <cell name="cp_numberofclientsmissed" width="189" />
+          <cell name="cp_listofmissedclients" width="165" />
+          <cell name="cp_reason" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_sheltermissedbreathinground">
+          <attribute name="cp_sheltermissedbreathingroundid" />
+          <attribute name="cp_sheltermissedbreathingroundname" />
+          <attribute name="createdon" />
+          <attribute name="cp_date" />
+          <attribute name="cp_time" />
+          <attribute name="cp_numberofclientsmissed" />
+          <attribute name="cp_listofmissedclients" />
+          <attribute name="cp_reason" />
+          <order attribute="createdon" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Shelter Missed Breathing Rounds" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

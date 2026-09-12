@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{5ffee96e-1e08-4ade-9604-ce3217e9e9e7}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_shelterbreathingroundname" select="1" icon="1" preview="1">
+        <row name="result" id="cp_shelterbreathingroundid">
+          <cell name="cp_shelterbreathingroundname" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>1</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_shelterbreathinground">
+          <attribute name="cp_shelterbreathingroundid" />
+          <attribute name="cp_shelterbreathingroundname" />
+          <attribute name="createdon" />
+          <order attribute="cp_shelterbreathingroundname" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Shelter Breathing Round Advanced Find View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

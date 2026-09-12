@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c6066ba6-6850-f011-877b-000d3af31ea9}</formid>
+    <IntroducedVersion>1.0.0.118</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="ACBA75B7-97B6-4116-AA55-51312992B721" name="tab_1" showlabel="false" labelid="{f9cc21f4-b82c-4817-80fa-cdc77badc72c}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="AD49B5BF-256F-46A8-9C75-947146172EB9" name="preferred_name" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{81f63ff7-b0e4-43a4-af18-307f28625ba3}">
+                  <labels>
+                    <label description="Preferred Name" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{70292905-d8f1-4e07-906a-16121781f4b5}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Preferred Name" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_preferredname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_preferredname" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="7" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Preferred Name" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="The Client's Preferred Name" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{b1f1a2a0-220b-f011-bae2-6045bd6057d5}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="fullname" select="1" icon="1" preview="1">
+        <row name="result" id="contactid">
+          <cell name="fullname" width="300" />
+          <cell name="address1_composite" width="100" />
+          <cell name="cp_dateofbirth" width="114" />
+          <cell name="emailaddress1" width="150" />
+          <cell name="cp_phone" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="contact">
+          <attribute name="fullname" />
+          <order attribute="fullname" descending="false" />
+          <attribute name="emailaddress1" />
+          <attribute name="contactid" />
+          <attribute name="cp_phone" />
+          <attribute name="cp_dateofbirth" />
+          <attribute name="address1_composite" />
+          <filter type="and">
+            <condition attribute="cp_creationtimetracker" operator="lt" value="60" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Latest Clients" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

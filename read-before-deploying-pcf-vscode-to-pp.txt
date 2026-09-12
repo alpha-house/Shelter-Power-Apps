@@ -1,9 +1,11 @@
-Deployed successfully. The CpShelter.MatsOverlay control was built, pushed to the Alpha House Sandbox environment, the solution imported, and all customizations published.
+The failures are too persistent for the usual transient-lock pattern — this smells like OneDrive's Files-On-Demand filter driver, which stays hooked into the folder at the OS level even after killing the tray process. Let's sidestep it entirely by building from a copy outside the OneDrive-synced tree, using PowerShell's junction support (cleaner than the cmd mklink escaping I fought with earlier).
 
-Summary:
+
+The root cause of the deploy struggles this session: pausing OneDrive made the very next push succeed on the first try, so it really was a sync backlog rather than anything wrong with the build itself. Pause OndDrive and deploy.
+
 
 Root cause of the earlier failures: OneDrive actively syncing obj\PowerAppsToolsTemp_cp was intermittently locking folders during pac's cleanup step. Clearing that temp folder before retrying resolved it.
 
 The updated menu (Remove Both + Cancel only) is now live in Sandbox — reload the Floor Plan form (or hard-refresh the browser tab) to see it.
 
-One heads-up: if you push again later and hit the same Access to the path ... is denied error, it's this same OneDrive-lock pattern — just delete shelter_code/obj/PowerAppsToolsTemp_cp and retry.
+One heads-up: if you push again later and hit the same Access to the path ... is denied error, it's this same OneDrive-lock pattern — just delete /obj/PowerAppsToolsTemp_cp and retry.

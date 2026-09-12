@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{a343c5b1-ee85-450f-a25f-539b4cab37df}</formid>
+    <IntroducedVersion>1.0.0.8</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{0aa48d6e-cf3d-495a-9ccb-c2a0a99e6d13}" IsUserDefined="1" name="general">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{1890864f-7775-4bdf-8b60-f00b9639bb57}" columns="11">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{ac47351b-3092-4920-9e39-31f217ea0f82}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{23235950-57cc-4f76-81da-15802f9d8e31}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{19198ea8-87e4-4439-a30b-66a0b1651280}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Alert Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_alertdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_alertdate" disabled="false" />
+                      </cell>
+                      <cell id="{5259c350-cb5a-47ea-9efd-23a4bace0219}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="cp_client" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_client" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{11839d13-8c0a-4fab-bfa1-37b5ff7ea31c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Shelter Checkin" languagecode="1033" />
+                        </labels>
+                        <control id="cp_sheltercheckin" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_sheltercheckin" disabled="false" />
+                      </cell>
+                      <cell id="{057177cb-5d6c-4083-9c3b-8cc8bd690f6d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Mark As Read" languagecode="1033" />
+                        </labels>
+                        <control id="cp_markasread" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_markasread" disabled="false" uniqueid="{dd24f23e-4d8d-4c40-a8a3-30f0ca6fba2b}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_3" id="5b1c2562-0c9a-4bf6-8fa8-e43f275841b2" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{786db639-5877-4e0d-9c67-d655f7f19d1d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Alert Description" languagecode="1033" />
+                        </labels>
+                        <control id="cp_alertdescription" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_alertdescription" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{46267637-82e1-40ae-aae2-96b64779b1d1}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{90a57a61-651b-4d6e-b6f0-65c3bdd1ee3d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d292187d-aa9d-4627-a316-8e0353721fee}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{cb31ffcf-f7ae-4c70-af5e-ab1b93d4fd3c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{9f4d6665-88f7-4bd3-9c81-fb163a0bd1bd}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Client-Alert" languagecode="1033" />
+              </labels>
+              <control id="header_cp_clientalert" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_clientalert" />
+            </cell>
+            <cell id="{fcddcb83-2ab8-48d6-9d9d-f1b36808d651}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{da423c86-b762-45fd-854c-2177462ed59b}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{e6eebc30-ffd0-47fa-ba8a-9d981adafd2f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3ac6a7a0-30b3-4bd2-9586-285c13adf960}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0d2fb99d-547a-4a9b-b964-bd1a8caccaa5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{dd24f23e-4d8d-4c40-a8a3-30f0ca6fba2b}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_markasread</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_markasread</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_markasread</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_markasread</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Client Alert" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

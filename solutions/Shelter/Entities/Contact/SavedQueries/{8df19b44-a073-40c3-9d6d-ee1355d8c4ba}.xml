@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{8df19b44-a073-40c3-9d6d-ee1355d8c4ba}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="fullname" select="1" icon="1" preview="1">
+        <row name="result" id="contactid">
+          <cell name="fullname" width="201" />
+          <cell name="firstname" width="103" />
+          <cell name="lastname" width="102" />
+          <cell name="cp_ahcnumber" width="118" />
+          <cell name="cp_hmisfilenumber" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="contact">
+          <attribute name="fullname" />
+          <attribute name="contactid" />
+          <order attribute="fullname" descending="false" />
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="fullname" operator="like" value="{0}" />
+            <condition attribute="firstname" operator="like" value="{0}" />
+            <condition attribute="lastname" operator="like" value="{0}" />
+            <condition attribute="middlename" operator="like" value="{0}" />
+            <condition attribute="cp_hmisfilenumber" operator="like" value="{0}" />
+            <condition attribute="cp_ahcnumber" operator="like" value="{0}" />
+          </filter>
+          <attribute name="cp_hmisfilenumber" />
+          <attribute name="firstname" />
+          <attribute name="lastname" />
+          <attribute name="cp_ahcnumber" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Contacts" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

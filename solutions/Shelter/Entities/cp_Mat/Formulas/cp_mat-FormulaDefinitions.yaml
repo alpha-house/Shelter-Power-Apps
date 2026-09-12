@@ -1,0 +1,30 @@
+cp_fillcolor: |-
+    =If(
+        Not(IsBlank(cp_Client)), 
+        "#BB4B26", 
+        "#A0A972"
+    )
+cp_occupied: |-
+    =If(
+        Not IsBlank(cp_Client), 
+        Text("True"), 
+        Text("False")
+    )
+cp_strokecolor: |-
+    =If(
+        cp_matgender = Text("Female"), 
+        "#F7FF6B", 
+        If( 
+            cp_matgender = Text("Male"), 
+            "#383838",
+            If(cp_matgender = Text("High Intox"),
+            "#FF0000"
+            )
+        )
+    )
+cp_vacant: |-
+    =If(
+        IsBlank(cp_Client), 
+        Text("True"), 
+        Text("False")
+    )

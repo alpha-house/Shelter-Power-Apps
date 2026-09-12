@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{f76f33da-6e2f-4b2a-8b56-32ab86915d19}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_clientalert" select="1" icon="1" preview="1">
+        <row name="result" id="cp_clientalertid">
+          <cell name="cp_clientalert" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="cp_markasread" width="122" />
+          <cell name="cp_alertdate" width="100" />
+          <cell name="cp_alertdescription" width="138" />
+          <cell name="cp_client" width="100" />
+          <cell name="cp_sheltercheckin" width="130" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_clientalert">
+          <attribute name="cp_clientalertid" />
+          <attribute name="cp_clientalert" />
+          <attribute name="createdon" />
+          <order attribute="cp_clientalert" descending="false" />
+          <attribute name="cp_alertdate" />
+          <attribute name="cp_alertdescription" />
+          <attribute name="cp_client" />
+          <attribute name="cp_sheltercheckin" />
+          <attribute name="cp_markasread" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.8</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Client Alerts" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

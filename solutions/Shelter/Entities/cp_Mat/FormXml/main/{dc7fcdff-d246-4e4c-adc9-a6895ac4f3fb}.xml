@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{dc7fcdff-d246-4e4c-adc9-a6895ac4f3fb}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{4d519ec1-8421-47fe-a8d0-50407aa11428}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{814e36e6-ff82-40a3-971a-4722df098ea5}" columns="11" name="mat_fields">
+                  <labels>
+                    <label description="Mat Fields" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a42f5172-5704-4444-b704-6407f26e7d1f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="cp_client" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_client" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f35a2b43-2398-42a5-8964-575db6a61801}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Mat Label" languagecode="1033" />
+                        </labels>
+                        <control id="cp_matlabel" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_matlabel" disabled="false" />
+                      </cell>
+                      <cell id="{00851327-6e47-4992-9439-9e51ad075fc7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Shelter Checkin" languagecode="1033" />
+                        </labels>
+                        <control id="cp_sheltercheckin" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_sheltercheckin" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{14837dfe-86eb-465d-b87e-84198ce0b514}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{17bb7385-8a3a-42e7-95f1-1caffead000a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Mat Plan" languagecode="1033" />
+                        </labels>
+                        <control id="cp_matplan" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_matplan" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{45895ed0-a4bd-4929-9f13-e3e5939b6c89}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="X Position" languagecode="1033" />
+                        </labels>
+                        <control id="cp_xposition" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="cp_xposition" disabled="false" />
+                      </cell>
+                      <cell id="{ab5808ab-5009-45df-b63e-5f028cca7920}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Mat Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_matnumber" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="cp_matnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{570aca11-488c-4077-adc7-2d066ff9411f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Mat Width" languagecode="1033" />
+                        </labels>
+                        <control id="cp_matwidth" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="cp_matwidth" disabled="false" />
+                      </cell>
+                      <cell id="{6a1a8271-41d4-42a1-8e96-b63823b82b15}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Fill Color" languagecode="1033" />
+                        </labels>
+                        <control id="cp_fillcolor" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_fillcolor" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{34c8d31e-5269-430b-aa63-6b45f98e4767}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Mat Gender" languagecode="1033" />
+                        </labels>
+                        <control id="cp_matgender" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_matgender" disabled="false" />
+                      </cell>
+                      <cell id="{33210390-4f33-4e44-90a9-e3a80cd86a99}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Stroke Color" languagecode="1033" />
+                        </labels>
+                        <control id="cp_strokecolor" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_strokecolor" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{fbf99964-4510-41c0-b19f-71d0203e3961}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Vacant" languagecode="1033" />
+                        </labels>
+                        <control id="cp_vacant" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_vacant" disabled="false" />
+                      </cell>
+                      <cell id="{1be5ef16-602c-4d2b-bcb0-c444f8f64bac}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Y Position" languagecode="1033" />
+                        </labels>
+                        <control id="cp_yposition" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="cp_yposition" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b4ed7c49-7bfb-4577-af70-596659c68bae}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Occupied" languagecode="1033" />
+                        </labels>
+                        <control id="cp_occupied" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_occupied" disabled="false" />
+                      </cell>
+                      <cell id="{1a36b651-7d2e-40d5-aedd-5fb353e0adf2}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Mat Height" languagecode="1033" />
+                        </labels>
+                        <control id="cp_matheight" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="cp_matheight" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{c1a0796a-2905-40c0-8237-4cc25a0d0eaa}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{ad28c3f6-4dae-4275-8766-c14cbf4b87da}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{daae8da8-7edd-4c67-99f7-fa5b5d1e4a03}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c95d7b53-7706-47a7-af25-e72e9efd40b2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5af1de61-3ae4-42b9-892e-78717352452a}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Mat Gender" languagecode="1033" />
+              </labels>
+              <control id="header_cp_matgender" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_matgender" disabled="false" />
+            </cell>
+            <cell id="{20260129-056a-4b58-b748-c44ebcf03f8c}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Mat" languagecode="1033" />
+              </labels>
+              <control id="header_cp_mat" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_mat" />
+            </cell>
+            <cell id="{691488a6-f956-4e60-b5d3-ec68530db498}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{dd0e5501-b850-4a95-ac96-5ef3649fce4a}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{5c9fb669-b40f-4cc8-a3c5-7df0d99f731e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{58dc83dc-7052-4c17-92e8-1f1f20f4229f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ae97e631-c57c-4292-a3ea-4e16e3d4fa79}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Shelter" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

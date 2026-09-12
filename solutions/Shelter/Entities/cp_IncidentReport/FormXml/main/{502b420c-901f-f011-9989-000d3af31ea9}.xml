@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{502b420c-901f-f011-9989-000d3af31ea9}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{bb757637-d785-434b-b7b4-ce7064999033}" IsUserDefined="1" labelid="{5b4f7805-9237-43de-b785-25cb470617ab}">
+          <labels>
+            <label description="Incident Report" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="null_section_3" id="131a53dc-0979-468a-9123-1c4e37d78488" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{cdc0157b-6bc3-4b2a-855e-6f367804643f}">
+                  <labels>
+                    <label description="Client Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{4997b71e-20ed-4e14-894c-d75f4fa756b6}" locklevel="0" colspan="1" rowspan="1" labelid="{3a6d1835-5ac5-4d99-96a6-103d3f017223}">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="cp_client" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_client" disabled="false">
+                          <parameters>
+                            <DependentAttributeName>cp_incidentreport.ahb_residency</DependentAttributeName>
+                            <DependentAttributeType>ahb_progression</DependentAttributeType>
+                            <FilterRelationshipName>ahb_progression_Client_contact</FilterRelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{d99ae479-e6f7-4993-bfaf-fb6db31d4eec}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Level of Intoxication" languagecode="1033" />
+                        </labels>
+                        <control id="cp_levelofintoxication" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_levelofintoxication" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4efe6885-c622-45e9-81a7-70c39f5ff99e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="HMIS File Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_hmisfilenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_hmisfilenumber" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{5cb4e630-0e9c-4fd2-8554-71a616ceba9b}" columns="11" labelid="{edfcb757-f1e9-4653-8081-707db90715e3}">
+                  <labels>
+                    <label description="Incident Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{a4976a10-5c25-422d-a7b5-6d5afe4705f8}" labelid="{1b802522-8d4d-494a-bb94-21b9cc5378cc}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{86486466-aa1b-42d7-9ae4-a0c5ea5b9eda}" labelid="{000d30bb-6012-4bef-af20-cd162c20d47c}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{69e6c91d-cc37-4fcc-85f7-ec6ed1379ea0}" locklevel="0" colspan="1" rowspan="1" labelid="{70d8254f-06c7-4c91-a992-6bdc211657a9}">
+                        <labels>
+                          <label description="Area" languagecode="1033" />
+                        </labels>
+                        <control id="cp_area" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_area" disabled="false" />
+                      </cell>
+                      <cell id="{ee094d80-23c5-4b02-824f-aa99cf5ade2f}" locklevel="0" colspan="1" rowspan="1" labelid="{ca42ae3d-2297-4b24-ae88-a94b97210f59}">
+                        <labels>
+                          <label description="Description of incident" languagecode="1033" />
+                        </labels>
+                        <control id="cp_descriptionofincident" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_descriptionofincident" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{82f58810-5ef7-437d-82e4-b47014e3a059}" locklevel="0" colspan="1" rowspan="1" labelid="{280bc39d-6e13-4483-a97b-0483ed7ad735}">
+                        <labels>
+                          <label description="Incident Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_incidentdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_incidentdate" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_4" id="0c6fd7ee-7447-4511-b6da-75833b86083f" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" labelid="{437e836b-06d1-43d3-b41f-0c69c307e486}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{cc4b9715-9623-4ec8-b6d3-e5ce15bb360b}" locklevel="0" colspan="1" rowspan="1" labelid="{c53832e7-13d3-4ced-9575-64e678cf3967}">
+                        <labels>
+                          <label description="Incident Recorded By" languagecode="1033" />
+                        </labels>
+                        <control id="cp_incidentrecordedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_incidentrecordedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ce34ad16-f8e0-4218-a585-17f2eef598cc}" locklevel="0" colspan="1" rowspan="1" labelid="{508db0d4-7d18-41c9-82b8-07cccf1ca57a}">
+                        <labels>
+                          <label description="People Involved" languagecode="1033" />
+                        </labels>
+                        <control id="cp_peopleinvolved" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_peopleinvolved" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2461d366-0102-4f62-83a9-7d1a9cba2e58}" locklevel="0" colspan="1" rowspan="1" labelid="{a74f81f9-49b7-4a43-8dc5-398b95b7d454}">
+                        <labels>
+                          <label description="Shift Supervisor" languagecode="1033" />
+                        </labels>
+                        <control id="cp_shiftsupervisor" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_shiftsupervisor" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e49ee521-b053-48df-995d-2ffe7f3b7777}" locklevel="0" colspan="1" rowspan="1" labelid="{cc5dd69e-f8dc-4a60-be57-f4dbab49b7f2}">
+                        <labels>
+                          <label description="Was There A Staff Injury" languagecode="1033" />
+                        </labels>
+                        <control id="cp_wasthereastaffinjury" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_wasthereastaffinjury" disabled="false" uniqueid="{260424a6-2f8f-41bd-8831-dad6c545b0fd}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{22d64634-c60a-4697-90c8-358a1568f568}" locklevel="0" colspan="1" rowspan="1" labelid="{7f922a88-07de-49be-8c40-1b663f91abfb}">
+                        <labels>
+                          <label description="List Injured Staff and Injuries" languagecode="1033" />
+                        </labels>
+                        <control id="cp_listinjuredstaffandinjuries" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_listinjuredstaffandinjuries" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_5" id="0049d024-9a89-4a0a-abd8-03d323756d36" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" labelid="{b81c54a9-4ce7-4898-90b9-a6d93bec6d36}">
+                  <labels>
+                    <label description="Action Taken and Protocols" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{ccc8ad35-f955-4027-9a0c-322dcf883e07}" locklevel="0" colspan="1" rowspan="1" labelid="{c5ea5779-db91-4f71-a489-8bc17a271aeb}">
+                        <labels>
+                          <label description="Action Taken" languagecode="1033" />
+                        </labels>
+                        <control id="cp_actiontaken" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_actiontaken" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{98e98ffe-e7f7-41d0-83ab-5d202421e4c5}" locklevel="0" colspan="1" rowspan="1" labelid="{00a4d706-c6b0-43d8-af71-898cfefcf37c}">
+                        <labels>
+                          <label description="Protocols Followed" languagecode="1033" />
+                        </labels>
+                        <control id="cp_protocolsfollowed" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_protocolsfollowed" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2992414f-64aa-43a5-9078-9eec212bc190}" locklevel="0" colspan="1" rowspan="1" labelid="{1d071c0c-f36b-46ba-8960-f3677c6b4162}">
+                        <labels>
+                          <label description="Outside Assistance Required" languagecode="1033" />
+                        </labels>
+                        <control id="cp_outsideassistancerequired" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_outsideassistancerequired" disabled="false" uniqueid="{e6b38b2c-1d81-4cc9-87df-61e952b2e62c}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6f8af2bb-364a-40f3-bf8d-d8fda540892b}" locklevel="0" colspan="1" rowspan="1" labelid="{a07285cc-a325-444b-b7e2-754468b526b3}">
+                        <labels>
+                          <label description="Outside Personnel Name/Badge #" languagecode="1033" />
+                        </labels>
+                        <control id="cp_outsidepersonnelnamebadge" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_outsidepersonnelnamebadge" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6e57e647-7ef9-49bb-b5b8-625f7c4e1bc3}" locklevel="0" colspan="1" rowspan="1" labelid="{4eb0458d-fae7-4203-b731-77cfc87f1912}">
+                        <labels>
+                          <label description="Action Taken As A Result Of Outside Assistance" languagecode="1033" />
+                        </labels>
+                        <control id="cp_actiontakenasaresultofoutsideassistance" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_actiontakenasaresultofoutsideassistance" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9959dac2-0709-4edf-afba-205bcba7fbc7}" locklevel="0" colspan="1" rowspan="1" labelid="{9c90a717-8448-40bd-9a31-a3d44aab8827}">
+                        <labels>
+                          <label description="Supplementary Remarks" languagecode="1033" />
+                        </labels>
+                        <control id="cp_supplementaryremarks" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_supplementaryremarks" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_6" id="f0dd7441-72b4-4dcb-844f-da47f2455310" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{f6855ba7-81a4-450f-b163-0547a31b7f1e}">
+                  <labels>
+                    <label description="Overdoes/Staff Injury Info" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{529c431a-7ed5-4014-b48f-71d377b98119}" labelid="{f7b1d990-bb80-4721-9af4-12da42b98a63}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{84c51818-c427-420b-ad1c-57e62d55c8a0}" labelid="{1864f2aa-01f3-4ac1-a1e6-f8c527881643}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{22ef501a-9e14-442b-802a-e647789b996b}" locklevel="0" colspan="1" rowspan="1" labelid="{0b013b4f-7ef8-480b-9cc1-3e18c7ea8fca}">
+                        <labels>
+                          <label description="Staff Debrief Done" languagecode="1033" />
+                        </labels>
+                        <control id="cp_staffdebriefdone" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_staffdebriefdone" disabled="false" uniqueid="{a843e49e-0d6d-4972-a368-05374ff64554}" />
+                      </cell>
+                      <cell locklevel="0" id="{3655ddcd-72f9-42d7-85a9-74d4f1368609}" labelid="{2e93d01b-8991-498b-b594-6e5ca3073c0a}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1f3afa80-766e-4e10-a1bb-97126fff6747}" locklevel="0" colspan="1" rowspan="1" labelid="{ddcfa6e3-a2ae-4b50-8c3e-dcfa0f213120}">
+                        <labels>
+                          <label description="Shift Supervisor/Manager Present" languagecode="1033" />
+                        </labels>
+                        <control id="cp_shiftsupervisormanagerpresent" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_shiftsupervisormanagerpresent" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{0352ea1b-99e8-4def-a6e0-900dba343611}" labelid="{2fc8cec3-d736-4ff6-a42b-f228f066e3b0}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6447f17a-3814-4211-bc1d-9f402d9cbb05}" locklevel="0" colspan="1" rowspan="1" labelid="{7af9bb37-4f31-4ec4-8570-a9b27274699b}">
+                        <labels>
+                          <label description="Staff Present For Debrief" languagecode="1033" />
+                        </labels>
+                        <control id="cp_staffpresentfordebrief" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_staffpresentfordebrief" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{ed46f0f0-c739-4b10-ab81-3d4ac2e8ba98}" labelid="{1bb94b5a-216b-4a09-916c-589c476677ba}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{22626142-fd38-4a1c-8022-6eedebe99c6a}" locklevel="0" colspan="1" rowspan="1" labelid="{d1435a26-3a97-49a9-9ab2-5295efe33bf1}">
+                        <labels>
+                          <label description="Staff Not Present For Debrief" languagecode="1033" />
+                        </labels>
+                        <control id="cp_staffnotpresentfordebrief" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_staffnotpresentfordebrief" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{f3c70b2d-a312-437f-842e-0503b66ddc9f}" labelid="{cbd0b8d1-57bd-480c-a3d4-b500ef462ec3}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{71c17282-04f8-4bcd-b0ff-d3d51d6a7b87}" locklevel="0" colspan="1" rowspan="1" labelid="{8a141fb3-09b0-4bb2-90e3-8fd28c6ee894}">
+                        <labels>
+                          <label description="Staff Refused Debrief" languagecode="1033" />
+                        </labels>
+                        <control id="cp_staffrefuseddebrief" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_staffrefuseddebrief" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{bea15f7b-c84c-4f68-9fb4-f9f380b1623d}" labelid="{d0f72f84-4dbb-4688-a7b8-bac7cb8f1a9b}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b888d50c-8efe-433a-8842-f3a6fcce1590}" locklevel="0" colspan="1" rowspan="1" labelid="{7fc8da55-e105-4624-bdb8-815dd9cfd9db}">
+                        <labels>
+                          <label description="Incident and Injury Report Sent To Manager and HR" languagecode="1033" />
+                        </labels>
+                        <control id="cp_cidentandinjuryreportsenttomanagerandhr" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_cidentandinjuryreportsenttomanagerandhr" disabled="false" uniqueid="{3a96a7e3-711f-4834-8d00-560da6bfa738}" />
+                      </cell>
+                      <cell locklevel="0" id="{654dbd4b-216f-4c0c-80a3-f63dd51be7d9}" labelid="{8bd1210f-d773-4f1c-b414-14d99067fea0}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1c77d822-0e80-424b-81a3-a37d5bfe63aa}" locklevel="0" colspan="1" rowspan="1" labelid="{45fab99e-1ca7-4b9f-84bf-fac426ebf039}">
+                        <labels>
+                          <label description="Overdose Stats Added To Overdose Stat Collection S" languagecode="1033" />
+                        </labels>
+                        <control id="cp_overdosestatsaddedtooverdosestatcollections" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_overdosestatsaddedtooverdosestatcollections" disabled="false" uniqueid="{94a83f59-e789-4385-8595-a6171468fe8c}" />
+                      </cell>
+                      <cell locklevel="0" id="{f8813415-47f4-4cb2-91af-8151b414142e}" labelid="{8445d45a-aa57-4b53-aef7-bffbea66f688}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_7" id="6c162b20-0c79-466e-b59a-3f40cf1e3cd1" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Top" columns="1" labelwidth="115" labelid="{966e0fda-38c6-4c44-99fe-4fad10d47449}">
+                  <labels>
+                    <label description="Critical Incident Reported" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{3c324e2a-6fb8-4cf7-9a9e-9c5d5c9ede6d}" locklevel="0" colspan="1" rowspan="1" labelid="{661aa82b-78bf-4819-991a-1144ec8d8cff}">
+                        <labels>
+                          <label description="This incident requires the client to be re-informed of rights (E.g. to initiate a grievance, contact an advocate, etc.)" languagecode="1033" />
+                        </labels>
+                        <control id="cp_incidentrequiresclientbereinformedofrights" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_incidentrequiresclientbereinformedofrights" disabled="false" uniqueid="{71db1f22-3f3f-4b6c-8487-db359e60381e}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0266af4d-ae5c-404f-91f0-f7ed065b733c}" locklevel="0" colspan="1" rowspan="1" visible="true" labelid="{7a176bc0-28b1-44e4-b304-1a1d33b6e2e2}">
+                        <labels>
+                          <label description="Client Re-informed Of Rights On" languagecode="1033" />
+                        </labels>
+                        <control id="cp_clientreinformedofrightson" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_clientreinformedofrightson" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{048a085f-d018-4d52-8e16-2ab2c751db71}" locklevel="0" colspan="1" rowspan="1" labelid="{66f2ed9a-11c3-413c-ac65-071be1a80163}">
+                        <labels>
+                          <label description="If necessary, appropriate authorities have been informed within 24 hours (E.g. funder, legal guardian, etc.)" languagecode="1033" />
+                        </labels>
+                        <control id="cp_authoritieshavebeeninformedwithin24hours" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_authoritieshavebeeninformedwithin24hours" disabled="false" uniqueid="{20e2bb93-95ce-44b1-ae5f-03d6dbc85eba}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_8" id="2a80e70a-0eb7-4a8e-a67a-43f07b7ea15a" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{62e950bf-30c1-4bc6-bf31-cac1cc136a7a}">
+                  <labels>
+                    <label description="Signatures" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{70d30c75-08bd-4d65-9e4a-88840bf2ca71}" locklevel="0" colspan="1" rowspan="1" labelid="{daef95ca-e3da-4ead-8d06-70be25ab06e1}">
+                        <labels>
+                          <label description="Manager Signature" languagecode="1033" />
+                        </labels>
+                        <control id="cp_managersignature" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_managersignature" disabled="false" uniqueid="{aa74fee2-94e6-4ebf-b865-ad96aaba5e26}" />
+                      </cell>
+                      <cell locklevel="0" id="{d65adab4-692d-42d8-8137-046de36dc95c}" labelid="{a782d5a6-6439-43a9-a81f-03cfa2e0a973}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell rowspan="3" id="{b2a7450b-d9a3-4766-920f-3166bd3ba6b0}" showlabel="false" colspan="2" labelid="{9471de55-8b83-4224-9c04-2cfe307de53d}">
+                        <labels>
+                          <label description="Staff Incident Report Consent" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_new_1" classid="{9FDF5F91-88B1-47F4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>cp_staff_incident_report_consent</Url>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>false</Border>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <WebResourceId>{dd156cc6-110f-f011-998a-6045bd5cb884}</WebResourceId>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false" active="false" />
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{03f8aa2c-72a5-434c-87dc-63432b210eff}" locklevel="0" colspan="1" rowspan="1" labelid="{6c0104a0-3ba1-427e-93b5-63713e8a491a}">
+                        <labels>
+                          <label description="Staff Signatures" languagecode="1033" />
+                        </labels>
+                        <control id="cp_staffsignatures" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_staffsignatures" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{9d57c6b9-8716-4b53-8efb-d26f709e5b18}" labelid="{f3c382b9-d1d1-4563-9805-bc942275ef21}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{a5df2eee-a0bf-4a4b-aac9-383ad7b84e2a}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{951a2d09-0854-42f8-87b0-872d8c9fdd40}" showlabel="false" labelid="{c3631145-2484-43c6-9b02-3c9827e27b55}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4ddcad9c-9cfa-48fa-8557-07bdb440b8e9}" showlabel="false" labelid="{7700a02a-35fe-4b9c-802f-eee6e83c3349}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{97ed3ce8-faec-4dfb-8a8f-e50dbd165128}" showlabel="false" labelid="{f0eff58e-1afd-44e3-9f1c-5af988b5f377}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{09a80329-7983-49b5-a77e-be7506b3c059}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owning Business Unit" languagecode="1033" />
+              </labels>
+              <control id="header_owningbusinessunit" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="owningbusinessunit" disabled="false" />
+            </cell>
+            <cell id="{d91a22af-c3fc-41cf-aba0-0463b07eda79}" colspan="1" rowspan="1" labelid="{60663090-6afa-431e-a610-170db7ff6b83}">
+              <labels>
+                <label description="Incident Report" languagecode="1033" />
+              </labels>
+              <control id="header_cp_incidentreport" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_incidentreport" />
+            </cell>
+            <cell id="{0accd589-6aac-4416-9a79-a27e90d358e4}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Residency" languagecode="1033" />
+              </labels>
+              <control id="header_ahb_residency" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ahb_residency" disabled="false" />
+            </cell>
+            <cell id="{e03aa96f-1335-4372-9c4c-807662567212}" colspan="1" rowspan="1" labelid="{f8068cad-6384-4a06-83e6-e9970e9b0f6f}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{5e09fda9-d150-428b-8854-17d6e2a95ad8}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{b1caa6e8-cac9-4195-bd17-10845c153ea6}" showlabel="false" labelid="{17beec09-3b10-4557-8d2e-84b93d0f29c0}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{9b0932d8-cbaa-4b62-949f-bbe81292924b}" showlabel="false" labelid="{95c00b2f-c07c-4cc8-9ba5-08c5c49b14a8}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8bc87f26-16d4-44a2-bdb6-e23a33b76198}" showlabel="false" labelid="{448b0d88-46dd-4203-b443-f51c1bda1284}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="3" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{260424a6-2f8f-41bd-8831-dad6c545b0fd}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_wasthereastaffinjury</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_wasthereastaffinjury</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_wasthereastaffinjury</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_wasthereastaffinjury</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{e6b38b2c-1d81-4cc9-87df-61e952b2e62c}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_outsideassistancerequired</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_outsideassistancerequired</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_outsideassistancerequired</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_outsideassistancerequired</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{a843e49e-0d6d-4972-a368-05374ff64554}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_staffdebriefdone</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_staffdebriefdone</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_staffdebriefdone</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_staffdebriefdone</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{3a96a7e3-711f-4834-8d00-560da6bfa738}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_cidentandinjuryreportsenttomanagerandhr</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_cidentandinjuryreportsenttomanagerandhr</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_cidentandinjuryreportsenttomanagerandhr</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_cidentandinjuryreportsenttomanagerandhr</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{94a83f59-e789-4385-8595-a6171468fe8c}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_overdosestatsaddedtooverdosestatcollections</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_overdosestatsaddedtooverdosestatcollections</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_overdosestatsaddedtooverdosestatcollections</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_overdosestatsaddedtooverdosestatcollections</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{71db1f22-3f3f-4b6c-8487-db359e60381e}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_incidentrequiresclientbereinformedofrights</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_incidentrequiresclientbereinformedofrights</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_incidentrequiresclientbereinformedofrights</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_incidentrequiresclientbereinformedofrights</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{20e2bb93-95ce-44b1-ae5f-03d6dbc85eba}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_authoritieshavebeeninformedwithin24hours</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_authoritieshavebeeninformedwithin24hours</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_authoritieshavebeeninformedwithin24hours</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_authoritieshavebeeninformedwithin24hours</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{aa74fee2-94e6-4ebf-b865-ad96aaba5e26}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>cp_managersignature</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_managersignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_managersignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_managersignature</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Boreal" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

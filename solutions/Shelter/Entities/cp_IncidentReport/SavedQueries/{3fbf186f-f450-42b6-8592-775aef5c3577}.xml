@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{3fbf186f-f450-42b6-8592-775aef5c3577}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_incidentreport" select="1" icon="1" preview="1">
+        <row name="result" id="cp_incidentreportid">
+          <cell name="cp_iridentifierautonumber" width="184" />
+          <cell name="cp_iridentifier" width="110" />
+          <cell name="cp_incidentreport" width="300" />
+          <cell name="cp_descriptionofincident" width="170" />
+          <cell name="cp_pleaseselecttheserviceforthisreport" width="278" />
+          <cell name="cp_protocolsfollowed" width="150" />
+          <cell name="cp_actiontakenasaresultofoutsideassistance" width="317" />
+          <cell name="cp_directorrecommendations" width="195" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_incidentreport">
+          <attribute name="cp_incidentreportid" />
+          <attribute name="cp_incidentreport" />
+          <order attribute="cp_incidentreport" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="cp_incidentreport" operator="like" value="{0}" />
+            <condition attribute="cp_descriptionofincident" operator="like" value="{0}" />
+            <condition attribute="cp_pleaseselecttheserviceforthisreport" operator="like" value="{0}" />
+            <condition attribute="cp_protocolsfollowed" operator="like" value="{0}" />
+            <condition attribute="cp_actiontakenasaresultofoutsideassistance" operator="like" value="{0}" />
+            <condition attribute="cp_directorrecommendations" operator="like" value="{0}" />
+            <condition attribute="cp_iridentifierautonumber" operator="like" value="{0}" />
+            <condition attribute="cp_iridentifier" operator="like" value="{0}" />
+          </filter>
+          <attribute name="cp_descriptionofincident" />
+          <attribute name="cp_pleaseselecttheserviceforthisreport" />
+          <attribute name="cp_protocolsfollowed" />
+          <attribute name="cp_actiontakenasaresultofoutsideassistance" />
+          <attribute name="cp_directorrecommendations" />
+          <attribute name="cp_iridentifierautonumber" />
+          <attribute name="cp_iridentifier" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Incident Reports" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

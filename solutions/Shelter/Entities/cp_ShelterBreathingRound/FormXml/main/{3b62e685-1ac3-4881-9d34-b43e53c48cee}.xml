@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3b62e685-1ac3-4881-9d34-b43e53c48cee}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{a234892b-7376-4d62-bba2-a3d569b05e0c}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{5d77a9b3-a0dc-49f1-bab7-f009bc65cd6d}" columns="11">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{343fc330-2ac0-4a51-b40c-e865f85c9dae}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Breathing Round Completed" languagecode="1033" />
+                        </labels>
+                        <control id="cp_breathingroundcompleted" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_breathingroundcompleted" disabled="false" uniqueid="{1c09a6ea-001a-427b-888a-895779045d74}" />
+                      </cell>
+                      <cell id="{bc1a72db-9a94-4946-b2b8-5693b69c9ab6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Completed By" languagecode="1033" />
+                        </labels>
+                        <control id="cp_completedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_completedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{46a49a49-4284-456a-8cf9-a739c96dae68}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="cp_client" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_client" disabled="false" />
+                      </cell>
+                      <cell id="{144dcfc8-3dcc-4302-915c-2344f85b162a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Shelter Checkin" languagecode="1033" />
+                        </labels>
+                        <control id="cp_sheltercheckin" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_sheltercheckin" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_3" id="14e9dee7-1f06-4aa7-bc0e-6a16f22e037e" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{607b79f2-9953-47a3-8438-9552555842a5}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_date" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_date" disabled="false" />
+                      </cell>
+                      <cell id="{a9bf49ee-6ba9-492e-94aa-08d13654d26a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Time" languagecode="1033" />
+                        </labels>
+                        <control id="cp_dateandtime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_dateandtime" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{bc87c73e-bbb3-4ff4-90e8-36e6fc3d63ee}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{ebe59526-a921-497a-a9c4-27ac276ecff4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{81684357-910d-44d7-85f5-2c607bc89979}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5c74c3a2-00f1-401b-b1e1-2b9623beac57}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{abdb8165-be72-4094-82bb-4a93e76b17e3}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Shelter Breathing Round Name" languagecode="1033" />
+              </labels>
+              <control id="header_cp_shelterbreathingroundname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_shelterbreathingroundname" />
+            </cell>
+            <cell id="{5ff843f0-d561-4e47-800b-480cf269ca7d}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{a8a4f142-3095-455d-98b0-7ef6ca532207}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{03344f28-7773-4c23-9cf2-c0e2ba99686c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4b57c8b4-d0f0-4feb-9515-65c5f8b6592c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{289e6bae-e564-4c4b-85a8-ada437d56c3c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{1c09a6ea-001a-427b-888a-895779045d74}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_breathingroundcompleted</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_breathingroundcompleted</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_breathingroundcompleted</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_breathingroundcompleted</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Shelter Breathing Round" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{54a8f640-c7ad-ef11-a72c-6045bd610ed6}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="ACBA75B7-97B6-4116-AA55-51312992B721" name="tab_1" showlabel="false" labelid="{ff5984b5-1097-45df-838d-85986d2fe6b3}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="AD49B5BF-256F-46A8-9C75-947146172EB9" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{b4b2a671-c134-473c-b37a-b605adf2f0b7}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="C0550AC7-0F44-45A4-8EF5-D2911C0689D9" labelid="{46d0ac43-8cd0-422d-9954-331456416a83}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{23b030ba-b95f-44ae-a35f-5e28f7927046}" locklevel="0" colspan="1" rowspan="1" labelid="{287c5218-db9b-4abd-b9d2-faa9c44292c0}" visible="false">
+                        <labels>
+                          <label description="Last Name" languagecode="1033" />
+                        </labels>
+                        <control id="lastname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="lastname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1489d272-cc1e-49cd-9740-ccfbd9dc8df9}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Date of Birth" languagecode="1033" />
+                        </labels>
+                        <control id="cp_dateofbirth" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_dateofbirth" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{97721599-58a8-48a6-a205-ecacf17451ec}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Age" languagecode="1033" />
+                        </labels>
+                        <control id="cp_age" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="cp_age" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1dcce800-9e5e-4a7f-9b39-5f2ff4a3af6e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Detox File Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_detoxfilenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_detoxfilenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{083d3ddd-34db-4444-a12a-42619bdce565}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="HMIS File Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_hmisfilenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_hmisfilenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2e573f95-aa18-4a98-8808-f514752ef850}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="MRP Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_mrpnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_mrpnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{04c77038-62c9-411b-a04b-8fb81d1f84f7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="PHN Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_ahcnumber" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="cp_ahcnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4e008a7d-8da9-4f2b-880a-41426db73de3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Ethnicity" languagecode="1033" />
+                        </labels>
+                        <control id="cp_ethnicity" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_ethnicity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cf1ceb46-3dfd-42cb-819c-ee03ce157d68}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Gender" languagecode="1033" />
+                        </labels>
+                        <control id="cp_gender" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_gender" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7bebdce8-d39e-461d-8ef5-b6b96a4f192b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="First Contact Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_firstcontactdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_firstcontactdate" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="2" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Quick View Form" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

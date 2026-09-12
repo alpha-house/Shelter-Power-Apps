@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{693268e2-554c-4cec-be1e-91bb0350ec89}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{dac9774b-f097-4a8e-b3be-5ce405c4bd66}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{8343f2fd-5f4a-446b-b02d-3a0147bd31a4}" columns="11">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ef400c7e-9787-4b8f-a4e6-0ed460566bc1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Checkin Status" languagecode="1033" />
+                        </labels>
+                        <control id="cp_checkinstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_checkinstatus" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{317e7b44-166a-431c-b33f-c53ddc4af15e}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5c987d22-088d-4abd-8e91-9e8423ddeca4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Checkin" languagecode="1033" />
+                        </labels>
+                        <control id="cp_checkin" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_checkin" disabled="false" uniqueid="{b188162c-9e18-4941-a86a-ffa7fb8dd21c}" />
+                      </cell>
+                      <cell id="{ac7cf9fd-7c08-413c-abef-f71bd417912e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Checkin Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_checkindate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_checkindate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e9ec7ad4-4c2d-4b43-96d8-c1c67d63707b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Checkout" languagecode="1033" />
+                        </labels>
+                        <control id="cp_checkout" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_checkout" disabled="false" uniqueid="{52d0ebe6-8426-4407-a0f1-f294ad81173e}" />
+                      </cell>
+                      <cell id="{d9010a46-53b5-48e4-8498-eca417109ec4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Checkout Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_checkoutdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_checkoutdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ff73955b-365a-452a-a942-dc4a82726127}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="cp_client" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_client" disabled="false" />
+                      </cell>
+                      <cell id="{1de5f324-6050-4d68-987f-7cfa85a5d84a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Breathing Round" languagecode="1033" />
+                        </labels>
+                        <control id="cp_breathinground" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_breathinground" disabled="false" uniqueid="{b3dd5ba2-dc4e-43ce-8a77-fdba87cfeeda}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="mat-assignment" id="9ad7b1b8-ccb3-42de-a8a9-42ac77282afa" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Mat Assignment" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{e44226fc-27aa-434a-9242-06dedc06ca0e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Assigned to Mat" languagecode="1033" />
+                        </labels>
+                        <control id="cp_assignedtomat" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_assignedtomat" disabled="false" uniqueid="{259723a2-ed45-4554-a3e5-800335fc26d2}" />
+                      </cell>
+                      <cell id="{8daec253-15f8-4a36-be85-024f6b9f76a7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Removed From Mat" languagecode="1033" />
+                        </labels>
+                        <control id="cp_removedfrommat" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_removedfrommat" disabled="false" uniqueid="{18988ac3-1eaa-42db-b136-2acbe3e3b044}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9b0254db-c8f7-4f39-a462-215a682e43a3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Time Assigned To Mat" languagecode="1033" />
+                        </labels>
+                        <control id="cp_timeassignedtomat" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_timeassignedtomat" disabled="false" />
+                      </cell>
+                      <cell id="{edd76b9d-7b2f-4315-a30f-7e767e74a0f8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Time Removed From Mat" languagecode="1033" />
+                        </labels>
+                        <control id="cp_timeremovedfrommat" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_timeremovedfrommat" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="client-alerts" id="8b7f8591-a874-40fd-9f2a-a5d08d22e859" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Client Alerts" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" id="74f8941a-97c6-43e1-82cd-48f39a27f4fc" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{cec77489-cc3d-4f9d-8601-b59df8243723}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1783622810915" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>cp_clientalert_ShelterCheckin_cp_sheltercheckin</RelationshipName>
+                            <TargetEntityType>cp_clientalert</TargetEntityType>
+                            <ViewId>{f76f33da-6e2f-4b2a-8b56-32ab86915d19}</ViewId>
+                            <ViewIds>{f76f33da-6e2f-4b2a-8b56-32ab86915d19}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="shift-notes" id="9f287eae-b54e-420e-b08b-265e2d2b627a" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Shift Notes" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="shift-notes" id="a9e5d2cb-a192-4714-809c-22b3ccd5daa6" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Shift Notes" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{23527a4b-a3d1-4c47-adab-1cbf0f6aba5e}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="Shift Notes" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="shift_notes" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>50</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>cp_shiftnote_ShelterCheckin_cp_sheltercheckin</RelationshipName>
+                            <TargetEntityType>cp_shiftnote</TargetEntityType>
+                            <ViewId>{CE5A5253-CA7F-F111-AB0F-7C1E5253346F}</ViewId>
+                            <ViewIds>{7703352D-A0A7-4784-B551-3ACA26F4ABEF},{CE5A5253-CA7F-F111-AB0F-7C1E5253346F}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{cf096584-9f5e-4e5e-a1f8-0e491a83f38e}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{51336c8e-9df6-4bbe-becd-55f63f6d0341}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{117dc219-773b-425c-9440-c39f0c8e441b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d9308581-ba19-4311-8a83-e3efe7736e2a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d1824e22-96de-4131-b2aa-22399a3b2381}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Shelter Checkin" languagecode="1033" />
+              </labels>
+              <control id="header_cp_sheltercheckin" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_sheltercheckin" />
+            </cell>
+            <cell id="{f9a7c4ce-64f2-4f62-927e-ab50fa5f7284}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{555a9d79-fc05-4e66-9fc7-033db4c82697}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{afc95b81-1646-403f-a88d-c9829553c049}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6501f339-30b4-4d16-9c41-5546ff1a601d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ae104780-8507-4648-b387-2743c1800cd0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{52d0ebe6-8426-4407-a0f1-f294ad81173e}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_checkout</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_checkout</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_checkout</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_checkout</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{b188162c-9e18-4941-a86a-ffa7fb8dd21c}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_checkin</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_checkin</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_checkin</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_checkin</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{b3dd5ba2-dc4e-43ce-8a77-fdba87cfeeda}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_breathinground</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_breathinground</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_breathinground</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_breathinground</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{259723a2-ed45-4554-a3e5-800335fc26d2}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_assignedtomat</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_assignedtomat</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_assignedtomat</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_assignedtomat</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{18988ac3-1eaa-42db-b136-2acbe3e3b044}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_removedfrommat</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_removedfrommat</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_removedfrommat</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_removedfrommat</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <formLibraries>
+        <Library name="cp_shelter_javascript_code" libraryUniqueId="{0c9ef8f9-2401-45fe-83c7-add3658e5cb9}" />
+      </formLibraries>
+      <events>
+        <event name="onchange" application="false" active="false" attribute="cp_checkin">
+          <Handlers>
+            <Handler functionName="on_checkin_change" libraryName="cp_shelter_javascript_code" handlerUniqueId="{2d5db43a-fb2c-40a1-8c38-dc8aced93da9}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="cp_checkout">
+          <Handlers>
+            <Handler functionName="on_checkout_change" libraryName="cp_shelter_javascript_code" handlerUniqueId="{ce7490c8-ba7a-41c1-ba0e-3330f3715401}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="cp_client">
+          <Handlers>
+            <Handler functionName="on_client_field_change" libraryName="cp_shelter_javascript_code" handlerUniqueId="{a4816865-a235-4dae-b7bd-aeeda66e73b7}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="on_checkin_form_load" libraryName="cp_shelter_javascript_code" handlerUniqueId="{322281d5-ba48-47c5-a0e5-e4a3857a8364}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Shelter Checkin" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

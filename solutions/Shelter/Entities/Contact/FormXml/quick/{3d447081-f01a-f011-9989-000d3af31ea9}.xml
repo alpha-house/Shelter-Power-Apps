@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3d447081-f01a-f011-9989-000d3af31ea9}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="ACBA75B7-97B6-4116-AA55-51312992B721" name="tab_1" showlabel="false" labelid="{a2765aa8-aa11-4c39-a054-6434d2b7b1c6}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="AD49B5BF-256F-46A8-9C75-947146172EB9" name="tab_1_column_1_section_1" columns="1" showlabel="false" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{34604339-0397-47fd-a8a1-c742fd81d778}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0bbaca4c-3947-4029-9dd9-b016b034fe4d}" locklevel="0" colspan="1" rowspan="1" labelid="{89a233b3-05a2-4b1c-8213-b67bd009e0f9}">
+                        <labels>
+                          <label description="Phone" languagecode="1033" />
+                        </labels>
+                        <control id="cp_phone" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_phone" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{798e9237-ec9b-4077-8c11-31025740bb41}" locklevel="0" colspan="1" rowspan="1" labelid="{3db85bd6-2146-4c28-bfe3-bc30d9fdea2e}">
+                        <labels>
+                          <label description="HMIS File Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_hmisfilenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_hmisfilenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b78b7bfc-9c79-43e6-86c3-b25c61061f74}" locklevel="0" colspan="1" rowspan="1" labelid="{33cf3988-1fda-4668-bf5a-540f9d373b78}">
+                        <labels>
+                          <label description="Boreal Number" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_borealnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_borealnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{95c49039-24eb-4ab1-91d5-c503c57820b6}" locklevel="0" colspan="1" rowspan="1" labelid="{f354f484-c5f3-421e-8e43-36fb8165857d}">
+                        <labels>
+                          <label description="PHN Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_ahcnumber" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="cp_ahcnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{95e53ccc-2501-4e92-9ce7-038803ce2fcb}" locklevel="0" colspan="1" rowspan="1" labelid="{a3170f5d-019a-4e18-aa49-c95d0eaec964}">
+                        <labels>
+                          <label description="Gender" languagecode="1033" />
+                        </labels>
+                        <control id="cp_gender" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_gender" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{008b627b-ca7c-4dc1-91cf-37eacbec1cff}" locklevel="0" colspan="1" rowspan="1" labelid="{ad986d7f-73f0-4814-913a-dc39ee55ee5d}">
+                        <labels>
+                          <label description="Ethnicity" languagecode="1033" />
+                        </labels>
+                        <control id="cp_ethnicity" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_ethnicity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{60b30052-97e8-4c3c-9513-8c522faaf800}" locklevel="0" colspan="1" rowspan="1" labelid="{cc1b98b6-e3d0-4311-a005-0c2e6f99b880}">
+                        <labels>
+                          <label description="First Contact Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_firstcontactdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_firstcontactdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6d681cc7-9da0-4220-952b-27aefbbe5ee9}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Program" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_program" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_program" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="5" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Quick View - Boreal" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

@@ -1,0 +1,1337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{4ef1db0b-9314-f011-9989-6045bd5eb54f}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form showImage="true" headerdensity="HighWithControls" shownavigationbar="true" maxWidth="1920">
+      <hiddencontrols>
+        <data id="fullname" datafieldname="fullname" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+        <data id="address1_addressid" datafieldname="address1_addressid" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+        <data id="address2_addressid" datafieldname="address2_addressid" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+      </hiddencontrols>
+      <tabs>
+        <tab name="general" verticallayout="true" id="{9748ec98-3746-40cc-83bf-d15c7363166f}" IsUserDefined="0" labelid="{6979f502-d92a-4386-9536-1da532b1617c}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="general_section_7" id="d289e996-16d8-4b6f-9bdb-d679f207dd69" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115">
+                  <labels>
+                    <label description="Client Identity" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{478c8803-2686-4d10-8cf0-e6e5b3b6007f}" labelid="{a3d8b807-2048-44c6-8ca0-93091c00742e}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="First Name" languagecode="1033" />
+                        </labels>
+                        <control id="firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="firstname" />
+                      </cell>
+                      <cell id="{8097efd5-8af7-4944-b7a5-42ece196e23d}" labelid="{65a0e658-162b-4b18-a15a-f4c1a6adda0c}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Middle Name" languagecode="1033" />
+                        </labels>
+                        <control id="middlename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="middlename" />
+                      </cell>
+                      <cell id="{4fde05d9-89b1-4acf-a98f-13159f1bdcc8}" labelid="{ac553589-e8b1-47de-824f-98d6b9f231dd}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Last Name" languagecode="1033" />
+                        </labels>
+                        <control id="lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="lastname" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{db6ad612-a227-46c8-b025-328e5a4d7e15}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Preferred Name" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_preferredname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_preferredname" disabled="false" />
+                      </cell>
+                      <cell id="{f830e32a-19a7-4094-8d3e-d5bb38907969}" userspacer="true" showlabel="false" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{f8768bee-68e7-4f1a-a1b7-38f961a6561b}" userspacer="true" showlabel="false" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{96af21b9-d4d7-4bdf-bc44-1006a3fb20ee}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{e4b32bbc-c2a7-4cfd-9281-f9d0a3589bf1}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{0c39c29c-df0e-4585-8dd0-a4507f72f088}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Date of Birth Unknown" languagecode="1033" />
+                        </labels>
+                        <control id="cp_dateofbirthunknown" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_dateofbirthunknown" disabled="false" uniqueid="{a048b374-c12f-42a9-b146-fc5fe9270271}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c3405641-3fe1-46d6-975b-8099814e2876}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Date of Birth" languagecode="1033" />
+                        </labels>
+                        <control id="cp_dateofbirth" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_dateofbirth" disabled="false" />
+                      </cell>
+                      <cell id="{520dd859-fbc7-44e8-a7b2-bb5ea26c98b1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Age" languagecode="1033" />
+                        </labels>
+                        <control id="cp_age" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="cp_age" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="foip" id="0efcabd4-4ab8-4d73-a90f-c9b86f94e0dc" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="POPA" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{aee16efd-6038-4e14-973c-06d87a419865}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{cfcd09fe-6789-4082-8e7e-5fcd02314231}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="POPA notice read" languagecode="1033" />
+                        </labels>
+                        <control id="ahc_popanoticeread" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="ahc_popanoticeread" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{b42ac355-b781-4fba-bdbc-a4483fe0e136}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{8e7e85a4-46a3-4f81-82c2-21fe9e26435d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="POPA notice given" languagecode="1033" />
+                        </labels>
+                        <control id="ahc_popanoticedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ahc_popanoticedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell rowspan="3" id="{07acffc0-08ca-4f10-be12-23ce24395276}" showlabel="false" colspan="1" auto="true">
+                        <labels>
+                          <label description="popa_notice" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_new_1" classid="{9FDF5F91-88B1-47F4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>ahb_popa_notice</Url>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>false</Border>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <WebResourceId>{4f38c131-bba7-f111-aaac-70a8a50e7321}</WebResourceId>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false" active="false" />
+                        </events>
+                      </cell>
+                      <cell id="{5afd98cb-12c7-40b1-ac00-6be1dd09993f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Notice version given" languagecode="1033" />
+                        </labels>
+                        <control id="ahc_popanoticeversion" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahc_popanoticeversion" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eac05ccf-942d-436c-94a2-ba8e8822d598}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="FOIP Read (Deprecated)" languagecode="1033" />
+                        </labels>
+                        <control id="cp_foipconsent" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="cp_foipconsent" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{68e2e4e4-c232-4060-b835-f07f2fd43363}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="general_section_6" id="2a23dc80-f240-4f9c-8cca-c39743d8c10f" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Identifiers" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{ad5fbc96-f780-4010-abc3-67470e605a71}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{e2741dd6-1738-4085-bab6-59c55efd06c6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="HMIS File Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_hmisfilenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_hmisfilenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7e4f55f8-c815-4620-bc11-3da7af9b973b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="PHN Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_ahcnumber" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="cp_ahcnumber" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{2b7b4c5b-2586-411f-9ac4-702ac3403d56}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cb9fba15-4215-45f1-89b8-6da2c6d1a7da}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Alpha House Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_alphahousenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_alphahousenumber" disabled="true" />
+                      </cell>
+                      <cell locklevel="0" id="{c841fab6-b7c3-481b-b16e-31e254a2c402}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="general_section_10" id="0ee11cf3-337a-4ccb-9e61-aa8e2ed3954f" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115">
+                  <labels>
+                    <label description="Demographics" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{a48afcda-48fd-43a3-a72a-bba21aed11a8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Gender" languagecode="1033" />
+                        </labels>
+                        <control id="cp_gender" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_gender" disabled="false" />
+                      </cell>
+                      <cell id="{202c582f-b846-4fd9-986b-4500835f5a69}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Primary Language" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_primarylanguage" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_primarylanguage" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5487892d-221d-49aa-9a3a-7eecc125a326}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Ethnicity" languagecode="1033" />
+                        </labels>
+                        <control id="cp_ethnicity" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_ethnicity" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{7e43e219-c056-4e32-9526-afa9bae1db22}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{e4ee364b-745e-4d65-9702-4d6170016acc}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Other Language" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_otherlanguage" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="ahb_otherlanguage" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f139d843-1b73-4939-be92-570c9deb1a03}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Status in Canada" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_immigrationstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_immigrationstatus" disabled="false" />
+                      </cell>
+                      <cell id="{2f0fb16b-8294-4bdd-8e53-313b9e62fc12}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Ethnicity Other" languagecode="1033" />
+                        </labels>
+                        <control id="cp_ethnicityother" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_ethnicityother" disabled="false" />
+                      </cell>
+                      <cell id="{b7bce171-e6ca-4e86-aafd-d012ea317657}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Indigenous Identity" languagecode="1033" />
+                        </labels>
+                        <control id="cp_indigenousidentity" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_indigenousidentity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{550d2a63-028f-4250-95e2-2a0b2fe2faa8}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{28ad111b-19e4-4c7e-b338-41883ac5dab4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Migration Status" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_migrationstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_migrationstatus" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{8c978851-6a64-49b7-bb9a-ae823b4adc07}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="name" showlabel="true" showbar="false" id="{90b0776f-2977-4695-9cd4-73bb6c820f88}" IsUserDefined="0" labelid="{2b9216d9-fc8c-455a-8a40-b43e91bb4743}" columns="11">
+                  <labels>
+                    <label description="Referral" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{6a8a35aa-9554-4d3f-9131-eaf24e3a58ee}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{ed738402-50f0-4fef-b0c5-65f04d87e37c}" locklevel="0" colspan="1" rowspan="1" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Full Names" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_fullnames" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="ahb_fullnames" disabled="false" uniqueid="{16751b52-ade8-cb76-19ed-6db0a0160b8a}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5650a8bc-6388-45c9-92b0-a37d99aab470}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Referring Agency or Individual" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_referringagencyorindividual" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_referringagencyorindividual" disabled="false" />
+                      </cell>
+                      <cell id="{1af030f8-ba2b-4d40-bed2-7dfae2c171df}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Program" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_program" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_program" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c556cdb7-c5fc-4ba3-9986-5a0ebfc33b85}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Referral Destination" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_referraldestination" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_referraldestination" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{10ca7999-bb9b-44dc-a7f1-e7cf71a9e63e}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{e97b30c3-7d2d-4446-9746-ef7498961f52}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Date of Referral" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_dateofreferral" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ahb_dateofreferral" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{c32c9bac-f267-4a5a-aed8-7ce74157f8b4}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{8685035a-d80d-44c9-bb56-b3f8df13294d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="First Contact Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_firstcontactdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_firstcontactdate" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="general_section_12" id="746e5eb4-1661-4cdb-aaed-6d53c691739f" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115">
+                  <labels>
+                    <label description="Household" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{adcd466c-9db1-4661-8711-f5dff7f49533}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Is Client a Couple" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_isclientacouple" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_isclientacouple" disabled="false" />
+                      </cell>
+                      <cell id="{9cbee2a3-7251-47c2-9bb4-4d64ea2de6d9}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Partners Name" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_partnersname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_partnersname" disabled="false" />
+                      </cell>
+                      <cell id="{2aca391b-f0e1-4cd0-b7b5-ecbea873cd20}" userspacer="true" showlabel="false" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{67c87488-160a-4900-b3f5-1847c1b01e7b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Does Client Have Pet" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_doesclienthavepet" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ahb_doesclienthavepet" disabled="false" />
+                      </cell>
+                      <cell id="{07968d0c-904a-4319-a92f-b543d98caf7d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Type of Pet" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_typeofpet" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_typeofpet" disabled="false" />
+                      </cell>
+                      <cell id="{3adf8416-7d4b-438c-b07e-8ef06feb9adc}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Name of Pet" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_nameofpet" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_nameofpet" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="general_section_11" id="1fb2edd7-f2ad-4895-8cec-85e32788394f" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Income" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{e0da0226-8220-4b10-b819-79911a05c6e3}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1787780880728" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_10" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{e031e8c1-ec5f-4c5e-9ae0-64ee5a7ab45f}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>true</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>ahb_contact_ahb_incomesource</RelationshipName>
+                            <TargetEntityType>ahb_incomesource</TargetEntityType>
+                            <ViewId>{26D63658-1BA0-F111-AAAD-70A8A50E7321}</ViewId>
+                            <ViewIds>{26D63658-1BA0-F111-AAAD-70A8A50E7321},{32749858-1BA0-F111-AAAD-6045BD60D54A}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{2b51723a-9a29-4535-8599-fcd5b0522bd8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Monthly Income" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_monthlyincome" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="ahb_monthlyincome" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="general_section_13" id="458fccf5-8875-447a-a97e-501766773d94" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Client ID" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{2a91178c-1a40-4bfc-8aa0-121c3f9565f5}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{2cf9c636-9595-4d3b-9ef8-1d119a5c065d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Identification (Other)" languagecode="1033" />
+                        </labels>
+                        <control id="ahc_identificationother" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahc_identificationother" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{08d944a2-b268-439e-8918-e4fe2ebfb201}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Identification Types" languagecode="1033" />
+                        </labels>
+                        <control id="ahc_identificationtypes" classid="{4AA28AB7-9C13-4F57-A73D-AD894D048B5F}" datafieldname="ahc_identificationtypes" disabled="false" />
+                      </cell>
+                      <cell id="{70c71a7b-86b4-439d-88ad-353ce31befeb}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Type of ID (Deprecated)" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_typeofid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahb_typeofid" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{846d706d-3172-48a0-ba10-71071fc4ece9}" locklevel="1" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Has ID (Deprecated)" languagecode="1033" />
+                        </labels>
+                        <control id="ahb_hasid" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="ahb_hasid" disabled="true" />
+                      </cell>
+                      <cell locklevel="0" id="{a6a134ba-6e59-4a13-943f-0f91eb35129d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f8bae197-cd58-455a-858d-9a900ee77ad5}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Birthplace (if no ID)" languagecode="1033" />
+                        </labels>
+                        <control id="ahc_birthplace" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ahc_birthplace" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{1fd6f014-5b6c-4f65-8fd7-a519a21b9e8a}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="address" showlabel="true" showbar="true" id="{f2f6f734-1790-402f-8e2a-1eaecbceb9e3}" IsUserDefined="0" labelid="{eb798d38-b584-4099-a673-499131429226}">
+                  <labels>
+                    <label description="Contact Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a825ccf0-5fbd-4dc1-99e7-ebd10df57a1f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Phone" languagecode="1033" />
+                        </labels>
+                        <control id="cp_phone" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_phone" disabled="false" />
+                      </cell>
+                      <cell id="{1eb0adf5-95f7-4881-b41b-0885c0d30d76}" labelid="{f02af4b2-8b2d-4295-bf12-3b5b305da2eb}">
+                        <labels>
+                          <label description="City" languagecode="1033" />
+                        </labels>
+                        <control id="address1_city" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_city" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{38d7b950-436b-412f-a71b-ae4187e60c14}" labelid="{545a1918-4dfa-44c5-9515-02def499528e}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Email" languagecode="1033" />
+                        </labels>
+                        <control id="emailaddress1" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" datafieldname="emailaddress1" />
+                      </cell>
+                      <cell id="{f36d99a5-849a-452e-b37a-6349fad82853}" labelid="{00b44c74-7fe0-44ff-92f2-93e5b6a27aba}">
+                        <labels>
+                          <label description="Province" languagecode="1033" />
+                        </labels>
+                        <control id="address1_stateorprovince" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_stateorprovince" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{4f3aead8-8593-4a8d-a5ac-00b129d48aa1}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{10aea51b-0d20-4c65-adef-295b30446be4}" labelid="{a5ba8e80-4b4b-4128-9606-6aa896166549}">
+                        <labels>
+                          <label description="Postal Code" languagecode="1033" />
+                        </labels>
+                        <control id="address1_postalcode" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_postalcode" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{7e4405b1-057f-4526-a392-34eee94868e2}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{957c853d-e33e-4ba8-98d3-8b6a9ef35307}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Client Out Of Province" languagecode="1033" />
+                        </labels>
+                        <control id="cp_clientoutofprovince" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_clientoutofprovince" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f16a045d-c30d-4189-ac3d-b5e8172e47da}" labelid="{233e0b60-f2df-41c3-b015-776001243860}">
+                        <labels>
+                          <label description="Street" languagecode="1033" />
+                        </labels>
+                        <control id="address1_line1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_line1" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ad2b2774-d7bd-4d74-b79e-61af77b32dff}" labelid="{16ee09c6-2213-4d6f-b8a7-e8fad4edc5e1}">
+                        <labels>
+                          <label description="Street 2" languagecode="1033" />
+                        </labels>
+                        <control id="address1_line2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="address1_line2" />
+                      </cell>
+                      <cell locklevel="0" id="{91b6d141-750b-47ab-85db-577def0f7283}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="general_section_4" id="77f4bca0-dbde-4486-a64f-9d531a8e2b99" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Emergency Contacts" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b7299ddb-8270-4bf2-b003-ca6b659b10fd}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{45b800da-6565-4a54-b046-7f1546b2352a}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1744133273702" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>cp_cp_emergencycontact_CP_Client_contact</RelationshipName>
+                            <TargetEntityType>cp_cp_emergencycontact</TargetEntityType>
+                            <ViewId>{1D153917-9E14-F011-9989-002248B02782}</ViewId>
+                            <ViewIds>{8B4FCBE7-7C34-4E0A-8CB1-A9BC1CC33887},{1D153917-9E14-F011-9989-002248B02782}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="roi" id="9e988719-b4cf-4e4b-849f-35b615b3ac10" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="ROI" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="roi" id="67d739e9-81b9-4827-9496-ba8cf9df39c0" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="ROI" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{f5facca8-e7de-43d4-9531-9b3c4fba2370}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{55310a0b-ff56-4ab6-8984-fe7fe1a975fe}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1748881185807" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_8" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>ahb_releaseofinformation_Client_contact</RelationshipName>
+                            <TargetEntityType>ahb_releaseofinformation</TargetEntityType>
+                            <ViewId>{40B5183F-F455-485F-B19C-98A13B326F28}</ViewId>
+                            <ViewIds>{40B5183F-F455-485F-B19C-98A13B326F28}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="notes_and_reports" id="0a5f48f8-dfca-4d73-9237-5cdfa3a8c7f9" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Notes and Reports" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="shift_notes" id="53a7c313-29a4-4a9e-a100-32d70f9fb08c" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Shift Notes" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{44ad88d9-ca57-4db0-8881-0e61b30fe329}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{446ad89e-94fb-4aa0-9b13-ab74fa7ce409}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1745335772794" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_2" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>50</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>cp_shiftnote_Client_contact</RelationshipName>
+                            <TargetEntityType>cp_shiftnote</TargetEntityType>
+                            <ViewId>{B62B75B0-7048-F011-877A-000D3AF3D874}</ViewId>
+                            <ViewIds>{7703352D-A0A7-4784-B551-3ACA26F4ABEF},{B62B75B0-7048-F011-877A-000D3AF3D874}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="deliberate_engagement" id="902ef9c2-eccf-4412-ad0f-65b09a3b68f3" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Deliberate Engagement" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{77858c5e-4d2e-452c-9ad5-d81ec95f3cbf}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{e2dc4908-b58d-4f84-a3fc-8a71778ee37b}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1752162284592" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_9" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>12</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>cp_shiftnote_Client_contact</RelationshipName>
+                            <TargetEntityType>cp_shiftnote</TargetEntityType>
+                            <ViewId>{F86FDC22-A45D-F011-BEC1-000D3AF31EA9}</ViewId>
+                            <ViewIds>{7703352D-A0A7-4784-B551-3ACA26F4ABEF},{F86FDC22-A45D-F011-BEC1-000D3AF31EA9}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="incident_reports" id="7d4c5b4f-0831-4fd3-bf7e-5036fa33749d" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Incident Reports" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{1d7b0db8-1140-4ea9-9f43-e821eebe2446}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{1fd473d4-011f-445f-ae3f-a1039c709d3d}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1745335813782" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_3" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>25</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>cp_incidentreport_Client_contact</RelationshipName>
+                            <TargetEntityType>cp_incidentreport</TargetEntityType>
+                            <ViewId>{36B1DA00-2188-F011-B4CC-6045BD5DCD15}</ViewId>
+                            <ViewIds>{54CFDDB8-4B42-4F80-A6A9-BA4A0CADC395},{2047A955-D060-F011-BEC1-000D3AF31EA9},{36B1DA00-2188-F011-B4CC-6045BD5DCD15}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="intake_and_homeless_history" id="2e2ac7db-6960-45e5-b87e-5c5395622c36" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Intake and Homeless History" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_3_section_1" id="ff8e6a6f-1002-438c-9e7a-0179a1914768" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Intake Paperwork" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8fe8c0aa-e5f5-4c6d-ac66-2cb92e87a767}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{e379b443-965b-4109-a198-99c88e60ed41}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1745598087518" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_4" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>ahb_intake_Client_contact</RelationshipName>
+                            <TargetEntityType>ahb_intake</TargetEntityType>
+                            <ViewId>{51EAA1C1-15BA-409D-B9E8-1D1E924B6099}</ViewId>
+                            <ViewIds>{51EAA1C1-15BA-409D-B9E8-1D1E924B6099}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="homelessness_history" id="09eab9b2-3ba2-42eb-b61b-404e43cb22c1" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Homelessness History" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3184aaf2-91f2-44c9-a56b-98109b788088}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{ad562c1b-de6f-4d59-9b18-baf8955a3e72}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1746729589974" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_5" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>ahb_homelessnesshistory_Client_contact</RelationshipName>
+                            <TargetEntityType>ahb_homelessnesshistory</TargetEntityType>
+                            <ViewId>{CBA9B2B4-79A3-40CE-A01A-CB7711AC5FD7}</ViewId>
+                            <ViewIds>{CBA9B2B4-79A3-40CE-A01A-CB7711AC5FD7}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="recovery" id="ed0023cd-4880-42c8-944f-6fab5c47cddf" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Recovery" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="recovery" id="73a88451-e461-431a-9634-115e99082d99" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Recovery" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0c87e801-23ae-49ea-a74c-34e17c637652}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="quarterly_report" id="6e128bea-2332-4163-81e5-487f3305d719" IsUserDefined="0" locklevel="0" showlabel="true" visible="false">
+          <labels>
+            <label description="Quarterly Report" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="quarterly_report" id="65ff898b-ea38-41f5-a82d-b04d37253fa6" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Quarterly Report" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5e14c362-ee70-48b9-9246-bf82710add21}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{71c99c41-8666-4873-aad9-470a00ab6972}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1748020116167" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_6" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>ahb_quarterlyreport_Client_contact</RelationshipName>
+                            <TargetEntityType>ahb_quarterlyreport</TargetEntityType>
+                            <ViewId>{7053A62F-512E-460E-8081-7EAA0E41FE8E}</ViewId>
+                            <ViewIds>{7053A62F-512E-460E-8081-7EAA0E41FE8E}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="spdat" id="900a7a45-e1d6-4ae0-add5-6dd208c15710" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="SPDAT" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8fd4ac2c-0192-4e54-b03a-e47e1296a3fa}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{3b45c93f-b666-4f22-859e-f79df5eee8c5}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1748268764263" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_7" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>ahb_spdat_Client_contact</RelationshipName>
+                            <TargetEntityType>ahb_spdat</TargetEntityType>
+                            <ViewId>{48B9CF50-8AE9-46D8-AB34-F28A64233E26}</ViewId>
+                            <ViewIds>{48B9CF50-8AE9-46D8-AB34-F28A64233E26}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{59314f22-396d-45d8-baef-75b09c8dd512}" celllabelposition="Top">
+        <rows>
+          <row>
+            <cell locklevel="0" id="{bee4b496-5892-4ca5-a020-92172043847a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell locklevel="0" id="{57879a2a-30a6-435f-9607-425af9f1cc5a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6eb10c6b-c25e-a2ea-b4c1-b3d4a075d081}" labelid="{546dc874-5069-46d4-ba55-f3b0fbf01813}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <clientresources>
+        <internalresources>
+          <clientincludes>
+            <internaljscriptfile src="$webresource:AppCommon/Contact/Contact_main_system_library.js" />
+          </clientincludes>
+        </internalresources>
+      </clientresources>
+      <Navigation>
+        <NavBar>
+          <NavBarByRelationshipItem RelationshipName="Contact_CustomerAddress" Id="navAddresses" TitleResourceId="Tab_Label_MoreAddresses" Sequence="10" Area="Info">
+            <Titles>
+              <Title LCID="1033" Text="More Addresses" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="Contact_ActivityPointers" Id="navActivities" Icon="/_imgs/ico_18_act.gif" Sequence="20" Area="Info">
+            <Privileges>
+              <Privilege Entity="" Privilege="ReadActivity" />
+            </Privileges>
+            <Titles>
+              <Title LCID="1033" Text="Activities" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="Contact_ActivityPointers" Id="navActivityHistory" TitleResourceId="Tab_Label_History" Icon="/_imgs/ico_18_history.gif" ViewId="21E2B905-6FDB-470d-8517-AD69B4C01268" Sequence="20" Area="Info">
+            <Privileges>
+              <Privilege Entity="" Privilege="ReadActivity" />
+            </Privileges>
+            <Titles>
+              <Title LCID="1033" Text="Closed Activities" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="contact_customer_contacts" Id="navSubConts" TitleResourceId="Tab_Label_SubContacts" Sequence="40" Area="Info">
+            <Titles>
+              <Title LCID="1033" Text="Sub-Contacts" />
+            </Titles>
+          </NavBarByRelationshipItem>
+          <NavBarByRelationshipItem RelationshipName="contact_customer_relationship_customer" Id="navRelationships" TitleResourceId="Left_Nav_Area_Relationships" Sequence="50" Area="Info">
+            <Titles>
+              <Title LCID="1033" Text="Relationships" />
+            </Titles>
+          </NavBarByRelationshipItem>
+        </NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <footer id="{213a8f65-9df2-466b-bff9-d1dbd449a432}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{383d149f-afc7-4abc-a3a5-90f43193482c}" showlabel="false" labelid="{fbbeb9e5-d2aa-4343-b1f7-76d37296f45c}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0f84eca8-73e6-4155-9529-7b307d37a385}" showlabel="false" labelid="{fc744f9a-4b06-497c-923d-2902bc0ea325}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{16f45362-02aa-4ae6-86cb-6c21acd67cf3}" showlabel="false" labelid="{5d87538b-bde4-4b53-a0b9-d48e92cde4fd}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <controlDescriptions>
+        <controlDescription forControl="{16751b52-ade8-cb76-19ed-6db0a0160b8a}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" formFactor="0">
+            <parameters>
+              <datafieldname>ahb_fullnames</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" formFactor="1">
+            <parameters>
+              <datafieldname>ahb_fullnames</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Canvas.CanvasControl">
+            <parameters>
+              <record>ahb_fullnames</record>
+              <schema static="true" type="SingleLine.Text">{}</schema>
+              <entityName static="true" type="SingleLine.Text">Client</entityName>
+              <appName static="true" type="SingleLine.Text">cp_clientjourney_15910</appName>
+              <appId static="true" type="SingleLine.Text">98c304fd-f495-4189-9be4-08de43fb0a75</appId>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{a048b374-c12f-42a9-b146-fc5fe9270271}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_dateofbirthunknown</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_dateofbirthunknown</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_dateofbirthunknown</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_dateofbirthunknown</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{e031e8c1-ec5f-4c5e-9ae0-64ee5a7ab45f}">
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+            <parameters />
+          </customControl>
+          <customControl formFactor="0" name="Microsoft.PowerApps.PowerAppsOneGrid">
+            <parameters>
+              <data-set name="Items">
+                <ViewId>{26d63658-1ba0-f111-aaad-70a8a50e7321}</ViewId>
+                <TargetEntityType>ahb_incomesource</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>true</EnableViewPicker>
+                <RelationshipName>ahb_contact_ahb_incomesource</RelationshipName>
+                <FilteredViewIds>{26D63658-1BA0-F111-AAAD-70A8A50E7321},{32749858-1BA0-F111-AAAD-6045BD60D54A}</FilteredViewIds>
+              </data-set>
+              <AccessibleLabel type="SingleLine.Text">address1_city</AccessibleLabel>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <DisableChildItemsEditing type="Enum" static="true">no</DisableChildItemsEditing>
+              <HeadlessRendering type="Enum" static="true">no</HeadlessRendering>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <EnableSorting type="Enum" static="true">yes</EnableSorting>
+              <EnableGrouping type="Enum" static="true">no</EnableGrouping>
+              <EnableAggregation type="Enum" static="true">no</EnableAggregation>
+              <EnableColumnMoving type="Enum" static="true">no</EnableColumnMoving>
+              <EnableMultipleSelection type="Enum" static="true">yes</EnableMultipleSelection>
+              <EnableRangeSelection type="Enum" static="true">yes</EnableRangeSelection>
+              <EnableJumpBar type="Enum" static="true">no</EnableJumpBar>
+              <EnablePagination type="Enum" static="true">no</EnablePagination>
+              <EnableDropdownColor type="Enum" static="true">no</EnableDropdownColor>
+              <EnableStatusIcons type="Enum" static="true">yes</EnableStatusIcons>
+              <EnableTypeIcons type="Enum" static="true">no</EnableTypeIcons>
+              <NavigationTypesAllowed type="Enum" static="true">all</NavigationTypesAllowed>
+              <ReflowBehavior type="Enum" static="true">Reflow</ReflowBehavior>
+              <ShowAvatar type="Enum" static="true">yes</ShowAvatar>
+              <ShowColumnNamesForListView type="Enum" static="true">no</ShowColumnNamesForListView>
+              <EnableBandedRowsForListView type="Enum" static="true">no</EnableBandedRowsForListView>
+              <NumberOfListColumns type="Whole.None" static="true">3</NumberOfListColumns>
+              <ShowFooter type="Enum" static="true">yes</ShowFooter>
+              <ShowColumnHeaders type="Enum" static="true">yes</ShowColumnHeaders>
+              <ContextualLookupColumnFilters type="Enum" static="true">yes</ContextualLookupColumnFilters>
+              <LookupFilterBeginsWith type="Enum" static="true">no</LookupFilterBeginsWith>
+              <UseFirstColumnForLookupEdits type="Enum" static="true">no</UseFirstColumnForLookupEdits>
+              <DateTimeFormat type="Enum" static="true">none</DateTimeFormat>
+              <DateOnlyFormat type="Enum" static="true">none</DateOnlyFormat>
+              <EnableStatusColumn type="Enum" static="true">yes</EnableStatusColumn>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="Microsoft.PowerApps.PowerAppsOneGrid">
+            <parameters>
+              <data-set name="Items">
+                <ViewId>{26d63658-1ba0-f111-aaad-70a8a50e7321}</ViewId>
+                <TargetEntityType>ahb_incomesource</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>true</EnableViewPicker>
+                <RelationshipName>ahb_contact_ahb_incomesource</RelationshipName>
+                <FilteredViewIds>{26D63658-1BA0-F111-AAAD-70A8A50E7321},{32749858-1BA0-F111-AAAD-6045BD60D54A}</FilteredViewIds>
+              </data-set>
+              <AccessibleLabel type="SingleLine.Text">address1_city</AccessibleLabel>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <DisableChildItemsEditing type="Enum" static="true">no</DisableChildItemsEditing>
+              <HeadlessRendering type="Enum" static="true">no</HeadlessRendering>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <EnableSorting type="Enum" static="true">yes</EnableSorting>
+              <EnableGrouping type="Enum" static="true">no</EnableGrouping>
+              <EnableAggregation type="Enum" static="true">no</EnableAggregation>
+              <EnableColumnMoving type="Enum" static="true">no</EnableColumnMoving>
+              <EnableMultipleSelection type="Enum" static="true">yes</EnableMultipleSelection>
+              <EnableRangeSelection type="Enum" static="true">yes</EnableRangeSelection>
+              <EnableJumpBar type="Enum" static="true">no</EnableJumpBar>
+              <EnablePagination type="Enum" static="true">no</EnablePagination>
+              <EnableDropdownColor type="Enum" static="true">no</EnableDropdownColor>
+              <EnableStatusIcons type="Enum" static="true">yes</EnableStatusIcons>
+              <EnableTypeIcons type="Enum" static="true">no</EnableTypeIcons>
+              <NavigationTypesAllowed type="Enum" static="true">all</NavigationTypesAllowed>
+              <ReflowBehavior type="Enum" static="true">Reflow</ReflowBehavior>
+              <ShowAvatar type="Enum" static="true">yes</ShowAvatar>
+              <ShowColumnNamesForListView type="Enum" static="true">no</ShowColumnNamesForListView>
+              <EnableBandedRowsForListView type="Enum" static="true">no</EnableBandedRowsForListView>
+              <NumberOfListColumns type="Whole.None" static="true">3</NumberOfListColumns>
+              <ShowFooter type="Enum" static="true">yes</ShowFooter>
+              <ShowColumnHeaders type="Enum" static="true">yes</ShowColumnHeaders>
+              <ContextualLookupColumnFilters type="Enum" static="true">yes</ContextualLookupColumnFilters>
+              <LookupFilterBeginsWith type="Enum" static="true">no</LookupFilterBeginsWith>
+              <UseFirstColumnForLookupEdits type="Enum" static="true">no</UseFirstColumnForLookupEdits>
+              <DateTimeFormat type="Enum" static="true">none</DateTimeFormat>
+              <DateOnlyFormat type="Enum" static="true">none</DateOnlyFormat>
+              <EnableStatusColumn type="Enum" static="true">yes</EnableStatusColumn>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="Microsoft.PowerApps.PowerAppsOneGrid">
+            <parameters>
+              <data-set name="Items">
+                <ViewId>{26d63658-1ba0-f111-aaad-70a8a50e7321}</ViewId>
+                <TargetEntityType>ahb_incomesource</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>true</EnableViewPicker>
+                <RelationshipName>ahb_contact_ahb_incomesource</RelationshipName>
+                <FilteredViewIds>{26D63658-1BA0-F111-AAAD-70A8A50E7321},{32749858-1BA0-F111-AAAD-6045BD60D54A}</FilteredViewIds>
+              </data-set>
+              <AccessibleLabel type="SingleLine.Text">address1_city</AccessibleLabel>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <DisableChildItemsEditing type="Enum" static="true">no</DisableChildItemsEditing>
+              <HeadlessRendering type="Enum" static="true">no</HeadlessRendering>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <EnableSorting type="Enum" static="true">yes</EnableSorting>
+              <EnableGrouping type="Enum" static="true">no</EnableGrouping>
+              <EnableAggregation type="Enum" static="true">no</EnableAggregation>
+              <EnableColumnMoving type="Enum" static="true">no</EnableColumnMoving>
+              <EnableMultipleSelection type="Enum" static="true">yes</EnableMultipleSelection>
+              <EnableRangeSelection type="Enum" static="true">yes</EnableRangeSelection>
+              <EnableJumpBar type="Enum" static="true">no</EnableJumpBar>
+              <EnablePagination type="Enum" static="true">no</EnablePagination>
+              <EnableDropdownColor type="Enum" static="true">no</EnableDropdownColor>
+              <EnableStatusIcons type="Enum" static="true">yes</EnableStatusIcons>
+              <EnableTypeIcons type="Enum" static="true">no</EnableTypeIcons>
+              <NavigationTypesAllowed type="Enum" static="true">all</NavigationTypesAllowed>
+              <ReflowBehavior type="Enum" static="true">Reflow</ReflowBehavior>
+              <ShowAvatar type="Enum" static="true">yes</ShowAvatar>
+              <ShowColumnNamesForListView type="Enum" static="true">no</ShowColumnNamesForListView>
+              <EnableBandedRowsForListView type="Enum" static="true">no</EnableBandedRowsForListView>
+              <NumberOfListColumns type="Whole.None" static="true">3</NumberOfListColumns>
+              <ShowFooter type="Enum" static="true">yes</ShowFooter>
+              <ShowColumnHeaders type="Enum" static="true">yes</ShowColumnHeaders>
+              <ContextualLookupColumnFilters type="Enum" static="true">yes</ContextualLookupColumnFilters>
+              <LookupFilterBeginsWith type="Enum" static="true">no</LookupFilterBeginsWith>
+              <UseFirstColumnForLookupEdits type="Enum" static="true">no</UseFirstColumnForLookupEdits>
+              <DateTimeFormat type="Enum" static="true">none</DateTimeFormat>
+              <DateOnlyFormat type="Enum" static="true">none</DateOnlyFormat>
+              <EnableStatusColumn type="Enum" static="true">yes</EnableStatusColumn>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <DisplayConditions FallbackForm="false" Order="7">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="ahb_boreal_javascript_functions" libraryUniqueId="{a711f11d-f856-451a-a257-71b322b93b0c}" />
+      </formLibraries>
+      <events>
+        <event name="onchange" application="false" active="false" attribute="ahc_popanoticeread">
+          <Handlers>
+            <Handler functionName="stampPopaNotice" libraryName="ahb_boreal_javascript_functions" handlerUniqueId="{7b0d6a33-3fd2-4a54-9fbc-dfc2fb288733}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="togglePopaNotice" libraryName="ahb_boreal_javascript_functions" handlerUniqueId="{f89e0b51-e903-4486-bb05-38a6a9dff75a}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="togglePopaNotice" libraryName="ahb_boreal_javascript_functions" handlerUniqueId="{2184dc40-b9b3-46f1-8016-9d2913b96d3e}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="toggleIdentificationOther" libraryName="ahb_boreal_javascript_functions" handlerUniqueId="{0bd45ccb-be5b-487e-acd1-478a62e603bb}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="ahc_identificationtypes">
+          <Handlers>
+            <Handler functionName="toggleIdentificationOther" libraryName="ahb_boreal_javascript_functions" handlerUniqueId="{881f7c0b-78f1-41c9-9550-b13ad0e1761f}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Boreal" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

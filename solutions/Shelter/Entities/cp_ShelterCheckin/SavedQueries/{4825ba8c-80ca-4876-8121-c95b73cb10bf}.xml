@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{4825ba8c-80ca-4876-8121-c95b73cb10bf}</savedqueryid>
+    <layoutxml>
+      <grid name="cp_sheltercheckins" jump="cp_sheltercheckin" select="1" icon="1" preview="1">
+        <row name="cp_sheltercheckin" id="cp_sheltercheckinid">
+          <cell name="cp_sheltercheckin" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_sheltercheckin">
+          <attribute name="cp_sheltercheckinid" />
+          <attribute name="cp_sheltercheckin" />
+          <attribute name="createdon" />
+          <order attribute="cp_sheltercheckin" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Shelter Checkin Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,92 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "ahb_sharedcommondataserviceforapps_c4d89"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "type": "Recurrence",
+          "recurrence": {
+            "frequency": "Minute",
+            "interval": 30,
+            "startTime": "2026-07-15T14:55:00Z",
+            "timeZone": "Mountain Standard Time"
+          },
+          "metadata": {
+            "operationMetadataId": "b01ef9c3-d096-4447-84dd-8ebdc5449079"
+          }
+        }
+      },
+      "actions": {
+        "list_shelter_checkins": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cp_sheltercheckins",
+              "$select": "cp_sheltercheckinid,cp_breathinground,modifiedby,modifiedon",
+              "$filter": "cp_checkinstatus eq 121570000"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "e4b73626-26c8-4371-a0a7-da406a3d622a"
+          }
+        },
+        "For_each": {
+          "type": "foreach",
+          "foreach": "@outputs('list_shelter_checkins')?['body/value']",
+          "actions": {
+            "Update_each_shelter_checkin": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "cp_sheltercheckins",
+                  "recordId": "@items('For_each')?['cp_sheltercheckinid']",
+                  "item/cp_breathinground": false
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "list_shelter_checkins": [
+              "SUCCEEDED"
+            ]
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

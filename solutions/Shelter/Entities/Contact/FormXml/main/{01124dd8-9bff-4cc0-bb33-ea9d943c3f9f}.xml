@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{01124dd8-9bff-4cc0-bb33-ea9d943c3f9f}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="true" headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{bacbbb62-0ea7-4513-a3a2-1f1d7e4f2aeb}" IsUserDefined="0" labelid="{e07ea042-c752-488d-b2c2-aef74beb55c2}" ordinalvalue="0">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section showlabel="false" showbar="false" id="{8d0e07c4-8cf7-4a96-843d-8441fcb4ab71}" IsUserDefined="0" labelid="{ffe940cc-8e76-47d9-b2f9-2dc7325e534a}" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{c95289cb-6a08-4beb-aa5b-1177ef90ad59}" locklevel="0" colspan="2" rowspan="1" ordinalvalue="10011">
+                        <labels>
+                          <label description="Preferred Language" languagecode="1033" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions FallbackForm="false" Order="6" solutionaction="Modified" />
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Profile Web Form (Enhanced) - Japanese" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="This form is used by the portal with Japanese localization for the user to update their contact info" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

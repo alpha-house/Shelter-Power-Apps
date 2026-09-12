@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{12c3a54b-78bd-4a23-a665-1036ba363581}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_clientalert" select="1" icon="1" preview="1">
+        <row name="result" id="cp_clientalertid">
+          <cell name="cp_clientalert" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="cp_client" width="100" />
+          <cell name="cp_sheltercheckin" width="130" />
+          <cell name="cp_alertdescription" width="138" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_clientalert">
+          <attribute name="cp_clientalertid" />
+          <attribute name="cp_clientalert" />
+          <attribute name="createdon" />
+          <order attribute="cp_clientalert" descending="false" />
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="cp_clientalert" operator="like" value="{0}" />
+          </filter>
+          <attribute name="cp_client" />
+          <attribute name="cp_sheltercheckin" />
+          <attribute name="cp_alertdescription" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.8</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Client Alerts" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
