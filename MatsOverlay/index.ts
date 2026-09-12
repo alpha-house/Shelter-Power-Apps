@@ -13,6 +13,7 @@ interface MatRow {
   cp_fillcolor?: string | null;
   cp_strokecolor?: string | null;
   cp_matgender?: string | null;
+  cp_clientlabel?: string | null;
   // Whether this mat already has a check-in assigned — drives click behaviour
   hasCheckin: boolean;
   // Resolved id of the linked cp_sheltercheckin record, lower-cased, no braces
@@ -226,18 +227,38 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       g.appendChild(rect);
 
       const label = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : "");
+      const clientLabel = mat.cp_clientlabel ?? "";
       if (label) {
         const fontSize = Math.max(10, Math.min(14, pw / 5)) * this.scale;
         const text = doc.createElementNS(svgNS, "text");
         text.setAttribute("x",                 String(px + pw / 2));
-        text.setAttribute("y",                 String(py + ph / 2));
         text.setAttribute("text-anchor",       "middle");
         text.setAttribute("dominant-baseline", "middle");
         text.setAttribute("font-size",         String(fontSize));
         text.setAttribute("font-family",       "Segoe UI, sans-serif");
         text.setAttribute("fill",              "#fff");
         text.setAttribute("pointer-events",    "none");
-        text.textContent = label;
+        if (clientLabel) {
+          // Two-line layout: mat number/label on top, client label below.
+          text.setAttribute("y", String(py + ph / 2 - fontSize * 0.6));
+          text.textContent = label;
+
+          const clientFontSize = fontSize * 0.85;
+          const clientText = doc.createElementNS(svgNS, "text");
+          clientText.setAttribute("x",                 String(px + pw / 2));
+          clientText.setAttribute("y",                 String(py + ph / 2 + fontSize * 0.6));
+          clientText.setAttribute("text-anchor",       "middle");
+          clientText.setAttribute("dominant-baseline", "middle");
+          clientText.setAttribute("font-size",         String(clientFontSize));
+          clientText.setAttribute("font-family",       "Segoe UI, sans-serif");
+          clientText.setAttribute("fill",              "#fff");
+          clientText.setAttribute("pointer-events",    "none");
+          clientText.textContent = clientLabel;
+          g.appendChild(clientText);
+        } else {
+          text.setAttribute("y", String(py + ph / 2));
+          text.textContent = label;
+        }
         g.appendChild(text);
       }
 
@@ -787,7 +808,10 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     const payload: Record<string, null> = {};
 
     if (removeCheckin) payload[`${MatsOverlay.NAV_CHECKIN}@odata.bind`] = null;
-    if (removeClient)  payload[`${MatsOverlay.NAV_CLIENT}@odata.bind`]  = null;
+    if (removeClient) {
+      payload[`${MatsOverlay.NAV_CLIENT}@odata.bind`] = null;
+      payload.cp_clientlabel = null;
+    }
 
     console.log(`[MatsOverlay] Clearing from ${matLabel}:`, JSON.stringify(payload));
 
@@ -931,11 +955,14 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       console.warn("[MatsOverlay] Could not read _cp_client_value:", err);
     }
 
+    const clientLabel = contactId ? await this.buildClientLabel(contactId) : null;
+
     const payload: Record<string, string | null> = {
       [`${MatsOverlay.NAV_CHECKIN}@odata.bind`]:
         `/${MatsOverlay.SET_CHECKIN}(${shelterCheckinId})`,
       [`${MatsOverlay.NAV_CLIENT}@odata.bind`]:
         contactId ? `/${MatsOverlay.SET_CONTACT}(${contactId})` : null,
+      cp_clientlabel: clientLabel,
     };
 
     console.log(`[MatsOverlay] PATCH cp_mat/${mat.id}:`, JSON.stringify(payload));
@@ -959,6 +986,31 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
   }
 
   // ── Helpers ───────────────────────────────────────────────────────────────────
+
+  /**
+   * Builds the short "First.LastInitial" label shown on the mat overlay
+   * (e.g. "John.D" for John Doe). Falls back gracefully when a name part
+   * is missing. Returns null if the contact has no usable name at all.
+   */
+  private async buildClientLabel(contactId: Guid): Promise<string | null> {
+    try {
+      const contact = await this.context.webAPI.retrieveRecord(
+        "contact",
+        contactId,
+        "?$select=firstname,lastname"
+      );
+      const firstName = (contact["firstname"] as string | null | undefined)?.trim();
+      const lastName  = (contact["lastname"]  as string | null | undefined)?.trim();
+
+      if (firstName && lastName) return `${firstName}.${lastName.charAt(0).toUpperCase()}`;
+      if (firstName) return firstName;
+      if (lastName)  return lastName;
+      return null;
+    } catch (err) {
+      console.warn("[MatsOverlay] Could not build client label:", err);
+      return null;
+    }
+  }
 
   private async showAlert(text: string, title = "Mats Overlay"): Promise<void> {
     const strings: AlertDialogStrings = { text, title };
@@ -1014,6 +1066,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       const cp_fillcolor   = this.getString(rec, "cp_fillcolor");
       const cp_strokecolor = this.getString(rec, "cp_strokecolor");
       const cp_matgender   = this.getString(rec, "cp_matgender");
+      const cp_clientlabel = this.getString(rec, "cp_clientlabel");
 
       // Detect whether a check-in is already assigned.
       // The dataset exposes lookup fields as the formatted value string when bound,
@@ -1040,6 +1093,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
         cp_fillcolor,
         cp_strokecolor,
         cp_matgender,
+        cp_clientlabel,
         hasCheckin,
         checkinId,
         x: cp_xposition ?? 0,

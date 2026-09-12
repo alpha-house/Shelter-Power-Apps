@@ -87,6 +87,14 @@
         of-type="SingleLine.Text"
         usage="bound"
         required="false" />
+
+      <property-set
+        name="cp_clientlabel"
+        display-name-key="cp_clientlabel_Display"
+        description-key="cp_clientlabel_Desc"
+        of-type="SingleLine.Text"
+        usage="bound"
+        required="false" />
     </data-set>
 
     <!-- ================= DESIGNER INPUTS ================= -->

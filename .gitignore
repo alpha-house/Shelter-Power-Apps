@@ -29,3 +29,4 @@
 .dataverse/
 __pycache__/
 .flowagent/
+.playwright-mcp/

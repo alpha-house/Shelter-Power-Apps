@@ -167,6 +167,7 @@
           <attribute name="cp_matgender" />
           <attribute name="cp_matplan" />
           <order attribute="cp_matnumber" descending="false" />
+          <attribute name="cp_clientlabel" />
         </entity>
       </fetch>
     </fetchxml>
