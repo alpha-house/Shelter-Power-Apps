@@ -16,6 +16,7 @@
   <EntityRelationship Name="business_unit_cp_sheltercheckin" />
   <EntityRelationship Name="business_unit_cp_sheltermissedbreathinground" />
   <EntityRelationship Name="business_unit_cp_shiftnote" />
+  <EntityRelationship Name="contact_cp_shelterhighintoxbreathinground_cp_Client" />
   <EntityRelationship Name="cp_clientalert_Client_contact" />
   <EntityRelationship Name="cp_clientalert_ShelterCheckin_cp_sheltercheckin" />
   <EntityRelationship Name="cp_contact_HistoricalNotesWrittenBy_cp_staff" />
@@ -48,6 +49,8 @@
   <EntityRelationship Name="cp_shelterbreathinground_ShelterCheckin_cp_sheltercheckin" />
   <EntityRelationship Name="cp_sheltercheckin_BreathingRoundModifiedBy_systemuser" />
   <EntityRelationship Name="cp_sheltercheckin_Client_contact" />
+  <EntityRelationship Name="cp_shelterhighintoxbreathinground_CompletedBy_systemuser" />
+  <EntityRelationship Name="cp_shelterhighintoxbreathinground_ShelterCheckin_cp_sheltercheckin" />
   <EntityRelationship Name="cp_shiftnote_Admission_cp_cp_admission" />
   <EntityRelationship Name="cp_shiftnote_Client_contact" />
   <EntityRelationship Name="cp_shiftnote_RecordedBy_cp_staff" />

@@ -28,3 +28,4 @@
 .env
 .dataverse/
 __pycache__/
+.flowagent/

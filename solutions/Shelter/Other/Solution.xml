@@ -86,6 +86,8 @@
       <RootComponent type="1" schemaName="cp_matplan" behavior="0" />
       <RootComponent type="1" schemaName="cp_shelterbreathinground" behavior="0" />
       <RootComponent type="1" schemaName="cp_sheltercheckin" behavior="0" />
+      <RootComponent type="1" schemaName="cp_shelterhighintoxbreathinground" behavior="1" />
+      <RootComponent type="1" schemaName="cp_shelterhighintoxmissedbreathinground" behavior="1" />
       <RootComponent type="1" schemaName="cp_sheltermissedbreathinground" behavior="0" />
       <RootComponent type="1" schemaName="cp_shiftnote" behavior="0" />
       <RootComponent type="1" schemaName="systemuser" behavior="1" />
@@ -389,6 +391,14 @@
       <MissingDependency>
         <Required type="1" schemaName="cp_programpolicy" displayName="Program Policy" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_shelterhighintoxbreathinground" displayName="Shelter High Intox Breathing Round" solution="Active" />
+        <Dependent type="1" schemaName="cp_shelterhighintoxbreathinground" displayName="Shelter High Intox Breathing Round" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_shelterhighintoxmissedbreathinground" displayName="Shelter High Intox Missed Breathing Round" solution="Active" />
+        <Dependent type="1" schemaName="cp_shelterhighintoxmissedbreathinground" displayName="Shelter High Intox Missed Breathing Round" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="cp_timecard" displayName="Time Card" solution="Active" />
@@ -816,8 +826,40 @@
         <Dependent type="10" schemaName="cp_shiftnote_SignoffSupervisorName_cp_staff" displayName="cp_shiftnote_SignoffSupervisorName_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundid" displayName="Shelter High Intox Breathing Round" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
+        <Dependent type="26" schemaName="Shelter High Intox Breathing Rounds" displayName="Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{b2d031eb-ecfb-4bb2-85af-d481453f756e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundname" displayName="ShelterHighIntoxBreathingRoundName" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
+        <Dependent type="26" schemaName="Shelter High Intox Breathing Rounds" displayName="Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{b2d031eb-ecfb-4bb2-85af-d481453f756e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundname" displayName="ShelterHighIntoxBreathingRoundName" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
+        <Dependent type="60" displayName="Shelter High Intox Breathing Round" parentDisplayName="Shelter High Intox Breathing Round" id="{8ffed76e-f2b4-4663-ae53-d42b10ecc67e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundid" displayName="Shelter High Intox Missed Breathing Round" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
+        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Rounds" displayName="Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{42ae6061-3b67-4cda-87d4-530a52b88c44}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundname" displayName="ShelterHighIntoxMissedBreathingRoundName" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
+        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Rounds" displayName="Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{42ae6061-3b67-4cda-87d4-530a52b88c44}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundname" displayName="ShelterHighIntoxMissedBreathingRoundName" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
+        <Dependent type="60" displayName="Shelter High Intox Missed Breathing Round" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{dea584b5-ce5d-45bc-86af-1ff3ddd8b2d6}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="2" schemaName="cp_vehiclename" displayName="Vehicle Name" parentSchemaName="cp_vehicle" parentDisplayName="Vehicle" solution="Active" />
         <Dependent type="10" schemaName="cp_incidentreport_Vehicle_cp_vehicle" displayName="cp_incidentreport_Vehicle_cp_vehicle" parentSchemaName="cp_vehicle" parentDisplayName="Vehicle" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
+        <Dependent type="26" schemaName="Shelter High Intox Breathing Rounds" displayName="Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{b2d031eb-ecfb-4bb2-85af-d481453f756e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
+        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Rounds" displayName="Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{42ae6061-3b67-4cda-87d4-530a52b88c44}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="mspp_userpreferredlcid" displayName="Preferred Language" parentSchemaName="contact" parentDisplayName="Client" solution="PowerPages_RuntimeExtensions (1.1.2605.0)">
@@ -832,6 +874,14 @@
           <package appName="Power Pages Core" version="1.1.2508.192">PowerPages_Core (1.1.2508.192)</package>
         </Required>
         <Dependent type="60" displayName="Profile Web Form (Enhanced)" parentDisplayName="Client" id="{bddc0100-0dbe-4562-aafe-31d08c8ab506}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
+        <Dependent type="60" displayName="Shelter High Intox Breathing Round" parentDisplayName="Shelter High Intox Breathing Round" id="{8ffed76e-f2b4-4663-ae53-d42b10ecc67e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
+        <Dependent type="60" displayName="Shelter High Intox Missed Breathing Round" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{dea584b5-ce5d-45bc-86af-1ff3ddd8b2d6}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="Quality-Assurance-Tester" solution="Active" id="{8bfc300e-997f-f111-ab0f-7c1e5253346f}" />
@@ -1365,6 +1415,12 @@
           <package appName="Base Custom Controls" version="9.0.2608.4009">BaseCustomControlsCore (9.0.2608.4009)</package>
         </Required>
         <Dependent type="60" displayName="Shelter Client" parentDisplayName="Client" id="{785045ae-0d7b-f111-ab0f-7ced8da5852f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2608.4009)">
+          <package appName="Base Custom Controls" version="9.0.2608.4009">BaseCustomControlsCore (9.0.2608.4009)</package>
+        </Required>
+        <Dependent type="60" displayName="Shelter High Intox Breathing Round" parentDisplayName="Shelter High Intox Breathing Round" id="{8ffed76e-f2b4-4663-ae53-d42b10ecc67e}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2608.4009)">
