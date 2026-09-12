@@ -1,0 +1,241 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cp_sharedcommondataserviceforapps_04f4e"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Minute",
+            "interval": 15,
+            "timeZone": "Mountain Standard Time",
+            "startTime": "2026-07-15T15:15:00Z"
+          },
+          "evaluatedRecurrence": {
+            "frequency": "Minute",
+            "interval": 15,
+            "timeZone": "Mountain Standard Time",
+            "startTime": "2026-07-15T15:15:00Z"
+          },
+          "metadata": {
+            "operationMetadataId": "39b5bad0-f864-4aee-a622-3bd7b129795f"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "List_Shelter_Checkins": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "a58d64e5-28f0-46a7-8425-df6aa2b156e3"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cp_sheltercheckins",
+              "$filter": "cp_checkinstatus eq 121570000 and cp_highintox eq true",
+              "accept": "application/json;odata.metadata=minimal"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Initialize_variable_list_of_missed_client": {
+          "runAfter": {
+            "List_Shelter_Checkins": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2e5a4a2b-2063-4589-a5a3-eb4f2fdfcf21"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "list_of_missed_client",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Initialize_missed_client_count": {
+          "runAfter": {
+            "Initialize_variable_list_of_missed_client": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "568a58b5-96ec-441a-908a-54bc9cff8416"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "number_of_missed_clients",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "For_each": {
+          "foreach": "@outputs('List_Shelter_Checkins')?['body/value']",
+          "actions": {
+            "Condition": {
+              "actions": {
+                "Add_new_breathing_round_record": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "188a6de0-47a2-4117-80c0-34bd3cf44558"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "cp_shelterhighintoxbreathingrounds",
+                      "item/cp_breathingroundcompleted": true,
+                      "item/cp_Client@odata.bind": "@concat('/contacts(', items('For_each')?['_cp_client_value'], ')')",
+                      "item/cp_CompletedBy@odata.bind": "@concat('/systemusers(', items('For_each')?['_cp_breathingroundmodifiedby_value'], ')')",
+                      "item/cp_date": "@items('For_each')?['cp_breathingroundmodifiedon']",
+                      "item/cp_shelterhighintoxbreathingroundname": "@concat(\r\n  trim(first(\r\n    split(items('For_each')?['cp_sheltercheckin'], \r\n  ' -'))),\r\n  ' - ',\r\n  items('For_each')?['cp_breathingroundmodifiedon']\r\n)",
+                      "item/cp_dateandtime": "@items('For_each')?['cp_breathingroundmodifiedon']",
+                      "accept": "application/json;odata.metadata=minimal"
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {},
+              "else": {
+                "actions": {
+                  "Append_to_string_variable": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "d972c2a2-75a4-4b1b-b356-bc37bbe08efb"
+                    },
+                    "type": "AppendToStringVariable",
+                    "inputs": {
+                      "name": "list_of_missed_client",
+                      "value": "@concat(\r\n  string(items('For_each')?['cp_sheltercheckin']),\r\n  decodeUriComponent('%0A')\r\n)"
+                    }
+                  },
+                  "Increment_missed_client_count": {
+                    "runAfter": {
+                      "Append_to_string_variable": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "54d9e84f-d2bb-477c-99cb-5a9025ca3e2a"
+                    },
+                    "type": "IncrementVariable",
+                    "inputs": {
+                      "name": "number_of_missed_clients",
+                      "value": 1
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "and": [
+                  {
+                    "equals": [
+                      "@items('For_each')?['cp_breathinground']",
+                      true
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "007142e8-f539-40bd-94a5-e97da33a2e92"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Initialize_missed_client_count": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8f9bb230-9b77-4719-89d6-b3e7890c2cbb"
+          },
+          "type": "Foreach"
+        },
+        "number_of_missed_clients": {
+          "runAfter": {
+            "For_each": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e0c36077-c884-4fc4-aed7-52ec59ae008f"
+          },
+          "type": "Compose",
+          "inputs": "@variables('number_of_missed_clients')"
+        },
+        "Add_a_missed_breathing_round_record": {
+          "runAfter": {
+            "number_of_missed_clients": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b90468b7-d012-4c6f-95d3-99d73f5cff01"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cp_shelterhighintoxmissedbreathingrounds",
+              "item/cp_date": "@formatDateTime(\r\n  addMinutes(\r\n    convertToUtc(\r\n      convertFromUtc(utcNow(), 'Mountain Standard Time'),\r\n      'Mountain Standard Time'\r\n    ),\r\n    -15\r\n  ),\r\n  'yyyy-MM-ddTHH:mm:ssZ'\r\n)",
+              "item/cp_listofmissedclients": "@variables('list_of_missed_client')",
+              "item/cp_numberofclientsmissed": "@outputs('number_of_missed_clients')",
+              "item/cp_shelterhighintoxmissedbreathingroundname": "@concat(\r\n  'Shelter - ',\r\n  string(formatDateTime(\r\n  addMinutes(\r\n    convertToUtc(\r\n      convertFromUtc(utcNow(), 'Mountain Standard Time'),\r\n      'Mountain Standard Time'\r\n    ),\r\n    -15\r\n  ),\r\n  'yyyy-MM-ddTHH:mm:ssZ'\r\n))\r\n  )",
+              "item/cp_time": "@formatDateTime(\r\n  addMinutes(\r\n    convertToUtc(\r\n      convertFromUtc(utcNow(), 'Mountain Standard Time'),\r\n      'Mountain Standard Time'\r\n    ),\r\n    -15\r\n  ),\r\n  'yyyy-MM-ddTHH:mm:ssZ'\r\n)",
+              "accept": "application/json;odata.metadata=minimal"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "CreateRecord"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

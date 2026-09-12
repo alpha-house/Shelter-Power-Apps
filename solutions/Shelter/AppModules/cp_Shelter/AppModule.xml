@@ -18,6 +18,8 @@
     <AppModuleComponent type="1" schemaName="cp_matplan" />
     <AppModuleComponent type="1" schemaName="cp_shelterbreathinground" />
     <AppModuleComponent type="1" schemaName="cp_sheltercheckin" />
+    <AppModuleComponent type="1" schemaName="cp_shelterhighintoxbreathinground" />
+    <AppModuleComponent type="1" schemaName="cp_shelterhighintoxmissedbreathinground" />
     <AppModuleComponent type="1" schemaName="cp_sheltermissedbreathinground" />
     <AppModuleComponent type="1" schemaName="cp_shiftnote" />
     <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000000666400}" />

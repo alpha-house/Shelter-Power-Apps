@@ -2,21 +2,16 @@
 <savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <savedquery>
     <IsCustomizable>1</IsCustomizable>
-    <CanBeDeleted>1</CanBeDeleted>
+    <CanBeDeleted>0</CanBeDeleted>
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
-    <isdefault>1</isdefault>
-    <savedqueryid>{42ae6061-3b67-4cda-87d4-530a52b88c44}</savedqueryid>
+    <isdefault>0</isdefault>
+    <savedqueryid>{e3bdac2d-52d0-464f-b778-c08d8eb7c87b}</savedqueryid>
     <layoutxml>
       <grid name="resultset" jump="cp_shelterhighintoxmissedbreathingroundname" select="1" icon="1" preview="1">
         <row name="result" id="cp_shelterhighintoxmissedbreathingroundid">
           <cell name="cp_shelterhighintoxmissedbreathingroundname" width="300" />
           <cell name="createdon" width="125" />
-          <cell name="cp_date" width="100" />
-          <cell name="cp_time" width="100" />
-          <cell name="cp_numberofclientsmissed" width="189" />
-          <cell name="cp_listofmissedclients" width="165" />
-          <cell name="cp_reason" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -27,18 +22,16 @@
           <attribute name="cp_shelterhighintoxmissedbreathingroundid" />
           <attribute name="cp_shelterhighintoxmissedbreathingroundname" />
           <attribute name="createdon" />
-          <attribute name="cp_date" />
-          <attribute name="cp_time" />
-          <attribute name="cp_numberofclientsmissed" />
-          <attribute name="cp_listofmissedclients" />
-          <attribute name="cp_reason" />
-          <order attribute="createdon" descending="true" />
+          <order attribute="cp_shelterhighintoxmissedbreathingroundname" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
         </entity>
       </fetch>
     </fetchxml>
-    <IntroducedVersion>1.0.0.9</IntroducedVersion>
+    <IntroducedVersion>1.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Shelter High Intox Missed Breathing Rounds" languagecode="1033" />
+      <LocalizedName description="Active Shelter High Intox Missed Breathing Rounds" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

@@ -2,22 +2,16 @@
 <savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <savedquery>
     <IsCustomizable>1</IsCustomizable>
-    <CanBeDeleted>1</CanBeDeleted>
+    <CanBeDeleted>0</CanBeDeleted>
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
     <isdefault>1</isdefault>
-    <savedqueryid>{b2d031eb-ecfb-4bb2-85af-d481453f756e}</savedqueryid>
+    <savedqueryid>{812bf908-80e0-4248-ba8d-a4b81fc2dc6d}</savedqueryid>
     <layoutxml>
       <grid name="resultset" jump="cp_shelterhighintoxbreathingroundname" select="1" icon="1" preview="1">
         <row name="result" id="cp_shelterhighintoxbreathingroundid">
           <cell name="cp_shelterhighintoxbreathingroundname" width="300" />
-          <cell name="createdon" width="105" />
-          <cell name="cp_date" width="100" />
-          <cell name="cp_dateandtime" width="123" />
-          <cell name="cp_client" width="100" />
-          <cell name="cp_sheltercheckin" width="130" />
-          <cell name="cp_breathingroundcompleted" width="201" />
-          <cell name="cp_completedby" width="122" />
+          <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
@@ -27,20 +21,17 @@
         <entity name="cp_shelterhighintoxbreathinground">
           <attribute name="cp_shelterhighintoxbreathingroundid" />
           <attribute name="cp_shelterhighintoxbreathingroundname" />
-          <attribute name="cp_breathingroundcompleted" />
-          <attribute name="cp_sheltercheckin" />
-          <attribute name="cp_client" />
-          <attribute name="cp_date" />
-          <attribute name="cp_dateandtime" />
-          <attribute name="cp_completedby" />
           <attribute name="createdon" />
-          <order attribute="createdon" descending="true" />
+          <order attribute="cp_shelterhighintoxbreathingroundname" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
         </entity>
       </fetch>
     </fetchxml>
-    <IntroducedVersion>1.0.0.9</IntroducedVersion>
+    <IntroducedVersion>1.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Shelter High Intox Breathing Rounds" languagecode="1033" />
+      <LocalizedName description="Active Shelter High Intox Breathing Rounds" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
