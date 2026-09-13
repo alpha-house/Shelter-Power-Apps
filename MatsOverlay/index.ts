@@ -942,6 +942,43 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
 
     const shelterCheckinId: Guid = scPick[0].id.replace(/[{}]/g, "");
 
+    // ── Guard: is this check-in already assigned to a different mat? ────────────
+    // The cp_ShelterCheckinKey alternate key on cp_Mat would reject this at save
+    // time anyway, but with a generic Dataverse error — check first so we can
+    // show a friendly, specific message instead.
+    try {
+      const dupCheck = await this.context.webAPI.retrieveMultipleRecords(
+        "cp_mat",
+        `?$select=cp_matlabel&$filter=_cp_sheltercheckin_value eq ${shelterCheckinId} and cp_matid ne ${mat.id}`
+      );
+      if (dupCheck.entities.length > 0) {
+        const otherMat = dupCheck.entities[0];
+        const otherMatLabel = (otherMat["cp_matlabel"] as string | null | undefined) ?? "?";
+
+        let clientName = "This client";
+        try {
+          const ciRecord = await this.context.webAPI.retrieveRecord(
+            "cp_sheltercheckin",
+            shelterCheckinId,
+            "?$select=_cp_client_value"
+          );
+          const raw = ciRecord["_cp_client_value"] as string | null | undefined;
+          const dupContactId = raw ? raw.replace(/[{}]/g, "") : null;
+          if (dupContactId) {
+            const contact = await this.context.webAPI.retrieveRecord("contact", dupContactId, "?$select=fullname");
+            clientName = (contact["fullname"] as string | null | undefined) ?? clientName;
+          }
+        } catch (err) {
+          console.warn("[MatsOverlay] Could not resolve client name for duplicate-assignment message:", err);
+        }
+
+        await this.showAlert(`${clientName} is already assigned to mat ${otherMatLabel}`);
+        return;
+      }
+    } catch (err) {
+      console.warn("[MatsOverlay] Could not check for an existing mat assignment:", err);
+    }
+
     let contactId: Guid | null = null;
     try {
       const ciRecord = await this.context.webAPI.retrieveRecord(
