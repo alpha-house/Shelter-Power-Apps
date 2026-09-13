@@ -44,7 +44,7 @@
           "inputs": {
             "parameters": {
               "entityName": "cp_sheltercheckins",
-              "$filter": "cp_checkinstatus eq 121570000 and cp_highintox ne true"
+              "$filter": "cp_checkin eq true and cp_highintox ne true"
             },
             "host": {
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",

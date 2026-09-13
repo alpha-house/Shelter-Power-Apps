@@ -202,6 +202,70 @@
             </column>
           </columns>
         </tab>
+        <tab name="exit_information" id="3177673e-88b3-47a9-9ad2-0bd35c778c18" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Exit Information" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="exit_information" id="1206562b-a0bf-4948-a6c9-a78974cde0de" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115">
+                  <labels>
+                    <label description="Exit Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{2f74303e-3ac0-4e1d-b097-c9ec8fabd19c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Exit Information" languagecode="1033" />
+                        </labels>
+                        <control id="cp_exitinformation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_exitinformation" disabled="false">
+                          <parameters>
+                            <DisableViewPicker>true</DisableViewPicker>
+                            <DependentAttributeName>cp_sheltercheckin.cp_client</DependentAttributeName>
+                            <DependentAttributeType>contact</DependentAttributeType>
+                            <FilterRelationshipName>cp_exitinformation_Client_contact</FilterRelationshipName>
+                            <DefaultViewId>{F734683E-90E8-4AAB-85B9-623D90C6FF27}</DefaultViewId>
+                            <AvailableViewIds>{EB980F9F-099A-495C-AFAF-30F1AD261098},{F734683E-90E8-4AAB-85B9-623D90C6FF27},{7BC62121-B99E-4A2B-9FAB-BC5792A701DD}</AvailableViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell locklevel="0" id="{31d392ef-3fb3-48f8-8cba-4bf962cb40f2}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{351af09f-de5d-4e91-b5aa-98480bd866ed}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{6a9be79f-881e-4cc4-bb5d-3a77de832bad}" colspan="3" rowspan="1">
+                        <labels>
+                          <label description="Exit Information" languagecode="1033" />
+                        </labels>
+                        <control id="cp_exitinformation" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_exitinformation" uniqueid="{4704de4c-0324-4c6a-94c2-4024907c8a4f}">
+                          <parameters>
+                            <DefaultViewId>{EB980F9F-099A-495C-AFAF-30F1AD261098}</DefaultViewId>
+                            <useMainFormDialogForEdit>false</useMainFormDialogForEdit>
+                            <useMainFormDialogForCreate>false</useMainFormDialogForCreate>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <AvailableViewIds>{F734683E-90E8-4AAB-85B9-623D90C6FF27},{EB980F9F-099A-495C-AFAF-30F1AD261098}</AvailableViewIds>
+                            <DependentAttributeName>cp_sheltercheckin.cp_breathingroundmodifiedby</DependentAttributeName>
+                            <DependentAttributeType>systemuser</DependentAttributeType>
+                            <FilterRelationshipName>lk_cp_exitinformation_createdonbehalfby</FilterRelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
       </tabs>
       <header id="{cf096584-9f5e-4e5e-a1f8-0e491a83f38e}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
         <rows>
@@ -368,6 +432,87 @@
           <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
             <parameters>
               <value type="TwoOptions">cp_removedfrommat</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{4704de4c-0324-4c6a-94c2-4024907c8a4f}">
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+            <parameters>
+              <datafieldname>cp_exitinformation</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+            <parameters>
+              <datafieldname>cp_exitinformation</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_exitinformation</BindAttribute>
+                <DefaultViewId>{EB980F9F-099A-495C-AFAF-30F1AD261098}</DefaultViewId>
+                <FilterRelationshipName />
+                <DependentAttributeName />
+                <DependentAttributeType />
+                <AvailableViewIds />
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_exitinformation"&gt;4852fc78-a5d4-496e-b632-8cae1336cf97&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
+              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
+              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_exitinformation</BindAttribute>
+                <DefaultViewId>{F734683E-90E8-4AAB-85B9-623D90C6FF27}</DefaultViewId>
+                <FilterRelationshipName />
+                <DependentAttributeName />
+                <DependentAttributeType />
+                <AvailableViewIds />
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_exitinformation"&gt;4852fc78-a5d4-496e-b632-8cae1336cf97&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
+              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
+              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_exitinformation</BindAttribute>
+                <DefaultViewId>{F734683E-90E8-4AAB-85B9-623D90C6FF27}</DefaultViewId>
+                <FilterRelationshipName />
+                <DependentAttributeName />
+                <DependentAttributeType />
+                <AvailableViewIds />
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_exitinformation"&gt;4852fc78-a5d4-496e-b632-8cae1336cf97&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
+              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
+              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
             </parameters>
           </customControl>
         </controlDescription>

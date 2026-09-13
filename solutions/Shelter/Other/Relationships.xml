@@ -9,6 +9,7 @@
   <EntityRelationship Name="ahb_cp_shiftnote_Unit_ahb_unit" />
   <EntityRelationship Name="business_unit_ahb_ahhelp" />
   <EntityRelationship Name="business_unit_cp_clientalert" />
+  <EntityRelationship Name="business_unit_cp_exitinformation" />
   <EntityRelationship Name="business_unit_cp_incidentreport" />
   <EntityRelationship Name="business_unit_cp_mat" />
   <EntityRelationship Name="business_unit_cp_matplan" />
@@ -20,6 +21,7 @@
   <EntityRelationship Name="cp_clientalert_Client_contact" />
   <EntityRelationship Name="cp_clientalert_ShelterCheckin_cp_sheltercheckin" />
   <EntityRelationship Name="cp_contact_HistoricalNotesWrittenBy_cp_staff" />
+  <EntityRelationship Name="cp_exitinformation_Client_contact" />
   <EntityRelationship Name="cp_incidentreport_Client_contact" />
   <EntityRelationship Name="cp_incidentreport_CPIReviewAssignedTo_cp_staff" />
   <EntityRelationship Name="cp_incidentreport_DirectorThatWasCalled_cp_staff" />
@@ -49,6 +51,7 @@
   <EntityRelationship Name="cp_shelterbreathinground_ShelterCheckin_cp_sheltercheckin" />
   <EntityRelationship Name="cp_sheltercheckin_BreathingRoundModifiedBy_systemuser" />
   <EntityRelationship Name="cp_sheltercheckin_Client_contact" />
+  <EntityRelationship Name="cp_sheltercheckin_ExitInformation_cp_exitinformation" />
   <EntityRelationship Name="cp_shelterhighintoxbreathinground_CompletedBy_systemuser" />
   <EntityRelationship Name="cp_shelterhighintoxbreathinground_ShelterCheckin_cp_sheltercheckin" />
   <EntityRelationship Name="cp_shiftnote_Admission_cp_cp_admission" />
@@ -60,6 +63,8 @@
   <EntityRelationship Name="lk_ahb_ahhelp_modifiedby" />
   <EntityRelationship Name="lk_cp_clientalert_createdby" />
   <EntityRelationship Name="lk_cp_clientalert_modifiedby" />
+  <EntityRelationship Name="lk_cp_exitinformation_createdby" />
+  <EntityRelationship Name="lk_cp_exitinformation_modifiedby" />
   <EntityRelationship Name="lk_cp_incidentreport_createdby" />
   <EntityRelationship Name="lk_cp_incidentreport_modifiedby" />
   <EntityRelationship Name="lk_cp_mat_createdby" />
@@ -77,6 +82,7 @@
   <EntityRelationship Name="msa_contact_managingpartner" />
   <EntityRelationship Name="owner_ahb_ahhelp" />
   <EntityRelationship Name="owner_cp_clientalert" />
+  <EntityRelationship Name="owner_cp_exitinformation" />
   <EntityRelationship Name="owner_cp_incidentreport" />
   <EntityRelationship Name="owner_cp_mat" />
   <EntityRelationship Name="owner_cp_matplan" />
@@ -87,6 +93,7 @@
   <EntityRelationship Name="powerpagecomponent_mspp_webrole_contact" />
   <EntityRelationship Name="team_ahb_ahhelp" />
   <EntityRelationship Name="team_cp_clientalert" />
+  <EntityRelationship Name="team_cp_exitinformation" />
   <EntityRelationship Name="team_cp_incidentreport" />
   <EntityRelationship Name="team_cp_mat" />
   <EntityRelationship Name="team_cp_matplan" />
@@ -96,6 +103,7 @@
   <EntityRelationship Name="team_cp_shiftnote" />
   <EntityRelationship Name="user_ahb_ahhelp" />
   <EntityRelationship Name="user_cp_clientalert" />
+  <EntityRelationship Name="user_cp_exitinformation" />
   <EntityRelationship Name="user_cp_incidentreport" />
   <EntityRelationship Name="user_cp_mat" />
   <EntityRelationship Name="user_cp_matplan" />

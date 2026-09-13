@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{4852fc78-a5d4-496e-b632-8cae1336cf97}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{B864AD2D-A548-4758-843E-F7F2AC0D5217}" IsUserDefined="1" name="general">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{D1697EC0-2907-48A6-9FBC-A1A131B68431}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{F6389B21-25F2-4265-B5C5-FF0A70F5B25B}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cp_exitinformationname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_ExitInformationName" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3f49de48-19d3-43b5-ac8c-ffcdfe55419b}" locklevel="0" colspan="1" rowspan="5">
+                        <labels>
+                          <label description="Exit Notes" languagecode="1033" />
+                        </labels>
+                        <control id="cp_exitnotes" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_exitnotes" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{d8572d5a-5af0-4e9b-b1d8-9f315658e340}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{6b8b1b42-0a47-4b1b-91c3-c4910ccfd618}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4577c01b-9ca2-4880-9171-9b6882cd204e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e10ba049-0037-4996-9c27-ea73d4a6cd9c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell locklevel="0" id="{8f5cee0a-a212-4c0b-9b0d-7cae738386b6}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b192442e-672d-4e79-90ec-0dede49f6480}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Client" languagecode="1033" />
+              </labels>
+              <control id="header_cp_client" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_client" disabled="false" />
+            </cell>
+            <cell id="{56c1107c-9586-488f-987d-5ce07cb155f1}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Exit Information Name" languagecode="1033" />
+              </labels>
+              <control id="header_cp_exitinformationname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_exitinformationname" disabled="false" />
+            </cell>
+            <cell id="{D5BE6FC0-1100-4AD3-B17C-AEC4843063B7}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{242e6f5d-ff61-411d-a8c7-115ae0acfe04}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{41e7d742-f05a-4f92-8110-32118f17b842}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{bbf28615-0b64-4954-a921-2a10e6323eeb}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{93a102f6-abdb-4c71-aa13-d416c0d358a2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Exit Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

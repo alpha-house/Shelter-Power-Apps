@@ -1,0 +1,108 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "cp_sharedcommondataserviceforapps_04f4e"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "When_checkin_exit_information_is_set": {
+          "metadata": {},
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "cp_sheltercheckin",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "cp_exitinformation",
+              "subscriptionRequest/filterexpression": "_cp_exitinformation_value ne null"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger"
+            }
+          }
+        }
+      },
+      "actions": {
+        "Has_Linked_Client": {
+          "runAfter": {},
+          "type": "If",
+          "expression": {
+            "not": [
+              {
+                "equals": [
+                  "@triggerOutputs()?['body/_cp_client_value']",
+                  null
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "Get_Contact": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "contacts",
+                  "recordId": "@triggerOutputs()?['body/_cp_client_value']",
+                  "$select": "fullname"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "GetItem"
+                }
+              }
+            },
+            "Update_Exit_Information": {
+              "runAfter": {
+                "Get_Contact": [
+                  "Succeeded"
+                ]
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "cp_exitinformations",
+                  "recordId": "@triggerOutputs()?['body/_cp_exitinformation_value']",
+                  "item/cp_exitinformationname": "@concat(body('Get_Contact')?['fullname'], ' - Shelter - ', formatDateTime(utcNow(), 'yyyy-MM-dd'))"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord"
+                }
+              }
+            }
+          },
+          "else": {
+            "actions": {}
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

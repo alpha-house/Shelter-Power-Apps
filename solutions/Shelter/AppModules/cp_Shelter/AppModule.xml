@@ -13,6 +13,7 @@
     <AppModuleComponent type="1" schemaName="ahb_ahhelp" />
     <AppModuleComponent type="1" schemaName="contact" />
     <AppModuleComponent type="1" schemaName="cp_clientalert" />
+    <AppModuleComponent type="1" schemaName="cp_exitinformation" />
     <AppModuleComponent type="1" schemaName="cp_incidentreport" />
     <AppModuleComponent type="1" schemaName="cp_mat" />
     <AppModuleComponent type="1" schemaName="cp_matplan" />

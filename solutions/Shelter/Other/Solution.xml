@@ -81,6 +81,7 @@
       <RootComponent type="1" schemaName="ahb_ahhelp" behavior="0" />
       <RootComponent type="1" schemaName="contact" behavior="0" />
       <RootComponent type="1" schemaName="cp_clientalert" behavior="0" />
+      <RootComponent type="1" schemaName="cp_exitinformation" behavior="0" />
       <RootComponent type="1" schemaName="cp_incidentreport" behavior="0" />
       <RootComponent type="1" schemaName="cp_mat" behavior="0" />
       <RootComponent type="1" schemaName="cp_matplan" behavior="0" />
@@ -97,6 +98,7 @@
       <RootComponent type="29" id="{73f3ba8e-4981-f111-ab0f-7c1e5253346f}" behavior="0" />
       <RootComponent type="29" id="{768ca820-ddae-f111-aaad-6045bd60d54a}" behavior="0" />
       <RootComponent type="29" id="{77991899-5a80-f111-ab0f-7c1e5253346f}" behavior="0" />
+      <RootComponent type="29" id="{bc623fe3-93af-f111-aaae-70a8a50e7321}" behavior="0" />
       <RootComponent type="29" id="{c3195d30-9380-f111-ab0f-7c1e5253346f}" behavior="0" />
       <RootComponent type="29" id="{eae23328-f67a-f111-ab0f-7ced8da5852f}" behavior="0" />
       <RootComponent type="29" id="{edec6698-5b80-f111-ab0f-7ced8da799f0}" behavior="0" />
@@ -1627,6 +1629,12 @@
           <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
         </Required>
         <Dependent type="60" displayName="1 Incident Report" parentDisplayName="Incident Report" id="{b6b5838b-4aac-49c8-8c2f-07cba68f4fa2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.ModelForm.ModelFormControl" displayName="MscrmControls.ModelForm.ModelFormControl" solution="BaseCustomControlsCore (9.0.2609.1007)">
+          <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
+        </Required>
+        <Dependent type="60" displayName="Shelter Checkin" parentDisplayName="Shelter Checkin" id="{693268e2-554c-4cec-be1e-91bb0350ec89}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="MscrmControls.Signature.SignatureControl" displayName="MscrmControls.Signature.SignatureControl" solution="CustomControlsCore (9.2.26091.00131)">
