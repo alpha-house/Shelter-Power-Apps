@@ -41,6 +41,9 @@ interface LookupOptions {
   viewIds?: string[];
   searchText?: string;
   filters?: LookupFilter[];
+  // Hides the "Recent" tab (an unfiltered MRU list) so the dialog always
+  // opens on "All records", which is the only tab that honours `filters`.
+  disableMru?: boolean;
 }
 interface PageContextEntityFormInput {
   pageType: string;
@@ -926,12 +929,16 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       scPick = await xrm.Utility.lookupObjects({
         entityTypes:      ["cp_sheltercheckin"],
         allowMultiSelect: false,
+        // Skip the "Recent" tab (an unfiltered MRU list) — always open on
+        // "All records", the only tab that applies the filter below.
+        disableMru: true,
         filters: [{
           entityLogicalName: "cp_sheltercheckin",
           filterXml:
             "<filter type='and'>" +
-              "<condition attribute='cp_checkin' operator='eq' value='1' />" +
-              "<condition attribute='statecode'  operator='eq' value='0' />" +
+              "<condition attribute='cp_checkin'  operator='eq' value='1' />" +
+              "<condition attribute='statecode'   operator='eq' value='0' />" +
+              "<condition attribute='cp_checkout' operator='ne' value='1' />" +
             "</filter>"
         }]
       });

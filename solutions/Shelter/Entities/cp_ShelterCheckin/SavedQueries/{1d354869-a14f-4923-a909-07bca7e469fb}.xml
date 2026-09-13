@@ -22,9 +22,6 @@
           <attribute name="cp_sheltercheckinid" />
           <attribute name="cp_sheltercheckin" />
           <attribute name="createdon" />
-          <filter type="and">
-            <condition attribute="statecode" operator="eq" value="0" />
-          </filter>
         </entity>
       </fetch>
     </fetchxml>

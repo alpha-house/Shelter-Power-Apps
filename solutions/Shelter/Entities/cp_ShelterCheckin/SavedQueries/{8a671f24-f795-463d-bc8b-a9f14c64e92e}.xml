@@ -11,6 +11,7 @@
       <grid name="resultset" jump="cp_sheltercheckin" select="1" icon="1" preview="1">
         <row name="result" id="cp_sheltercheckinid">
           <cell name="cp_sheltercheckin" width="300" />
+          <cell name="cp_client" width="100" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
@@ -22,19 +23,18 @@
           <attribute name="cp_sheltercheckinid" />
           <attribute name="cp_sheltercheckin" />
           <attribute name="createdon" />
-          <order attribute="cp_sheltercheckin" descending="false" />
-          <filter type="and">
-            <condition attribute="statecode" operator="eq" value="0" />
-          </filter>
           <filter type="or" isquickfindfields="1">
             <condition attribute="cp_sheltercheckin" operator="like" value="{0}" />
+            <condition attribute="cp_client" operator="like" value="{0}" />
           </filter>
+          <attribute name="cp_client" />
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>1.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Quick Find Active Shelter Checkins" languagecode="1033" />
+      <LocalizedName description="Quick Find Shelter Checkins" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
