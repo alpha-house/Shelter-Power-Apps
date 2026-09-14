@@ -1111,6 +1111,14 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       const cp_strokecolor = this.getString(rec, "cp_strokecolor");
       const cp_matgender   = this.getString(rec, "cp_matgender");
       const cp_clientlabel = this.getString(rec, "cp_clientlabel");
+      const cp_render      = this.getBoolean(rec, "cp_render");
+
+      // Mats explicitly flagged Render = No are excluded entirely -- they
+      // neither draw nor participate in overlap detection, drag, or
+      // click-to-assign. A mat with no value set (existing mats predating
+      // this column) defaults to rendering, matching the column's own
+      // Yes/No default of "Yes".
+      if (cp_render === false) continue;
 
       // Detect whether a check-in is already assigned.
       // The dataset exposes lookup fields as the formatted value string when bound,
@@ -1166,6 +1174,15 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     if (raw == null || raw === "") return null;
     const n = Number(raw);
     return Number.isFinite(n) ? n : null;
+  }
+
+  private getBoolean(
+    rec: ComponentFramework.PropertyHelper.DataSetApi.EntityRecord,
+    logicalName: string
+  ): boolean | null {
+    const raw = rec.getValue(logicalName);
+    if (raw == null) return null;
+    return raw === true || raw === "1" || raw === 1;
   }
 
   private isOverlapping(a: MatRow, b: MatRow): boolean {

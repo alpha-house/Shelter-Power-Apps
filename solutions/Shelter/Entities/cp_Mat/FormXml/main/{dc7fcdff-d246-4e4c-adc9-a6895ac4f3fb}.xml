@@ -168,6 +168,25 @@
                         <control id="cp_standardmat" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_standardmat" disabled="false" uniqueid="{ed202086-b7d1-4bf6-8217-71ceea30c6a8}" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{a4e50cc4-40d2-47f9-8219-b46bcb543a12}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Default X Position" languagecode="1033" />
+                        </labels>
+                        <control id="cp_defaultxposition" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="cp_defaultxposition" disabled="false" />
+                      </cell>
+                      <cell id="{02188b22-0070-41c9-b388-ad3f74b936c9}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Default Y Position" languagecode="1033" />
+                        </labels>
+                        <control id="cp_defaultyposition" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="cp_defaultyposition" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{c978e847-f5a1-4ada-9c75-c4acc8db4b44}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>

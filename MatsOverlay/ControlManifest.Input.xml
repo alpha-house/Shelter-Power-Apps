@@ -95,6 +95,14 @@
         of-type="SingleLine.Text"
         usage="bound"
         required="false" />
+
+      <property-set
+        name="cp_render"
+        display-name-key="cp_render_Display"
+        description-key="cp_render_Desc"
+        of-type="TwoOptions"
+        usage="bound"
+        required="false" />
     </data-set>
 
     <!-- ================= DESIGNER INPUTS ================= -->

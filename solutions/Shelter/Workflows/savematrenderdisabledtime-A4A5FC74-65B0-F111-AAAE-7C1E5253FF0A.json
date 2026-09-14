@@ -1,0 +1,87 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cp_sharedcommondataserviceforapps_04f4e"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "When_a_mats_render_flag_is_modified": {
+          "metadata": {},
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "cp_mat",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "cp_render"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Is_Render_Disabled": {
+          "actions": {
+            "Set_Rendering_Disabled_On": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "cp_mats",
+                  "recordId": "@triggerOutputs()?['body/cp_matid']",
+                  "item/cp_renderingdisabledon": "@formatDateTime(utcNow(), 'yyyy-MM-dd')",
+                  "accept": "application/json;odata.metadata=minimal"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {},
+          "else": {
+            "actions": {}
+          },
+          "expression": {
+            "equals": [
+              "@triggerOutputs()?['body/cp_render']",
+              false
+            ]
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -21,7 +21,9 @@
           <cell name="cp_renderingdisabledon" width="173" />
           <cell name="cp_standardmat" width="116" />
           <cell name="cp_xposition" width="100" />
+          <cell name="cp_defaultxposition" width="145" />
           <cell name="cp_yposition" width="100" />
+          <cell name="cp_defaultyposition" width="145" />
           <cell name="cp_matwidth" width="101" />
           <cell name="cp_matheight" width="105" />
           <cell name="cp_vacant" width="100" />
@@ -175,6 +177,8 @@
           <attribute name="cp_yposition" />
           <attribute name="cp_matnumber" />
           <attribute name="cp_matlabel" />
+          <attribute name="cp_defaultxposition" />
+          <attribute name="cp_defaultyposition" />
         </entity>
       </fetch>
     </fetchxml>
