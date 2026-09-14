@@ -1,0 +1,9 @@
+<html><head>
+    <title>Shelter Exit Information Notification</title>
+    <link rel="stylesheet" href="../webresources/cp_customstyles.css">
+</head>
+<body style="overflow-wrap: break-word;">
+    <div class="instructions">
+        <p>Please click on the magnifying glass to create a new <strong>Exit Information</strong> record, and then click <strong>Save</strong> at the top of this page to continue.</p>
+    </div>
+</body></html>

@@ -103,6 +103,7 @@
       <RootComponent type="29" id="{eae23328-f67a-f111-ab0f-7ced8da5852f}" behavior="0" />
       <RootComponent type="29" id="{edec6698-5b80-f111-ab0f-7ced8da799f0}" behavior="0" />
       <RootComponent type="29" id="{fe05415d-c37b-f111-ab0f-000d3ae9a57c}" behavior="0" />
+      <RootComponent type="61" schemaName="cp_shelter_exit_information_notification" behavior="0" />
       <RootComponent type="61" schemaName="cp_shelter_javascript_code" behavior="0" />
       <RootComponent type="62" schemaName="cp_Shelter" behavior="0" />
       <RootComponent type="66" schemaName="cp_CpShelter.MatsOverlay" behavior="0" />

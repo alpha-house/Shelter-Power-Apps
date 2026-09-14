@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{24a47ab1-48b0-f111-aaae-7ced8da50854}</WebResourceId>
+  <Name>cp_shelter_exit_information_notification</Name>
+  <DisplayName>Shelter Exit Information Notification</DisplayName>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>1.0.0.9</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/cp_shelter_exit_information_notification24A47AB1-48B0-F111-AAAE-7CED8DA50854</FileName>
+</WebResource>

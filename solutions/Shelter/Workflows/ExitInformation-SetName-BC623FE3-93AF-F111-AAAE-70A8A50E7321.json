@@ -25,42 +25,41 @@
         }
       },
       "triggers": {
-        "When_checkin_exit_information_is_set": {
-          "metadata": {},
+        "When_shelter_checkin_is_modified": {
           "type": "OpenApiConnectionWebhook",
           "inputs": {
             "parameters": {
               "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "cp_sheltercheckin",
               "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "cp_exitinformation",
-              "subscriptionRequest/filterexpression": "_cp_exitinformation_value ne null"
+              "subscriptionRequest/filteringattributes": "cp_exitinformation"
             },
             "host": {
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "SubscribeWebhookTrigger"
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps"
             }
-          }
+          },
+          "metadata": {}
         }
       },
       "actions": {
         "Has_Linked_Client": {
-          "runAfter": {},
           "type": "If",
           "expression": {
-            "not": [
+            "and": [
               {
-                "equals": [
-                  "@triggerOutputs()?['body/_cp_client_value']",
-                  null
-                ]
+                "not": {
+                  "equals": [
+                    "@triggerOutputs()?['body/_cp_client_value']",
+                    "@null"
+                  ]
+                }
               }
             ]
           },
           "actions": {
             "Get_Contact": {
-              "runAfter": {},
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
@@ -70,17 +69,12 @@
                 },
                 "host": {
                   "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "GetItem"
+                  "operationId": "GetItem",
+                  "connectionName": "shared_commondataserviceforapps"
                 }
               }
             },
             "Update_Exit_Information": {
-              "runAfter": {
-                "Get_Contact": [
-                  "Succeeded"
-                ]
-              },
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
@@ -90,15 +84,21 @@
                 },
                 "host": {
                   "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "UpdateOnlyRecord"
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps"
                 }
+              },
+              "runAfter": {
+                "Get_Contact": [
+                  "Succeeded"
+                ]
               }
             }
           },
           "else": {
             "actions": {}
-          }
+          },
+          "runAfter": {}
         }
       }
     },
