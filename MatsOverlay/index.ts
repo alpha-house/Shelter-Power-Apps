@@ -785,14 +785,28 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     await this.context.parameters.cp_mat.refresh();
   }
 
-  /** Persists a drag-to-reposition move. Silent on success; alerts on failure. */
+  /**
+   * Persists a drag-to-reposition move, then resolves any overlaps the drop
+   * now causes by pushing the affected mats out of the way (resolve-on-drop
+   * collision resolution — see resolveOverlapsOnDrop). Silent on success;
+   * alerts on failure.
+   */
   private async persistMatMove(mat: MatRow, x: number, y: number): Promise<void> {
-    const payload: Record<string, number> = { cp_xposition: x, cp_yposition: y };
+    const draggedRect: MatRow = { ...mat, x, y };
+    const pushes = this.resolveOverlapsOnDrop(draggedRect);
 
+    const payload: Record<string, number> = { cp_xposition: x, cp_yposition: y };
     console.log(`[MatsOverlay] PATCH cp_mat/${mat.id} (move):`, JSON.stringify(payload));
 
     try {
       await this.context.webAPI.updateRecord("cp_mat", mat.id, payload);
+
+      for (const push of pushes) {
+        const pushPayload: Record<string, number> = { cp_xposition: push.x, cp_yposition: push.y };
+        console.log(`[MatsOverlay] PATCH cp_mat/${push.mat.id} (pushed clear of drop):`, JSON.stringify(pushPayload));
+        await this.context.webAPI.updateRecord("cp_mat", push.mat.id, pushPayload);
+      }
+
       await this.context.parameters.cp_mat.refresh();
     } catch (err) {
       await this.showAlert(`⚠️ Failed to save new position for ${mat.cp_matlabel ?? mat.id}. Please try again.`);
@@ -1192,6 +1206,53 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       a.y + a.h <= b.y ||
       b.y + b.h <= a.y
     );
+  }
+
+  /**
+   * Resolve-on-drop collision resolution: given the dragged mat's rectangle
+   * at its drop position, finds every other rendered mat it now overlaps
+   * and computes a new position for each that clears the overlap — pushed
+   * along whichever axis requires the smaller move, away from the dragged
+   * mat's center, then snapped outward (never inward) to the same 5-unit
+   * grid used while dragging so rounding can never reintroduce the overlap
+   * it just resolved.
+   *
+   * Non-recursive: a pushed mat is not itself checked against its other
+   * neighbours, so a push can occasionally trade one overlap for another.
+   * Acceptable for a first pass — the user can nudge again, or a future
+   * live-repel pass (pushing continuously during drag) can close that gap.
+   */
+  private resolveOverlapsOnDrop(dragged: MatRow): { mat: MatRow; x: number; y: number }[] {
+    const GRID = 5;
+    const pushes: { mat: MatRow; x: number; y: number }[] = [];
+
+    for (const other of this.currentMats) {
+      if (other.id === dragged.id) continue;
+      if (other.w <= 0 || other.h <= 0) continue;
+      if (!this.isOverlapping(dragged, other)) continue;
+
+      const overlapX = Math.min(dragged.x + dragged.w, other.x + other.w) - Math.max(dragged.x, other.x);
+      const overlapY = Math.min(dragged.y + dragged.h, other.y + other.h) - Math.max(dragged.y, other.y);
+
+      let newX = other.x;
+      let newY = other.y;
+
+      if (overlapX <= overlapY) {
+        const pushRight = other.x + other.w / 2 >= dragged.x + dragged.w / 2;
+        newX = pushRight
+          ? Math.ceil((other.x + overlapX) / GRID) * GRID
+          : Math.floor((other.x - overlapX) / GRID) * GRID;
+      } else {
+        const pushDown = other.y + other.h / 2 >= dragged.y + dragged.h / 2;
+        newY = pushDown
+          ? Math.ceil((other.y + overlapY) / GRID) * GRID
+          : Math.floor((other.y - overlapY) / GRID) * GRID;
+      }
+
+      pushes.push({ mat: other, x: newX, y: newY });
+    }
+
+    return pushes;
   }
 
   private findOverlaps(mats: MatRow[]): string[] {
