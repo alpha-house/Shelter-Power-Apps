@@ -209,13 +209,14 @@
           <columns>
             <column width="100%">
               <sections>
-                <section name="exit_information" id="1206562b-a0bf-4948-a6c9-a78974cde0de" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115">
+                <section name="exit_information_section_3" id="5ed56568-f460-4264-97ad-e95d3536b70b" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
-                    <label description="Exit Information" languagecode="1033" />
+                    <label description="New Section" languagecode="1033" />
                   </labels>
                   <rows>
+                    <row />
                     <row>
-                      <cell rowspan="2" colspan="3" id="{1161B7D8-6353-49D3-8581-D015201DBC63}" showlabel="false">
+                      <cell rowspan="2" colspan="1" id="{1161B7D8-6353-49D3-8581-D015201DBC63}" showlabel="false">
                         <labels>
                           <label description="Exit Information Notification" languagecode="1033" />
                         </labels>
@@ -232,6 +233,14 @@
                         </control>
                       </cell>
                     </row>
+                    <row />
+                  </rows>
+                </section>
+                <section name="exit_information" id="1206562b-a0bf-4948-a6c9-a78974cde0de" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115">
+                  <labels>
+                    <label description="Exit Information" languagecode="1033" />
+                  </labels>
+                  <rows>
                     <row>
                       <cell id="{2f74303e-3ac0-4e1d-b097-c9ec8fabd19c}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
@@ -248,12 +257,12 @@
                           </parameters>
                         </control>
                       </cell>
-                      <cell locklevel="0" id="{31d392ef-3fb3-48f8-8cba-4bf962cb40f2}">
+                      <cell locklevel="0" id="{75ae4fa2-6467-4169-9cf4-55b099e3b0c0}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell locklevel="0" id="{351af09f-de5d-4e91-b5aa-98480bd866ed}">
+                      <cell locklevel="0" id="{823e9875-e7f2-4ada-82a5-8dc32496203e}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>

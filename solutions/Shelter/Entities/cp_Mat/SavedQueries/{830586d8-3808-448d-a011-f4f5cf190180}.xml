@@ -15,12 +15,15 @@
           <cell name="cp_client" width="100" />
           <cell name="cp_clientlabel" width="110" />
           <cell name="cp_sheltercheckin" width="130" />
-          <cell name="cp_matwidth" width="101" />
           <cell name="cp_matnumber" width="112" />
           <cell name="cp_matlabel" width="100" />
-          <cell name="cp_matheight" width="105" />
+          <cell name="cp_render" width="100" />
+          <cell name="cp_renderingdisabledon" width="173" />
+          <cell name="cp_standardmat" width="116" />
           <cell name="cp_xposition" width="100" />
           <cell name="cp_yposition" width="100" />
+          <cell name="cp_matwidth" width="101" />
+          <cell name="cp_matheight" width="105" />
           <cell name="cp_vacant" width="100" />
           <cell name="cp_occupied" width="100" />
           <cell name="cp_matgender" width="108" />
@@ -46,14 +49,14 @@
                 <DisableChildItemsEditing static="true" type="Enum">no</DisableChildItemsEditing>
                 <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
                 <EnableSorting static="true" type="Enum">yes</EnableSorting>
-                <EnableGrouping static="true" type="Enum">no</EnableGrouping>
+                <EnableGrouping static="true" type="Enum">yes</EnableGrouping>
                 <EnableAggregation static="true" type="Enum">no</EnableAggregation>
-                <EnableColumnMoving static="true" type="Enum">no</EnableColumnMoving>
+                <EnableColumnMoving static="true" type="Enum">yes</EnableColumnMoving>
                 <EnableMultipleSelection static="true" type="Enum">yes</EnableMultipleSelection>
                 <EnableRangeSelection static="true" type="Enum">yes</EnableRangeSelection>
                 <EnableJumpBar static="true" type="Enum">no</EnableJumpBar>
                 <EnablePagination static="true" type="Enum">no</EnablePagination>
-                <EnableDropdownColor static="true" type="Enum">no</EnableDropdownColor>
+                <EnableDropdownColor static="true" type="Enum">yes</EnableDropdownColor>
                 <EnableStatusIcons static="true" type="Enum">yes</EnableStatusIcons>
                 <EnableTypeIcons static="true" type="Enum">no</EnableTypeIcons>
                 <NavigationTypesAllowed static="true" type="Enum">all</NavigationTypesAllowed>
@@ -83,14 +86,14 @@
                 <DisableChildItemsEditing static="true" type="Enum">no</DisableChildItemsEditing>
                 <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
                 <EnableSorting static="true" type="Enum">yes</EnableSorting>
-                <EnableGrouping static="true" type="Enum">no</EnableGrouping>
+                <EnableGrouping static="true" type="Enum">yes</EnableGrouping>
                 <EnableAggregation static="true" type="Enum">no</EnableAggregation>
-                <EnableColumnMoving static="true" type="Enum">no</EnableColumnMoving>
+                <EnableColumnMoving static="true" type="Enum">yes</EnableColumnMoving>
                 <EnableMultipleSelection static="true" type="Enum">yes</EnableMultipleSelection>
                 <EnableRangeSelection static="true" type="Enum">yes</EnableRangeSelection>
                 <EnableJumpBar static="true" type="Enum">no</EnableJumpBar>
                 <EnablePagination static="true" type="Enum">no</EnablePagination>
-                <EnableDropdownColor static="true" type="Enum">no</EnableDropdownColor>
+                <EnableDropdownColor static="true" type="Enum">yes</EnableDropdownColor>
                 <EnableStatusIcons static="true" type="Enum">yes</EnableStatusIcons>
                 <EnableTypeIcons static="true" type="Enum">no</EnableTypeIcons>
                 <NavigationTypesAllowed static="true" type="Enum">all</NavigationTypesAllowed>
@@ -120,14 +123,14 @@
                 <DisableChildItemsEditing static="true" type="Enum">no</DisableChildItemsEditing>
                 <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
                 <EnableSorting static="true" type="Enum">yes</EnableSorting>
-                <EnableGrouping static="true" type="Enum">no</EnableGrouping>
+                <EnableGrouping static="true" type="Enum">yes</EnableGrouping>
                 <EnableAggregation static="true" type="Enum">no</EnableAggregation>
-                <EnableColumnMoving static="true" type="Enum">no</EnableColumnMoving>
+                <EnableColumnMoving static="true" type="Enum">yes</EnableColumnMoving>
                 <EnableMultipleSelection static="true" type="Enum">yes</EnableMultipleSelection>
                 <EnableRangeSelection static="true" type="Enum">yes</EnableRangeSelection>
                 <EnableJumpBar static="true" type="Enum">no</EnableJumpBar>
                 <EnablePagination static="true" type="Enum">no</EnablePagination>
-                <EnableDropdownColor static="true" type="Enum">no</EnableDropdownColor>
+                <EnableDropdownColor static="true" type="Enum">yes</EnableDropdownColor>
                 <EnableStatusIcons static="true" type="Enum">yes</EnableStatusIcons>
                 <EnableTypeIcons static="true" type="Enum">no</EnableTypeIcons>
                 <NavigationTypesAllowed static="true" type="Enum">all</NavigationTypesAllowed>
@@ -153,23 +156,25 @@
         <entity name="cp_mat">
           <attribute name="cp_matid" />
           <attribute name="cp_mat" />
-          <attribute name="cp_matwidth" />
-          <attribute name="cp_matnumber" />
-          <attribute name="cp_matlabel" />
           <attribute name="cp_matheight" />
-          <attribute name="cp_xposition" />
-          <attribute name="cp_yposition" />
           <attribute name="cp_vacant" />
           <attribute name="cp_occupied" />
           <attribute name="cp_fillcolor" />
           <attribute name="cp_strokecolor" />
-          <attribute name="cp_sheltercheckin" />
-          <attribute name="cp_client" />
           <attribute name="cp_matgender" />
           <attribute name="cp_matplan" />
-          <order attribute="cp_matnumber" descending="false" />
           <attribute name="cp_clientlabel" />
+          <attribute name="cp_render" />
+          <attribute name="cp_renderingdisabledon" />
+          <attribute name="cp_client" />
           <attribute name="cp_clientlabel" />
+          <attribute name="cp_sheltercheckin" />
+          <attribute name="cp_standardmat" />
+          <attribute name="cp_matwidth" />
+          <attribute name="cp_xposition" />
+          <attribute name="cp_yposition" />
+          <attribute name="cp_matnumber" />
+          <attribute name="cp_matlabel" />
         </entity>
       </fetch>
     </fetchxml>

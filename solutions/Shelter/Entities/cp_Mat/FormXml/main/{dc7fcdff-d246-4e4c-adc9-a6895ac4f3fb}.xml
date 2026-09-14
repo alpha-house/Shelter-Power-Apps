@@ -126,6 +126,50 @@
                     </row>
                   </rows>
                 </section>
+                <section name="configuration" id="9b0fe2e2-3c0c-4ed9-adf5-a05ca091c662" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115">
+                  <labels>
+                    <label description="Configuration" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{783da368-5382-429a-8ee6-33987fae6a6f}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{0ba6b6a4-59c9-43dd-8d3d-0c0fd33c5c18}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{8d408fc3-a9c8-4d3b-b09d-60ba85995fae}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1a01dbcd-d63e-43a9-8476-0715f204d230}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Render" languagecode="1033" />
+                        </labels>
+                        <control id="cp_render" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_render" disabled="false" uniqueid="{63d9b8f2-48f6-4643-bf35-22979d1804bb}" />
+                      </cell>
+                      <cell id="{81540309-a400-415b-be44-c4f04a38ac92}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Rendering Disabled On" languagecode="1033" />
+                        </labels>
+                        <control id="cp_renderingdisabledon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_renderingdisabledon" disabled="false" />
+                      </cell>
+                      <cell id="{b8bae9c3-e654-45b2-b398-e18e9752e70f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Standard Mat" languagecode="1033" />
+                        </labels>
+                        <control id="cp_standardmat" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_standardmat" disabled="false" uniqueid="{ed202086-b7d1-4bf6-8217-71ceea30c6a8}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
               </sections>
             </column>
           </columns>
@@ -194,6 +238,52 @@
       <DisplayConditions Order="0" FallbackForm="true">
         <Everyone />
       </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{63d9b8f2-48f6-4643-bf35-22979d1804bb}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_render</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_render</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_render</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_render</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{ed202086-b7d1-4bf6-8217-71ceea30c6a8}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_standardmat</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_standardmat</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_standardmat</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_standardmat</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
