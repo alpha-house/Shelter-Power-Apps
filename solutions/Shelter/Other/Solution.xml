@@ -1918,6 +1918,10 @@
         <Dependent type="29" displayName="Shelter Breathing Rounds Stats" id="{edec6698-5b80-f111-ab0f-7ced8da799f0}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="connectionreference" displayName="new_sharedcommondataserviceforapps_a8210" solution="Active" id.connectionreferencelogicalname="new_sharedcommondataserviceforapps_a8210" />
+        <Dependent type="29" displayName="Copy Mat Properties to Shelter Checkin" id="{c3195d30-9380-f111-ab0f-7c1e5253346f}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.20)" id.uniquename="AppChannel">
           <package appName="PowerAppsAppFramework Package" version="1.0.0.25">PowerAppsAppFramework_Anchor (1.0.0.25)</package>
         </Required>

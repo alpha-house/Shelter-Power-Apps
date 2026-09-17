@@ -1,6 +1,15 @@
 {
   "properties": {
     "connectionReferences": {
+      "shared_commondataserviceforapps-1": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_a8210"
+        },
+        "runtimeSource": "embedded"
+      },
       "shared_commondataserviceforapps": {
         "api": {
           "name": "shared_commondataserviceforapps"
@@ -38,7 +47,7 @@
             "host": {
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "operationId": "SubscribeWebhookTrigger",
-              "connectionName": "shared_commondataserviceforapps"
+              "connectionName": "shared_commondataserviceforapps-1"
             }
           },
           "metadata": {

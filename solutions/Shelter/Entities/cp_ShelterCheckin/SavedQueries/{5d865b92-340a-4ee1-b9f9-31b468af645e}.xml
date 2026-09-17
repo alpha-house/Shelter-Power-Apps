@@ -25,6 +25,7 @@
           <cell name="cp_timeremovedfrommat" width="187" />
           <cell name="cp_checkout" width="100" />
           <cell name="cp_checkoutdate" width="124" />
+          <cell name="cp_referralsource" width="129" />
         </row>
         <controlDescriptions>
           <controlDescription>
@@ -170,6 +171,7 @@
           <attribute name="cp_matnumber" />
           <attribute name="cp_matlabel" />
           <attribute name="cp_highintox" />
+          <attribute name="cp_referralsource" />
         </entity>
       </fetch>
     </fetchxml>
