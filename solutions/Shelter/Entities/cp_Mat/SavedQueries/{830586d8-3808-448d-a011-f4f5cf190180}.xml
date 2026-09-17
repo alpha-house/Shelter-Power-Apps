@@ -31,6 +31,7 @@
           <cell name="cp_matgender" width="108" />
           <cell name="cp_fillcolor" width="100" />
           <cell name="cp_strokecolor" width="112" />
+          <cell name="cp_clientmats" width="100" />
         </row>
         <controlDescriptions>
           <controlDescription>
@@ -179,6 +180,7 @@
           <attribute name="cp_matlabel" />
           <attribute name="cp_defaultxposition" />
           <attribute name="cp_defaultyposition" />
+          <attribute name="cp_clientmats" />
         </entity>
       </fetch>
     </fetchxml>

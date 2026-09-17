@@ -14,6 +14,9 @@ interface MatRow {
   cp_strokecolor?: string | null;
   cp_matgender?: string | null;
   cp_clientlabel?: string | null;
+  // Client Mats = No marks an operational area (Fire Exit, OPS, …) that
+  // clients may never be assigned to. Null defaults to assignable.
+  cp_clientmats?: boolean | null;
   // Whether this mat already has a check-in assigned — drives click behaviour
   hasCheckin: boolean;
   // Resolved id of the linked cp_sheltercheckin record, lower-cased, no braces
@@ -457,6 +460,14 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
         this.completeBreathingRound(mat).catch((err: unknown) => {
           console.error("[MatsOverlay] completeBreathingRound error:", err);
         });
+      }));
+      menu.appendChild(divider());
+    } else if (mat.cp_clientmats === false) {
+      // Operational areas (Fire Exit, OPS, Nurse's Office, …) are not client
+      // mats. Withhold the action outright rather than let the user pick a
+      // check-in and only then be told it cannot be placed here.
+      menu.appendChild(makeBtn("🚫", "Not a client mat", false, () => {
+        void this.showAlert(`⚠️ ${matLabel} is not a client mat. Clients cannot be assigned here.`);
       }));
       menu.appendChild(divider());
     } else {
@@ -939,6 +950,30 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     const xrm      = this.getXrm();
     const matLabel = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : mat.id);
 
+    // Authoritative Client Mats check, before any lookup dialog opens.
+    // Read straight from the Web API rather than the dataset: cp_clientmats is
+    // not in the bound view's fetchxml, so the dataset reports it as null. This
+    // also keeps the rule enforced if the column is ever dropped from the view.
+    try {
+      const matRecord = await this.context.webAPI.retrieveRecord(
+        "cp_mat",
+        mat.id,
+        "?$select=cp_clientmats"
+      );
+      if (matRecord["cp_clientmats"] === false) {
+        await this.showAlert(`⚠️ ${matLabel} is not a client mat. Clients cannot be assigned here.`);
+        return;
+      }
+    } catch (err) {
+      // Fall back to whatever the dataset knows rather than blocking a
+      // legitimate assignment because of a transient read failure.
+      console.warn("[MatsOverlay] Could not verify Client Mats flag:", err);
+      if (mat.cp_clientmats === false) {
+        await this.showAlert(`⚠️ ${matLabel} is not a client mat. Clients cannot be assigned here.`);
+        return;
+      }
+    }
+
     let scPick: LookupResult[];
     try {
       scPick = await xrm.Utility.lookupObjects({
@@ -1128,6 +1163,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       const cp_matgender   = this.getString(rec, "cp_matgender");
       const cp_clientlabel = this.getString(rec, "cp_clientlabel");
       const cp_render      = this.getBoolean(rec, "cp_render");
+      const cp_clientmats  = this.getBoolean(rec, "cp_clientmats");
 
       // Mats explicitly flagged Render = No are excluded entirely -- they
       // neither draw nor participate in overlap detection, drag, or
@@ -1162,6 +1198,7 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
         cp_strokecolor,
         cp_matgender,
         cp_clientlabel,
+        cp_clientmats,
         hasCheckin,
         checkinId,
         x: cp_xposition ?? 0,

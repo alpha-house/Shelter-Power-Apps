@@ -1,8 +1,12 @@
 cp_fillcolor: |-
     =If(
-        Not(IsBlank(cp_Client)), 
-        "#BB4B26", 
-        "#A0A972"
+        Not(cp_clientmats),
+        "#A5A5A5",
+        If(
+            Not(IsBlank(cp_Client)),
+            "#BB4B26",
+            "#A0A972"
+        )
     )
 cp_occupied: |-
     =If(

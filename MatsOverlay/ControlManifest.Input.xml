@@ -103,6 +103,14 @@
         of-type="TwoOptions"
         usage="bound"
         required="false" />
+
+      <property-set
+        name="cp_clientmats"
+        display-name-key="cp_clientmats_Display"
+        description-key="cp_clientmats_Desc"
+        of-type="TwoOptions"
+        usage="bound"
+        required="false" />
     </data-set>
 
     <!-- ================= DESIGNER INPUTS ================= -->
