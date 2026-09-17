@@ -43,10 +43,11 @@
                         </labels>
                         <control id="cp_islayoutmode" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_islayoutmode" disabled="false" uniqueid="{8d90213e-fbaf-45bb-8f5e-c65a46971e8b}" />
                       </cell>
-                      <cell locklevel="0" id="{ad3835aa-f1d3-4f9d-974d-785483fb84b8}">
+                      <cell id="{ed00f758-6f10-4eb3-a01c-f9e66148ee49}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Reset Mat Layout" languagecode="1033" />
                         </labels>
+                        <control id="cp_resetmatlayout" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_resetmatlayout" disabled="false" uniqueid="{7d23a307-822e-4c7c-b009-d5af506216fb}" />
                       </cell>
                       <cell locklevel="0" id="{5b2e62d1-5a50-47fd-8507-a273a51f3a9b}">
                         <labels>
@@ -246,6 +247,28 @@
               <BaseW type="Whole.None" static="true">1920</BaseW>
               <BaseH type="Whole.None" static="true">1080</BaseH>
               <IsLayoutMode type="TwoOptions">cp_islayoutmode</IsLayoutMode>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{7d23a307-822e-4c7c-b009-d5af506216fb}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_resetmatlayout</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_resetmatlayout</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_resetmatlayout</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_resetmatlayout</value>
             </parameters>
           </customControl>
         </controlDescription>

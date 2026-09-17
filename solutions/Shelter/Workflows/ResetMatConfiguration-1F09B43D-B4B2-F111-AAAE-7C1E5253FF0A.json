@@ -1,0 +1,169 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cp_sharedcommondataserviceforapps_04f4e"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "When_Reset_Mat_Layout_is_set_to_true": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "cp_matplan",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "cp_resetmatlayout",
+              "subscriptionRequest/filterexpression": "cp_resetmatlayout eq true"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "List_all_mats": {
+          "runAfter": {},
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cp_mats",
+              "$select": "cp_matid,cp_standardmat,cp_defaultxposition,cp_defaultyposition",
+              "accept": "application/json;odata.metadata=minimal"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_mat": {
+          "foreach": "@outputs('List_all_mats')?['body/value']",
+          "actions": {
+            "Is_Standard_Mat": {
+              "actions": {
+                "Reset_standard_mat_and_unassign": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "cp_mats",
+                      "recordId": "@items('Apply_to_each_mat')?['cp_matid']",
+                      "item/cp_xposition": "@items('Apply_to_each_mat')?['cp_defaultxposition']",
+                      "item/cp_yposition": "@items('Apply_to_each_mat')?['cp_defaultyposition']",
+                      "item/cp_render": true,
+                      "item/cp_clientlabel": null,
+                      "item/cp_Client@odata.bind": null,
+                      "item/cp_ShelterCheckin@odata.bind": null,
+                      "accept": "application/json;odata.metadata=minimal"
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {},
+              "else": {
+                "actions": {
+                  "Hide_non_standard_mat_and_unassign": {
+                    "runAfter": {},
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "parameters": {
+                        "entityName": "cp_mats",
+                        "recordId": "@items('Apply_to_each_mat')?['cp_matid']",
+                        "item/cp_render": false,
+                        "item/cp_clientlabel": null,
+                        "item/cp_Client@odata.bind": null,
+                        "item/cp_ShelterCheckin@odata.bind": null,
+                        "accept": "application/json;odata.metadata=minimal"
+                      },
+                      "host": {
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                        "connectionName": "shared_commondataserviceforapps",
+                        "operationId": "UpdateOnlyRecord"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "equals": [
+                  "@items('Apply_to_each_mat')?['cp_standardmat']",
+                  true
+                ]
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "List_all_mats": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach",
+          "runtimeConfiguration": {
+            "concurrency": {
+              "repetitions": 20
+            }
+          }
+        },
+        "Clear_the_reset_flag": {
+          "runAfter": {
+            "Apply_to_each_mat": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cp_matplans",
+              "recordId": "@triggerOutputs()?['body/cp_matplanid']",
+              "item/cp_resetmatlayout": false,
+              "accept": "application/json;odata.metadata=minimal"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateOnlyRecord"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
