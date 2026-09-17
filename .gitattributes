@@ -1,0 +1,3 @@
+# Machine-regenerated exports: pin to LF so re-running the export script does
+# not produce a phantom whole-file diff on checkouts with core.autocrlf=true.
+data/*.csv text eol=lf
