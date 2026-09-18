@@ -461,6 +461,11 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
           console.error("[MatsOverlay] completeBreathingRound error:", err);
         });
       }));
+      menu.appendChild(makeBtn("⏰", "Set Wake Up", false, () => {
+        this.showWakeUpDialog(mat, clientX, clientY).catch((err: unknown) => {
+          console.error("[MatsOverlay] showWakeUpDialog error:", err);
+        });
+      }));
       menu.appendChild(divider());
     } else if (mat.cp_clientmats === false) {
       // Operational areas (Fire Exit, OPS, Nurse's Office, …) are not client
@@ -738,6 +743,227 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     if (r.bottom > window.innerHeight) dialog.style.top  = `${opts.clientY - r.height - 4}px`;
   }
 
+  // ── Wake up dialog ────────────────────────────────────────────────────────────
+
+  /**
+   * Opens the "Set Wake Up" dialog for the check-in assigned to this mat.
+   * The check-in is the source of truth (the notification flow reads it), so
+   * the dialog is pre-filled from the check-in rather than the mat's copy.
+   */
+  private async showWakeUpDialog(mat: MatRow, clientX: number, clientY: number): Promise<void> {
+    const matLabel = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : mat.id);
+
+    let checkinId: Guid;
+    let currentTime: string | null = null;
+    let currentMessage: string | null = null;
+    try {
+      const matRecord = await this.context.webAPI.retrieveRecord("cp_mat", mat.id, "?$select=_cp_sheltercheckin_value");
+      const raw = matRecord["_cp_sheltercheckin_value"] as string | null | undefined;
+      if (!raw) {
+        await this.showAlert(`⚠️ ${matLabel}: No check-in assigned.`);
+        return;
+      }
+      checkinId = raw.replace(/[{}]/g, "");
+      const checkin = await this.context.webAPI.retrieveRecord(
+        "cp_sheltercheckin",
+        checkinId,
+        "?$select=cp_wakeuptime,cp_wakeupmessage"
+      );
+      currentTime    = (checkin["cp_wakeuptime"]    as string | null | undefined) ?? null;
+      currentMessage = (checkin["cp_wakeupmessage"] as string | null | undefined) ?? null;
+    } catch (err) {
+      console.error("[MatsOverlay] Could not load wake up details:", err);
+      await this.showAlert(`❌ ${matLabel}: Could not load the check-in's wake up details.`);
+      return;
+    }
+
+    this.dismissAllDialogs();
+    const doc = this.container.ownerDocument!;
+
+    const backdrop = doc.createElement("div");
+    backdrop.id = "matsOverlay-form-backdrop";
+    backdrop.style.cssText = "position:fixed;inset:0;z-index:99998;background:transparent;";
+    backdrop.addEventListener("click", () => this.dismissMatFormDialog());
+
+    const dialog = doc.createElement("div");
+    dialog.id = "matsOverlay-form-dialog";
+    dialog.style.cssText = `
+      position:fixed; left:${clientX}px; top:${clientY}px;
+      z-index:99999; background:#fff;
+      border:1px solid #d0d0d0; border-radius:8px;
+      box-shadow:0 6px 24px rgba(0,0,0,0.18);
+      font-family:Segoe UI,sans-serif; font-size:13px;
+      width:280px; overflow:hidden;
+    `;
+    dialog.addEventListener("click", (e) => e.stopPropagation());
+
+    const header = doc.createElement("div");
+    header.style.cssText = "background:#2b579a; color:#fff; padding:10px 16px; font-weight:600; font-size:13px;";
+    header.textContent = `⏰ Wake Up — ${matLabel}`;
+    dialog.appendChild(header);
+
+    const body = doc.createElement("div");
+    body.style.cssText = "padding:12px 16px; display:flex; flex-direction:column; gap:10px;";
+
+    const inputStyle = `
+      box-sizing:border-box; width:100%;
+      padding:6px 8px; border:1px solid #ccc; border-radius:4px;
+      font-size:13px; font-family:Segoe UI,sans-serif;
+    `;
+    const makeFieldRow = (labelText: string): HTMLElement => {
+      const row = doc.createElement("label");
+      row.style.cssText = "display:flex; flex-direction:column; gap:3px; font-size:12px; color:#555;";
+      const span = doc.createElement("span");
+      span.textContent = labelText;
+      row.appendChild(span);
+      return row;
+    };
+
+    const timeRow = makeFieldRow("Wake Up Time");
+    const timeInput = doc.createElement("input");
+    timeInput.type = "datetime-local";
+    timeInput.value = currentTime ? MatsOverlay.toLocalDateTimeInput(currentTime) : "";
+    timeInput.style.cssText = inputStyle;
+    timeRow.appendChild(timeInput);
+    body.appendChild(timeRow);
+
+    const messageRow = makeFieldRow("Wake Up Message");
+    const messageInput = doc.createElement("textarea");
+    messageInput.rows = 4;
+    messageInput.maxLength = 4000;
+    messageInput.value = currentMessage ?? "";
+    messageInput.style.cssText = inputStyle + "resize:vertical;";
+    messageRow.appendChild(messageInput);
+    body.appendChild(messageRow);
+
+    dialog.appendChild(body);
+
+    const errorMsg = doc.createElement("div");
+    errorMsg.style.cssText = "padding:0 16px 10px; color:#c00; font-size:12px; display:none;";
+    dialog.appendChild(errorMsg);
+
+    const footer = doc.createElement("div");
+    footer.style.cssText = "display:flex; justify-content:flex-end; gap:8px; padding:10px 16px; border-top:1px solid #eee;";
+
+    const btnStyle = "padding:6px 12px; border:1px solid #ccc; border-radius:4px; background:#fff; cursor:pointer; font-size:13px;";
+
+    const cancelBtn = doc.createElement("button");
+    cancelBtn.type = "button";
+    cancelBtn.textContent = "Cancel";
+    cancelBtn.style.cssText = btnStyle;
+    cancelBtn.addEventListener("click", () => this.dismissMatFormDialog());
+
+    const clearBtn = doc.createElement("button");
+    clearBtn.type = "button";
+    clearBtn.textContent = "Clear";
+    clearBtn.style.cssText = btnStyle;
+    clearBtn.disabled = !currentTime && !currentMessage;
+
+    const saveBtn = doc.createElement("button");
+    saveBtn.type = "button";
+    saveBtn.textContent = "Save";
+    saveBtn.style.cssText = "padding:6px 12px; border:none; border-radius:4px; background:#2b579a; color:#fff; cursor:pointer; font-size:13px;";
+
+    const setBusy = (busy: boolean): void => {
+      saveBtn.disabled = busy;
+      cancelBtn.disabled = busy;
+      clearBtn.disabled = busy;
+    };
+    const run = (wakeUpIso: string | null, message: string | null): void => {
+      errorMsg.style.display = "none";
+      setBusy(true);
+      this.saveWakeUp(mat, checkinId, wakeUpIso, message)
+        .then(() => this.dismissMatFormDialog())
+        .catch((err: unknown) => {
+          console.error("[MatsOverlay] wake up save error:", err);
+          errorMsg.textContent = err instanceof Error ? err.message : "Save failed.";
+          errorMsg.style.display = "block";
+          setBusy(false);
+        });
+    };
+
+    clearBtn.addEventListener("click", () => run(null, null));
+    saveBtn.addEventListener("click", () => {
+      if (!timeInput.value) {
+        errorMsg.textContent = "Choose a wake up time.";
+        errorMsg.style.display = "block";
+        return;
+      }
+      // datetime-local values carry no zone; Date parses them as local time.
+      const when = new Date(timeInput.value);
+      if (Number.isNaN(when.getTime())) {
+        errorMsg.textContent = "That wake up time is not valid.";
+        errorMsg.style.display = "block";
+        return;
+      }
+      if (when.getTime() <= Date.now()) {
+        errorMsg.textContent = "Wake up time must be in the future.";
+        errorMsg.style.display = "block";
+        return;
+      }
+      const message = messageInput.value.trim();
+      run(when.toISOString(), message || null);
+    });
+
+    footer.appendChild(cancelBtn);
+    footer.appendChild(clearBtn);
+    footer.appendChild(saveBtn);
+    dialog.appendChild(footer);
+
+    doc.body.appendChild(backdrop);
+    doc.body.appendChild(dialog);
+
+    const r = dialog.getBoundingClientRect();
+    if (r.right  > window.innerWidth)  dialog.style.left = `${clientX - r.width  - 4}px`;
+    if (r.bottom > window.innerHeight) dialog.style.top  = `${clientY - r.height - 4}px`;
+  }
+
+  /**
+   * Writes the wake up to the check-in first (the source the notification
+   * flow reads), then mirrors it onto the mat. Re-arms cp_wakeupnotified so a
+   * changed time notifies again.
+   */
+  private async saveWakeUp(
+    mat: MatRow,
+    checkinId: Guid,
+    wakeUpIso: string | null,
+    message: string | null
+  ): Promise<void> {
+    const matLabel = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : mat.id);
+
+    await this.context.webAPI.updateRecord("cp_sheltercheckin", checkinId, {
+      cp_wakeuptime:     wakeUpIso,
+      cp_wakeupmessage:  message,
+      cp_wakeupnotified: false,
+    });
+
+    try {
+      await this.context.webAPI.updateRecord("cp_mat", mat.id, {
+        cp_wakeuptime:    wakeUpIso,
+        cp_wakeupmessage: message,
+      });
+    } catch (err) {
+      // The check-in (the notification source) is already saved; only the
+      // mat's display copy is stale, so warn rather than fail the save.
+      console.error("[MatsOverlay] Could not mirror wake up onto the mat:", err);
+      await this.showAlert(`⚠️ ${matLabel}: Wake up saved on the check-in, but the mat could not be updated.`);
+      await this.context.parameters.cp_mat.refresh();
+      return;
+    }
+
+    await this.showAlert(wakeUpIso
+      ? `✅ ${matLabel}: Wake up set for ${new Date(wakeUpIso).toLocaleString()}.`
+      : `✅ ${matLabel}: Wake up cleared.`);
+    await this.context.parameters.cp_mat.refresh();
+  }
+
+  /** ISO timestamp → "YYYY-MM-DDTHH:mm" in the browser's local time, for datetime-local inputs. */
+  private static toLocalDateTimeInput(iso: string): string {
+    const d = new Date(iso);
+    const pad = (n: number): string => String(n).padStart(2, "0");
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  }
+
   // ── Create / update mat records ──────────────────────────────────────────────
 
   /**
@@ -835,7 +1061,13 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     const matLabel = mat.cp_matlabel ?? (mat.cp_matnumber != null ? `Mat ${mat.cp_matnumber}` : mat.id);
     const payload: Record<string, null> = {};
 
-    if (removeCheckin) payload[`${MatsOverlay.NAV_CHECKIN}@odata.bind`] = null;
+    if (removeCheckin) {
+      payload[`${MatsOverlay.NAV_CHECKIN}@odata.bind`] = null;
+      // The mat's wake up is only a copy of the departing check-in's; clear it
+      // so the next occupant doesn't inherit it. The check-in keeps its own.
+      payload.cp_wakeuptime    = null;
+      payload.cp_wakeupmessage = null;
+    }
     if (removeClient) {
       payload[`${MatsOverlay.NAV_CLIENT}@odata.bind`] = null;
       payload.cp_clientlabel = null;
@@ -1037,16 +1269,20 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
     }
 
     let contactId: Guid | null = null;
+    let wakeUpTime: string | null = null;
+    let wakeUpMessage: string | null = null;
     try {
       const ciRecord = await this.context.webAPI.retrieveRecord(
         "cp_sheltercheckin",
         shelterCheckinId,
-        "?$select=_cp_client_value"
+        "?$select=_cp_client_value,cp_wakeuptime,cp_wakeupmessage"
       );
       const raw = ciRecord["_cp_client_value"] as string | null | undefined;
       contactId = raw ? raw.replace(/[{}]/g, "") : null;
+      wakeUpTime    = (ciRecord["cp_wakeuptime"]    as string | null | undefined) ?? null;
+      wakeUpMessage = (ciRecord["cp_wakeupmessage"] as string | null | undefined) ?? null;
     } catch (err) {
-      console.warn("[MatsOverlay] Could not read _cp_client_value:", err);
+      console.warn("[MatsOverlay] Could not read check-in details:", err);
     }
 
     const clientLabel = contactId ? await this.buildClientLabel(contactId) : null;
@@ -1057,6 +1293,9 @@ export class MatsOverlay implements ComponentFramework.StandardControl<IInputs, 
       [`${MatsOverlay.NAV_CLIENT}@odata.bind`]:
         contactId ? `/${MatsOverlay.SET_CONTACT}(${contactId})` : null,
       cp_clientlabel: clientLabel,
+      // Mirror any wake up already on the check-in (the source of truth).
+      cp_wakeuptime:    wakeUpTime,
+      cp_wakeupmessage: wakeUpMessage,
     };
 
     console.log(`[MatsOverlay] PATCH cp_mat/${mat.id}:`, JSON.stringify(payload));

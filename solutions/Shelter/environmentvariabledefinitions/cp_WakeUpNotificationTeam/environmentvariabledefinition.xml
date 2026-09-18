@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="cp_WakeUpNotificationTeam">
+  <defaultvalue>Shelter Staff</defaultvalue>
+  <description default="Name of the Dataverse team whose members receive wake up notifications. Set per environment.">
+    <label description="Name of the Dataverse team whose members receive wake up notifications. Set per environment." languagecode="1033" />
+  </description>
+  <displayname default="Wake Up Notification Team">
+    <label description="Wake Up Notification Team" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.9</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

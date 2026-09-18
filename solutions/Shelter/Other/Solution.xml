@@ -92,6 +92,7 @@
       <RootComponent type="1" schemaName="cp_sheltermissedbreathinground" behavior="0" />
       <RootComponent type="1" schemaName="cp_shiftnote" behavior="0" />
       <RootComponent type="1" schemaName="systemuser" behavior="1" />
+      <RootComponent type="20" id="{cf48d081-70b3-f111-aaae-7c1e5253ff0a}" behavior="0" />
       <RootComponent type="29" id="{0e351484-f2ae-f111-aaad-70a8a50e7321}" behavior="0" />
       <RootComponent type="29" id="{1e2bcaed-deae-f111-aaad-70a8a50e7321}" behavior="0" />
       <RootComponent type="29" id="{1f09b43d-b4b2-f111-aaae-7c1e5253ff0a}" behavior="0" />
@@ -104,6 +105,7 @@
       <RootComponent type="29" id="{c3195d30-9380-f111-ab0f-7c1e5253346f}" behavior="0" />
       <RootComponent type="29" id="{eae23328-f67a-f111-ab0f-7ced8da5852f}" behavior="0" />
       <RootComponent type="29" id="{edec6698-5b80-f111-ab0f-7ced8da799f0}" behavior="0" />
+      <RootComponent type="29" id="{ef08c2d8-6ab3-f111-aaae-3833c5f7a0bf}" behavior="0" />
       <RootComponent type="29" id="{fe05415d-c37b-f111-ab0f-000d3ae9a57c}" behavior="0" />
       <RootComponent type="61" schemaName="cp_shelter_exit_information_notification" behavior="0" />
       <RootComponent type="61" schemaName="cp_shelter_javascript_code" behavior="0" />
@@ -236,6 +238,13 @@
       <MissingDependency>
         <Required type="1" schemaName="ahb_weeklyrecovery" displayName="Weekly Recovery" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="appnotification" displayName="Notification" solution="AppNotifications (10.0.0.17)">
+          <package appName="PowerAppsUnifiedClientExtensionApp Package" version="1.0.0.62">msft_PowerAppsUnifiedClientInfraExtensions (1.0.0.62)</package>
+          <package appName="PowerAppsUnifiedClientExtensionApp Package" version="1.0.0.103">PowerAppsUnifiedClientExtensionApp_Anchor (1.0.0.103)</package>
+        </Required>
+        <Dependent type="29" displayName="Shelter Wake Up Notifications" id="{ef08c2d8-6ab3-f111-aaae-3833c5f7a0bf}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="cp_appointment" displayName="Client Appointment" solution="Active" />
@@ -436,6 +445,12 @@
       <MissingDependency>
         <Required type="1" schemaName="cr6ca_application" displayName="Application" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="environmentvariabledefinition" displayName="Environment Variable Definition" solution="EnvironmentVariables (1.0.2406.4)">
+          <package appName="EnvironmentVariables" version="1.0.2406.4">EnvironmentVariablesSolutionAnchor (1.0.2406.4)</package>
+        </Required>
+        <Dependent type="29" displayName="Shelter Wake Up Notifications" id="{ef08c2d8-6ab3-f111-aaae-3833c5f7a0bf}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="mspp_webrole" displayName="Web Role" solution="PowerPages_Apps (1.0.2605.0)">
@@ -1920,6 +1935,13 @@
       <MissingDependency>
         <Required type="connectionreference" displayName="new_sharedcommondataserviceforapps_a8210" solution="Active" id.connectionreferencelogicalname="new_sharedcommondataserviceforapps_a8210" />
         <Dependent type="29" displayName="Copy Mat Properties to Shelter Checkin" id="{c3195d30-9380-f111-ab0f-7c1e5253346f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="AllowNotificationsEarlyAccess" solution="AppNotifications (10.0.0.17)" id.uniquename="AllowNotificationsEarlyAccess">
+          <package appName="PowerAppsUnifiedClientExtensionApp Package" version="1.0.0.62">msft_PowerAppsUnifiedClientInfraExtensions (1.0.0.62)</package>
+          <package appName="PowerAppsUnifiedClientExtensionApp Package" version="1.0.0.103">PowerAppsUnifiedClientExtensionApp_Anchor (1.0.0.103)</package>
+        </Required>
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=cp_Shelter,settingdefinitionid.uniquename=AllowNotificationsEarlyAccess" id.parentappmoduleid.uniquename="cp_Shelter" id.settingdefinitionid.uniquename="AllowNotificationsEarlyAccess" />
       </MissingDependency>
       <MissingDependency>
         <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.20)" id.uniquename="AppChannel">
