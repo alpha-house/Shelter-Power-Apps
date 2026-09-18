@@ -2,14 +2,13 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps": {
-        "impersonation": {},
-        "runtimeSource": "embedded",
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
         "connection": {
           "connectionReferenceLogicalName": "cp_sharedcommondataserviceforapps_04f4e"
         },
-        "api": {
-          "name": "shared_commondataserviceforapps"
-        }
+        "runtimeSource": "embedded"
       }
     },
     "definition": {
@@ -27,108 +26,111 @@
       },
       "triggers": {
         "Every_5_minutes": {
+          "type": "Recurrence",
           "recurrence": {
             "frequency": "Minute",
-            "interval": 5
-          },
-          "evaluatedRecurrence": {
-            "frequency": "Minute",
-            "interval": 5
-          },
-          "type": "Recurrence"
+            "interval": 1
+          }
         }
       },
       "actions": {
         "List_due_wake_ups": {
-          "runAfter": {},
           "type": "OpenApiConnection",
           "inputs": {
-            "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords"
-            },
             "parameters": {
               "entityName": "cp_sheltercheckins",
               "$select": "cp_sheltercheckinid,cp_wakeuptime,cp_wakeupmessage,cp_matlabel,_cp_client_value",
-              "$filter": "statecode eq 0 and cp_wakeuptime le @{utcNow()} and (cp_wakeupnotified eq false or cp_wakeupnotified eq null) and (cp_checkout eq false or cp_checkout eq null)",
-              "accept": "application/json;odata.metadata=minimal"
+              "$filter": "statecode eq 0 and cp_wakeuptime le @{utcNow()} and (cp_wakeupnotified eq false or cp_wakeupnotified eq null) and (cp_checkout eq false or cp_checkout eq null)"
             },
-            "authentication": "@parameters('$authentication')"
-          }
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {}
         },
         "Any_wake_ups_due": {
+          "type": "If",
+          "expression": {
+            "greater": [
+              "@length(outputs('List_due_wake_ups')?['body/value'])",
+              0
+            ]
+          },
           "actions": {
             "Get_team_setting": {
-              "runAfter": {},
               "type": "OpenApiConnection",
               "inputs": {
-                "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "ListRecords"
-                },
                 "parameters": {
                   "entityName": "environmentvariabledefinitions",
                   "$select": "schemaname,defaultvalue",
                   "$filter": "schemaname eq 'cp_WakeUpNotificationTeam'",
-                  "$expand": "environmentvariabledefinition_environmentvariablevalue($select=value)",
-                  "accept": "application/json;odata.metadata=minimal"
+                  "$expand": "environmentvariabledefinition_environmentvariablevalue($select=value)"
                 },
-                "authentication": "@parameters('$authentication')"
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
               }
             },
             "Team_name": {
+              "type": "Compose",
+              "inputs": "@coalesce(first(first(outputs('Get_team_setting')?['body/value'])?['environmentvariabledefinition_environmentvariablevalue'])?['value'], first(outputs('Get_team_setting')?['body/value'])?['defaultvalue'])",
               "runAfter": {
                 "Get_team_setting": [
                   "Succeeded"
                 ]
-              },
-              "type": "Compose",
-              "inputs": "@coalesce(first(first(outputs('Get_team_setting')?['body/value'])?['environmentvariabledefinition_environmentvariablevalue'])?['value'], first(outputs('Get_team_setting')?['body/value'])?['defaultvalue'])"
+              }
             },
             "Get_team_members": {
-              "runAfter": {
-                "Team_name": [
-                  "Succeeded"
-                ]
-              },
               "type": "OpenApiConnection",
               "inputs": {
-                "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "ListRecords"
-                },
                 "parameters": {
                   "entityName": "teams",
                   "$select": "teamid,name",
                   "$filter": "name eq '@{replace(string(outputs('Team_name')), '''', '''''')}'",
-                  "$expand": "teammembership_association($select=systemuserid,isdisabled)",
-                  "accept": "application/json;odata.metadata=minimal"
+                  "$expand": "teammembership_association($select=systemuserid,isdisabled)"
                 },
-                "authentication": "@parameters('$authentication')"
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "runAfter": {
+                "Team_name": [
+                  "Succeeded"
+                ]
               }
             },
             "Active_team_members": {
-              "runAfter": {
-                "Get_team_members": [
-                  "Succeeded"
-                ]
-              },
               "type": "Query",
               "inputs": {
                 "from": "@coalesce(first(outputs('Get_team_members')?['body/value'])?['teammembership_association'], json('[]'))",
                 "where": "@equals(item()?['isdisabled'], false)"
+              },
+              "runAfter": {
+                "Get_team_members": [
+                  "Succeeded"
+                ]
               }
             },
             "Team_has_members": {
+              "type": "If",
+              "expression": {
+                "greater": [
+                  "@length(body('Active_team_members'))",
+                  0
+                ]
+              },
               "actions": {
                 "For_each_due_wake_up": {
+                  "type": "Foreach",
                   "foreach": "@outputs('List_due_wake_ups')?['body/value']",
                   "actions": {
                     "Notification_data": {
-                      "runAfter": {},
                       "type": "Compose",
                       "inputs": {
                         "actions": [
@@ -142,30 +144,28 @@
                       }
                     },
                     "For_each_team_member": {
+                      "type": "Foreach",
                       "foreach": "@body('Active_team_members')",
                       "actions": {
                         "Send_in_app_notification": {
-                          "runAfter": {},
                           "type": "OpenApiConnection",
                           "inputs": {
-                            "host": {
-                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                              "connectionName": "shared_commondataserviceforapps",
-                              "operationId": "CreateRecord"
-                            },
                             "parameters": {
                               "entityName": "appnotifications",
                               "item/title": "⏰ Wake up: @{coalesce(items('For_each_due_wake_up')?['_cp_client_value@OData.Community.Display.V1.FormattedValue'], 'client')}@{if(empty(items('For_each_due_wake_up')?['cp_matlabel']), '', concat(' (Mat ', items('For_each_due_wake_up')?['cp_matlabel'], ')'))}",
                               "item/body": "@{coalesce(items('For_each_due_wake_up')?['cp_wakeupmessage'], 'No wake up message was left.')}",
-                              "item/ownerid@odata.bind": "/systemusers(@{items('For_each_team_member')?['systemuserid']})",
-                              "item/icontype": 100000003,
-                              "item/toasttype": 200000000,
-                              "item/priority": 200000001,
-                              "item/ttlinseconds": 86400,
                               "item/data": "@{string(outputs('Notification_data'))}",
-                              "accept": "application/json;odata.metadata=minimal"
+                              "item/ttlinseconds": 86400,
+                              "item/icontype": 100000003,
+                              "item/ownerid@odata.bind": "/systemusers(@{items('For_each_team_member')?['systemuserid']})",
+                              "item/priority": 200000001,
+                              "item/toasttype": 200000000
                             },
-                            "authentication": "@parameters('$authentication')"
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "operationId": "CreateRecord",
+                              "connectionName": "shared_commondataserviceforapps"
+                            }
                           }
                         }
                       },
@@ -173,45 +173,34 @@
                         "Notification_data": [
                           "Succeeded"
                         ]
-                      },
-                      "type": "Foreach"
+                      }
                     },
                     "Mark_wake_up_notified": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "entityName": "cp_sheltercheckins",
+                          "recordId": "@items('For_each_due_wake_up')?['cp_sheltercheckinid']",
+                          "item/cp_wakeupnotified": true
+                        },
+                        "host": {
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                          "operationId": "UpdateOnlyRecord",
+                          "connectionName": "shared_commondataserviceforapps"
+                        }
+                      },
                       "runAfter": {
                         "For_each_team_member": [
                           "Succeeded"
                         ]
-                      },
-                      "type": "OpenApiConnection",
-                      "inputs": {
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "connectionName": "shared_commondataserviceforapps",
-                          "operationId": "UpdateOnlyRecord"
-                        },
-                        "parameters": {
-                          "entityName": "cp_sheltercheckins",
-                          "recordId": "@items('For_each_due_wake_up')?['cp_sheltercheckinid']",
-                          "item/cp_wakeupnotified": true,
-                          "accept": "application/json;odata.metadata=minimal"
-                        },
-                        "authentication": "@parameters('$authentication')"
                       }
                     }
-                  },
-                  "runAfter": {},
-                  "type": "Foreach"
+                  }
                 }
-              },
-              "runAfter": {
-                "Active_team_members": [
-                  "Succeeded"
-                ]
               },
               "else": {
                 "actions": {
                   "Fail_no_recipients": {
-                    "runAfter": {},
                     "type": "Terminate",
                     "inputs": {
                       "runStatus": "Failed",
@@ -223,30 +212,21 @@
                   }
                 }
               },
-              "expression": {
-                "greater": [
-                  "@length(body('Active_team_members'))",
-                  0
+              "runAfter": {
+                "Active_team_members": [
+                  "Succeeded"
                 ]
-              },
-              "type": "If"
+              }
             }
+          },
+          "else": {
+            "actions": {}
           },
           "runAfter": {
             "List_due_wake_ups": [
               "Succeeded"
             ]
-          },
-          "else": {
-            "actions": {}
-          },
-          "expression": {
-            "greater": [
-              "@length(outputs('List_due_wake_ups')?['body/value'])",
-              0
-            ]
-          },
-          "type": "If"
+          }
         }
       }
     },

@@ -11,6 +11,9 @@
       <grid name="resultset" jump="cp_sheltercheckin" select="1" icon="1" preview="1">
         <row name="result" id="cp_sheltercheckinid">
           <cell name="cp_sheltercheckin" width="213" />
+          <cell name="cp_wakeuptime" width="125" />
+          <cell name="cp_wakeupmessage" width="145" />
+          <cell name="cp_wakeupnotified" width="143" />
           <cell name="cp_client" width="100" />
           <cell name="cp_checkinstatus" width="125" />
           <cell name="cp_checkin" width="100" />
@@ -172,6 +175,9 @@
           <attribute name="cp_matlabel" />
           <attribute name="cp_highintox" />
           <attribute name="cp_referralsource" />
+          <attribute name="cp_wakeuptime" />
+          <attribute name="cp_wakeupmessage" />
+          <attribute name="cp_wakeupnotified" />
         </entity>
       </fetch>
     </fetchxml>

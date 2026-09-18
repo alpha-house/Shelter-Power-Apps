@@ -125,6 +125,38 @@
                     </row>
                   </rows>
                 </section>
+                <section name="wake_up_call" id="015f049c-96fc-4e4d-a185-f34e8e4dde4f" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Wake Up Call" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{fdb903dd-0df9-4d76-a5e9-f084523cde72}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Wake Up Time" languagecode="1033" />
+                        </labels>
+                        <control id="cp_wakeuptime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_wakeuptime" disabled="false" />
+                      </cell>
+                      <cell id="{48cb7abd-b94c-43fa-b98e-93687c203a24}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Wake Up Notified" languagecode="1033" />
+                        </labels>
+                        <control id="cp_wakeupnotified" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_wakeupnotified" disabled="false" uniqueid="{ee4c0b28-f795-4981-81f5-0c09a4ec1d7d}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{27bf6d0b-1edc-4a1a-aa66-314e2a8683d2}" locklevel="0" colspan="2" rowspan="3">
+                        <labels>
+                          <label description="Wake Up Message" languagecode="1033" />
+                        </labels>
+                        <control id="cp_wakeupmessage" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_wakeupmessage" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                  </rows>
+                </section>
               </sections>
             </column>
           </columns>
@@ -553,6 +585,28 @@
               <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
               <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
               <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{ee4c0b28-f795-4981-81f5-0c09a4ec1d7d}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_wakeupnotified</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_wakeupnotified</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_wakeupnotified</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_wakeupnotified</value>
             </parameters>
           </customControl>
         </controlDescription>
