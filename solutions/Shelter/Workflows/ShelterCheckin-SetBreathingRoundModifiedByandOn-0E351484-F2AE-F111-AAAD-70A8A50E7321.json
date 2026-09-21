@@ -34,14 +34,14 @@
               "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "cp_sheltercheckin",
               "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "cp_breathinground"
+              "subscriptionRequest/filteringattributes": "cp_breathinground",
+              "subscriptionRequest/name": "0e351484-f2ae-f111-aaad-70a8a50e7321:MTA"
             },
             "host": {
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
               "operationId": "SubscribeWebhookTrigger"
-            },
-            "authentication": "@parameters('$authentication')"
+            }
           }
         }
       },
@@ -54,15 +54,13 @@
               "entityName": "cp_sheltercheckins",
               "recordId": "@triggerOutputs()?['body/cp_sheltercheckinid']",
               "item/cp_breathingroundmodifiedon": "@utcNow()",
-              "item/cp_BreathingRoundModifiedBy@odata.bind": "@concat('/systemusers(', triggerOutputs()?['body/_modifiedby_value'], ')')",
-              "accept": "application/json;odata.metadata=minimal"
+              "item/cp_BreathingRoundModifiedBy@odata.bind": "@concat('/systemusers(', triggerOutputs()?['body/_modifiedby_value'], ')')"
             },
             "host": {
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
               "operationId": "UpdateOnlyRecord"
-            },
-            "authentication": "@parameters('$authentication')"
+            }
           }
         }
       }

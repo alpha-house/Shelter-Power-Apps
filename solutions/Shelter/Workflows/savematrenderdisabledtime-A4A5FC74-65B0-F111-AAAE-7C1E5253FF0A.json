@@ -34,14 +34,14 @@
               "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "cp_mat",
               "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "cp_render"
+              "subscriptionRequest/filteringattributes": "cp_render",
+              "subscriptionRequest/name": "a4a5fc74-65b0-f111-aaae-7c1e5253ff0a:MTA"
             },
             "host": {
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
               "operationId": "SubscribeWebhookTrigger"
-            },
-            "authentication": "@parameters('$authentication')"
+            }
           }
         }
       },
@@ -55,15 +55,13 @@
                 "parameters": {
                   "entityName": "cp_mats",
                   "recordId": "@triggerOutputs()?['body/cp_matid']",
-                  "item/cp_renderingdisabledon": "@formatDateTime(utcNow(), 'yyyy-MM-dd')",
-                  "accept": "application/json;odata.metadata=minimal"
+                  "item/cp_renderingdisabledon": "@formatDateTime(utcNow(), 'yyyy-MM-dd')"
                 },
                 "host": {
                   "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps",
                   "operationId": "UpdateOnlyRecord"
-                },
-                "authentication": "@parameters('$authentication')"
+                }
               }
             }
           },

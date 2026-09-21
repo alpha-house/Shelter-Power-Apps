@@ -34,14 +34,14 @@
               "subscriptionRequest/entityname": "cp_matplan",
               "subscriptionRequest/scope": 4,
               "subscriptionRequest/filteringattributes": "cp_resetmatlayout",
-              "subscriptionRequest/filterexpression": "cp_resetmatlayout eq true"
+              "subscriptionRequest/filterexpression": "cp_resetmatlayout eq true",
+              "subscriptionRequest/name": "1f09b43d-b4b2-f111-aaae-7c1e5253ff0a:MTA"
             },
             "host": {
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
               "operationId": "SubscribeWebhookTrigger"
-            },
-            "authentication": "@parameters('$authentication')"
+            }
           }
         }
       },
@@ -52,15 +52,13 @@
           "inputs": {
             "parameters": {
               "entityName": "cp_mats",
-              "$select": "cp_matid,cp_standardmat,cp_defaultxposition,cp_defaultyposition",
-              "accept": "application/json;odata.metadata=minimal"
+              "$select": "cp_matid,cp_standardmat,cp_defaultxposition,cp_defaultyposition"
             },
             "host": {
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
               "operationId": "ListRecords"
-            },
-            "authentication": "@parameters('$authentication')"
+            }
           }
         },
         "Apply_to_each_mat": {
@@ -80,15 +78,13 @@
                       "item/cp_render": true,
                       "item/cp_clientlabel": null,
                       "item/cp_Client@odata.bind": null,
-                      "item/cp_ShelterCheckin@odata.bind": null,
-                      "accept": "application/json;odata.metadata=minimal"
+                      "item/cp_ShelterCheckin@odata.bind": null
                     },
                     "host": {
                       "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                       "connectionName": "shared_commondataserviceforapps",
                       "operationId": "UpdateOnlyRecord"
-                    },
-                    "authentication": "@parameters('$authentication')"
+                    }
                   }
                 }
               },
@@ -105,15 +101,13 @@
                         "item/cp_render": false,
                         "item/cp_clientlabel": null,
                         "item/cp_Client@odata.bind": null,
-                        "item/cp_ShelterCheckin@odata.bind": null,
-                        "accept": "application/json;odata.metadata=minimal"
+                        "item/cp_ShelterCheckin@odata.bind": null
                       },
                       "host": {
                         "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                         "connectionName": "shared_commondataserviceforapps",
                         "operationId": "UpdateOnlyRecord"
-                      },
-                      "authentication": "@parameters('$authentication')"
+                      }
                     }
                   }
                 }
@@ -150,15 +144,13 @@
             "parameters": {
               "entityName": "cp_matplans",
               "recordId": "@triggerOutputs()?['body/cp_matplanid']",
-              "item/cp_resetmatlayout": false,
-              "accept": "application/json;odata.metadata=minimal"
+              "item/cp_resetmatlayout": false
             },
             "host": {
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
               "operationId": "UpdateOnlyRecord"
-            },
-            "authentication": "@parameters('$authentication')"
+            }
           }
         }
       }
