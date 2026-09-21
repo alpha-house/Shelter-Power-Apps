@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{572521c4-2d79-477b-9f34-e601b159ff86}</savedqueryid>
+    <layoutxml>
+      <grid name="cp_staffs" jump="cp_name" select="1" icon="1" preview="0">
+        <row name="cp_staff" id="cp_staffid">
+          <cell name="cp_name" width="162" />
+          <cell name="cp_firstname" width="103" />
+          <cell name="cp_lastname" width="102" />
+          <cell name="cp_employeename" width="134" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" distinct="true">
+        <entity name="cp_staff">
+          <attribute name="cp_staffid" />
+          <attribute name="cp_name" />
+          <attribute name="cp_employeename" />
+          <attribute name="cp_firstname" />
+          <attribute name="cp_lastname" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Staff Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

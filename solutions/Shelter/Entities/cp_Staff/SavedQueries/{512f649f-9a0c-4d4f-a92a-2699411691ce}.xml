@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{512f649f-9a0c-4d4f-a92a-2699411691ce}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_name" select="1" icon="1" preview="1">
+        <row name="result" id="cp_staffid">
+          <cell name="cp_firstname" width="103" />
+          <cell name="cp_lastname" width="102" />
+          <cell name="cp_employeename" width="134" />
+          <cell name="cp_name" width="118" />
+          <cell name="cp_jobtitle" width="100" />
+          <cell name="cp_reportsto" width="102" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" distinct="true">
+        <entity name="cp_staff">
+          <attribute name="cp_staffid" />
+          <attribute name="cp_name" />
+          <order attribute="cp_name" descending="false" />
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="cp_name" operator="like" value="{0}" />
+            <condition attribute="cp_firstname" operator="like" value="{0}" />
+            <condition attribute="cp_lastname" operator="like" value="{0}" />
+            <condition attribute="cp_jobtitle" operator="like" value="{0}" />
+            <condition attribute="cp_reportsto" operator="like" value="{0}" />
+            <condition attribute="cp_employeename" operator="like" value="{0}" />
+          </filter>
+          <attribute name="cp_firstname" />
+          <attribute name="cp_lastname" />
+          <attribute name="cp_jobtitle" />
+          <attribute name="cp_reportsto" />
+          <attribute name="cp_employeename" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Staff" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

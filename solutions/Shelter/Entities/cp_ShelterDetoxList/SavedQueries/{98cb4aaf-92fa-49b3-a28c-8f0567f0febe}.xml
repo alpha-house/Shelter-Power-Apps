@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{98cb4aaf-92fa-49b3-a28c-8f0567f0febe}</savedqueryid>
+    <layoutxml>
+      <grid name="cp_shelterdetoxlists" jump="cp_shelterdetoxlistname" select="1" icon="1" preview="0">
+        <row name="cp_shelterdetoxlist" id="cp_shelterdetoxlistid">
+          <cell name="cp_shelterdetoxlistname" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_shelterdetoxlist">
+          <attribute name="cp_shelterdetoxlistid" />
+          <attribute name="cp_shelterdetoxlistname" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Shelter Detox List Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

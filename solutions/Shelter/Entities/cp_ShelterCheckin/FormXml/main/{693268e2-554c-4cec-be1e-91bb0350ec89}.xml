@@ -254,12 +254,23 @@
           <columns>
             <column width="100%">
               <sections>
-                <section name="exit_information_section_3" id="5ed56568-f460-4264-97ad-e95d3536b70b" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="exit_information_section_3" id="5ed56568-f460-4264-97ad-e95d3536b70b" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
                   <labels>
                     <label description="New Section" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row />
+                    <row>
+                      <cell locklevel="0" id="{05ccda30-ee64-4744-8d6a-197b07c24b29}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{c1197d93-f5d4-4f0d-bb12-a08bab2905af}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                     <row>
                       <cell rowspan="2" colspan="1" id="{1161B7D8-6353-49D3-8581-D015201DBC63}" showlabel="false">
                         <labels>
@@ -277,8 +288,19 @@
                           </parameters>
                         </control>
                       </cell>
+                      <cell locklevel="0" id="{4ed2f743-74c7-4dce-926f-ff4552417d5f}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
                     </row>
-                    <row />
+                    <row>
+                      <cell locklevel="0" id="{3931a657-03fd-420a-bab4-bbe52111f3fe}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
                   </rows>
                 </section>
                 <section name="exit_information" id="1206562b-a0bf-4948-a6c9-a78974cde0de" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115">

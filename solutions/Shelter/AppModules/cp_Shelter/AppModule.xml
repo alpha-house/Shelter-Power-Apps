@@ -12,17 +12,21 @@
   <AppModuleComponents>
     <AppModuleComponent type="1" schemaName="ahb_ahhelp" />
     <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="1" schemaName="cp_assessment" />
     <AppModuleComponent type="1" schemaName="cp_clientalert" />
     <AppModuleComponent type="1" schemaName="cp_exitinformation" />
     <AppModuleComponent type="1" schemaName="cp_incidentreport" />
+    <AppModuleComponent type="1" schemaName="cp_incidentreportapprover" />
     <AppModuleComponent type="1" schemaName="cp_mat" />
     <AppModuleComponent type="1" schemaName="cp_matplan" />
     <AppModuleComponent type="1" schemaName="cp_shelterbreathinground" />
     <AppModuleComponent type="1" schemaName="cp_sheltercheckin" />
+    <AppModuleComponent type="1" schemaName="cp_shelterdetoxlist" />
     <AppModuleComponent type="1" schemaName="cp_shelterhighintoxbreathinground" />
     <AppModuleComponent type="1" schemaName="cp_shelterhighintoxmissedbreathinground" />
     <AppModuleComponent type="1" schemaName="cp_sheltermissedbreathinground" />
     <AppModuleComponent type="1" schemaName="cp_shiftnote" />
+    <AppModuleComponent type="1" schemaName="cp_staff" />
     <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000000666400}" />
     <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001210}" />
     <AppModuleComponent type="26" id="{3664a7b3-1d0b-403a-aa66-1b91ea902187}" />

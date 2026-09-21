@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{b1217200-b244-4e49-aeb4-889651922dd1}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{127f7683-8a0e-4405-9535-01da1826ca45}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{0cd1045d-9334-4827-8774-2c48d2880292}" columns="11">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{eb038198-3688-438b-891b-4e1262c6526e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="First Name" languagecode="1033" />
+                        </labels>
+                        <control id="cp_firstname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_firstname" disabled="false" />
+                      </cell>
+                      <cell id="{65f47d7e-39b2-42ac-92b6-253936753166}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Email" languagecode="1033" />
+                        </labels>
+                        <control id="cp_email" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="cp_email" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3fa47578-a05a-4e48-8195-b5c1ee9ebe0c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Middle Name" languagecode="1033" />
+                        </labels>
+                        <control id="cp_middlename" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_middlename" disabled="false" />
+                      </cell>
+                      <cell id="{f9f09e9d-3358-47a7-8481-e5c96c5ed3d4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Employment Status" languagecode="1033" />
+                        </labels>
+                        <control id="cp_employmentstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_employmentstatus" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ab23e8e8-fc38-4b30-b2f3-2376b1231e38}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Last Name" languagecode="1033" />
+                        </labels>
+                        <control id="cp_lastname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_lastname" disabled="false" />
+                      </cell>
+                      <cell id="{3b50573d-bd25-4a49-87b9-d544a7ea78c7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Employee Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_employeenumber" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="cp_employeenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{235efabd-6a8f-4cd1-95f7-bad32b3763d4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Job Title" languagecode="1033" />
+                        </labels>
+                        <control id="cp_jobtitle" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_jobtitle" disabled="false" />
+                      </cell>
+                      <cell id="{40671f86-6753-4f70-9c4b-6b54add6b5c3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Role" languagecode="1033" />
+                        </labels>
+                        <control id="cp_role" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_role" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7d48e91b-5076-420e-b098-48ca7a661782}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Reports To" languagecode="1033" />
+                        </labels>
+                        <control id="cp_reportsto" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_reportsto" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{1cbd20cc-7da6-4242-a7c5-0459136687d1}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{dc62680a-11ae-48c9-9374-f0d458203a73}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{587b189a-528b-4ce9-87e7-e95fad05f0e8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3c6879d2-cdc9-42bc-ae00-c79748aa9df0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b46d1e33-9b4a-47d2-a400-ae2d89f14ab2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{65216441-a678-46c0-b568-8989036d4cec}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Name" languagecode="1033" />
+              </labels>
+              <control id="header_cp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_name" />
+            </cell>
+            <cell id="{5cbfcc8d-6802-47de-9387-79b17bc734b4}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{3463acf6-c062-478a-9622-1f4326e17955}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{bedb79d5-c4fe-452e-8136-9d4065549484}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{807ba1b1-9164-4126-8d43-753f6d7a4b65}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{28bb297b-bfba-456c-9fb6-ff0dd45c9c49}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

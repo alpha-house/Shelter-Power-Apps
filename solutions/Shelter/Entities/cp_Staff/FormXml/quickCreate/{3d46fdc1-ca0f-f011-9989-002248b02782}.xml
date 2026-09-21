@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3d46fdc1-ca0f-f011-9989-002248b02782}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="F931FFE2-B873-473F-8F95-9502F0AA3F5E" name="tab_1" showlabel="false" labelid="{a97e4918-4722-42ad-aed0-9c3dc345b1bf}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="34%">
+              <sections>
+                <section id="0C655D4E-C6E3-424E-9AF5-71E72D30D12E" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{c21ec78b-7090-4cb1-b3cc-fd66be9761a8}">
+                  <labels>
+                    <label description="Staff Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="542FBFBE-0E4C-496C-8012-555DE6581923" labelid="{46420c13-4f8e-4a43-8b3f-46e5d7cc6d27}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{267e6474-1db4-4d6a-b778-f007fe4990fb}" locklevel="0" colspan="1" rowspan="1" labelid="{e5e777d5-25c5-4dd1-a72d-8a55e599a9a8}">
+                        <labels>
+                          <label description="First Name" languagecode="1033" />
+                        </labels>
+                        <control id="cp_firstname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_firstname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{73dceb49-fea9-4edc-94a3-0458302e6824}" locklevel="0" colspan="1" rowspan="1" labelid="{f9aa49bd-7ee4-40f1-b6b7-c29b53457c06}">
+                        <labels>
+                          <label description="Last Name" languagecode="1033" />
+                        </labels>
+                        <control id="cp_lastname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_lastname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0484d989-e5d5-4fb2-94c8-ccae441b6b7e}" locklevel="0" colspan="1" rowspan="1" labelid="{6282864c-77de-418c-b5c8-087b674e8489}">
+                        <labels>
+                          <label description="Role" languagecode="1033" />
+                        </labels>
+                        <control id="cp_role" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cp_role" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="02DECBA0-3AE2-484D-A19F-C5353AF4F4F2" name="tab_1_column_2_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" visible="false" labelid="{32022bc4-d0bb-4512-8295-80c0d410983e}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="266FE48D-4D04-4E9A-8C5A-7DEF9A2F059B" labelid="{30501b7b-da0f-4e03-9997-83451d3ac3ed}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section id="46FD66EA-B686-41D9-AAE0-C565BD78EC1F" name="tab_1_column_3_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" visible="false" labelid="{011f5411-a125-40ae-ba9e-30bb00013ffc}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="07C04A4E-A482-45CC-BAB7-7FCA3CD02938" labelid="{cd7393c2-34c4-482d-bf56-e3d501ffd4a9}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Quick Create" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

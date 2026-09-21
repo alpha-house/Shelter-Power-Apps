@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{e2c1eb6e-a0f3-4b6c-b372-550336ae32fb}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_incidentreportapprovername" select="1" icon="1" preview="1">
+        <row name="result" id="cp_incidentreportapproverid">
+          <cell name="cp_incidentreportapprovername" width="258" />
+          <cell name="cp_approver" width="100" />
+          <cell name="cp_service" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_incidentreportapprover">
+          <attribute name="cp_incidentreportapproverid" />
+          <attribute name="cp_incidentreportapprovername" />
+          <order attribute="cp_incidentreportapprovername" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cp_approver" />
+          <attribute name="cp_service" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Incident Report Approvers" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

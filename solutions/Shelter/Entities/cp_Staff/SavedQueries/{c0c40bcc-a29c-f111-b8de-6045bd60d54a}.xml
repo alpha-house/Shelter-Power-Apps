@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{c0c40bcc-a29c-f111-b8de-6045bd60d54a}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_name" select="1" icon="1" preview="1">
+        <row name="result" id="cp_staffid">
+          <cell name="cp_name" width="72" />
+          <cell name="cp_fullname" width="100" />
+          <cell name="cp_employeename" width="134" />
+          <cell name="cp_jobtitle" width="100" />
+          <cell name="cp_reportsto" width="102" />
+          <cell name="cp_email" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" distinct="true">
+        <entity name="cp_staff">
+          <attribute name="cp_staffid" />
+          <attribute name="cp_name" />
+          <attribute name="cp_jobtitle" />
+          <attribute name="cp_reportsto" />
+          <attribute name="cp_employeename" />
+          <attribute name="cp_fullname" />
+          <attribute name="cp_email" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.35</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Staff Including Email" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Lists all staff including those who are still employed and terminated. This view gives access to staff emails." languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

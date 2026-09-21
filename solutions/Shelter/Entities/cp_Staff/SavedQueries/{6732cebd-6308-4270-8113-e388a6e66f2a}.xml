@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{6732cebd-6308-4270-8113-e388a6e66f2a}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_name" select="1" icon="1" preview="1">
+        <row name="result" id="cp_staffid">
+          <cell name="cp_name" width="72" />
+          <cell name="cp_fullname" width="100" />
+          <cell name="cp_employeename" width="134" />
+          <cell name="cp_jobtitle" width="100" />
+          <cell name="cp_reportsto" width="102" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" distinct="true">
+        <entity name="cp_staff">
+          <attribute name="cp_staffid" />
+          <attribute name="cp_name" />
+          <filter type="and">
+            <condition attribute="cp_employmentstatus" operator="ne" value="121570001" />
+          </filter>
+          <attribute name="cp_jobtitle" />
+          <attribute name="cp_reportsto" />
+          <attribute name="cp_employeename" />
+          <attribute name="cp_fullname" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Staff" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

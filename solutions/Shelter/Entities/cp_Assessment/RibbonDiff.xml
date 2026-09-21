@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="cp.Mscrm.Form.cp_assessment.Activate.CustomAction" Location="Mscrm.Form.cp_assessment.MainTab.Save.Controls._children" Sequence="50">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Command="Mscrm.Form.Activate" Id="Mscrm.Form.cp_assessment.Activate" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Sequence="50" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Activate" ModernImage="Activate" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="cp.Mscrm.SubGrid.cp_assessment.Activate.CustomAction" Location="Mscrm.SubGrid.cp_assessment.MainTab.Management.Controls._children" Sequence="60">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Command="Mscrm.HomepageGrid.Activate" Id="Mscrm.SubGrid.cp_assessment.Activate" Image32by32="/_imgs/ribbon/Activate_32.png" Image16by16="/_imgs/ribbon/Activate_16.png" LabelText="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" Sequence="60" TemplateAlias="o2" ToolTipTitle="$Resources:Ribbon.HomepageGrid.account.Record.Status.Activate" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Activate" ModernImage="Activate" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.Form.Activate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.CanWritePrimary" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+        <DisplayRule Id="Mscrm.PrimaryIsInactive" />
+        <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode" />
+        <DisplayRule Id="Mscrm.PrimaryIsNotActivity" />
+        <DisplayRule Id="cp.cp_assessment.DisplayRule0.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Activate.activatePrimaryRecord" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.HomepageGrid.Activate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWriteSelected" />
+        <DisplayRule Id="Mscrm.SelectedEntityHasStatecode" />
+        <DisplayRule Id="cp.cp_assessment.DisplayRule0.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Activate.activateRecords" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="cp.cp_assessment.DisplayRule0.DisplayRule">
+        <ValueRule Field="statuscode" Value="121570001" Default="false" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanWritePrimary">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanWriteSelected">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="HasStateCode" PropertyValue="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsInactive">
+        <FormStateRule State="Disabled" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsNotActivity">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.SelectedEntityHasStatecode">
+        <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="HasStateCode" PropertyValue="true" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.CanWritePrimary">
+        <RecordPrivilegeRule PrivilegeType="Write" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.SelectionCountAtLeastOne">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.GridCommandActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/CommandBarActions.js">
+              <CrmParameter Value="SelectedControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

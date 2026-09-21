@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c54c1476-cfc2-46e0-903c-d694774cd2d5}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{DF1469D3-0649-45DB-85F0-4BD3D7355694}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="null_section_3" id="8084b16d-926d-437e-bf7f-7a6b5b59603e" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{2072e1c1-1254-4f67-adbe-edbc0a2aa155}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="cp_client" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_client" disabled="false" />
+                      </cell>
+                      <cell id="{b4488c1b-8fa1-415a-89bb-f1d88830430a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_date" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_date" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d7880914-16d5-4f1e-af2c-a5751d1ba066}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Detox File Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_detoxfilenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_detoxfilenumber" disabled="false" />
+                      </cell>
+                      <cell id="{c0c93a0d-aa45-4944-91d7-b9b42b408414}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Last Discharge Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_lastdischargedate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_lastdischargedate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7f3cefe3-cbca-4348-8d50-6cfa4835bbc2}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Detox Assessment" languagecode="1033" />
+                        </labels>
+                        <control id="cp_detoxassessment" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_detoxassessment" disabled="false">
+                          <parameters>
+                            <DependentAttributeName>cp_shelterdetoxlist.cp_client</DependentAttributeName>
+                            <DependentAttributeType>contact</DependentAttributeType>
+                            <FilterRelationshipName>cp_assessment_Client_contact</FilterRelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{730a4520-1864-4138-8bf8-a26ea41f483f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Shelter Checkin" languagecode="1033" />
+                        </labels>
+                        <control id="cp_sheltercheckin" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_sheltercheckin" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8a5a5c75-1ad3-4f6e-a719-4d2c96541913}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Create Detox Assessment" languagecode="1033" />
+                        </labels>
+                        <control id="cp_createdetoxassessment" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_createdetoxassessment" disabled="false" uniqueid="{271eab1a-14b3-4889-8525-601ca43f263c}" />
+                      </cell>
+                      <cell locklevel="0" id="{3ed7c48d-fb76-42d6-914f-6e1f3e94c734}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{7239D8CC-68F5-49F6-AA06-864BC3697815}" columns="11" name="medical_and_comments">
+                  <labels>
+                    <label description="Medical and Comments" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{2C576841-4AB1-4716-BB21-E685FD1FB420}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cp_shelterdetoxlistname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_ShelterDetoxListName" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c4e71bba-2836-458d-834c-c75bf911e1b1}" locklevel="0" colspan="2" rowspan="5">
+                        <labels>
+                          <label description="Comments" languagecode="1033" />
+                        </labels>
+                        <control id="cp_comments" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_comments" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{fce29817-a750-4f26-be68-bd8e1454ed84}" locklevel="0" colspan="2" rowspan="5">
+                        <labels>
+                          <label description="Medical Notes" languagecode="1033" />
+                        </labels>
+                        <control id="cp_medicalnotes" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_medicalnotes" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{721ce641-662f-4dc2-8145-8e2458395643}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{10c23eda-67ea-4ecd-a6a2-44baae96e6e8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b9c41af4-441a-4913-a6a4-caa554814653}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{7dea0084-83e5-498a-bd03-e5c9f5a551d1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell locklevel="0" id="{b742e184-4e7d-4be2-90d4-7bec8f049ffb}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{646908F6-B5B2-462C-8784-EACD07C436B9}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+            <cell id="{c3357be7-9991-4077-9e36-d47c3a20c7ef}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Shelter Detox List Name" languagecode="1033" />
+              </labels>
+              <control id="header_cp_shelterdetoxlistname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_shelterdetoxlistname" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{80a5aae4-7ec5-40d8-a9bb-401e8e4cff4d}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{6dd22b50-0ea4-4aa7-a29a-d433b0b8511e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{66a0e31e-fd9e-4118-b8b4-7b5c72c07fbf}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ff9605d3-bba9-4e3c-94b9-23816dcbe971}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{271eab1a-14b3-4889-8525-601ca43f263c}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_createdetoxassessment</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_createdetoxassessment</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_createdetoxassessment</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_createdetoxassessment</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

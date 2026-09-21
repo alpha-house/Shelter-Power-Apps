@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.26091.131" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26091.131" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26091.00137">
+<ImportExportXml version="9.2.26091.131" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26091.131" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26092.00134">
   <SolutionManifest>
     <UniqueName>Shelter</UniqueName>
     <LocalizedNames>
@@ -11,9 +11,11 @@
     <Publisher>
       <UniqueName>Charles_Paulinus</UniqueName>
       <LocalizedNames>
-        <LocalizedName description="Charles_Paulinus" languagecode="1033" />
+        <LocalizedName description="Core Platform" languagecode="1033" />
       </LocalizedNames>
-      <Descriptions />
+      <Descriptions>
+        <Description description="Shared platform publisher for Alpha House. Formerly displayed as Charles_Paulinus; the unique name is unchanged." languagecode="1033" />
+      </Descriptions>
       <EMailAddress>charlesp@alphahousecalgary.com</EMailAddress>
       <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
       <CustomizationPrefix>cp</CustomizationPrefix>
@@ -80,17 +82,21 @@
     <RootComponents>
       <RootComponent type="1" schemaName="ahb_ahhelp" behavior="0" />
       <RootComponent type="1" schemaName="contact" behavior="0" />
+      <RootComponent type="1" schemaName="cp_assessment" behavior="0" />
       <RootComponent type="1" schemaName="cp_clientalert" behavior="0" />
       <RootComponent type="1" schemaName="cp_exitinformation" behavior="0" />
       <RootComponent type="1" schemaName="cp_incidentreport" behavior="0" />
+      <RootComponent type="1" schemaName="cp_incidentreportapprover" behavior="0" />
       <RootComponent type="1" schemaName="cp_mat" behavior="0" />
       <RootComponent type="1" schemaName="cp_matplan" behavior="0" />
       <RootComponent type="1" schemaName="cp_shelterbreathinground" behavior="0" />
       <RootComponent type="1" schemaName="cp_sheltercheckin" behavior="0" />
+      <RootComponent type="1" schemaName="cp_shelterdetoxlist" behavior="0" />
       <RootComponent type="1" schemaName="cp_shelterhighintoxbreathinground" behavior="1" />
       <RootComponent type="1" schemaName="cp_shelterhighintoxmissedbreathinground" behavior="1" />
       <RootComponent type="1" schemaName="cp_sheltermissedbreathinground" behavior="0" />
       <RootComponent type="1" schemaName="cp_shiftnote" behavior="0" />
+      <RootComponent type="1" schemaName="cp_staff" behavior="0" />
       <RootComponent type="1" schemaName="systemuser" behavior="1" />
       <RootComponent type="20" id="{cf48d081-70b3-f111-aaae-7c1e5253ff0a}" behavior="0" />
       <RootComponent type="29" id="{0e351484-f2ae-f111-aaad-70a8a50e7321}" behavior="0" />
@@ -100,7 +106,9 @@
       <RootComponent type="29" id="{73f3ba8e-4981-f111-ab0f-7c1e5253346f}" behavior="0" />
       <RootComponent type="29" id="{768ca820-ddae-f111-aaad-6045bd60d54a}" behavior="0" />
       <RootComponent type="29" id="{77991899-5a80-f111-ab0f-7c1e5253346f}" behavior="0" />
+      <RootComponent type="29" id="{7e162969-ccb5-f111-aaae-7ced8da50854}" behavior="0" />
       <RootComponent type="29" id="{a4a5fc74-65b0-f111-aaae-7c1e5253ff0a}" behavior="0" />
+      <RootComponent type="29" id="{a97870d8-9ab3-f111-aaae-7c1e5253ff0a}" behavior="0" />
       <RootComponent type="29" id="{bc623fe3-93af-f111-aaae-70a8a50e7321}" behavior="0" />
       <RootComponent type="29" id="{c3195d30-9380-f111-ab0f-7c1e5253346f}" behavior="0" />
       <RootComponent type="29" id="{eae23328-f67a-f111-ab0f-7ced8da5852f}" behavior="0" />
@@ -148,6 +156,10 @@
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="1" schemaName="ahb_consent" displayName="Consent" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="1" schemaName="ahb_exitassessment" displayName="Exit Assessment" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
@@ -185,6 +197,10 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="ahb_intake" displayName="Intake" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="ahb_intake" displayName="Intake" solution="Active" />
         <Dependent type="60" displayName="Boreal" parentDisplayName="Client" id="{4ef1db0b-9314-f011-9989-6045bd5eb54f}" />
       </MissingDependency>
       <MissingDependency>
@@ -205,11 +221,19 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="ahb_quarterlyreport" displayName="Quarterly Report" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="ahb_quarterlyreport" displayName="Quarterly Report" solution="Active" />
         <Dependent type="60" displayName="Boreal" parentDisplayName="Client" id="{4ef1db0b-9314-f011-9989-6045bd5eb54f}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="ahb_referral" displayName="Referral" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="ahb_referral" displayName="Referral" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="ahb_releaseofinformation" displayName="Release of Information" solution="Active" />
@@ -251,18 +275,6 @@
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="cp_assessment" displayName="Assessment" solution="Active" />
-        <Dependent type="1" schemaName="contact" displayName="Client" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="cp_assessment" displayName="Assessment" solution="Active" />
-        <Dependent type="60" displayName="Detox" parentDisplayName="Client" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="cp_assessment" displayName="Assessment" solution="Active" />
-        <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="1" schemaName="cp_bed" displayName="Bed" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
@@ -275,12 +287,40 @@
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="1" schemaName="cp_checkin" displayName="Check In" solution="Active" />
+        <Dependent type="1" schemaName="cp_assessment" displayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_checkin" displayName="Check In" solution="Active" />
+        <Dependent type="2" schemaName="cp_latestcheckindate" displayName="Latest Check In Date" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_checkin" displayName="Check In" solution="Active" />
+        <Dependent type="2" schemaName="cp_servicerequestdate" displayName="Service Request Date" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_checkin" displayName="Check In" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="1" schemaName="cp_ciwawithdrawalassessment" displayName="CIWA Withdrawal Assessment" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="1" schemaName="cp_ciwawithdrawalassessment" displayName="CIWA Withdrawal Assessment" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_client_assessment" displayName="Detox Client Mangagement" solution="Active" />
+        <Dependent type="1" schemaName="cp_assessment" displayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="1" schemaName="cp_clientbelongings" displayName="Client Belongings" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_clientbelongings" displayName="Client Belongings" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="cp_clientcomplaint" displayName="Client Complaint" solution="Active" />
@@ -311,20 +351,48 @@
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="1" schemaName="cp_communityhousinginspection" displayName="Community Housing Inspection" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="1" schemaName="cp_communityservicerequest" displayName="Community Service Request" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_communityservicerequest" displayName="Community Service Request" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="cp_confidentialityagreement" displayName="Confidentiality Agreement" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="1" schemaName="cp_confidentialityagreement" displayName="Confidentiality Agreement" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_contactactivity" displayName="Contact Activity" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="1" schemaName="cp_cowswithdrawalassessment" displayName="COWS Withdrawal Assessment" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="1" schemaName="cp_cowswithdrawalassessment" displayName="COWS Withdrawal Assessment" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="1" schemaName="cp_cp_admission" displayName="Admission" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_cp_admission" displayName="Admission" solution="Active" />
+        <Dependent type="1" schemaName="cp_assessment" displayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_cp_admission" displayName="Admission" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="cp_cp_admission" displayName="Admission" solution="Active" />
@@ -383,6 +451,10 @@
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="1" schemaName="cp_grievanceprocedure" displayName="Grievance Procedure" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="1" schemaName="cp_medicalhistory" displayName="Medical History" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
@@ -391,8 +463,16 @@
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="1" schemaName="cp_medicaltreatment" displayName="Medical Treatment" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
+        <Dependent type="1" schemaName="cp_assessment" displayName="Assessment" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
@@ -400,7 +480,15 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
+        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
         <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="cp_policytoxicologytestingagreement" displayName="Policy - Toxicology Testing Agreement" solution="Active" />
@@ -437,6 +525,10 @@
       <MissingDependency>
         <Required type="1" schemaName="cp_treatmentapplication" displayName="Treatment Application" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_treatmentapplication" displayName="Treatment Application" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="cp_zdelsubstanceuseissue" displayName="Substance Use Issue" solution="Active" />
@@ -539,12 +631,16 @@
         <Dependent type="60" displayName="Boreal" parentDisplayName="Client" id="{4ef1db0b-9314-f011-9989-6045bd5eb54f}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="10" schemaName="cp_assessment_Client_contact" displayName="cp_assessment_Client_contact" parentSchemaName="contact" parentDisplayName="Client" solution="Active" />
-        <Dependent type="60" displayName="Detox" parentDisplayName="Client" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+        <Required type="10" schemaName="cp_checkin_Assessment_cp_assessment" displayName="cp_checkin_Assessment_cp_assessment" parentSchemaName="cp_assessment" parentDisplayName="Assessment" solution="Active" />
+        <Dependent type="2" schemaName="cp_latestcheckindate" displayName="Latest Check In Date" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="10" schemaName="cp_assessment_Client_contact" displayName="cp_assessment_Client_contact" parentSchemaName="contact" parentDisplayName="Client" solution="Active" />
-        <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
+        <Required type="10" schemaName="cp_checkin_Assessment_cp_assessment" displayName="cp_checkin_Assessment_cp_assessment" parentSchemaName="cp_assessment" parentDisplayName="Assessment" solution="Active" />
+        <Dependent type="2" schemaName="cp_servicerequestdate" displayName="Service Request Date" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="cp_checkin_Assessment_cp_assessment" displayName="cp_checkin_Assessment_cp_assessment" parentSchemaName="cp_assessment" parentDisplayName="Assessment" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="10" schemaName="cp_cp_admission_Client_contact" displayName="cp_cp_admission_Client_contact" parentSchemaName="contact" parentDisplayName="Client" solution="Active" />
@@ -577,6 +673,14 @@
       <MissingDependency>
         <Required type="10" schemaName="cp_cp_emergencycontact_CP_Client_contact" displayName="cp_cp_emergencycontact_CP_Client_contact" parentSchemaName="contact" parentDisplayName="Client" solution="Active" />
         <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="cp_patternofuse_Assessment_cp_assessment" displayName="cp_patternofuse_Assessment_cp_assessment" parentSchemaName="cp_assessment" parentDisplayName="Assessment" solution="Active" />
+        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="10" schemaName="cp_patternofuse_Assessment_cp_assessment" displayName="cp_patternofuse_Assessment_cp_assessment" parentSchemaName="cp_assessment" parentDisplayName="Assessment" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="10" schemaName="cp_patternofuse_Client_contact" displayName="cp_patternofuse_Client_contact" parentSchemaName="contact" parentDisplayName="Client" solution="Active" />
@@ -758,96 +862,32 @@
         <Dependent type="2" schemaName="ahb_incomesourcecount" displayName="Income sources (active)" parentSchemaName="contact" parentDisplayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="2" schemaName="cp_checkindate" displayName="Check In Date" parentSchemaName="cp_checkin" parentDisplayName="Check In" solution="Active" />
+        <Dependent type="2" schemaName="cp_latestcheckindate" displayName="Latest Check In Date" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cp_checkindate" displayName="Check In Date" parentSchemaName="cp_checkin" parentDisplayName="Check In" solution="Active" />
+        <Dependent type="2" schemaName="cp_servicerequestdate" displayName="Service Request Date" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cp_checkinid" displayName="Check In" parentSchemaName="cp_checkin" parentDisplayName="Check In" solution="Active" />
+        <Dependent type="2" schemaName="cp_latestcheckindate" displayName="Latest Check In Date" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cp_checkinid" displayName="Check In" parentSchemaName="cp_checkin" parentDisplayName="Check In" solution="Active" />
+        <Dependent type="2" schemaName="cp_servicerequestdate" displayName="Service Request Date" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="2" schemaName="cp_client" displayName="Client" parentSchemaName="cp_cp_admission" parentDisplayName="Admission" solution="Active" />
         <Dependent type="68" id="{cfd33661-3d5e-4b54-a60b-56266c87f5f6}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="cp_name" displayName="Admission" parentSchemaName="cp_cp_admission" parentDisplayName="Admission" solution="Active" />
+        <Dependent type="10" schemaName="cp_assessment_Admission_cp_cp_admission" displayName="cp_assessment_Admission_cp_cp_admission" parentSchemaName="cp_cp_admission" parentDisplayName="Admission" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cp_name" displayName="Admission" parentSchemaName="cp_cp_admission" parentDisplayName="Admission" solution="Active" />
         <Dependent type="10" schemaName="cp_shiftnote_Admission_cp_cp_admission" displayName="cp_shiftnote_Admission_cp_cp_admission" parentSchemaName="cp_cp_admission" parentDisplayName="Admission" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="ahb_cp_shiftnote_SubmittedBy_cp_staff" displayName="ahb_cp_shiftnote_SubmittedBy_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_contact_HistoricalNotesWrittenBy_cp_staff" displayName="cp_contact_HistoricalNotesWrittenBy_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_CPIReviewAssignedTo_cp_staff" displayName="cp_incidentreport_CPIReviewAssignedTo_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_DirectorThatWasCalled_cp_staff" displayName="cp_incidentreport_DirectorThatWasCalled_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_IncidentRecordedBy_cp_staff" displayName="cp_incidentreport_IncidentRecordedBy_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_InvestigationAssignedTo_cp_staff" displayName="cp_incidentreport_InvestigationAssignedTo_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_NameofDirectorInformed_cp_staff" displayName="cp_incidentreport_NameofDirectorInformed_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_NameofDriver_cp_staff" displayName="cp_incidentreport_NameofDriver_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_NameofManagerInformed_cp_staff" displayName="cp_incidentreport_NameofManagerInformed_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_NameofSeniorDirectorInformed_cp_staff" displayName="cp_incidentreport_NameofSeniorDirectorInformed_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_ReportedBy_cp_staff" displayName="cp_incidentreport_ReportedBy_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_ReportedTo_cp_staff" displayName="cp_incidentreport_ReportedTo_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_ReviewingManager_cp_staff" displayName="cp_incidentreport_ReviewingManager_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_ShiftSupervisor_cp_staff" displayName="cp_incidentreport_ShiftSupervisor_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_ShiftSupervisorManagerPresent_cp_staff" displayName="cp_incidentreport_ShiftSupervisorManagerPresent_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_StaffNotPresentForDebrief_cp_staff" displayName="cp_incidentreport_StaffNotPresentForDebrief_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_StaffPresentForDebrief_cp_staff" displayName="cp_incidentreport_StaffPresentForDebrief_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_StaffRefusedDebrief_cp_staff" displayName="cp_incidentreport_StaffRefusedDebrief_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_incidentreport_WhoConductedStaffDebrief_cp_staff" displayName="cp_incidentreport_WhoConductedStaffDebrief_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_shiftnote_RecordedBy_cp_staff" displayName="cp_shiftnote_RecordedBy_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_name" displayName="Staff" parentSchemaName="cp_staff" parentDisplayName="Staff" solution="Active" />
-        <Dependent type="10" schemaName="cp_shiftnote_SignoffSupervisorName_cp_staff" displayName="cp_shiftnote_SignoffSupervisorName_cp_staff" parentSchemaName="cp_staff" parentDisplayName="Staff" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="cp_shelterhighintoxbreathingroundid" displayName="Shelter High Intox Breathing Round" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
@@ -1132,7 +1172,15 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Active Pattern of Use" displayName="Active Pattern of Use" parentSchemaName="cp_patternofuse" parentDisplayName="Pattern of Use" solution="Active" id="{757922d6-32ca-4de8-9a35-7c79f614d44f}" />
+        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Active Pattern of Use" displayName="Active Pattern of Use" parentSchemaName="cp_patternofuse" parentDisplayName="Pattern of Use" solution="Active" id="{757922d6-32ca-4de8-9a35-7c79f614d44f}" />
         <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Active Pattern of Use" displayName="Active Pattern of Use" parentSchemaName="cp_patternofuse" parentDisplayName="Pattern of Use" solution="Active" id="{757922d6-32ca-4de8-9a35-7c79f614d44f}" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Active Quarterly Reports" displayName="Active Quarterly Reports" parentSchemaName="ahb_quarterlyreport" parentDisplayName="Quarterly Report" solution="Active" id="{7053a62f-512e-460e-8081-7eaa0e41fe8e}" />
@@ -1162,16 +1210,8 @@
         <Dependent type="60" displayName="Portal Contact (Enhanced)" parentDisplayName="Client" id="{c1c97961-2d42-4103-abf8-2fe2bdf38224}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="26" schemaName="All Assessments" displayName="All Assessments" parentSchemaName="cp_assessment" parentDisplayName="Assessment" solution="Active" id="{f954a857-7cc8-436c-93c9-7b4124d01175}" />
-        <Dependent type="60" displayName="Detox" parentDisplayName="Client" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="All Assessments" displayName="All Assessments" parentSchemaName="cp_assessment" parentDisplayName="Assessment" solution="Active" id="{f954a857-7cc8-436c-93c9-7b4124d01175}" />
-        <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="26" schemaName="All Contacts" displayName="All Contacts" parentSchemaName="contact" parentDisplayName="Client" solution="msdynce_AppCommon (9.0.4.0066)" id="{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="26" schemaName="All Contacts" displayName="All Contacts" parentSchemaName="contact" parentDisplayName="Client" id="{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}" />
       </MissingDependency>
@@ -1200,6 +1240,10 @@
         <Dependent type="60" displayName="Client Details - Embedded Edit" parentDisplayName="Client" id="{864f9e8b-23a7-f111-aaac-70a8a50e7321}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="26" schemaName="Detox Check Ins" displayName="Detox Check Ins" parentSchemaName="cp_checkin" parentDisplayName="Check In" solution="Active" id="{ca4937b2-5d76-4f3b-8156-1da4dbaa204a}" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="26" schemaName="Emergency Contacts - Boreal" displayName="Emergency Contacts - Boreal" parentSchemaName="cp_cp_emergencycontact" parentDisplayName="Emergency Contact" solution="Active" id="{1d153917-9e14-f011-9989-002248b02782}" />
         <Dependent type="60" displayName="Boreal" parentDisplayName="Client" id="{4ef1db0b-9314-f011-9989-6045bd5eb54f}" />
       </MissingDependency>
@@ -1212,7 +1256,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Detox" parentDisplayName="Client" solution="msdynce_AppCommon (9.0.4.0066)" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Detox" parentDisplayName="Client" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
@@ -1222,13 +1266,13 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact Quick Create" parentDisplayName="Client" solution="msdynce_AppCommon (9.0.4.0066)" id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Contact Quick Create" parentDisplayName="Client" id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Information" parentDisplayName="Client" solution="msdynce_AppCommon (9.0.4.0066)" id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Client" id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
       </MissingDependency>
@@ -1303,69 +1347,77 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Profile Web Form (Enhanced) - Japanese" parentDisplayName="Client" id="{01124dd8-9bff-4cc0-bb33-ea9d943c3f9f}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Detox" parentDisplayName="Client" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="FASD - Embedded Edit" parentDisplayName="Client" id="{4d08a1ad-03a7-f111-aaac-6045bd60d54a}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Boreal" parentDisplayName="Client" id="{4ef1db0b-9314-f011-9989-6045bd5eb54f}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Detox Client Address" parentDisplayName="Client" id="{67c3561a-6cea-f011-8406-7ced8da5852f}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Shelter Client" parentDisplayName="Client" id="{785045ae-0d7b-f111-ab0f-7ced8da5852f}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
+        </Required>
+        <Dependent type="60" displayName="Client Details - Embedded Edit" parentDisplayName="Client" id="{864f9e8b-23a7-f111-aaac-70a8a50e7321}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Client" id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
-        </Required>
-        <Dependent type="60" displayName="Profile Web Form (Enhanced)" parentDisplayName="Client" id="{bddc0100-0dbe-4562-aafe-31d08c8ab506}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Portal Contact (Enhanced)" parentDisplayName="Client" id="{c1c97961-2d42-4103-abf8-2fe2bdf38224}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Invite Web Form" parentDisplayName="Client" id="{d6190b35-9474-4098-9698-33f6627eb3bf}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cp_assessment" displayName="cp_assessment" solution="Active" />
+        <Dependent type="1" schemaName="cp_assessment" displayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cp_create_client_or_admit_from_assessment" displayName="cp_create_client_or_admit_from_assessment" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="cp_detox_javascript_functions" displayName="cp_detox_javascript_functions" solution="Active" />
@@ -1405,6 +1457,10 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="cp_detox_javascript_functions" displayName="cp_detox_javascript_functions" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cp_detox_javascript_functions" displayName="cp_detox_javascript_functions" solution="Active" />
         <Dependent type="60" displayName="2 Critical Incident Report" parentDisplayName="Incident Report" id="{fe9e5251-a047-f011-8779-000d3af31ea9}" />
       </MissingDependency>
       <MissingDependency>
@@ -1420,8 +1476,44 @@
         <Dependent type="60" displayName="PBSH" parentDisplayName="Incident Report" id="{1a8a9803-fba2-f111-aaad-70a8a50e7321}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="61" schemaName="cp_instructions_assessment_detoxdisclosure" displayName="cp_instructions_assessment_detoxdisclosure" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cp_instructions_assessment_phoneconsent" displayName="cp_instructions_assessment_phoneconsent" solution="Active" />
+        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cp_instructions_assessment_phoneconsent" displayName="cp_instructions_assessment_phoneconsent" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cp_instructions_assessment_programconsent" displayName="cp_instructions_assessment_programconsent" solution="Active" />
+        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cp_instructions_assessment_programconsent" displayName="cp_instructions_assessment_programconsent" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cp_instructions_assessment_qualifications" displayName="cp_instructions_assessment_qualifications" solution="Active" />
+        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cp_instructions_assessment_qualifications" displayName="cp_instructions_assessment_qualifications" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="61" schemaName="cp_shift_notes" displayName="cp_shift_notes" solution="Active" />
         <Dependent type="1" schemaName="cp_shiftnote" displayName="Shift Note" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cp_show_hide_consent_instructions" displayName="cp_show_hide_consent_instructions" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cp_staff" displayName="cp_staff" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="cp_staff_incident_report_consent" displayName="cp_staff_incident_report_consent" solution="Active" />
@@ -1434,6 +1526,10 @@
       <MissingDependency>
         <Required type="61" schemaName="cr6ca_detox_admission_form" displayName="cr6ca_detox_admission_form" solution="Active" />
         <Dependent type="60" displayName="Detox" parentDisplayName="Shift Note" id="{a878de11-7582-4581-b11c-f4e6a5f49c59}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="cr6ca_detox_admission_form" displayName="cr6ca_detox_admission_form" solution="Active" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="cr6ca_detox_admission_form" displayName="cr6ca_detox_admission_form" solution="Active" />
@@ -1455,6 +1551,10 @@
           <package appName="Power Pages Core" version="1.1.2508.192">PowerPages_Core (1.1.2508.192)</package>
         </Required>
         <Dependent type="60" displayName="Portal Contact (Enhanced)" parentDisplayName="Client" id="{c1c97961-2d42-4103-abf8-2fe2bdf38224}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="cp_AlphaHouse.TurnawayAnalytics" displayName="cp_AlphaHouse.TurnawayAnalytics" solution="Active" />
+        <Dependent type="26" schemaName="All Turnaways Dashboard" displayName="All Turnaways Dashboard" parentSchemaName="cp_assessment" parentDisplayName="Assessment" id="{a729acac-31ad-f111-aaac-6045bd60d54a}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2609.1007)">
@@ -1544,6 +1644,18 @@
         <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2609.1007)">
           <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
         </Required>
+        <Dependent type="26" schemaName="Waitlist" displayName="Waitlist" parentSchemaName="cp_assessment" parentDisplayName="Assessment" id="{9c54ad1b-92fe-ef11-bae3-6045bd6057d5}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2609.1007)">
+          <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
+        </Required>
+        <Dependent type="26" schemaName="Assessment Waitlist" displayName="Assessment Waitlist" parentSchemaName="cp_assessment" parentDisplayName="Assessment" id="{a63fa454-3375-f011-b4cc-000d3af31ea9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2609.1007)">
+          <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
+        </Required>
         <Dependent type="26" schemaName="All PBSH Incident Reports" displayName="All PBSH Incident Reports" parentSchemaName="cp_incidentreport" parentDisplayName="Incident Report" id="{cc8fa08a-6f6d-f011-b4cb-000d3af31ea9}" />
       </MissingDependency>
       <MissingDependency>
@@ -1610,6 +1722,12 @@
         <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2609.1007)">
           <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
         </Required>
+        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2609.1007)">
+          <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
+        </Required>
         <Dependent type="60" displayName="FP" parentDisplayName="Mat Plan" id="{6e970b13-000d-f111-8342-000d3ae9ad6b}" />
       </MissingDependency>
       <MissingDependency>
@@ -1652,6 +1770,18 @@
         <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2609.1007)">
           <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
         </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Shelter Detox List" id="{c54c1476-cfc2-46e0-903c-d694774cd2d5}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2609.1007)">
+          <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
+        </Required>
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2609.1007)">
+          <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
+        </Required>
         <Dependent type="60" displayName="Shelter" parentDisplayName="Mat" id="{dc7fcdff-d246-4e4c-adc9-a6895ac4f3fb}" />
       </MissingDependency>
       <MissingDependency>
@@ -1659,6 +1789,12 @@
           <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
         </Required>
         <Dependent type="60" displayName="Shelter Checkin" parentDisplayName="Shelter Checkin" id="{693268e2-554c-4cec-be1e-91bb0350ec89}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.ModelForm.ModelFormControl" displayName="MscrmControls.ModelForm.ModelFormControl" solution="BaseCustomControlsCore (9.0.2609.1007)">
+          <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
+        </Required>
+        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="MscrmControls.Signature.SignatureControl" displayName="MscrmControls.Signature.SignatureControl" solution="CustomControlsCore (9.2.26091.00131)">
@@ -1682,6 +1818,12 @@
         <Required type="66" schemaName="MscrmControls.Signature.SignatureControl" displayName="MscrmControls.Signature.SignatureControl" solution="CustomControlsCore (9.2.26091.00131)">
           <package appName="Custom Controls Package" version="9.2.26091.00131">CustomControlsCore (9.2.26091.00131)</package>
         </Required>
+        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.Signature.SignatureControl" displayName="MscrmControls.Signature.SignatureControl" solution="CustomControlsCore (9.2.26091.00131)">
+          <package appName="Custom Controls Package" version="9.2.26091.00131">CustomControlsCore (9.2.26091.00131)</package>
+        </Required>
         <Dependent type="60" displayName="Outreach" parentDisplayName="Incident Report" id="{806758d1-539a-f111-b8dd-6045bd60d54a}" />
       </MissingDependency>
       <MissingDependency>
@@ -1700,6 +1842,12 @@
         <Required type="66" schemaName="MscrmControls.Signature.SignatureControl" displayName="MscrmControls.Signature.SignatureControl" solution="CustomControlsCore (9.2.26091.00131)">
           <package appName="Custom Controls Package" version="9.2.26091.00131">CustomControlsCore (9.2.26091.00131)</package>
         </Required>
+        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.Signature.SignatureControl" displayName="MscrmControls.Signature.SignatureControl" solution="CustomControlsCore (9.2.26091.00131)">
+          <package appName="Custom Controls Package" version="9.2.26091.00131">CustomControlsCore (9.2.26091.00131)</package>
+        </Required>
         <Dependent type="60" displayName="2 Critical Incident Report" parentDisplayName="Incident Report" id="{fe9e5251-a047-f011-8779-000d3af31ea9}" />
       </MissingDependency>
       <MissingDependency>
@@ -1707,6 +1855,14 @@
           <package appName="Custom Controls Package" version="9.2.26091.00131">CustomControlsCore (9.2.26091.00131)</package>
         </Required>
         <Dependent type="60" displayName="Shelter" parentDisplayName="Shift Note" id="{fed18126-ca7f-f111-ab0f-7c1e5253346f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="70" displayName="Detox Locked Columns" solution="Active" id="{48c4ddf4-cd88-f011-b4cc-6045bd5cdf42}" />
+        <Dependent type="70" displayName="Detox Locked Columns" id="{48c4ddf4-cd88-f011-b4cc-6045bd5cdf42}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="70" displayName="Detox Unlocked Columns" solution="Active" id="{daf82d62-ce88-f011-b4cc-6045bd5dcd15}" />
+        <Dependent type="70" displayName="Detox Unlocked Columns" id="{daf82d62-ce88-f011-b4cc-6045bd5dcd15}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="9" schemaName="ahb_applist" displayName="Programs" solution="Active" />
@@ -1719,6 +1875,10 @@
       <MissingDependency>
         <Required type="9" schemaName="ahb_applist" displayName="Programs" solution="Active" />
         <Dependent type="2" schemaName="cp_pleaseselecttheserviceforthisreport" displayName="Please Select The Service For This Report" parentSchemaName="cp_incidentreport" parentDisplayName="Incident Report" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="ahb_applist" displayName="Programs" solution="Active" />
+        <Dependent type="2" schemaName="cp_service" displayName="Service" parentSchemaName="cp_incidentreportapprover" parentDisplayName="Incident Report Approver" />
       </MissingDependency>
       <MissingDependency>
         <Required type="9" schemaName="ahb_applist" displayName="Programs" solution="Active" />
@@ -1777,12 +1937,28 @@
         <Dependent type="2" schemaName="cp_gender" displayName="Gender" parentSchemaName="contact" parentDisplayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="9" schemaName="cp_detoxgenderchoice" displayName="Detox Gender Choice" solution="Active" />
+        <Dependent type="2" schemaName="cp_gender" displayName="Gender" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_employmentstatus" displayName="Employment Status" solution="Active" />
+        <Dependent type="2" schemaName="cp_employmentstatus" displayName="Employment Status" parentSchemaName="cp_staff" parentDisplayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="9" schemaName="cp_ethnicity" displayName="Ethnicity" solution="Active" />
         <Dependent type="2" schemaName="cp_ethnicity" displayName="Ethnicity" parentSchemaName="contact" parentDisplayName="Client" />
       </MissingDependency>
       <MissingDependency>
         <Required type="9" schemaName="cp_ethnicity" displayName="Ethnicity" solution="Active" />
         <Dependent type="2" schemaName="cp_racialbackground" displayName="Race Idenity" parentSchemaName="contact" parentDisplayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_ethnicity" displayName="Ethnicity" solution="Active" />
+        <Dependent type="2" schemaName="cp_ethnicity" displayName="Ethnicity" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_ethnicity" displayName="Ethnicity" solution="Active" />
+        <Dependent type="2" schemaName="cp_racialbackground" displayName="Race Identity" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
       </MissingDependency>
       <MissingDependency>
         <Required type="9" schemaName="cp_genderchoice" displayName="Gender Choice" solution="Active" />
@@ -1813,12 +1989,20 @@
         <Dependent type="2" schemaName="cp_indigenousidentity" displayName="Indigenous Identity" parentSchemaName="contact" parentDisplayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="9" schemaName="cp_indigenousidentity" displayName="Indigenous Identity" solution="Active" />
+        <Dependent type="2" schemaName="cp_indigenousidentity" displayName="Indigenous Identity" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="9" schemaName="cp_irapprovalstatus" displayName="IR Approval Status" solution="Active" />
         <Dependent type="2" schemaName="cp_irapprovalstatus" displayName="IR Approval Status" parentSchemaName="cp_incidentreport" parentDisplayName="Incident Report" />
       </MissingDependency>
       <MissingDependency>
         <Required type="9" schemaName="cp_levelofintoxication" displayName="Level of Intoxication" solution="Active" />
         <Dependent type="2" schemaName="cp_levelofintoxication" displayName="Level of Intoxication" parentSchemaName="cp_incidentreport" parentDisplayName="Incident Report" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_outcome" displayName="Assessment Outcome" solution="Active" />
+        <Dependent type="2" schemaName="cp_outcome" displayName="Outcome" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
       </MissingDependency>
       <MissingDependency>
         <Required type="9" schemaName="cp_outofprovince" displayName="Out of Province" solution="Active" />
@@ -1829,8 +2013,16 @@
         <Dependent type="2" schemaName="cp_preferredpronoun" displayName="Preferred Pronoun" parentSchemaName="contact" parentDisplayName="Client" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="9" schemaName="cp_referralsource" displayName="Referral Source" solution="Active" />
+        <Dependent type="2" schemaName="cp_referralsource" displayName="Referral Source" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="9" schemaName="cp_residencestatus" displayName="Status in Canada" solution="Active" />
         <Dependent type="2" schemaName="cp_residencestatus" displayName="Residence Status" parentSchemaName="contact" parentDisplayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_role" displayName="Role" solution="Active" />
+        <Dependent type="2" schemaName="cp_role" displayName="Role" parentSchemaName="cp_staff" parentDisplayName="Staff" />
       </MissingDependency>
       <MissingDependency>
         <Required type="9" schemaName="cp_shiftnotetype" displayName="Shift Note Type" solution="Active" />
@@ -1839,6 +2031,10 @@
       <MissingDependency>
         <Required type="9" schemaName="cp_signature" displayName="Signature" solution="Active" />
         <Dependent type="2" schemaName="cp_staffsignature" displayName="Staff Signature" parentSchemaName="cp_incidentreport" parentDisplayName="Incident Report" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_y_n_nachoice" displayName="Yes_No_NA Choice" solution="Active" />
+        <Dependent type="2" schemaName="cp_istheclientpregnant" displayName="Is the Client pregnant" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
       </MissingDependency>
       <MissingDependency>
         <Required type="9" schemaName="cp_y_n_nachoice" displayName="Yes_No_NA Choice" solution="Active" />
@@ -1855,6 +2051,18 @@
       <MissingDependency>
         <Required type="9" schemaName="cp_yesno" displayName="Yes/No" solution="Active" />
         <Dependent type="2" schemaName="cp_createdbyassessment" displayName="Created by Assessment" parentSchemaName="contact" parentDisplayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_yesno" displayName="Yes/No" solution="Active" />
+        <Dependent type="2" schemaName="cp_createdbyassessment" displayName="Created by Assessment" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_yesno" displayName="Yes/No" solution="Active" />
+        <Dependent type="2" schemaName="cp_newclient" displayName="New Client" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_yesno" displayName="Yes/No" solution="Active" />
+        <Dependent type="2" schemaName="cp_preventduplicate" displayName="Prevent Duplicate" parentSchemaName="cp_assessment" parentDisplayName="Assessment" />
       </MissingDependency>
       <MissingDependency>
         <Required type="9" schemaName="cp_yesno" displayName="Yes/No" solution="Active" />
@@ -1930,11 +2138,23 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
+        <Dependent type="29" displayName="Staff Information Update" id="{cfe8d247-e7f6-f011-8407-7ced8da5852f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
         <Dependent type="29" displayName="Shelter Breathing Rounds Stats" id="{edec6698-5b80-f111-ab0f-7ced8da799f0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="cp_sharedsharepointonline_93f19" solution="Active" id.connectionreferencelogicalname="cp_sharedsharepointonline_93f19" />
+        <Dependent type="29" displayName="Staff Information Update" id="{cfe8d247-e7f6-f011-8407-7ced8da5852f}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="connectionreference" displayName="new_sharedcommondataserviceforapps_a8210" solution="Active" id.connectionreferencelogicalname="new_sharedcommondataserviceforapps_a8210" />
         <Dependent type="29" displayName="Copy Mat Properties to Shelter Checkin" id="{c3195d30-9380-f111-ab0f-7c1e5253346f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="cp_StaffSharePointList" solution="Active" id.schemaname="cp_StaffSharePointList" />
+        <Dependent type="29" displayName="Staff Information Update" id="{cfe8d247-e7f6-f011-8407-7ced8da5852f}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="SettingDefinition" displayName="AllowNotificationsEarlyAccess" solution="AppNotifications (10.0.0.17)" id.uniquename="AllowNotificationsEarlyAccess">

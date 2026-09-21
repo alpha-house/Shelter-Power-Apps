@@ -1456,6 +1456,14 @@
                   <Description description="The two-paragraph POPA s. 5(2) notice in web resource ahb_popa_notice: purpose and s. 4(c) authority, and the contact for questions. No s. 5(2)(d) paragraph (Adam, 2026-09-03). Went live 2026-09-03." languagecode="1033" />
                 </Descriptions>
               </option>
+              <option value="758200012" IsHidden="0">
+                <labels>
+                  <label description="POPA notice (effective 2026-09-21)" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="The three-paragraph POPA notice in web resource ahb_popa_notice: purpose and s. 4(c) authority, that information may be provided to the Calgary Homeless Foundation and through it to the Government of Alberta, and the contact for questions. No s. 5(2)(d) paragraph. Went live 2026-09-21." languagecode="1033" />
+                </Descriptions>
+              </option>
             </options>
           </optionset>
           <displaynames>

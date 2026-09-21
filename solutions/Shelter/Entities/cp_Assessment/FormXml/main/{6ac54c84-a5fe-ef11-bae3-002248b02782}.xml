@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{6ac54c84-a5fe-ef11-bae3-002248b02782}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{898d1a72-253a-4560-9e43-e6cb74c18c29}" IsUserDefined="1" labelid="{041cf02c-6050-4144-b681-98346ce942e2}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="null_section_3" id="18d45f0d-b5cf-4acf-873c-80635bbd7960" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{f9f2dfe4-b238-46d4-b816-6e53c02c094b}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{a4385071-3bba-45b0-b58d-fe5087f21122}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3cf8e9b5-c0f9-4ebd-9029-48e9346bbef0}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="cp_client" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_client" disabled="false" uniqueid="{27e98f9a-bc0b-4bb0-8b24-fdbe2109e32a}">
+                          <parameters>
+                            <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{8709a07a-75f1-4d1b-bd27-b55f8be66990}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="3fe84547-8f46-417e-9fe2-b768083dee35" IsUserDefined="0" locklevel="0" showlabel="true" labelid="{1a315a2b-6405-429b-a494-43ab98a7fb82}">
+          <labels>
+            <label description="Patterns of Use" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" id="ed447d1f-188f-4c05-bf38-37dfd8a9062c" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" labelid="{eabeccfa-c6eb-4fe2-a250-d3c5e3f1eaf5}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{1e047b0a-6b32-48eb-a456-439baaf54301}" labelid="{0dc2e797-8d89-4f33-b53e-2442ba8c8e5b}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{7f0ea4f6-d811-4185-8463-26b51c6dd99f}" rowspan="4" colspan="1" auto="false" labelid="{57614157-318e-4609-a049-bfa3cc1f665c}">
+                        <labels>
+                          <label description="New SG control 1741290570847" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>cp_patternofuse_Assessment_cp_assessment</RelationshipName>
+                            <TargetEntityType>cp_patternofuse</TargetEntityType>
+                            <ViewId>{757922D6-32CA-4DE8-9A35-7C79F614D44F}</ViewId>
+                            <ViewIds>{757922D6-32CA-4DE8-9A35-7C79F614D44F}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_3" id="446a0be0-638d-4518-970c-164d90dbd454" IsUserDefined="0" locklevel="0" showlabel="true" labelid="{ebd373e5-a03f-416f-941b-a3eacbbdd1a2}">
+          <labels>
+            <label description="Consent" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_3_section_1" id="23b83078-13fb-4af0-b49f-02b28e64c987" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{3f963191-2730-4857-a510-5ecc33baf557}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{ccfcba08-861f-49c8-b5ba-8e212d10ff39}" showlabel="false" labelid="{426933a9-aa82-431c-8dec-28b9d23270b9}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{d1ae423d-ec97-4221-9241-69047ee8062b}" showlabel="false" labelid="{8f2ded8d-ab7d-4d89-bbb7-7c269fd811e8}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell rowspan="4" id="{57112c50-64dc-4bea-9e26-157adbac2fcf}" showlabel="false" colspan="2" labelid="{215e64d7-0d68-4d1f-916e-50f936fbfcdb}">
+                        <labels>
+                          <label description="Instructions - Assessment Program Consent" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_new_2" classid="{9FDF5F91-88B1-47F4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>cp_instructions_assessment_programconsent</Url>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>false</Border>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <WebResourceId>{4f24faa6-b8fa-ef11-bae2-002248b02782}</WebResourceId>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{bd1c1095-f3d6-445a-aec4-b659e14ad705}" showlabel="false" labelid="{f2d624b0-3c33-4bfc-919f-cc7a3b64f589}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{bfe014c1-8e78-4e98-8e7a-57ad072d80d4}" showlabel="false" labelid="{bda4624a-0f7e-4463-a27e-b546b4a3c9eb}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a90bd45e-d3d8-40e5-b8c5-1b5b1d283fd4}" locklevel="0" colspan="1" rowspan="1" labelid="{e34dee68-1bbd-444a-80d5-4b303130f60f}">
+                        <labels>
+                          <label description="Consent" languagecode="1033" />
+                        </labels>
+                        <control id="cp_consent" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="cp_consent" disabled="false" />
+                      </cell>
+                      <cell id="{4680d2d4-be9f-422a-ae37-6f0d7827c447}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c7204d6c-81e2-4077-848f-982e446e0ab7}" locklevel="0" colspan="1" rowspan="1" labelid="{8ac89012-7444-494d-a6ba-076ed3ce837d}">
+                        <labels>
+                          <label description="Client Signature" languagecode="1033" />
+                        </labels>
+                        <control id="cp_clientsignature" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_clientsignature" disabled="false" uniqueid="{555277e4-d580-4f07-ba0d-0b5af4621cc2}" />
+                      </cell>
+                      <cell id="{6c398e40-82d8-0974-689e-551d27d5b025}" showlabel="false" labelid="{b2d37f6e-a0ca-40ce-b373-fb2695d56a08}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6ef664a5-b2f4-4bb0-9219-60767ef3c0af}" locklevel="0" colspan="1" rowspan="1" labelid="{8b3165aa-8ab1-4d52-aacf-752213bec820}">
+                        <labels>
+                          <label description="Staff Signature" languagecode="1033" />
+                        </labels>
+                        <control id="cp_staffsignature" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_staffsignature" disabled="false" uniqueid="{eccca40f-99b7-4aef-bc2e-d6fc44890f43}" />
+                      </cell>
+                      <cell locklevel="0" id="{3c7a2404-84fc-4170-94f0-17e8c2842275}" labelid="{804ed16e-4e8e-4fe0-9507-08f2c84d0738}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="tab_3_section_3" id="58c406e0-bf55-4b87-a352-6ebe4176a8f8" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" labelid="{33903042-b1b2-48eb-8416-d67adb89964e}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{106940e4-852a-4a74-96d1-c4bbafa3a69e}" showlabel="false" labelid="{64644f2d-91f6-4b71-952a-b60c95f96f20}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell rowspan="4" id="{742f411d-fa3f-4655-9be0-674a6b85776b}" showlabel="false" colspan="1" labelid="{76e9622e-dc52-4a8e-88c9-1786964d2401}">
+                        <labels>
+                          <label description="Instructions - Assessment Qualifications" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_new_3" classid="{9FDF5F91-88B1-47F4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>cp_instructions_assessment_qualifications</Url>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>false</Border>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <WebResourceId>{0f3d58cd-b8fa-ef11-bae2-002248b02782}</WebResourceId>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="tab_3_section_5" id="797d2aaa-204a-4413-87d4-c8a3379cae84" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" labelid="{13743083-08ad-4916-8c23-750aa78fb776}">
+                  <labels>
+                    <label description="Telephone Consent for Waitlist" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{7b870ef6-1115-49a6-ba67-468ecd5ce64a}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell rowspan="6" id="{e10ed38c-4531-4bf3-94ec-1d0b4b158ddd}" showlabel="false" colspan="1" labelid="{f4272677-69aa-4587-b964-0fe635503b9b}">
+                        <labels>
+                          <label description="Instructions - Assessment Phone Consent" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_new_4" classid="{9FDF5F91-88B1-47F4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>cp_instructions_assessment_phoneconsent</Url>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>false</Border>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <WebResourceId>{4a319b27-b9fa-ef11-bae2-6045bd6057d5}</WebResourceId>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{6e41f176-b833-40f6-bbac-a99ccc6fbdea}" locklevel="0" colspan="1" rowspan="1" labelid="{de998323-a25a-4637-b5d2-35ed4e8f9ddc}">
+                        <labels>
+                          <label description="Consent to personal info being on wait list?" languagecode="1033" />
+                        </labels>
+                        <control id="cp_consenttopersonalinfobeingonwaitlist" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_consenttopersonalinfobeingonwaitlist" disabled="false" uniqueid="{65b46372-72d1-4c6d-ade3-401e393dd218}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="tab_3_section_5" id="366cc6db-12ca-41de-b7df-3a29934ff1fc" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" labelid="{198e8aef-3dc2-4c9f-b539-6d6c027670b8}">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6dcb834f-37e4-42ea-b304-b97f8efe1d79}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{e5660a12-70b3-4375-b0ab-3331a3f2ccb3}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{69fb152d-94fc-4f7a-8928-747084c4c6ae}" labelid="{2fc2ca16-23db-4aa8-a21c-4a0c188deedd}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{9fb4f1b2-4cb8-43df-9aad-22a4b9e8f906}" locklevel="0" colspan="1" rowspan="1" labelid="{ed93baa6-40d0-4f67-9506-7ac24ecaee06}">
+                        <labels>
+                          <label description="Date and Time" languagecode="1033" />
+                        </labels>
+                        <control id="cp_dateandtime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_dateandtime" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ea411b09-6141-4532-84ba-02a377fb0728}" locklevel="0" colspan="1" rowspan="1" labelid="{b9bf5cd9-578f-4df8-acda-b4cfdeaacaa5}">
+                        <labels>
+                          <label description="Name of Person Taking Call" languagecode="1033" />
+                        </labels>
+                        <control id="cp_nameofpersontakingcall" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_nameofpersontakingcall" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{e66047d8-dc2c-4202-96f3-107d8cdc4a9f}" labelid="{0af27bae-b542-480a-a4e5-f0da0ec73211}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4a907d88-712d-49c2-8b19-fa22adcdaee8}" locklevel="0" colspan="1" rowspan="1" labelid="{3a3c8538-cf70-4f71-a393-76035b6205c9}">
+                        <labels>
+                          <label description="Signature" languagecode="1033" />
+                        </labels>
+                        <control id="cp_signature" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_signature" disabled="false" uniqueid="{59671d7d-b55f-4d67-b41a-897dad3b3e6a}" />
+                      </cell>
+                      <cell locklevel="0" id="{8fde15ab-6e5c-47cb-a1aa-4406cefe8246}" labelid="{d99917ac-e60c-4ca5-8635-099a4a12e036}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{850026a8-d6cb-4388-b72e-272781152121}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{274d1a4d-2f2b-46db-88a9-c5ccc2cbf9e5}" showlabel="false" labelid="{6cba164b-6b59-4bb1-b27c-b809ce05a55b}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8095a53f-22cb-4743-a890-4255a00252d0}" showlabel="false" labelid="{5472f232-3680-462b-86cb-81548455d974}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{775d3376-3549-4eb6-8984-4cc1e40ca8b5}" showlabel="false" labelid="{a1f41d6e-da44-4d4d-ae74-0cf4690a905d}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{58f1f75a-fcf3-4140-aa62-22cc2e9e1180}" colspan="1" rowspan="1" labelid="{0ab475c4-afd2-4052-b1af-70bc28b80ab3}">
+              <labels>
+                <label description="Name" languagecode="1033" />
+              </labels>
+              <control id="header_cp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_name" />
+            </cell>
+            <cell locklevel="0" id="{2a55074f-1576-4883-91bd-f09d74edfc1f}" showlabel="false" labelid="{035d9e8d-b2cf-45e5-8965-b8b847844aa0}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f8ef9526-795d-4d3b-8284-2af423918c10}" colspan="1" rowspan="1" labelid="{a406f42b-7516-4833-b037-5e0ca4e0eaea}">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{aee07c27-976d-4b56-a8d6-0063ba9c5d2a}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{e902c1a8-2aee-4c2f-87da-66f5f7307be4}" showlabel="false" labelid="{47044b9d-146e-49d9-b8d3-a9ed337383e0}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{9b56eedb-5e29-409b-a89f-5c00e2a179d8}" showlabel="false" labelid="{7b8ed760-f744-4878-8af6-48958584ac56}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{47b85850-c54d-4758-aa83-753fe8ddb3dc}" showlabel="false" labelid="{c8599bfb-d907-40e2-a8cc-8e703913b004}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <controlDescriptions>
+        <controlDescription forControl="{555277e4-d580-4f07-ba0d-0b5af4621cc2}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>cp_clientsignature</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_clientsignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_clientsignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_clientsignature</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{eccca40f-99b7-4aef-bc2e-d6fc44890f43}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>cp_staffsignature</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_staffsignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_staffsignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_staffsignature</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{59671d7d-b55f-4d67-b41a-897dad3b3e6a}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>cp_signature</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_signature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_signature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_signature</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{65b46372-72d1-4c6d-ade3-401e393dd218}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cp_consenttopersonalinfobeingonwaitlist</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_consenttopersonalinfobeingonwaitlist</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_consenttopersonalinfobeingonwaitlist</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value type="TwoOptions">cp_consenttopersonalinfobeingonwaitlist</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{27e98f9a-bc0b-4bb0-8b24-fdbe2109e32a}">
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+            <parameters>
+              <datafieldname>cp_client</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_client</BindAttribute>
+                <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                <FilterRelationshipName />
+                <DependentAttributeName />
+                <DependentAttributeType />
+                <AvailableViewIds />
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms static="true" type="SingleLine.Text">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="contact"&gt;1fed44d1-ae68-4a41-bd2b-f13acac4acfa&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode static="true" type="Enum">0</SaveMode>
+              <EnableHighDensityPageHeader static="true" type="Enum">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector static="true" type="Enum">false</DisplayFormSelector>
+              <AddToRecentItems static="true" type="Enum">false</AddToRecentItems>
+              <DisplayPopoutCommand static="true" type="Enum">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand static="true" type="Enum">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext static="true" type="Enum">false</OverrideXrmPageByFormContext>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_client</BindAttribute>
+                <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                <FilterRelationshipName />
+                <DependentAttributeName />
+                <DependentAttributeType />
+                <AvailableViewIds />
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms static="true" type="SingleLine.Text">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="contact"&gt;1fed44d1-ae68-4a41-bd2b-f13acac4acfa&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode static="true" type="Enum">0</SaveMode>
+              <EnableHighDensityPageHeader static="true" type="Enum">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector static="true" type="Enum">false</DisplayFormSelector>
+              <AddToRecentItems static="true" type="Enum">false</AddToRecentItems>
+              <DisplayPopoutCommand static="true" type="Enum">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand static="true" type="Enum">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext static="true" type="Enum">false</OverrideXrmPageByFormContext>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_client</BindAttribute>
+                <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                <FilterRelationshipName />
+                <DependentAttributeName />
+                <DependentAttributeType />
+                <AvailableViewIds />
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </value>
+              <QuickForms static="true" type="SingleLine.Text">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="contact"&gt;1fed44d1-ae68-4a41-bd2b-f13acac4acfa&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode static="true" type="Enum">0</SaveMode>
+              <EnableHighDensityPageHeader static="true" type="Enum">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector static="true" type="Enum">false</DisplayFormSelector>
+              <AddToRecentItems static="true" type="Enum">false</AddToRecentItems>
+              <DisplayPopoutCommand static="true" type="Enum">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand static="true" type="Enum">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext static="true" type="Enum">false</OverrideXrmPageByFormContext>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <Navigation>
+        <NavBar />
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <DisplayConditions Order="2" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Edit Client Assessment" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

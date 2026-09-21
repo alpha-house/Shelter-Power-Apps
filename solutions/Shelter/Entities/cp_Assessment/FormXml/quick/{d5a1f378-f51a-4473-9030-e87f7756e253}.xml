@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{d5a1f378-f51a-4473-9030-e87f7756e253}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{7368ad61-e241-4c78-b210-f99e3050364f}" IsUserDefined="1">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{1fca18b7-c7fd-465d-a63b-23ff68b9c25b}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{7b10457f-935f-4fbb-b753-8e9f1b69cdc1}" visible="false">
+                        <labels>
+                          <label description="Assessment" languagecode="1033" />
+                        </labels>
+                        <control id="cp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{33203bbb-cd1a-4f4d-97ab-b89ceef6f0c3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Substance" languagecode="1033" />
+                        </labels>
+                        <control id="cp_substance" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_substance" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e77f96e6-8db8-4f72-b9a4-a07932212cf5}" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

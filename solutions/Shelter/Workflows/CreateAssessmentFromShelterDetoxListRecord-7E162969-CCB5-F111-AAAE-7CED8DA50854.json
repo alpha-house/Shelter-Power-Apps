@@ -1,0 +1,151 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cp_sharedcommondataserviceforapps_04f4e"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "When_Create_Detox_Assessment_is_set_to_true": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "cp_shelterdetoxlist",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "cp_createdetoxassessment",
+              "subscriptionRequest/filterexpression": "cp_createdetoxassessment eq true and _cp_detoxassessment_value eq null"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Has_a_client": {
+          "actions": {
+            "Get_the_client": {
+              "runAfter": {},
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "contacts",
+                  "recordId": "@triggerOutputs()?['body/_cp_client_value']",
+                  "accept": "application/json;odata.metadata=minimal"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "GetItem"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Create_the_assessment": {
+              "runAfter": {
+                "Get_the_client": [
+                  "Succeeded"
+                ]
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "cp_assessments",
+                  "item/cp_newclient": 121570001,
+                  "item/cp_assessmentdateandtime": "@utcNow()",
+                  "item/cp_firstname": "@outputs('Get_the_client')?['body/firstname']",
+                  "item/cp_lastname": "@outputs('Get_the_client')?['body/lastname']",
+                  "item/cp_dateofbirth": "@outputs('Get_the_client')?['body/cp_dateofbirth']",
+                  "item/cp_gender": "@outputs('Get_the_client')?['body/cp_gender']",
+                  "item/cp_Client@odata.bind": "@concat('/contacts(', triggerOutputs()?['body/_cp_client_value'], ')')",
+                  "item/cp_ShelterDetoxList@odata.bind": "@concat('/cp_shelterdetoxlists(', triggerOutputs()?['body/cp_shelterdetoxlistid'], ')')",
+                  "accept": "application/json;odata.metadata=minimal"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "CreateRecord"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Link_the_assessment_to_the_detox_list_record": {
+              "runAfter": {
+                "Create_the_assessment": [
+                  "Succeeded"
+                ]
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "cp_shelterdetoxlists",
+                  "recordId": "@triggerOutputs()?['body/cp_shelterdetoxlistid']",
+                  "item/cp_DetoxAssessment@odata.bind": "@concat('/cp_assessments(', outputs('Create_the_assessment')?['body/cp_assessmentid'], ')')",
+                  "item/cp_createdetoxassessment": false,
+                  "accept": "application/json;odata.metadata=minimal"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {},
+          "else": {
+            "actions": {
+              "Fail_no_client_on_the_detox_list_record": {
+                "runAfter": {},
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Failed",
+                  "runError": {
+                    "code": "NoClientOnDetoxListRecord",
+                    "message": "Cannot create an assessment: this Shelter Detox List record has no Client. Set the Client, then switch Create Detox Assessment on again."
+                  }
+                }
+              }
+            }
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@empty(triggerOutputs()?['body/_cp_client_value'])",
+                true
+              ]
+            }
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

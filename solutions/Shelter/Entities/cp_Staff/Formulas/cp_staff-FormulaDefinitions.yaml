@@ -1,0 +1,3 @@
+ahb_firstnameandl: =Concatenate(cp_firstname, " ", Left(cp_lastname, 1))
+cp_fullname: =Concatenate(cp_firstname, " ", cp_middlename, " ", cp_lastname)
+cp_initials: =Concatenate(Left(cp_firstname, 1), ".", Left(cp_lastname, 2))

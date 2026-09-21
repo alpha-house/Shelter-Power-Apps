@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{630a8cdc-7157-4715-90a7-dd35946bd6c7}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_shelterdetoxlistname" select="1" icon="1" preview="1">
+        <row name="result" id="cp_shelterdetoxlistid">
+          <cell name="cp_shelterdetoxlistname" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="cp_client" width="100" />
+          <cell name="cp_detoxfilenumber" width="149" />
+          <cell name="cp_lastdischargedate" width="155" />
+          <cell name="cp_detoxassessment" width="144" />
+          <cell name="cp_sheltercheckin" width="130" />
+          <cell name="cp_comments" width="101" />
+          <cell name="cp_medicalnotes" width="123" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_shelterdetoxlist">
+          <attribute name="cp_shelterdetoxlistid" />
+          <attribute name="cp_shelterdetoxlistname" />
+          <attribute name="createdon" />
+          <attribute name="cp_client" />
+          <attribute name="cp_detoxfilenumber" />
+          <attribute name="cp_lastdischargedate" />
+          <attribute name="cp_detoxassessment" />
+          <attribute name="cp_sheltercheckin" />
+          <attribute name="cp_comments" />
+          <attribute name="cp_medicalnotes" />
+          <order attribute="createdon" descending="true" />
+          <filter type="or">
+            <condition attribute="cp_detoxassessment" operator="null" />
+            <filter type="and">
+              <condition entityname="assessment" attribute="cp_assessmentdateandtime" operator="last-x-days" value="7" />
+              <condition entityname="assessment" attribute="cp_outcome" operator="eq" value="121570001" />
+            </filter>
+          </filter>
+          <link-entity name="cp_assessment" from="cp_assessmentid" to="cp_detoxassessment" link-type="outer" alias="assessment" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Shelter Detox List" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
