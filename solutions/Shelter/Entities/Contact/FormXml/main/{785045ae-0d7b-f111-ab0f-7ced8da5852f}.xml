@@ -300,6 +300,44 @@
             </column>
           </columns>
         </tab>
+        <tab name="service_transactions" id="362c0bbe-07ee-4e3d-b4d8-e97b738a0685" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Service Transactions" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_6_section_1" id="e04caeab-1e71-40fe-8097-2ab70bb0cc42" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3f8b6d21-94ac-4e5f-bb07-1d2c8a9e4f33}" showlabel="false" rowspan="12" colspan="1" auto="false">
+                        <labels>
+                          <label description="Service Transactions" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="service_transactions_grid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" uniqueid="{7c1f0a54-2b6e-4a3d-9f21-8c5d4e6b7a10}">
+                          <parameters>
+                            <TargetEntityType>contact</TargetEntityType>
+                            <ViewId>{9988DE94-9514-F011-998A-6045BD6057D5}</ViewId>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName />
+                            <RecordsPerPage>150</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableChartPicker>false</EnableChartPicker>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
         <tab name="tab_4" id="a5fc3591-2460-4000-b993-4a9441d1dfb2" IsUserDefined="0" locklevel="0" showlabel="true">
           <labels>
             <label description="Shelter Checkins" languagecode="1033" />
@@ -964,6 +1002,80 @@
         </NavBarAreas>
       </Navigation>
       <controlDescriptions>
+        <controlDescription forControl="{7c1f0a54-2b6e-4a3d-9f21-8c5d4e6b7a10}">
+          <customControl formFactor="0" name="cp_CpShelter.ServiceTransactions">
+            <parameters>
+              <data-set name="cp_servicetransaction">
+                <ViewId>{9988DE94-9514-F011-998A-6045BD6057D5}</ViewId>
+                <TargetEntityType>contact</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName />
+                <FilteredViewIds />
+                <cp_servicestartdate>cp_servicestartdate</cp_servicestartdate>
+                <cp_serviceenddate>cp_serviceenddate</cp_serviceenddate>
+                <cp_providerofservice>cp_providerofservice</cp_providerofservice>
+                <cp_serviceprovided>cp_serviceprovided</cp_serviceprovided>
+                <cp_servicetype>cp_servicetype</cp_servicetype>
+                <cp_sheltercheckin>cp_sheltercheckin</cp_sheltercheckin>
+                <cp_admission>cp_admission</cp_admission>
+                <cp_intake>cp_intake</cp_intake>
+              </data-set>
+              <Title type="SingleLine.Text" static="true">Previous Services</Title>
+              <RowsPerPage type="Whole.None" static="true">10</RowsPerPage>
+              <AllowAdd type="TwoOptions" static="true">true</AllowAdd>
+              <AllowDelete type="TwoOptions" static="true">true</AllowDelete>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="cp_CpShelter.ServiceTransactions">
+            <parameters>
+              <data-set name="cp_servicetransaction">
+                <ViewId>{9988DE94-9514-F011-998A-6045BD6057D5}</ViewId>
+                <TargetEntityType>contact</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName />
+                <FilteredViewIds />
+                <cp_servicestartdate>cp_servicestartdate</cp_servicestartdate>
+                <cp_serviceenddate>cp_serviceenddate</cp_serviceenddate>
+                <cp_providerofservice>cp_providerofservice</cp_providerofservice>
+                <cp_serviceprovided>cp_serviceprovided</cp_serviceprovided>
+                <cp_servicetype>cp_servicetype</cp_servicetype>
+                <cp_sheltercheckin>cp_sheltercheckin</cp_sheltercheckin>
+                <cp_admission>cp_admission</cp_admission>
+                <cp_intake>cp_intake</cp_intake>
+              </data-set>
+              <Title type="SingleLine.Text" static="true">Previous Services</Title>
+              <RowsPerPage type="Whole.None" static="true">10</RowsPerPage>
+              <AllowAdd type="TwoOptions" static="true">true</AllowAdd>
+              <AllowDelete type="TwoOptions" static="true">true</AllowDelete>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="cp_CpShelter.ServiceTransactions">
+            <parameters>
+              <data-set name="cp_servicetransaction">
+                <ViewId>{9988DE94-9514-F011-998A-6045BD6057D5}</ViewId>
+                <TargetEntityType>contact</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName />
+                <FilteredViewIds />
+                <cp_servicestartdate>cp_servicestartdate</cp_servicestartdate>
+                <cp_serviceenddate>cp_serviceenddate</cp_serviceenddate>
+                <cp_providerofservice>cp_providerofservice</cp_providerofservice>
+                <cp_serviceprovided>cp_serviceprovided</cp_serviceprovided>
+                <cp_servicetype>cp_servicetype</cp_servicetype>
+                <cp_sheltercheckin>cp_sheltercheckin</cp_sheltercheckin>
+                <cp_admission>cp_admission</cp_admission>
+                <cp_intake>cp_intake</cp_intake>
+              </data-set>
+              <Title type="SingleLine.Text" static="true">Previous Services</Title>
+              <RowsPerPage type="Whole.None" static="true">10</RowsPerPage>
+              <AllowAdd type="TwoOptions" static="true">true</AllowAdd>
+              <AllowDelete type="TwoOptions" static="true">true</AllowDelete>
+            </parameters>
+          </customControl>
+        </controlDescription>
         <controlDescription forControl="{0BCA3662-2840-4D64-9632-A7A4F753015A}">
           <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
             <parameters>

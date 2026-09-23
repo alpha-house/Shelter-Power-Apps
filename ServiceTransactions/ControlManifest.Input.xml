@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <control
+    namespace="CpShelter"
+    constructor="ServiceTransactions"
+    version="1.0.0"
+    display-name-key="ServiceTransactions_DisplayName"
+    description-key="ServiceTransactions_Description"
+    control-type="standard">
+
+    <!-- ================= DATASET ================= -->
+    <data-set
+      name="cp_servicetransaction"
+      display-name-key="ServiceTransactions_DataSet_DisplayName"
+      description-key="ServiceTransactions_DataSet_Description"
+      cds-data-set-options="displayCommandBar:false;displayViewSelector:false;displayQuickFind:false">
+
+      <property-set
+        name="cp_servicestartdate"
+        display-name-key="cp_servicestartdate_Display"
+        description-key="cp_servicestartdate_Desc"
+        of-type="DateAndTime.DateOnly"
+        usage="bound"
+        required="false" />
+
+      <property-set
+        name="cp_serviceenddate"
+        display-name-key="cp_serviceenddate_Display"
+        description-key="cp_serviceenddate_Desc"
+        of-type="DateAndTime.DateOnly"
+        usage="bound"
+        required="false" />
+
+      <property-set
+        name="cp_providerofservice"
+        display-name-key="cp_providerofservice_Display"
+        description-key="cp_providerofservice_Desc"
+        of-type="OptionSet"
+        usage="bound"
+        required="false" />
+
+      <property-set
+        name="cp_serviceprovided"
+        display-name-key="cp_serviceprovided_Display"
+        description-key="cp_serviceprovided_Desc"
+        of-type="TwoOptions"
+        usage="bound"
+        required="false" />
+
+      <property-set
+        name="cp_servicetype"
+        display-name-key="cp_servicetype_Display"
+        description-key="cp_servicetype_Desc"
+        of-type="OptionSet"
+        usage="bound"
+        required="false" />
+
+      <!-- The three stays a service can belong to. Exactly one is set; the grid
+           shows whichever it is in a single "Stay" column. -->
+      <property-set
+        name="cp_sheltercheckin"
+        display-name-key="cp_sheltercheckin_Display"
+        description-key="cp_sheltercheckin_Desc"
+        of-type="Lookup.Simple"
+        usage="bound"
+        required="false" />
+
+      <property-set
+        name="cp_admission"
+        display-name-key="cp_admission_Display"
+        description-key="cp_admission_Desc"
+        of-type="Lookup.Simple"
+        usage="bound"
+        required="false" />
+
+      <property-set
+        name="cp_intake"
+        display-name-key="cp_intake_Display"
+        description-key="cp_intake_Desc"
+        of-type="Lookup.Simple"
+        usage="bound"
+        required="false" />
+    </data-set>
+
+    <!-- ================= DESIGNER INPUTS ================= -->
+    <property name="Title"
+              of-type="SingleLine.Text"
+              usage="input"
+              display-name-key="Prop_Title"
+              description-key="Prop_Title_Desc" />
+
+    <property name="RowsPerPage"
+              of-type="Whole.None"
+              usage="input"
+              display-name-key="Prop_RowsPerPage"
+              description-key="Prop_RowsPerPage_Desc" />
+
+    <property name="AllowAdd"
+              of-type="TwoOptions"
+              usage="input"
+              display-name-key="Prop_AllowAdd"
+              description-key="Prop_AllowAdd_Desc" />
+
+    <property name="AllowDelete"
+              of-type="TwoOptions"
+              usage="input"
+              display-name-key="Prop_AllowDelete"
+              description-key="Prop_AllowDelete_Desc" />
+
+    <!-- ================= RESOURCES ================= -->
+    <resources>
+      <code path="index.ts" order="1" />
+    </resources>
+
+    <!-- ================= FEATURE USAGE ================= -->
+    <feature-usage>
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+
+  </control>
+</manifest>
