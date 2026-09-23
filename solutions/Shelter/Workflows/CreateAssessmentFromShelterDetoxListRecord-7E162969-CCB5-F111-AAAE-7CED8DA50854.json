@@ -40,13 +40,22 @@
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
               "operationId": "SubscribeWebhookTrigger"
-            },
-            "authentication": "@parameters('$authentication')"
+            }
           }
         }
       },
       "actions": {
         "Has_a_client": {
+          "runAfter": {},
+          "type": "If",
+          "expression": {
+            "not": {
+              "equals": [
+                "@empty(triggerOutputs()?['body/_cp_client_value'])",
+                true
+              ]
+            }
+          },
           "actions": {
             "Get_the_client": {
               "runAfter": {},
@@ -54,15 +63,13 @@
               "inputs": {
                 "parameters": {
                   "entityName": "contacts",
-                  "recordId": "@triggerOutputs()?['body/_cp_client_value']",
-                  "accept": "application/json;odata.metadata=minimal"
+                  "recordId": "@triggerOutputs()?['body/_cp_client_value']"
                 },
                 "host": {
                   "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps",
                   "operationId": "GetItem"
-                },
-                "authentication": "@parameters('$authentication')"
+                }
               }
             },
             "Create_the_assessment": {
@@ -82,15 +89,13 @@
                   "item/cp_dateofbirth": "@outputs('Get_the_client')?['body/cp_dateofbirth']",
                   "item/cp_gender": "@outputs('Get_the_client')?['body/cp_gender']",
                   "item/cp_Client@odata.bind": "@concat('/contacts(', triggerOutputs()?['body/_cp_client_value'], ')')",
-                  "item/cp_ShelterDetoxList@odata.bind": "@concat('/cp_shelterdetoxlists(', triggerOutputs()?['body/cp_shelterdetoxlistid'], ')')",
-                  "accept": "application/json;odata.metadata=minimal"
+                  "item/cp_ShelterDetoxList@odata.bind": "@concat('/cp_shelterdetoxlists(', triggerOutputs()?['body/cp_shelterdetoxlistid'], ')')"
                 },
                 "host": {
                   "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps",
                   "operationId": "CreateRecord"
-                },
-                "authentication": "@parameters('$authentication')"
+                }
               }
             },
             "Link_the_assessment_to_the_detox_list_record": {
@@ -105,19 +110,85 @@
                   "entityName": "cp_shelterdetoxlists",
                   "recordId": "@triggerOutputs()?['body/cp_shelterdetoxlistid']",
                   "item/cp_DetoxAssessment@odata.bind": "@concat('/cp_assessments(', outputs('Create_the_assessment')?['body/cp_assessmentid'], ')')",
-                  "item/cp_createdetoxassessment": false,
-                  "accept": "application/json;odata.metadata=minimal"
+                  "item/cp_createdetoxassessment": false
                 },
                 "host": {
                   "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps",
                   "operationId": "UpdateOnlyRecord"
+                }
+              }
+            },
+            "Attach_the_check_ins_substances": {
+              "runAfter": {
+                "Link_the_assessment_to_the_detox_list_record": [
+                  "Succeeded"
+                ]
+              },
+              "type": "If",
+              "expression": {
+                "not": {
+                  "equals": [
+                    "@empty(triggerOutputs()?['body/_cp_sheltercheckin_value'])",
+                    true
+                  ]
+                }
+              },
+              "actions": {
+                "List_pattern_of_use_for_the_check_in": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "cp_patternofuses",
+                      "$select": "cp_patternofuseid,cp_nameofsubstance",
+                      "$filter": "_cp_sheltercheckin_value eq @{triggerOutputs()?['body/_cp_sheltercheckin_value']}"
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "ListRecords"
+                    }
+                  }
                 },
-                "authentication": "@parameters('$authentication')"
+                "For_each_pattern_of_use": {
+                  "runAfter": {
+                    "List_pattern_of_use_for_the_check_in": [
+                      "Succeeded"
+                    ]
+                  },
+                  "type": "Foreach",
+                  "foreach": "@outputs('List_pattern_of_use_for_the_check_in')?['body/value']",
+                  "runtimeConfiguration": {
+                    "concurrency": {
+                      "repetitions": 10
+                    }
+                  },
+                  "actions": {
+                    "Attach_pattern_of_use_to_the_assessment": {
+                      "runAfter": {},
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "entityName": "cp_patternofuses",
+                          "recordId": "@items('For_each_pattern_of_use')?['cp_patternofuseid']",
+                          "item/cp_Assessment@odata.bind": "@concat('/cp_assessments(', outputs('Create_the_assessment')?['body/cp_assessmentid'], ')')"
+                        },
+                        "host": {
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateOnlyRecord"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "else": {
+                "actions": {}
               }
             }
           },
-          "runAfter": {},
           "else": {
             "actions": {
               "Fail_no_client_on_the_detox_list_record": {
@@ -132,16 +203,7 @@
                 }
               }
             }
-          },
-          "expression": {
-            "not": {
-              "equals": [
-                "@empty(triggerOutputs()?['body/_cp_client_value'])",
-                true
-              ]
-            }
-          },
-          "type": "If"
+          }
         }
       }
     },
