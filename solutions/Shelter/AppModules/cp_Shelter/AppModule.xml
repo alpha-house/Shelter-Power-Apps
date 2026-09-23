@@ -19,6 +19,7 @@
     <AppModuleComponent type="1" schemaName="cp_incidentreportapprover" />
     <AppModuleComponent type="1" schemaName="cp_mat" />
     <AppModuleComponent type="1" schemaName="cp_matplan" />
+    <AppModuleComponent type="1" schemaName="cp_patternofuse" />
     <AppModuleComponent type="1" schemaName="cp_shelterbreathinground" />
     <AppModuleComponent type="1" schemaName="cp_sheltercheckin" />
     <AppModuleComponent type="1" schemaName="cp_shelterdetoxlist" />
@@ -33,7 +34,6 @@
     <AppModuleComponent type="26" id="{af4ee71c-4530-4c0a-84ca-3a11b02298e6}" />
     <AppModuleComponent type="26" id="{f5b6f4cb-3ba4-44e9-8f93-524ca9c55e68}" />
     <AppModuleComponent type="26" id="{56339f12-5990-4a13-8f28-5d8264237c27}" />
-    <AppModuleComponent type="26" id="{36b1da00-2188-f011-b4cc-6045bd5dcd15}" />
     <AppModuleComponent type="26" id="{9988de94-9514-f011-998a-6045bd6057d5}" />
     <AppModuleComponent type="26" id="{dab564c1-0f39-4e68-989e-769fcdb178a2}" />
     <AppModuleComponent type="26" id="{3fbf186f-f450-42b6-8592-775aef5c3577}" />

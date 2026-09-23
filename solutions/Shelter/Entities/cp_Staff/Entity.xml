@@ -520,7 +520,7 @@
           <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
           <IsDataSourceSecret>0</IsDataSourceSecret>
           <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>1</IsSearchable>
+          <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
@@ -639,7 +639,7 @@
           <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
           <IsDataSourceSecret>0</IsDataSourceSecret>
           <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>1</IsSearchable>
+          <IsSearchable>0</IsSearchable>
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>1</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
@@ -1458,7 +1458,7 @@
       <CanCreateViews>1</CanCreateViews>
       <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
       <CanEnableSyncToExternalSearchIndex>1</CanEnableSyncToExternalSearchIndex>
-      <IconVectorName>cp_staff</IconVectorName>
+      <IconVectorName>ahb_icon_staff</IconVectorName>
       <EnforceStateTransitions>0</EnforceStateTransitions>
       <CanChangeHierarchicalRelationship>1</CanChangeHierarchicalRelationship>
       <EntityHelpUrlEnabled>0</EntityHelpUrlEnabled>

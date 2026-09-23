@@ -27,11 +27,9 @@
           <attribute name="cp_name" />
           <order attribute="cp_name" descending="false" />
           <filter type="or" isquickfindfields="1">
-            <condition attribute="cp_name" operator="like" value="{0}" />
             <condition attribute="cp_firstname" operator="like" value="{0}" />
             <condition attribute="cp_lastname" operator="like" value="{0}" />
             <condition attribute="cp_jobtitle" operator="like" value="{0}" />
-            <condition attribute="cp_reportsto" operator="like" value="{0}" />
             <condition attribute="cp_employeename" operator="like" value="{0}" />
           </filter>
           <attribute name="cp_firstname" />

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.26091.131" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26091.131" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26092.00134">
+<ImportExportXml version="9.2.26091.131" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26091.131" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26092.00135">
   <SolutionManifest>
     <UniqueName>Shelter</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Shelter" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.0.9</Version>
+    <Version>1.0.0.10</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>Charles_Paulinus</UniqueName>
@@ -89,11 +89,12 @@
       <RootComponent type="1" schemaName="cp_incidentreportapprover" behavior="0" />
       <RootComponent type="1" schemaName="cp_mat" behavior="0" />
       <RootComponent type="1" schemaName="cp_matplan" behavior="0" />
+      <RootComponent type="1" schemaName="cp_patternofuse" behavior="0" />
       <RootComponent type="1" schemaName="cp_shelterbreathinground" behavior="0" />
       <RootComponent type="1" schemaName="cp_sheltercheckin" behavior="0" />
       <RootComponent type="1" schemaName="cp_shelterdetoxlist" behavior="0" />
-      <RootComponent type="1" schemaName="cp_shelterhighintoxbreathinground" behavior="1" />
-      <RootComponent type="1" schemaName="cp_shelterhighintoxmissedbreathinground" behavior="1" />
+      <RootComponent type="1" schemaName="cp_shelterhighintoxbreathinground" behavior="0" />
+      <RootComponent type="1" schemaName="cp_shelterhighintoxmissedbreathinground" behavior="0" />
       <RootComponent type="1" schemaName="cp_sheltermissedbreathinground" behavior="0" />
       <RootComponent type="1" schemaName="cp_shiftnote" behavior="0" />
       <RootComponent type="1" schemaName="cp_staff" behavior="0" />
@@ -102,6 +103,7 @@
       <RootComponent type="29" id="{0e351484-f2ae-f111-aaad-70a8a50e7321}" behavior="0" />
       <RootComponent type="29" id="{1e2bcaed-deae-f111-aaad-70a8a50e7321}" behavior="0" />
       <RootComponent type="29" id="{1f09b43d-b4b2-f111-aaae-7c1e5253ff0a}" behavior="0" />
+      <RootComponent type="29" id="{34ea3813-5ab7-f111-aaae-7ced8da50854}" behavior="0" />
       <RootComponent type="29" id="{4b84511f-ddae-f111-aaad-002248b1af21}" behavior="0" />
       <RootComponent type="29" id="{73f3ba8e-4981-f111-ab0f-7c1e5253346f}" behavior="0" />
       <RootComponent type="29" id="{768ca820-ddae-f111-aaad-6045bd60d54a}" behavior="0" />
@@ -111,10 +113,15 @@
       <RootComponent type="29" id="{a97870d8-9ab3-f111-aaae-7c1e5253ff0a}" behavior="0" />
       <RootComponent type="29" id="{bc623fe3-93af-f111-aaae-70a8a50e7321}" behavior="0" />
       <RootComponent type="29" id="{c3195d30-9380-f111-ab0f-7c1e5253346f}" behavior="0" />
+      <RootComponent type="29" id="{cfe8d247-e7f6-f011-8407-7ced8da5852f}" behavior="0" />
       <RootComponent type="29" id="{eae23328-f67a-f111-ab0f-7ced8da5852f}" behavior="0" />
       <RootComponent type="29" id="{edec6698-5b80-f111-ab0f-7ced8da799f0}" behavior="0" />
       <RootComponent type="29" id="{ef08c2d8-6ab3-f111-aaae-3833c5f7a0bf}" behavior="0" />
       <RootComponent type="29" id="{fe05415d-c37b-f111-ab0f-000d3ae9a57c}" behavior="0" />
+      <RootComponent type="431" schemaName="cp_sheltercheckin cp_belongingsinlockerphoto" behavior="0" />
+      <RootComponent type="431" schemaName="cp_sheltercheckin cp_belongingsphoto" behavior="0" />
+      <RootComponent type="432" schemaName="cp_sheltercheckin" behavior="0" />
+      <RootComponent type="61" schemaName="cp_pattern_of_use" behavior="0" />
       <RootComponent type="61" schemaName="cp_shelter_exit_information_notification" behavior="0" />
       <RootComponent type="61" schemaName="cp_shelter_javascript_code" behavior="0" />
       <RootComponent type="62" schemaName="cp_Shelter" behavior="0" />
@@ -315,6 +322,10 @@
         <Dependent type="1" schemaName="cp_assessment" displayName="Assessment" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="1" schemaName="cp_client_assessment" displayName="Detox Client Mangagement" solution="Active" />
+        <Dependent type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="1" schemaName="cp_clientbelongings" displayName="Client Belongings" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
@@ -467,44 +478,12 @@
         <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
-        <Dependent type="1" schemaName="contact" displayName="Client" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
-        <Dependent type="1" schemaName="cp_assessment" displayName="Assessment" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
-        <Dependent type="60" displayName="Detox" parentDisplayName="Client" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
-        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
-        <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="cp_patternofuse" displayName="Pattern of Use" solution="Active" />
-        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="1" schemaName="cp_policytoxicologytestingagreement" displayName="Policy - Toxicology Testing Agreement" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="cp_programpolicy" displayName="Program Policy" solution="Active" />
         <Dependent type="1" schemaName="contact" displayName="Client" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="cp_shelterhighintoxbreathinground" displayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="1" schemaName="cp_shelterhighintoxbreathinground" displayName="Shelter High Intox Breathing Round" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="cp_shelterhighintoxmissedbreathinground" displayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="1" schemaName="cp_shelterhighintoxmissedbreathinground" displayName="Shelter High Intox Missed Breathing Round" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="cp_timecard" displayName="Time Card" solution="Active" />
@@ -675,22 +654,6 @@
         <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="10" schemaName="cp_patternofuse_Assessment_cp_assessment" displayName="cp_patternofuse_Assessment_cp_assessment" parentSchemaName="cp_assessment" parentDisplayName="Assessment" solution="Active" />
-        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="10" schemaName="cp_patternofuse_Assessment_cp_assessment" displayName="cp_patternofuse_Assessment_cp_assessment" parentSchemaName="cp_assessment" parentDisplayName="Assessment" solution="Active" />
-        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="10" schemaName="cp_patternofuse_Client_contact" displayName="cp_patternofuse_Client_contact" parentSchemaName="contact" parentDisplayName="Client" solution="Active" />
-        <Dependent type="60" displayName="Detox" parentDisplayName="Client" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="10" schemaName="cp_patternofuse_Client_contact" displayName="cp_patternofuse_Client_contact" parentSchemaName="contact" parentDisplayName="Client" solution="Active" />
-        <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="10" schemaName="cp_toxicologytest_Client_contact" displayName="cp_toxicologytest_Client_contact" parentSchemaName="contact" parentDisplayName="Client" solution="Active" />
         <Dependent type="60" displayName="Detox" parentDisplayName="Client" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
@@ -843,11 +806,19 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="ahb_name" displayName="Intake" parentSchemaName="ahb_intake" parentDisplayName="Intake" solution="Active" />
+        <Dependent type="10" schemaName="ahb_cp_patternofuse_Intake_ahb_intake" displayName="ahb_cp_patternofuse_Intake_ahb_intake" parentSchemaName="ahb_intake" parentDisplayName="Intake" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ahb_name" displayName="Intake" parentSchemaName="ahb_intake" parentDisplayName="Intake" solution="Active" />
         <Dependent type="10" schemaName="ahb_cp_shiftnote_Intake_ahb_intake" displayName="ahb_cp_shiftnote_Intake_ahb_intake" parentSchemaName="ahb_intake" parentDisplayName="Intake" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="ahb_name" displayName="Name" parentSchemaName="ahb_progression" parentDisplayName="Residency" solution="Active" />
         <Dependent type="10" schemaName="ahb_cp_incidentreport_Residency_ahb_progression" displayName="ahb_cp_incidentreport_Residency_ahb_progression" parentSchemaName="ahb_progression" parentDisplayName="Residency" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ahb_name" displayName="Name" parentSchemaName="ahb_progression" parentDisplayName="Residency" solution="Active" />
+        <Dependent type="10" schemaName="ahb_cp_patternofuse_Progression_ahb_progression" displayName="ahb_cp_patternofuse_Progression_ahb_progression" parentSchemaName="ahb_progression" parentDisplayName="Residency" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="ahb_name" displayName="Name" parentSchemaName="ahb_progression" parentDisplayName="Residency" solution="Active" />
@@ -887,187 +858,23 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="cp_name" displayName="Admission" parentSchemaName="cp_cp_admission" parentDisplayName="Admission" solution="Active" />
+        <Dependent type="10" schemaName="cp_patternofuse_Admission_cp_cp_admission" displayName="cp_patternofuse_Admission_cp_cp_admission" parentSchemaName="cp_cp_admission" parentDisplayName="Admission" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="cp_name" displayName="Admission" parentSchemaName="cp_cp_admission" parentDisplayName="Admission" solution="Active" />
         <Dependent type="10" schemaName="cp_shiftnote_Admission_cp_cp_admission" displayName="cp_shiftnote_Admission_cp_cp_admission" parentSchemaName="cp_cp_admission" parentDisplayName="Admission" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundid" displayName="Shelter High Intox Breathing Round" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Round Lookup View" displayName="Shelter High Intox Breathing Round Lookup View" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{0374fc93-0316-4d76-a90d-8d3c54832b27}" />
+        <Required type="2" schemaName="cp_name" displayName="Substance" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" />
+        <Dependent type="10" schemaName="cp_patternofuse_Substance_cp_substance" displayName="cp_patternofuse_Substance_cp_substance" parentSchemaName="cp_substance" parentDisplayName="Substance" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundid" displayName="Shelter High Intox Breathing Round" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Round Advanced Find View" displayName="Shelter High Intox Breathing Round Advanced Find View" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{1289dba3-0da8-4a34-a522-569b218188db}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundid" displayName="Shelter High Intox Breathing Round" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Round Associated View" displayName="Shelter High Intox Breathing Round Associated View" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{7b48a496-1797-4b22-a050-a2f0bc51e550}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundid" displayName="Shelter High Intox Breathing Round" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Active Shelter High Intox Breathing Rounds" displayName="Active Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{812bf908-80e0-4248-ba8d-a4b81fc2dc6d}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundid" displayName="Shelter High Intox Breathing Round" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Rounds" displayName="Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{b2d031eb-ecfb-4bb2-85af-d481453f756e}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundid" displayName="Shelter High Intox Breathing Round" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Quick Find Active Shelter High Intox Breathing Rounds" displayName="Quick Find Active Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{e5874dfd-0629-4f88-8ab2-f0e206d72f55}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundid" displayName="Shelter High Intox Breathing Round" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Inactive Shelter High Intox Breathing Rounds" displayName="Inactive Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{e879b212-ced7-4299-98fa-9af935f0175a}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundname" displayName="ShelterHighIntoxBreathingRoundName" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Round Lookup View" displayName="Shelter High Intox Breathing Round Lookup View" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{0374fc93-0316-4d76-a90d-8d3c54832b27}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundname" displayName="ShelterHighIntoxBreathingRoundName" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Round Advanced Find View" displayName="Shelter High Intox Breathing Round Advanced Find View" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{1289dba3-0da8-4a34-a522-569b218188db}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundname" displayName="ShelterHighIntoxBreathingRoundName" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Round Associated View" displayName="Shelter High Intox Breathing Round Associated View" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{7b48a496-1797-4b22-a050-a2f0bc51e550}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundname" displayName="ShelterHighIntoxBreathingRoundName" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Active Shelter High Intox Breathing Rounds" displayName="Active Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{812bf908-80e0-4248-ba8d-a4b81fc2dc6d}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundname" displayName="ShelterHighIntoxBreathingRoundName" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Rounds" displayName="Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{b2d031eb-ecfb-4bb2-85af-d481453f756e}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundname" displayName="ShelterHighIntoxBreathingRoundName" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Quick Find Active Shelter High Intox Breathing Rounds" displayName="Quick Find Active Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{e5874dfd-0629-4f88-8ab2-f0e206d72f55}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundname" displayName="ShelterHighIntoxBreathingRoundName" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Inactive Shelter High Intox Breathing Rounds" displayName="Inactive Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{e879b212-ced7-4299-98fa-9af935f0175a}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxbreathingroundname" displayName="ShelterHighIntoxBreathingRoundName" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="60" displayName="Shelter High Intox Breathing Round" parentDisplayName="Shelter High Intox Breathing Round" id="{8ffed76e-f2b4-4663-ae53-d42b10ecc67e}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundid" displayName="Shelter High Intox Missed Breathing Round" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Rounds" displayName="Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{42ae6061-3b67-4cda-87d4-530a52b88c44}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundid" displayName="Shelter High Intox Missed Breathing Round" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Inactive Shelter High Intox Missed Breathing Rounds" displayName="Inactive Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{5bc8cbc8-eab7-4664-81b6-1db9ca84b9a9}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundid" displayName="Shelter High Intox Missed Breathing Round" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Round Advanced Find View" displayName="Shelter High Intox Missed Breathing Round Advanced Find View" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{663ac291-1e62-443f-b5a7-638d91c61869}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundid" displayName="Shelter High Intox Missed Breathing Round" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Round Associated View" displayName="Shelter High Intox Missed Breathing Round Associated View" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{ac3f06bc-cbab-4e9c-867e-6357dff2c443}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundid" displayName="Shelter High Intox Missed Breathing Round" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Quick Find Active Shelter High Intox Missed Breathing Rounds" displayName="Quick Find Active Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{c44378d8-dd2b-4d19-931e-1e254408c8fc}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundid" displayName="Shelter High Intox Missed Breathing Round" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Active Shelter High Intox Missed Breathing Rounds" displayName="Active Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{e3bdac2d-52d0-464f-b778-c08d8eb7c87b}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundid" displayName="Shelter High Intox Missed Breathing Round" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Round Lookup View" displayName="Shelter High Intox Missed Breathing Round Lookup View" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{e796b5b6-50f8-491e-a19f-1fb8370fe294}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundname" displayName="ShelterHighIntoxMissedBreathingRoundName" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Rounds" displayName="Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{42ae6061-3b67-4cda-87d4-530a52b88c44}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundname" displayName="ShelterHighIntoxMissedBreathingRoundName" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Inactive Shelter High Intox Missed Breathing Rounds" displayName="Inactive Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{5bc8cbc8-eab7-4664-81b6-1db9ca84b9a9}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundname" displayName="ShelterHighIntoxMissedBreathingRoundName" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Round Advanced Find View" displayName="Shelter High Intox Missed Breathing Round Advanced Find View" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{663ac291-1e62-443f-b5a7-638d91c61869}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundname" displayName="ShelterHighIntoxMissedBreathingRoundName" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Round Associated View" displayName="Shelter High Intox Missed Breathing Round Associated View" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{ac3f06bc-cbab-4e9c-867e-6357dff2c443}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundname" displayName="ShelterHighIntoxMissedBreathingRoundName" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Quick Find Active Shelter High Intox Missed Breathing Rounds" displayName="Quick Find Active Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{c44378d8-dd2b-4d19-931e-1e254408c8fc}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundname" displayName="ShelterHighIntoxMissedBreathingRoundName" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Active Shelter High Intox Missed Breathing Rounds" displayName="Active Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{e3bdac2d-52d0-464f-b778-c08d8eb7c87b}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundname" displayName="ShelterHighIntoxMissedBreathingRoundName" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Round Lookup View" displayName="Shelter High Intox Missed Breathing Round Lookup View" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{e796b5b6-50f8-491e-a19f-1fb8370fe294}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="cp_shelterhighintoxmissedbreathingroundname" displayName="ShelterHighIntoxMissedBreathingRoundName" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="60" displayName="Shelter High Intox Missed Breathing Round" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{dea584b5-ce5d-45bc-86af-1ff3ddd8b2d6}" />
+        <Required type="2" schemaName="cp_nameofsubstance" displayName="Name of Substance" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" />
+        <Dependent type="10" schemaName="cp_patternofuse_Substance_cp_substance" displayName="cp_patternofuse_Substance_cp_substance" parentSchemaName="cp_substance" parentDisplayName="Substance" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="cp_vehiclename" displayName="Vehicle Name" parentSchemaName="cp_vehicle" parentDisplayName="Vehicle" solution="Active" />
         <Dependent type="10" schemaName="cp_incidentreport_Vehicle_cp_vehicle" displayName="cp_incidentreport_Vehicle_cp_vehicle" parentSchemaName="cp_vehicle" parentDisplayName="Vehicle" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Round Lookup View" displayName="Shelter High Intox Breathing Round Lookup View" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{0374fc93-0316-4d76-a90d-8d3c54832b27}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Round Advanced Find View" displayName="Shelter High Intox Breathing Round Advanced Find View" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{1289dba3-0da8-4a34-a522-569b218188db}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Round Associated View" displayName="Shelter High Intox Breathing Round Associated View" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{7b48a496-1797-4b22-a050-a2f0bc51e550}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Active Shelter High Intox Breathing Rounds" displayName="Active Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{812bf908-80e0-4248-ba8d-a4b81fc2dc6d}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Rounds" displayName="Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{b2d031eb-ecfb-4bb2-85af-d481453f756e}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Quick Find Active Shelter High Intox Breathing Rounds" displayName="Quick Find Active Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{e5874dfd-0629-4f88-8ab2-f0e206d72f55}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Inactive Shelter High Intox Breathing Rounds" displayName="Inactive Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{e879b212-ced7-4299-98fa-9af935f0175a}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Rounds" displayName="Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{42ae6061-3b67-4cda-87d4-530a52b88c44}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Inactive Shelter High Intox Missed Breathing Rounds" displayName="Inactive Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{5bc8cbc8-eab7-4664-81b6-1db9ca84b9a9}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Round Advanced Find View" displayName="Shelter High Intox Missed Breathing Round Advanced Find View" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{663ac291-1e62-443f-b5a7-638d91c61869}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Round Associated View" displayName="Shelter High Intox Missed Breathing Round Associated View" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{ac3f06bc-cbab-4e9c-867e-6357dff2c443}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Quick Find Active Shelter High Intox Missed Breathing Rounds" displayName="Quick Find Active Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{c44378d8-dd2b-4d19-931e-1e254408c8fc}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Active Shelter High Intox Missed Breathing Rounds" displayName="Active Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{e3bdac2d-52d0-464f-b778-c08d8eb7c87b}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="createdon" displayName="Created On" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Round Lookup View" displayName="Shelter High Intox Missed Breathing Round Lookup View" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{e796b5b6-50f8-491e-a19f-1fb8370fe294}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="mspp_userpreferredlcid" displayName="Preferred Language" parentSchemaName="contact" parentDisplayName="Client" solution="PowerPages_RuntimeExtensions (1.1.2605.0)">
@@ -1082,54 +889,6 @@
           <package appName="Power Pages Core" version="1.1.2508.192">PowerPages_Core (1.1.2508.192)</package>
         </Required>
         <Dependent type="60" displayName="Profile Web Form (Enhanced)" parentDisplayName="Client" id="{bddc0100-0dbe-4562-aafe-31d08c8ab506}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="60" displayName="Shelter High Intox Breathing Round" parentDisplayName="Shelter High Intox Breathing Round" id="{8ffed76e-f2b4-4663-ae53-d42b10ecc67e}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="60" displayName="Shelter High Intox Missed Breathing Round" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{dea584b5-ce5d-45bc-86af-1ff3ddd8b2d6}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Round Lookup View" displayName="Shelter High Intox Breathing Round Lookup View" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{0374fc93-0316-4d76-a90d-8d3c54832b27}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Breathing Round Associated View" displayName="Shelter High Intox Breathing Round Associated View" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{7b48a496-1797-4b22-a050-a2f0bc51e550}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Active Shelter High Intox Breathing Rounds" displayName="Active Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{812bf908-80e0-4248-ba8d-a4b81fc2dc6d}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Quick Find Active Shelter High Intox Breathing Rounds" displayName="Quick Find Active Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{e5874dfd-0629-4f88-8ab2-f0e206d72f55}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Inactive Shelter High Intox Breathing Rounds" displayName="Inactive Shelter High Intox Breathing Rounds" parentSchemaName="cp_shelterhighintoxbreathinground" parentDisplayName="Shelter High Intox Breathing Round" id="{e879b212-ced7-4299-98fa-9af935f0175a}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Inactive Shelter High Intox Missed Breathing Rounds" displayName="Inactive Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{5bc8cbc8-eab7-4664-81b6-1db9ca84b9a9}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Round Associated View" displayName="Shelter High Intox Missed Breathing Round Associated View" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{ac3f06bc-cbab-4e9c-867e-6357dff2c443}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Quick Find Active Shelter High Intox Missed Breathing Rounds" displayName="Quick Find Active Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{c44378d8-dd2b-4d19-931e-1e254408c8fc}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Active Shelter High Intox Missed Breathing Rounds" displayName="Active Shelter High Intox Missed Breathing Rounds" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{e3bdac2d-52d0-464f-b778-c08d8eb7c87b}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="statecode" displayName="Status" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" solution="Active" />
-        <Dependent type="26" schemaName="Shelter High Intox Missed Breathing Round Lookup View" displayName="Shelter High Intox Missed Breathing Round Lookup View" parentSchemaName="cp_shelterhighintoxmissedbreathinground" parentDisplayName="Shelter High Intox Missed Breathing Round" id="{e796b5b6-50f8-491e-a19f-1fb8370fe294}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="Quality-Assurance-Tester" solution="Active" id="{8bfc300e-997f-f111-ab0f-7c1e5253346f}" />
@@ -1165,22 +924,6 @@
       <MissingDependency>
         <Required type="26" schemaName="Active Intakes" displayName="Active Intakes" parentSchemaName="ahb_intake" parentDisplayName="Intake" solution="Active" id="{51eaa1c1-15ba-409d-b9e8-1d1e924b6099}" />
         <Dependent type="60" displayName="Boreal" parentDisplayName="Client" id="{4ef1db0b-9314-f011-9989-6045bd5eb54f}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Active Pattern of Use" displayName="Active Pattern of Use" parentSchemaName="cp_patternofuse" parentDisplayName="Pattern of Use" solution="Active" id="{757922d6-32ca-4de8-9a35-7c79f614d44f}" />
-        <Dependent type="60" displayName="Detox" parentDisplayName="Client" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Active Pattern of Use" displayName="Active Pattern of Use" parentSchemaName="cp_patternofuse" parentDisplayName="Pattern of Use" solution="Active" id="{757922d6-32ca-4de8-9a35-7c79f614d44f}" />
-        <Dependent type="60" displayName="Edit Client Assessment" parentDisplayName="Assessment" id="{6ac54c84-a5fe-ef11-bae3-002248b02782}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Active Pattern of Use" displayName="Active Pattern of Use" parentSchemaName="cp_patternofuse" parentDisplayName="Pattern of Use" solution="Active" id="{757922d6-32ca-4de8-9a35-7c79f614d44f}" />
-        <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Active Pattern of Use" displayName="Active Pattern of Use" parentSchemaName="cp_patternofuse" parentDisplayName="Pattern of Use" solution="Active" id="{757922d6-32ca-4de8-9a35-7c79f614d44f}" />
-        <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Active Quarterly Reports" displayName="Active Quarterly Reports" parentSchemaName="ahb_quarterlyreport" parentDisplayName="Quarterly Report" solution="Active" id="{7053a62f-512e-460e-8081-7eaa0e41fe8e}" />
@@ -1232,6 +975,18 @@
         <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="26" schemaName="All Substances" displayName="All Substances" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{68a6355e-28ba-440f-8c6b-d66b6f8421c3}" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Pattern of Use" id="{75214d29-6e23-48c8-ab3a-b7fa4e8ee4de}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="All Substances" displayName="All Substances" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{68a6355e-28ba-440f-8c6b-d66b6f8421c3}" />
+        <Dependent type="60" displayName="Shelter" parentDisplayName="Pattern of Use" id="{c2da2042-56b7-f111-aaae-3833c5f7a0bf}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="All Substances" displayName="All Substances" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{68a6355e-28ba-440f-8c6b-d66b6f8421c3}" />
+        <Dependent type="60" displayName="Main Boreal" parentDisplayName="Pattern of Use" id="{fa0263ad-051b-f011-9989-0022483d7db8}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="26" schemaName="Current Income" displayName="Current Income" parentSchemaName="ahb_incomesource" parentDisplayName="Income Source" solution="Active" id="{26d63658-1ba0-f111-aaad-70a8a50e7321}" />
         <Dependent type="60" displayName="Boreal" parentDisplayName="Client" id="{4ef1db0b-9314-f011-9989-6045bd5eb54f}" />
       </MissingDependency>
@@ -1246,6 +1001,54 @@
       <MissingDependency>
         <Required type="26" schemaName="Emergency Contacts - Boreal" displayName="Emergency Contacts - Boreal" parentSchemaName="cp_cp_emergencycontact" parentDisplayName="Emergency Contact" solution="Active" id="{1d153917-9e14-f011-9989-002248b02782}" />
         <Dependent type="60" displayName="Boreal" parentDisplayName="Client" id="{4ef1db0b-9314-f011-9989-6045bd5eb54f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Inactive Substances" displayName="Inactive Substances" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{7f7bb5b9-94dd-4bf6-969d-6b54c8e5e476}" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Pattern of Use" id="{75214d29-6e23-48c8-ab3a-b7fa4e8ee4de}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Inactive Substances" displayName="Inactive Substances" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{7f7bb5b9-94dd-4bf6-969d-6b54c8e5e476}" />
+        <Dependent type="60" displayName="Shelter" parentDisplayName="Pattern of Use" id="{c2da2042-56b7-f111-aaae-3833c5f7a0bf}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Inactive Substances" displayName="Inactive Substances" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{7f7bb5b9-94dd-4bf6-969d-6b54c8e5e476}" />
+        <Dependent type="60" displayName="Main Boreal" parentDisplayName="Pattern of Use" id="{fa0263ad-051b-f011-9989-0022483d7db8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="OAT Lookup View" displayName="OAT Lookup View" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{b9b73dcd-e104-f011-bae3-6045bd6057d5}" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Pattern of Use" id="{75214d29-6e23-48c8-ab3a-b7fa4e8ee4de}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="OAT Lookup View" displayName="OAT Lookup View" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{b9b73dcd-e104-f011-bae3-6045bd6057d5}" />
+        <Dependent type="60" displayName="Shelter" parentDisplayName="Pattern of Use" id="{c2da2042-56b7-f111-aaae-3833c5f7a0bf}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="OAT Lookup View" displayName="OAT Lookup View" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{b9b73dcd-e104-f011-bae3-6045bd6057d5}" />
+        <Dependent type="60" displayName="Main Boreal" parentDisplayName="Pattern of Use" id="{fa0263ad-051b-f011-9989-0022483d7db8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Substance Lookup View" displayName="Substance Lookup View" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{27de6c17-ff50-4d22-9c34-0d7e7ca504ba}" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Pattern of Use" id="{75214d29-6e23-48c8-ab3a-b7fa4e8ee4de}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Substance Lookup View" displayName="Substance Lookup View" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{27de6c17-ff50-4d22-9c34-0d7e7ca504ba}" />
+        <Dependent type="60" displayName="Shelter" parentDisplayName="Pattern of Use" id="{c2da2042-56b7-f111-aaae-3833c5f7a0bf}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Substance Lookup View" displayName="Substance Lookup View" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{27de6c17-ff50-4d22-9c34-0d7e7ca504ba}" />
+        <Dependent type="60" displayName="Main Boreal" parentDisplayName="Pattern of Use" id="{fa0263ad-051b-f011-9989-0022483d7db8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Substance of Abuse" displayName="Substance of Abuse" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{a0161642-2d1a-f011-9989-6045bd5eb54f}" />
+        <Dependent type="60" displayName="Detox" parentDisplayName="Pattern of Use" id="{75214d29-6e23-48c8-ab3a-b7fa4e8ee4de}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Substance of Abuse" displayName="Substance of Abuse" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{a0161642-2d1a-f011-9989-6045bd5eb54f}" />
+        <Dependent type="60" displayName="Shelter" parentDisplayName="Pattern of Use" id="{c2da2042-56b7-f111-aaae-3833c5f7a0bf}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Substance of Abuse" displayName="Substance of Abuse" parentSchemaName="cp_substance" parentDisplayName="Substance" solution="Active" id="{a0161642-2d1a-f011-9989-6045bd5eb54f}" />
+        <Dependent type="60" displayName="Main Boreal" parentDisplayName="Pattern of Use" id="{fa0263ad-051b-f011-9989-0022483d7db8}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Profile Web Form (Enhanced) - Japanese" parentDisplayName="Client" solution="PowerPages_RuntimeCore (1.0.2509.1)" id="{01124dd8-9bff-4cc0-bb33-ea9d943c3f9f}">
@@ -1334,6 +1137,22 @@
         <Dependent type="60" displayName="Help" parentDisplayName="AH Help" id="{cd45b7db-7e3f-4b22-9daf-89415a4ae315}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="61" schemaName="ahb_icon_ah_help" displayName="ahb_icon_ah_help" solution="Active" />
+        <Dependent type="1" schemaName="ahb_ahhelp" displayName="AH Help" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="ahb_icon_incident_reports" displayName="ahb_icon_incident_reports" solution="Active" />
+        <Dependent type="1" schemaName="cp_incidentreport" displayName="Incident Report" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="ahb_icon_shift_notes" displayName="ahb_icon_shift_notes" solution="Active" />
+        <Dependent type="1" schemaName="cp_shiftnote" displayName="Shift Note" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="ahb_icon_staff" displayName="ahb_icon_staff" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="61" schemaName="ahb_popa_notice" displayName="ahb_popa_notice" solution="Active" />
         <Dependent type="60" displayName="Boreal" parentDisplayName="Client" id="{4ef1db0b-9314-f011-9989-6045bd5eb54f}" />
       </MissingDependency>
@@ -1385,12 +1204,6 @@
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
           <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
-        <Dependent type="60" displayName="Client Details - Embedded Edit" parentDisplayName="Client" id="{864f9e8b-23a7-f111-aaac-70a8a50e7321}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
-        </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Client" id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
       </MissingDependency>
       <MissingDependency>
@@ -1398,6 +1211,12 @@
           <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
         </Required>
         <Dependent type="60" displayName="Detox Client" parentDisplayName="Client" id="{a95b225a-3c79-f011-b4cc-000d3af3d874}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
+          <package appName="msdynce_AppCommon" version="9.0.26092.10001">msdynce_AppCommonAnchor (9.0.26092.10001)</package>
+        </Required>
+        <Dependent type="60" displayName="Profile Web Form (Enhanced)" parentDisplayName="Client" id="{bddc0100-0dbe-4562-aafe-31d08c8ab506}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
@@ -1468,10 +1287,6 @@
         <Dependent type="60" displayName="Shelter" parentDisplayName="Shift Note" id="{fed18126-ca7f-f111-ab0f-7c1e5253346f}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="cp_incident_report" displayName="cp_incident_report" solution="Active" />
-        <Dependent type="1" schemaName="cp_incidentreport" displayName="Incident Report" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="61" schemaName="cp_incident_report_javascript" displayName="cp_incident_report_javascript" solution="Active" />
         <Dependent type="60" displayName="PBSH" parentDisplayName="Incident Report" id="{1a8a9803-fba2-f111-aaad-70a8a50e7321}" />
       </MissingDependency>
@@ -1504,16 +1319,8 @@
         <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="cp_shift_notes" displayName="cp_shift_notes" solution="Active" />
-        <Dependent type="1" schemaName="cp_shiftnote" displayName="Shift Note" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="61" schemaName="cp_show_hide_consent_instructions" displayName="cp_show_hide_consent_instructions" solution="Active" />
         <Dependent type="60" displayName="Detox" parentDisplayName="Assessment" id="{ca530459-28d6-45c0-b181-1af7b2f36d01}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="61" schemaName="cp_staff" displayName="cp_staff" solution="Active" />
-        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="cp_staff_incident_report_consent" displayName="cp_staff_incident_report_consent" solution="Active" />
@@ -1728,7 +1535,7 @@
         <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2609.1007)">
           <package appName="Base Custom Controls" version="9.0.2609.1007">BaseCustomControlsCore (9.0.2609.1007)</package>
         </Required>
-        <Dependent type="60" displayName="FP" parentDisplayName="Mat Plan" id="{6e970b13-000d-f111-8342-000d3ae9ad6b}" />
+        <Dependent type="60" displayName="Floor Plan" parentDisplayName="Mat Plan" id="{6e970b13-000d-f111-8342-000d3ae9ad6b}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2609.1007)">
@@ -1923,6 +1730,10 @@
       <MissingDependency>
         <Required type="9" schemaName="ahc_yesdiagnosed" displayName="Yes - Diagnosed / Suspected" solution="Active" />
         <Dependent type="2" schemaName="ahc_fasd" displayName="Do You Have Fetal Alcohol Spectrum Disorder (FASD)" parentSchemaName="contact" parentDisplayName="Client" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_amorpm" displayName="AM or PM" solution="Active" />
+        <Dependent type="2" schemaName="cp_amorpm" displayName="AM or PM" parentSchemaName="cp_patternofuse" parentDisplayName="Pattern of Use" />
       </MissingDependency>
       <MissingDependency>
         <Required type="9" schemaName="cp_colors" displayName="Colors" solution="Active" />
@@ -2129,6 +1940,14 @@
         <Dependent type="2" schemaName="cp_shiftsupervisorsignedoff" displayName="Shift Supervisor Signed Off" parentSchemaName="cp_shiftnote" parentDisplayName="Shift Note" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="9" schemaName="cr6ca_routesofadministration" displayName="Routes of Administration" solution="Active" />
+        <Dependent type="2" schemaName="cr6ca_routeofadminstration" displayName="Route of Adminstration" parentSchemaName="cp_patternofuse" parentDisplayName="Pattern of Use" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
+        <Dependent type="29" displayName="create-and-set-initial-mat-configuration" id="{34ea3813-5ab7-f111-aaae-7ced8da50854}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
         <Dependent type="29" displayName="Shelter Breathing Rounds Reset" id="{77991899-5a80-f111-ab0f-7c1e5253346f}" />
       </MissingDependency>
@@ -2147,10 +1966,6 @@
       <MissingDependency>
         <Required type="connectionreference" displayName="cp_sharedsharepointonline_93f19" solution="Active" id.connectionreferencelogicalname="cp_sharedsharepointonline_93f19" />
         <Dependent type="29" displayName="Staff Information Update" id="{cfe8d247-e7f6-f011-8407-7ced8da5852f}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="connectionreference" displayName="new_sharedcommondataserviceforapps_a8210" solution="Active" id.connectionreferencelogicalname="new_sharedcommondataserviceforapps_a8210" />
-        <Dependent type="29" displayName="Copy Mat Properties to Shelter Checkin" id="{c3195d30-9380-f111-ab0f-7c1e5253346f}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="EnvironmentVariableDefinition" displayName="cp_StaffSharePointList" solution="Active" id.schemaname="cp_StaffSharePointList" />

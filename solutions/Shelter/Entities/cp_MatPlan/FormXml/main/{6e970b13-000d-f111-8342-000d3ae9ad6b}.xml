@@ -277,7 +277,7 @@
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
-      <LocalizedName description="FP" languagecode="1033" />
+      <LocalizedName description="Floor Plan" languagecode="1033" />
     </LocalizedNames>
     <Descriptions>
       <Description description="A form for this entity." languagecode="1033" />

@@ -1,0 +1,349 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_sharepointonline": {
+        "api": {
+          "name": "shared_sharepointonline"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "cp_sharedsharepointonline_93f19"
+        },
+        "runtimeSource": "embedded"
+      },
+      "shared_commondataserviceforapps": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "ahb_sharedcommondataserviceforapps_c4d89"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "Staff SharePoint List (cp_StaffSharePointList)": {
+          "defaultValue": "https://alphahousecalgaryca.sharepoint.com/sites/OperationsInfo",
+          "type": "String",
+          "metadata": {
+            "schemaName": "cp_StaffSharePointList",
+            "description": "Staff SharePoint List, named EmpDataPool, import from Payne"
+          }
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "type": "Recurrence",
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "Mountain Standard Time",
+            "startTime": "2026-01-21T17:00:00Z",
+            "schedule": {
+              "hours": [
+                "18"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Get_employees_from_SharePoint": {
+          "runAfter": {},
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "dataset": "@parameters('Staff SharePoint List (cp_StaffSharePointList)')",
+              "table": "b1498ccc-96e6-49e8-9ab3-6a4f0aa1c863",
+              "$top": 5000
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+              "connectionName": "shared_sharepointonline",
+              "operationId": "GetItems"
+            }
+          }
+        },
+        "List_existing_staff": {
+          "runAfter": {
+            "Get_employees_from_SharePoint": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cp_staffs",
+              "$select": "cp_staffid,cp_email,cp_employeenumber,cp_jobtitle,cp_reportsto,cp_fullname"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords"
+            }
+          }
+        },
+        "Staff_index": {
+          "runAfter": {
+            "List_existing_staff": [
+              "Succeeded"
+            ]
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('List_existing_staff')?['body/value']",
+            "select": {
+              "id": "@item()?['cp_staffid']",
+              "email": "@if(equals(trim(coalesce(item()?['cp_email'], '')), ''), '__staff_no_email__', toLower(trim(item()?['cp_email'])))",
+              "num": "@if(equals(trim(coalesce(string(item()?['cp_employeenumber']), '')), ''), '__staff_no_num__', trim(string(item()?['cp_employeenumber'])))",
+              "name": "@if(equals(trim(coalesce(item()?['cp_fullname'], '')), ''), '__staff_no_name__', toLower(trim(replace(replace(replace(item()?['cp_fullname'], '    ', ' '), '   ', ' '), '  ', ' '))))",
+              "emailraw": "@coalesce(item()?['cp_email'], '')",
+              "jobtitle": "@coalesce(item()?['cp_jobtitle'], '')",
+              "reportsto": "@coalesce(item()?['cp_reportsto'], '')"
+            }
+          }
+        },
+        "Employee_index": {
+          "runAfter": {
+            "Staff_index": [
+              "Succeeded"
+            ]
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('Get_employees_from_SharePoint')?['body/value']",
+            "select": {
+              "email": "@if(equals(trim(coalesce(item()?['EmailAddress'], '')), ''), '__emp_no_email__', toLower(trim(item()?['EmailAddress'])))",
+              "num": "@if(equals(coalesce(item()?['field_0'], ''), ''), '__emp_no_num__', string(int(item()?['field_0'])))",
+              "name": "@if(equals(trim(coalesce(item()?['Title'], '')), ''), '__emp_no_name__', toLower(trim(replace(replace(replace(item()?['Title'], '    ', ' '), '   ', ' '), '  ', ' '))))"
+            }
+          }
+        },
+        "For_each_employee": {
+          "runAfter": {
+            "Employee_index": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach",
+          "foreach": "@outputs('Get_employees_from_SharePoint')?['body/value']",
+          "runtimeConfiguration": {
+            "concurrency": {
+              "repetitions": 10
+            }
+          },
+          "actions": {
+            "Employee_keys": {
+              "runAfter": {},
+              "type": "Compose",
+              "inputs": {
+                "email": "@if(equals(trim(coalesce(items('For_each_employee')?['EmailAddress'], '')), ''), '__emp_no_email__', toLower(trim(items('For_each_employee')?['EmailAddress'])))",
+                "emailraw": "@trim(coalesce(items('For_each_employee')?['EmailAddress'], ''))",
+                "num": "@if(equals(coalesce(items('For_each_employee')?['field_0'], ''), ''), '__emp_no_num__', string(int(items('For_each_employee')?['field_0'])))",
+                "name": "@trim(replace(replace(replace(coalesce(items('For_each_employee')?['Title'], ''), '    ', ' '), '   ', ' '), '  ', ' '))",
+                "jobtitle": "@trim(coalesce(items('For_each_employee')?['field_2'], ''))",
+                "reportsto": "@trim(coalesce(items('For_each_employee')?['field_8'], ''))",
+                "terminated": "@not(equals(coalesce(items('For_each_employee')?['field_12'], ''), ''))"
+              }
+            },
+            "Name_parts": {
+              "runAfter": {
+                "Employee_keys": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Compose",
+              "inputs": {
+                "first": "@first(split(outputs('Employee_keys')['name'], ' '))",
+                "last": "@if(greater(length(split(outputs('Employee_keys')['name'], ' ')), 1), last(split(outputs('Employee_keys')['name'], ' ')), '')",
+                "middle": "@if(greater(length(split(outputs('Employee_keys')['name'], ' ')), 2), join(take(skip(split(outputs('Employee_keys')['name'], ' '), 1), sub(length(split(outputs('Employee_keys')['name'], ' ')), 2)), ' '), '')",
+                "namekey": "@if(equals(outputs('Employee_keys')['name'], ''), '__emp_no_name__', toLower(outputs('Employee_keys')['name']))"
+              }
+            },
+            "Match_on_email": {
+              "runAfter": {
+                "Name_parts": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Staff_index')",
+                "where": "@equals(item()['email'], outputs('Employee_keys')['email'])"
+              }
+            },
+            "Match_on_employee_number": {
+              "runAfter": {
+                "Match_on_email": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Staff_index')",
+                "where": "@equals(item()['num'], outputs('Employee_keys')['num'])"
+              }
+            },
+            "Match_on_full_name": {
+              "runAfter": {
+                "Match_on_employee_number": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Staff_index')",
+                "where": "@equals(item()['name'], outputs('Name_parts')['namekey'])"
+              }
+            },
+            "Existing_match": {
+              "runAfter": {
+                "Match_on_full_name": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Compose",
+              "inputs": "@coalesce(first(body('Match_on_email')), first(body('Match_on_employee_number')), first(body('Match_on_full_name')), json('{}'))"
+            },
+            "Create_or_update": {
+              "runAfter": {
+                "Existing_match": [
+                  "Succeeded"
+                ]
+              },
+              "type": "If",
+              "expression": {
+                "equals": [
+                  "@coalesce(outputs('Existing_match')?['id'], '')",
+                  ""
+                ]
+              },
+              "actions": {
+                "Create_staff": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "cp_staffs",
+                      "item/cp_firstname": "@outputs('Name_parts')['first']",
+                      "item/cp_middlename": "@outputs('Name_parts')['middle']",
+                      "item/cp_lastname": "@outputs('Name_parts')['last']",
+                      "item/cp_email": "@if(equals(outputs('Employee_keys')['emailraw'], ''), null, outputs('Employee_keys')['emailraw'])",
+                      "item/cp_employeenumber": "@if(equals(outputs('Employee_keys')['num'], '__emp_no_num__'), null, outputs('Employee_keys')['num'])",
+                      "item/cp_jobtitle": "@outputs('Employee_keys')['jobtitle']",
+                      "item/cp_reportsto": "@outputs('Employee_keys')['reportsto']",
+                      "item/cp_employmentstatus": "@if(outputs('Employee_keys')['terminated'], 121570001, 121570000)"
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord"
+                    }
+                  }
+                }
+              },
+              "else": {
+                "actions": {
+                  "Update_staff": {
+                    "runAfter": {},
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "parameters": {
+                        "entityName": "cp_staffs",
+                        "recordId": "@outputs('Existing_match')['id']",
+                        "item/cp_firstname": "@outputs('Name_parts')['first']",
+                        "item/cp_middlename": "@outputs('Name_parts')['middle']",
+                        "item/cp_lastname": "@outputs('Name_parts')['last']",
+                        "item/cp_email": "@if(equals(outputs('Employee_keys')['emailraw'], ''), if(equals(outputs('Existing_match')['emailraw'], ''), null, outputs('Existing_match')['emailraw']), outputs('Employee_keys')['emailraw'])",
+                        "item/cp_employeenumber": "@if(equals(outputs('Employee_keys')['num'], '__emp_no_num__'), if(equals(outputs('Existing_match')['num'], '__staff_no_num__'), null, outputs('Existing_match')['num']), outputs('Employee_keys')['num'])",
+                        "item/cp_jobtitle": "@if(equals(outputs('Employee_keys')['jobtitle'], ''), outputs('Existing_match')['jobtitle'], outputs('Employee_keys')['jobtitle'])",
+                        "item/cp_reportsto": "@if(equals(outputs('Employee_keys')['reportsto'], ''), outputs('Existing_match')['reportsto'], outputs('Employee_keys')['reportsto'])",
+                        "item/cp_employmentstatus": "@if(outputs('Employee_keys')['terminated'], 121570001, 121570000)"
+                      },
+                      "host": {
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                        "connectionName": "shared_commondataserviceforapps",
+                        "operationId": "UpdateOnlyRecord"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "For_each_departed_staff": {
+          "runAfter": {
+            "For_each_employee": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach",
+          "foreach": "@body('Staff_index')",
+          "runtimeConfiguration": {
+            "concurrency": {
+              "repetitions": 10
+            }
+          },
+          "actions": {
+            "Still_listed_in_SharePoint": {
+              "runAfter": {},
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Employee_index')",
+                "where": "@or(equals(item()['email'], items('For_each_departed_staff')['email']), equals(item()['num'], items('For_each_departed_staff')['num']), equals(item()['name'], items('For_each_departed_staff')['name']))"
+              }
+            },
+            "Mark_terminated_if_gone": {
+              "runAfter": {
+                "Still_listed_in_SharePoint": [
+                  "Succeeded"
+                ]
+              },
+              "type": "If",
+              "expression": {
+                "equals": [
+                  "@length(body('Still_listed_in_SharePoint'))",
+                  0
+                ]
+              },
+              "actions": {
+                "Set_terminated": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "cp_staffs",
+                      "recordId": "@items('For_each_departed_staff')['id']",
+                      "item/cp_employmentstatus": 121570001
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord"
+                    }
+                  }
+                }
+              },
+              "else": {
+                "actions": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

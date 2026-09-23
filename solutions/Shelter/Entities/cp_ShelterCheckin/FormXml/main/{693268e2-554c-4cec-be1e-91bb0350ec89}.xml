@@ -161,6 +161,114 @@
             </column>
           </columns>
         </tab>
+        <tab name="substances_and_belongings" id="d1f0c06c-e1d7-45fe-aa74-941ddc9bf0fd" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Substances and Belongings" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="substances" id="621d2f31-f9f7-4d28-ad97-d429d496ced0" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Substances and Belongings" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{b36b2f78-9a26-4dfd-8924-82ac6fa0dc9e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Substances" languagecode="1033" />
+                        </labels>
+                        <control id="cp_substances" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_substances" disabled="false">
+                          <parameters>
+                            <DependentAttributeName>cp_sheltercheckin.cp_client</DependentAttributeName>
+                            <DependentAttributeType>contact</DependentAttributeType>
+                            <FilterRelationshipName>cp_patternofuse_Client_contact</FilterRelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell locklevel="0" id="{b176cfed-fdf6-43cb-993a-7b5aa3ee7ee1}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{680adbe1-c547-45d9-a494-7eaf65f1ca03}" colspan="2" rowspan="1">
+                        <labels>
+                          <label description="Substances" languagecode="1033" />
+                        </labels>
+                        <control id="cp_substances" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_substances" uniqueid="{563b3f52-67b4-4cf8-8070-602f2c8a90a9}">
+                          <parameters>
+                            <DefaultViewId>{757922D6-32CA-4DE8-9A35-7C79F614D44F}</DefaultViewId>
+                            <AvailableViewIds>{757922D6-32CA-4DE8-9A35-7C79F614D44F},{070A7123-0EC1-4BF0-B501-33C54DA2A01A},{FB0FFA60-9896-4487-A9AE-FA42C56FCF7E}</AvailableViewIds>
+                            <DisableViewPicker>true</DisableViewPicker>
+                            <DependentAttributeName>cp_sheltercheckin.cp_client</DependentAttributeName>
+                            <DependentAttributeType>contact</DependentAttributeType>
+                            <FilterRelationshipName>cp_patternofuse_Client_contact</FilterRelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="belongings" id="85eec893-200a-4a1a-8057-7d7f3c19499c" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Belongings" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{0de9ff8d-1dcc-48c3-885d-c69c0569b299}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{03925e49-1f84-442e-b0d3-0b08b16e3a6e}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4826564d-4b7b-4afe-9d68-3e2edb54db1d}" locklevel="0" colspan="2" rowspan="3">
+                        <labels>
+                          <label description="Belongings" languagecode="1033" />
+                        </labels>
+                        <control id="cp_belongings" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_belongings" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="belonging_photos" id="9eda2eea-9b2b-4af1-a4c5-217ca9a8cc4c" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Belonging Photos" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{6e499b85-cf37-4473-916d-ab778207670d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Belongings Photo" languagecode="1033" />
+                        </labels>
+                        <control id="cp_belongingsphoto" classid="{7E548B0D-209C-477B-9DCD-F0F44472381D}" datafieldname="cp_belongingsphoto" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{33375602-ed1e-4bf5-9a54-f41f31428136}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Belongings in Locker Photo" languagecode="1033" />
+                        </labels>
+                        <control id="cp_belongingsinlockerphoto" classid="{7E548B0D-209C-477B-9DCD-F0F44472381D}" datafieldname="cp_belongingsinlockerphoto" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
         <tab name="client-alerts" id="8b7f8591-a874-40fd-9f2a-a5d08d22e859" IsUserDefined="0" locklevel="0" showlabel="true">
           <labels>
             <label description="Client Alerts" languagecode="1033" />
@@ -629,6 +737,87 @@
           <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
             <parameters>
               <value type="TwoOptions">cp_wakeupnotified</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{563b3f52-67b4-4cf8-8070-602f2c8a90a9}">
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+            <parameters>
+              <datafieldname>cp_substances</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+            <parameters>
+              <datafieldname>cp_substances</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_substances</BindAttribute>
+                <DefaultViewId>{757922D6-32CA-4DE8-9A35-7C79F614D44F}</DefaultViewId>
+                <FilterRelationshipName>cp_patternofuse_Client_contact</FilterRelationshipName>
+                <DependentAttributeName>cp_sheltercheckin.cp_client</DependentAttributeName>
+                <DependentAttributeType>contact</DependentAttributeType>
+                <AvailableViewIds>{757922D6-32CA-4DE8-9A35-7C79F614D44F},{070A7123-0EC1-4BF0-B501-33C54DA2A01A},{FB0FFA60-9896-4487-A9AE-FA42C56FCF7E}</AvailableViewIds>
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>true</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_patternofuse"&gt;c2da2042-56b7-f111-aaae-3833c5f7a0bf&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
+              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
+              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_substances</BindAttribute>
+                <DefaultViewId>{757922D6-32CA-4DE8-9A35-7C79F614D44F}</DefaultViewId>
+                <FilterRelationshipName>cp_patternofuse_Client_contact</FilterRelationshipName>
+                <DependentAttributeName>cp_sheltercheckin.cp_client</DependentAttributeName>
+                <DependentAttributeType>contact</DependentAttributeType>
+                <AvailableViewIds>{757922D6-32CA-4DE8-9A35-7C79F614D44F},{070A7123-0EC1-4BF0-B501-33C54DA2A01A},{FB0FFA60-9896-4487-A9AE-FA42C56FCF7E}</AvailableViewIds>
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>true</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_patternofuse"&gt;c2da2042-56b7-f111-aaae-3833c5f7a0bf&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
+              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
+              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_substances</BindAttribute>
+                <DefaultViewId>{757922D6-32CA-4DE8-9A35-7C79F614D44F}</DefaultViewId>
+                <FilterRelationshipName>cp_patternofuse_Client_contact</FilterRelationshipName>
+                <DependentAttributeName>cp_sheltercheckin.cp_client</DependentAttributeName>
+                <DependentAttributeType>contact</DependentAttributeType>
+                <AvailableViewIds>{757922D6-32CA-4DE8-9A35-7C79F614D44F},{070A7123-0EC1-4BF0-B501-33C54DA2A01A},{FB0FFA60-9896-4487-A9AE-FA42C56FCF7E}</AvailableViewIds>
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>true</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_patternofuse"&gt;c2da2042-56b7-f111-aaae-3833c5f7a0bf&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
+              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
+              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
             </parameters>
           </customControl>
         </controlDescription>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26091.131" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26092.00134">
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26091.131" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26092.00135">
   <Entities />
   <Roles />
   <Workflows />
@@ -13,6 +13,10 @@
     <EntityImageConfig>
       <parententitylogicalname>cp_incidentreport</parententitylogicalname>
       <primaryimageattribute>cp_scenelocationphoto</primaryimageattribute>
+    </EntityImageConfig>
+    <EntityImageConfig>
+      <parententitylogicalname>cp_sheltercheckin</parententitylogicalname>
+      <primaryimageattribute>cp_belongingsphoto</primaryimageattribute>
     </EntityImageConfig>
   </EntityImageConfigs>
   <AttributeImageConfigs>
@@ -121,6 +125,16 @@
       <parententitylogicalname>cp_incidentreport</parententitylogicalname>
       <canstorefullimage>1</canstorefullimage>
     </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_belongingsphoto</attributelogicalname>
+      <parententitylogicalname>cp_sheltercheckin</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+    <AttributeImageConfig>
+      <attributelogicalname>cp_belongingsinlockerphoto</attributelogicalname>
+      <parententitylogicalname>cp_sheltercheckin</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
   </AttributeImageConfigs>
   <EntityMaps />
   <EntityRelationships />
@@ -134,6 +148,14 @@
   <connectionreferences>
     <connectionreference connectionreferencelogicalname="cp_sharedcommondataserviceforapps_04f4e">
       <connectionreferencedisplayname>Microsoft Dataverse Shelter-04f4e</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="new_sharedcommondataserviceforapps_a8210">
+      <connectionreferencedisplayname>Microsoft Dataverse</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps</connectorid>
       <iscustomizable>1</iscustomizable>
       <promptingbehavior>0</promptingbehavior>
