@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{69d698dd-2858-f011-877a-000d3af31ea9}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="ahb_name" select="1" icon="1" preview="1">
+        <row name="result" id="ahb_intakeid">
+          <cell name="ahb_client" width="100" />
+          <cell name="ahb_apartmentunit" width="129" />
+          <cell name="a_ed2b727e1cab4b279ba5fedbb5174b2f.cp_hmisfilenumber" width="197" />
+          <cell name="a_ed2b727e1cab4b279ba5fedbb5174b2f.cp_dateofbirth" width="161" />
+          <cell name="a_ed2b727e1cab4b279ba5fedbb5174b2f.cp_age" width="111" />
+          <cell name="a_ed2b727e1cab4b279ba5fedbb5174b2f.cp_gender" width="129" />
+          <cell name="a_ed2b727e1cab4b279ba5fedbb5174b2f.cp_ethnicity" width="139" />
+          <cell name="a_ed2b727e1cab4b279ba5fedbb5174b2f.cp_phone" width="123" />
+          <cell name="ahb_programexitdate" width="145" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" distinct="true">
+        <entity name="ahb_intake">
+          <attribute name="ahb_intakeid" />
+          <attribute name="ahb_client" />
+          <filter type="and">
+            <condition attribute="ahb_programexitdate" operator="null" />
+            <condition attribute="ahb_apartmentunit" operator="ne" value="Scattered Site" />
+          </filter>
+          <link-entity alias="a_ed2b727e1cab4b279ba5fedbb5174b2f" name="contact" to="ahb_client" from="contactid" link-type="outer" visible="false">
+            <attribute name="cp_hmisfilenumber" />
+            <attribute name="cp_dateofbirth" />
+            <attribute name="cp_gender" />
+            <attribute name="cp_ethnicity" />
+            <attribute name="cp_age" />
+            <attribute name="cp_phone" />
+          </link-entity>
+          <attribute name="ahb_programexitdate" />
+          <attribute name="ahb_apartmentunit" />
+          <order attribute="ahb_apartmentunit" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.124</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Boreal Building Clients" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

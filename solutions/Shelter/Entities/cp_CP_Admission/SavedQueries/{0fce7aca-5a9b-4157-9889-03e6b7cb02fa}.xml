@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{0fce7aca-5a9b-4157-9889-03e6b7cb02fa}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_name" select="1" icon="1" preview="1">
+        <row name="result" id="cp_cp_admissionid">
+          <cell name="cp_name" width="148" />
+          <cell name="cp_client" width="100" />
+          <cell name="cp_bed" width="100" />
+          <cell name="cp_detoxtype" width="106" />
+          <cell name="cp_allergies" width="100" />
+          <cell name="cp_address" width="141" />
+          <cell name="cp_program" width="100" />
+          <cell name="cp_admissiondate" width="131" />
+          <cell name="cp_actualdischargedate" width="168" />
+          <cell name="cp_opioidagonisttherapy" width="177" />
+          <cell name="statecode" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_cp_admission">
+          <attribute name="cp_cp_admissionid" />
+          <attribute name="cp_name" />
+          <order attribute="cp_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cp_program" />
+          <attribute name="statecode" />
+          <attribute name="cp_address" />
+          <attribute name="cp_detoxtype" />
+          <attribute name="cp_client" />
+          <attribute name="cp_allergies" />
+          <attribute name="cp_opioidagonisttherapy" />
+          <attribute name="cp_bed" />
+          <attribute name="cp_actualdischargedate" />
+          <attribute name="cp_admissiondate" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Admissions" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

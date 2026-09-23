@@ -207,7 +207,7 @@
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
           <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
           <IntroducedVersion>1.0.0.9</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
@@ -307,7 +307,7 @@
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
           <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
           <IntroducedVersion>1.0</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>
@@ -327,6 +327,7 @@
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
           <Format>datetime</Format>
+          <CanChangeDateTimeBehavior>0</CanChangeDateTimeBehavior>
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Breathing Round Modified On" languagecode="1033" />
@@ -1132,7 +1133,7 @@
           <ValidForReadApi>1</ValidForReadApi>
           <ValidForCreateApi>1</ValidForCreateApi>
           <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsAuditEnabled>0</IsAuditEnabled>
           <IsSecured>0</IsSecured>
           <IntroducedVersion>1.0.0.9</IntroducedVersion>
           <IsCustomizable>1</IsCustomizable>

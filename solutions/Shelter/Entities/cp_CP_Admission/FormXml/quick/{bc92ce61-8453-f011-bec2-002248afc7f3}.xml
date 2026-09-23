@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{bc92ce61-8453-f011-bec2-002248afc7f3}</formid>
+    <IntroducedVersion>1.0.0.158</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="ACBA75B7-97B6-4116-AA55-51312992B721" name="tab_1" showlabel="false" labelid="{7c143f03-b88d-48f5-98dd-90a24acec215}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="AD49B5BF-256F-46A8-9C75-947146172EB9" name="bp_and_heart_rate" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{a2d43ff5-08cb-4371-95e4-3d6cfe033500}">
+                  <labels>
+                    <label description="BP and Heart Rate" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="C0550AC7-0F44-45A4-8EF5-D2911C0689D9" labelid="{1909b23d-aa16-449f-9720-cc49fb4e5bd1}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0a0ddb53-cac9-4a80-8449-dcddce4a2e0c}" locklevel="0" colspan="1" rowspan="1" labelid="{5cfbad93-4ac4-46e0-97a1-ec8db3e65339}">
+                        <labels>
+                          <label description="BP" languagecode="1033" />
+                        </labels>
+                        <control id="cp_bp" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_bp" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9141fcf0-b572-47dd-b30a-bcb04e5d4a2c}" locklevel="0" colspan="1" rowspan="1" labelid="{9c2541d8-02d4-4b00-9e59-7678d9f4f8ae}">
+                        <labels>
+                          <label description="HR" languagecode="1033" />
+                        </labels>
+                        <control id="cp_hr" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_hr" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="BP and Heart Rate" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{fd8c8937-0391-4777-9cef-15d89811eeef}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_name" select="1" icon="1" preview="1">
+        <row name="result" id="cp_cp_admissionid">
+          <cell name="cp_name" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="cp_client" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_cp_admission">
+          <attribute name="cp_cp_admissionid" />
+          <attribute name="cp_name" />
+          <attribute name="createdon" />
+          <order attribute="cp_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="cp_name" operator="like" value="{0}" />
+            <condition attribute="cp_client" operator="like" value="{0}" />
+            <condition attribute="cp_detoxtype" operator="like" value="{0}" />
+            <condition attribute="cp_detoxfile" operator="like" value="{0}" />
+            <condition attribute="cp_substancesummary" operator="like" value="{0}" />
+            <condition attribute="cp_assessment" operator="like" value="{0}" />
+            <condition attribute="cp_bandnameandtreaty" operator="like" value="{0}" />
+            <condition attribute="createdby" operator="like" value="{0}" />
+            <condition attribute="cp_emergencycontact" operator="like" value="{0}" />
+            <condition attribute="cr6ca_ahcnumber" operator="like" value="{0}" />
+            <condition attribute="cp_staffcompletingmedicalportion" operator="like" value="{0}" />
+          </filter>
+          <attribute name="cp_client" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Admissions" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

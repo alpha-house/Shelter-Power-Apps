@@ -1,0 +1,16 @@
+ahb_spdatscore: |-
+    =ahb_mentalhealthwellnesscognitivefunctioningscore +
+    ahb_physicalhealthandwellnessscore +
+    ahb_medicationscore +
+    ahb_substanceusescore +
+    ahb_experienceofabusescore +
+    ahb_riskofharmscore +
+    ahb_involvementinhigherriskscore +
+    ahb_interactionwithemergencyservicesscore +
+    ahb_legalinvolvementscore +
+    ahb_managingtenancyscore +
+    ahb_personaladministrationscore +
+    ahb_socialrelationshipsscore +
+    ahb_selfcarescore +
+    ahb_meaningfuldailyactivitiesscore +
+    ahb_historyofhousingscore

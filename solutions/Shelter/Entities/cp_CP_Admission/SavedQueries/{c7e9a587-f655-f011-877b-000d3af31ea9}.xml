@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{c7e9a587-f655-f011-877b-000d3af31ea9}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_name" select="1" icon="1" preview="1">
+        <row name="result" id="cp_cp_admissionid">
+          <cell name="cp_bed" width="100" />
+          <cell name="a_70b98bbbf08643aba7bd9039bd3976cf.cp_gender" width="129" />
+          <cell name="cp_allergies" width="100" />
+          <cell name="cp_admissionstatus" width="139" />
+          <cell name="cp_client" width="100" />
+          <cell name="cp_name" width="200" />
+          <cell name="cp_admissiondate" width="131" />
+          <cell name="cp_breathinground" width="137" />
+          <cell name="cp_daywelfarecheck" width="151" />
+          <cell name="cp_nightwelfarecheck" width="159" />
+          <cell name="cp_daynotescompleted" width="165" />
+          <cell name="cp_nightnotescompleted" width="173" />
+          <cell name="a_70b98bbbf08643aba7bd9039bd3976cf.cp_indigenousidentity" width="197" />
+          <cell name="cp_dischargedto" width="122" />
+          <cell name="cp_faxconfirmationdate" width="170" />
+          <cell name="cp_sortorder" width="100" />
+        </row>
+        <controlDescriptions>
+          <controlDescription>
+            <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+              <parameters />
+            </customControl>
+            <customControl formFactor="0" name="Microsoft.PowerApps.PowerAppsOneGrid">
+              <parameters>
+                <data-set name="Items">
+                  <ViewId>00000000-0000-0000-0000-000000000000</ViewId>
+                </data-set>
+                <AccessibleLabel static="true" type="SingleLine.Text" />
+                <EnableEditing static="true" type="Enum">yes</EnableEditing>
+                <DisableChildItemsEditing static="true" type="Enum">no</DisableChildItemsEditing>
+                <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
+                <EnableSorting static="true" type="Enum">yes</EnableSorting>
+                <EnableGrouping static="true" type="Enum">yes</EnableGrouping>
+                <EnableAggregation static="true" type="Enum">no</EnableAggregation>
+                <EnableColumnMoving static="true" type="Enum">yes</EnableColumnMoving>
+                <EnableMultipleSelection static="true" type="Enum">yes</EnableMultipleSelection>
+                <EnableRangeSelection static="true" type="Enum">yes</EnableRangeSelection>
+                <EnableJumpBar static="true" type="Enum">no</EnableJumpBar>
+                <EnablePagination static="true" type="Enum">no</EnablePagination>
+                <EnableDropdownColor static="true" type="Enum">yes</EnableDropdownColor>
+                <EnableStatusIcons static="true" type="Enum">yes</EnableStatusIcons>
+                <EnableTypeIcons static="true" type="Enum">no</EnableTypeIcons>
+                <NavigationTypesAllowed static="true" type="Enum">all</NavigationTypesAllowed>
+                <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+                <ShowAvatar static="true" type="Enum">yes</ShowAvatar>
+                <NumberOfListColumns static="true" type="Whole.None">3</NumberOfListColumns>
+                <ContextualLookupColumnFilters static="true" type="Enum">yes</ContextualLookupColumnFilters>
+                <LookupFilterBeginsWith static="true" type="Enum">no</LookupFilterBeginsWith>
+                <UseFirstColumnForLookupEdits static="true" type="Enum">no</UseFirstColumnForLookupEdits>
+                <GridCustomizerControlFullName static="true" type="SingleLine.Text" />
+                <EnableStatusColumn static="true" type="Enum">yes</EnableStatusColumn>
+              </parameters>
+            </customControl>
+            <customControl formFactor="1" name="Microsoft.PowerApps.PowerAppsOneGrid">
+              <parameters>
+                <data-set name="Items">
+                  <ViewId>00000000-0000-0000-0000-000000000000</ViewId>
+                </data-set>
+                <AccessibleLabel static="true" type="SingleLine.Text" />
+                <EnableEditing static="true" type="Enum">yes</EnableEditing>
+                <DisableChildItemsEditing static="true" type="Enum">no</DisableChildItemsEditing>
+                <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
+                <EnableSorting static="true" type="Enum">yes</EnableSorting>
+                <EnableGrouping static="true" type="Enum">yes</EnableGrouping>
+                <EnableAggregation static="true" type="Enum">no</EnableAggregation>
+                <EnableColumnMoving static="true" type="Enum">yes</EnableColumnMoving>
+                <EnableMultipleSelection static="true" type="Enum">yes</EnableMultipleSelection>
+                <EnableRangeSelection static="true" type="Enum">yes</EnableRangeSelection>
+                <EnableJumpBar static="true" type="Enum">no</EnableJumpBar>
+                <EnablePagination static="true" type="Enum">no</EnablePagination>
+                <EnableDropdownColor static="true" type="Enum">yes</EnableDropdownColor>
+                <EnableStatusIcons static="true" type="Enum">yes</EnableStatusIcons>
+                <EnableTypeIcons static="true" type="Enum">no</EnableTypeIcons>
+                <NavigationTypesAllowed static="true" type="Enum">all</NavigationTypesAllowed>
+                <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+                <ShowAvatar static="true" type="Enum">yes</ShowAvatar>
+                <NumberOfListColumns static="true" type="Whole.None">3</NumberOfListColumns>
+                <ContextualLookupColumnFilters static="true" type="Enum">yes</ContextualLookupColumnFilters>
+                <LookupFilterBeginsWith static="true" type="Enum">no</LookupFilterBeginsWith>
+                <UseFirstColumnForLookupEdits static="true" type="Enum">no</UseFirstColumnForLookupEdits>
+                <GridCustomizerControlFullName static="true" type="SingleLine.Text" />
+                <EnableStatusColumn static="true" type="Enum">yes</EnableStatusColumn>
+              </parameters>
+            </customControl>
+            <customControl formFactor="2" name="Microsoft.PowerApps.PowerAppsOneGrid">
+              <parameters>
+                <data-set name="Items">
+                  <ViewId>00000000-0000-0000-0000-000000000000</ViewId>
+                </data-set>
+                <AccessibleLabel static="true" type="SingleLine.Text" />
+                <EnableEditing static="true" type="Enum">yes</EnableEditing>
+                <DisableChildItemsEditing static="true" type="Enum">no</DisableChildItemsEditing>
+                <EnableFiltering static="true" type="Enum">yes</EnableFiltering>
+                <EnableSorting static="true" type="Enum">yes</EnableSorting>
+                <EnableGrouping static="true" type="Enum">yes</EnableGrouping>
+                <EnableAggregation static="true" type="Enum">no</EnableAggregation>
+                <EnableColumnMoving static="true" type="Enum">yes</EnableColumnMoving>
+                <EnableMultipleSelection static="true" type="Enum">yes</EnableMultipleSelection>
+                <EnableRangeSelection static="true" type="Enum">yes</EnableRangeSelection>
+                <EnableJumpBar static="true" type="Enum">no</EnableJumpBar>
+                <EnablePagination static="true" type="Enum">no</EnablePagination>
+                <EnableDropdownColor static="true" type="Enum">yes</EnableDropdownColor>
+                <EnableStatusIcons static="true" type="Enum">yes</EnableStatusIcons>
+                <EnableTypeIcons static="true" type="Enum">no</EnableTypeIcons>
+                <NavigationTypesAllowed static="true" type="Enum">all</NavigationTypesAllowed>
+                <ReflowBehavior static="true" type="Enum">Reflow</ReflowBehavior>
+                <ShowAvatar static="true" type="Enum">yes</ShowAvatar>
+                <NumberOfListColumns static="true" type="Whole.None">3</NumberOfListColumns>
+                <ContextualLookupColumnFilters static="true" type="Enum">yes</ContextualLookupColumnFilters>
+                <LookupFilterBeginsWith static="true" type="Enum">no</LookupFilterBeginsWith>
+                <UseFirstColumnForLookupEdits static="true" type="Enum">no</UseFirstColumnForLookupEdits>
+                <GridCustomizerControlFullName static="true" type="SingleLine.Text" />
+                <EnableStatusColumn static="true" type="Enum">yes</EnableStatusColumn>
+              </parameters>
+            </customControl>
+          </controlDescription>
+        </controlDescriptions>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="cp_cp_admission">
+          <attribute name="cp_name" />
+          <attribute name="cp_bed" />
+          <attribute name="cp_client" />
+          <attribute name="cp_dischargedto" />
+          <attribute name="cp_cp_admissionid" />
+          <attribute name="cp_admissionstatus" />
+          <attribute name="cp_faxconfirmationdate" />
+          <attribute name="cp_sortorder" />
+          <order attribute="cp_sortorder" descending="false" />
+          <attribute name="cp_admissiondate" />
+          <attribute name="cp_daynotescompleted" />
+          <attribute name="cp_nightnotescompleted" />
+          <filter type="and">
+            <condition attribute="cp_declinedbed" operator="ne" value="121570000" />
+            <condition attribute="cp_noshow" operator="ne" value="1" />
+            <filter type="or">
+              <condition attribute="cp_admissionstatus" operator="eq" value="121570000" />
+              <condition attribute="cp_admissionstatus" operator="eq" value="121570002" />
+              <condition attribute="cp_admissionstatus" operator="null" />
+            </filter>
+          </filter>
+          <link-entity alias="a_70b98bbbf08643aba7bd9039bd3976cf" name="contact" to="cp_client" from="contactid" link-type="outer" visible="false">
+            <attribute name="cp_gender" />
+            <attribute name="cp_indigenousidentity" />
+          </link-entity>
+          <attribute name="cp_daywelfarecheck" />
+          <attribute name="cp_nightwelfarecheck" />
+          <attribute name="cp_allergies" />
+          <attribute name="cp_breathinground" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.163</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Admission Census" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
