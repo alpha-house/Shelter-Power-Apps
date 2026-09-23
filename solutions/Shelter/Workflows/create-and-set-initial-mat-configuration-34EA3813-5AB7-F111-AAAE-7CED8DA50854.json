@@ -1,0 +1,1438 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ahb_sharedcommondataserviceforapps_c4d89"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "0764a5c6-c47b-4553-8a13-131bb2ac2c75"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "title": "Mat plan name",
+                  "description": "Leave blank to use Floor Plan. The plan is created if it does not exist.",
+                  "x-ms-dynamically-added": true,
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Mat_plan_name": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c06a0cc6-25e9-4700-ba44-25742b8e8c32"
+          },
+          "type": "Compose",
+          "inputs": "@if(empty(coalesce(triggerBody()?['text'], '')), 'Floor Plan', triggerBody()?['text'])"
+        },
+        "Mat_configuration": {
+          "runAfter": {
+            "Mat_plan_name": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b99019d6-3c31-4731-92aa-2970b75a7ae7"
+          },
+          "type": "Compose",
+          "inputs": [
+            {
+              "label": "1",
+              "num": 1,
+              "x": 200,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "2",
+              "num": 2,
+              "x": 268,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": null,
+              "client": true
+            },
+            {
+              "label": "3",
+              "num": 3,
+              "x": 336,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "4",
+              "num": 4,
+              "x": 404,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "5",
+              "num": 5,
+              "x": 472,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "6",
+              "num": 6,
+              "x": 540,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "7",
+              "num": 7,
+              "x": 609,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "8",
+              "num": 8,
+              "x": 677,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "9",
+              "num": 9,
+              "x": 746,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "10",
+              "num": 10,
+              "x": 815,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "11",
+              "num": 11,
+              "x": 883,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "12",
+              "num": 12,
+              "x": 952,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "13",
+              "num": 13,
+              "x": 1021,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "14",
+              "num": 14,
+              "x": 1090,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "15",
+              "num": 15,
+              "x": 1159,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "16",
+              "num": 16,
+              "x": 1227,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "17",
+              "num": 17,
+              "x": 268,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "18",
+              "num": 18,
+              "x": 336,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "19",
+              "num": 19,
+              "x": 404,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "20",
+              "num": 20,
+              "x": 472,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "21",
+              "num": 21,
+              "x": 609,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "22",
+              "num": 22,
+              "x": 677,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "23",
+              "num": 23,
+              "x": 746,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "24",
+              "num": 24,
+              "x": 815,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "25",
+              "num": 25,
+              "x": 952,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "26",
+              "num": 26,
+              "x": 1021,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "27",
+              "num": 27,
+              "x": 1090,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "28",
+              "num": 28,
+              "x": 1159,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "29",
+              "num": 29,
+              "x": 1295,
+              "y": 155,
+              "w": 210,
+              "h": 67,
+              "gender": "High Intox",
+              "client": true
+            },
+            {
+              "label": "30",
+              "num": 30,
+              "x": 1512,
+              "y": 155,
+              "w": 64,
+              "h": 144,
+              "gender": "High Intox",
+              "client": true
+            },
+            {
+              "label": "31",
+              "num": 31,
+              "x": 268,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "32",
+              "num": 32,
+              "x": 336,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "33",
+              "num": 33,
+              "x": 404,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "34",
+              "num": 34,
+              "x": 472,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "35",
+              "num": 35,
+              "x": 609,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "36",
+              "num": 36,
+              "x": 677,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "37",
+              "num": 37,
+              "x": 746,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "38",
+              "num": 38,
+              "x": 815,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "39",
+              "num": 39,
+              "x": 952,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "40",
+              "num": 40,
+              "x": 1021,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "41",
+              "num": 41,
+              "x": 1090,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "42",
+              "num": 42,
+              "x": 1159,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "43",
+              "num": 43,
+              "x": 1227,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "44",
+              "num": 44,
+              "x": 1295,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "45",
+              "num": 45,
+              "x": 1366,
+              "y": 305,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "46",
+              "num": 46,
+              "x": 200,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "47",
+              "num": 47,
+              "x": 268,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "48",
+              "num": 48,
+              "x": 336,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "49",
+              "num": 49,
+              "x": 404,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "50",
+              "num": 50,
+              "x": 472,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "51",
+              "num": 51,
+              "x": 609,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "52",
+              "num": 52,
+              "x": 677,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "53",
+              "num": 53,
+              "x": 746,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "54",
+              "num": 54,
+              "x": 815,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "55",
+              "num": 55,
+              "x": 952,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "56",
+              "num": 56,
+              "x": 1021,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "57",
+              "num": 57,
+              "x": 1090,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "58",
+              "num": 58,
+              "x": 1159,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "59",
+              "num": 59,
+              "x": 1227,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "60",
+              "num": 60,
+              "x": 1295,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "61",
+              "num": 61,
+              "x": 1366,
+              "y": 455,
+              "w": 64,
+              "h": 144,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "62",
+              "num": 62,
+              "x": 200,
+              "y": 605,
+              "w": 64,
+              "h": 145,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "63",
+              "num": 63,
+              "x": 268,
+              "y": 605,
+              "w": 132,
+              "h": 67,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "64",
+              "num": 64,
+              "x": 404,
+              "y": 605,
+              "w": 132,
+              "h": 67,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "65",
+              "num": 65,
+              "x": 609,
+              "y": 605,
+              "w": 132,
+              "h": 67,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "66",
+              "num": 66,
+              "x": 746,
+              "y": 605,
+              "w": 132,
+              "h": 67,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "67",
+              "num": 67,
+              "x": 952,
+              "y": 605,
+              "w": 132,
+              "h": 67,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "68",
+              "num": 68,
+              "x": 1090,
+              "y": 605,
+              "w": 132,
+              "h": 67,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "69",
+              "num": 69,
+              "x": 1227,
+              "y": 605,
+              "w": 203,
+              "h": 67,
+              "gender": "Male",
+              "client": true
+            },
+            {
+              "label": "70",
+              "num": 70,
+              "x": 404,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "71",
+              "num": 71,
+              "x": 472,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "72",
+              "num": 72,
+              "x": 540,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "73",
+              "num": 73,
+              "x": 609,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "74",
+              "num": 74,
+              "x": 677,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "75",
+              "num": 75,
+              "x": 815,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "76",
+              "num": 76,
+              "x": 883,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "77",
+              "num": 77,
+              "x": 952,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "78",
+              "num": 78,
+              "x": 1021,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "79",
+              "num": 79,
+              "x": 1090,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "80",
+              "num": 80,
+              "x": 1159,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "81",
+              "num": 81,
+              "x": 1227,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "82",
+              "num": 82,
+              "x": 1295,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "83",
+              "num": 83,
+              "x": 1366,
+              "y": 680,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "84",
+              "num": 84,
+              "x": 404,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "85",
+              "num": 85,
+              "x": 472,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "86",
+              "num": 86,
+              "x": 540,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "87",
+              "num": 87,
+              "x": 609,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "88",
+              "num": 88,
+              "x": 677,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "89",
+              "num": 89,
+              "x": 815,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "90",
+              "num": 90,
+              "x": 883,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "91",
+              "num": 91,
+              "x": 952,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "92",
+              "num": 92,
+              "x": 1021,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "93",
+              "num": 93,
+              "x": 1090,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "94",
+              "num": 94,
+              "x": 1159,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "95",
+              "num": 95,
+              "x": 1227,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "96",
+              "num": 96,
+              "x": 1295,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "97",
+              "num": 97,
+              "x": 1366,
+              "y": 830,
+              "w": 64,
+              "h": 144,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "98",
+              "num": 98,
+              "x": 1512,
+              "y": 455,
+              "w": 145,
+              "h": 67,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "99",
+              "num": 99,
+              "x": 1512,
+              "y": 530,
+              "w": 145,
+              "h": 67,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "100",
+              "num": 100,
+              "x": 1512,
+              "y": 605,
+              "w": 145,
+              "h": 67,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "101",
+              "num": 101,
+              "x": 1512,
+              "y": 680,
+              "w": 145,
+              "h": 67,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "102",
+              "num": 102,
+              "x": 1512,
+              "y": 755,
+              "w": 145,
+              "h": 67,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "103",
+              "num": 103,
+              "x": 1512,
+              "y": 830,
+              "w": 145,
+              "h": 67,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "104",
+              "num": 104,
+              "x": 1512,
+              "y": 905,
+              "w": 145,
+              "h": 67,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "105",
+              "num": 105,
+              "x": 1512,
+              "y": 980,
+              "w": 145,
+              "h": 60,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "106",
+              "num": 106,
+              "x": 130,
+              "y": 905,
+              "w": 68,
+              "h": 138,
+              "gender": "Female",
+              "client": true
+            },
+            {
+              "label": "107",
+              "num": 107,
+              "x": 1090,
+              "y": 980,
+              "w": 200,
+              "h": 60,
+              "gender": null,
+              "client": true
+            },
+            {
+              "label": "108",
+              "num": 108,
+              "x": 1444,
+              "y": 5,
+              "w": 64,
+              "h": 144,
+              "gender": null,
+              "client": true
+            },
+            {
+              "label": "109",
+              "num": 109,
+              "x": 1512,
+              "y": 5,
+              "w": 145,
+              "h": 67,
+              "gender": null,
+              "client": true
+            },
+            {
+              "label": "110",
+              "num": 110,
+              "x": 1512,
+              "y": 78,
+              "w": 145,
+              "h": 67,
+              "gender": null,
+              "client": true
+            },
+            {
+              "label": "Basement",
+              "num": null,
+              "x": 2,
+              "y": 870,
+              "w": 32,
+              "h": 90,
+              "gender": null,
+              "client": false
+            },
+            {
+              "label": "Client Entry",
+              "num": null,
+              "x": 1585,
+              "y": 340,
+              "w": 68,
+              "h": 78,
+              "gender": null,
+              "client": false
+            },
+            {
+              "label": "Fire Exit",
+              "num": null,
+              "x": 25,
+              "y": 5,
+              "w": 72,
+              "h": 448,
+              "gender": "Male",
+              "client": false
+            },
+            {
+              "label": "Nurse's Office",
+              "num": null,
+              "x": 1295,
+              "y": 5,
+              "w": 144,
+              "h": 144,
+              "gender": null,
+              "client": false
+            },
+            {
+              "label": "OPS",
+              "num": null,
+              "x": 2,
+              "y": 530,
+              "w": 32,
+              "h": 76,
+              "gender": null,
+              "client": false
+            },
+            {
+              "label": "Shift Office",
+              "num": null,
+              "x": 1585,
+              "y": 155,
+              "w": 68,
+              "h": 144,
+              "gender": null,
+              "client": false
+            },
+            {
+              "label": "Wheelchair Priority",
+              "num": null,
+              "x": 25,
+              "y": 645,
+              "w": 72,
+              "h": 182,
+              "gender": "Male",
+              "client": false
+            }
+          ]
+        },
+        "Find_the_mat_plan": {
+          "runAfter": {
+            "Mat_configuration": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "bfde0212-88a9-4eaa-9bc6-c4a63ed6ceec"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "cp_matplans",
+              "$select": "cp_matplanid,cp_matplan",
+              "$filter": "cp_matplan eq '@{outputs('Mat_plan_name')}'"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Create_the_mat_plan_if_missing": {
+          "actions": {
+            "Create_mat_plan": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "e614acb5-da6f-4686-a2a1-eb2a23c6d056"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "cp_matplans",
+                  "item/cp_matplan": "@outputs('Mat_plan_name')"
+                },
+                "authentication": {
+                  "type": "Raw",
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Find_the_mat_plan": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "equals": [
+              "@length(outputs('Find_the_mat_plan')?['body/value'])",
+              0
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "51da9d46-1e87-42b1-a00e-66a6c6657652"
+          },
+          "type": "If"
+        },
+        "Mat_plan_id": {
+          "runAfter": {
+            "Create_the_mat_plan_if_missing": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "38303348-67ed-40ee-a278-2ffe24a90608"
+          },
+          "type": "Compose",
+          "inputs": "@coalesce(first(outputs('Find_the_mat_plan')?['body/value'])?['cp_matplanid'], outputs('Create_mat_plan')?['body/cp_matplanid'])"
+        },
+        "List_existing_mats": {
+          "runAfter": {
+            "Mat_plan_id": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "051b006f-c284-4e37-b397-15587cd70d88"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "cp_mats",
+              "$select": "cp_matlabel",
+              "$filter": "_cp_matplan_value eq @{outputs('Mat_plan_id')}"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Existing_mat_labels": {
+          "runAfter": {
+            "List_existing_mats": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "061bc3d5-9a5a-4a57-a322-fd1a497a26b9"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('List_existing_mats')?['body/value']",
+            "select": "@coalesce(item()?['cp_matlabel'], '')"
+          }
+        },
+        "For_each_mat": {
+          "foreach": "@outputs('Mat_configuration')",
+          "actions": {
+            "Skip_if_the_mat_already_exists": {
+              "actions": {
+                "Create_mat": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "4f3c2a8a-40f2-4160-8d92-46d0d0590510"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "cp_mats",
+                      "item/cp_clientmats": "@items('For_each_mat')['client']",
+                      "item/cp_defaultxposition": "@items('For_each_mat')['x']",
+                      "item/cp_defaultyposition": "@items('For_each_mat')['y']",
+                      "item/cp_matgender": "@items('For_each_mat')['gender']",
+                      "item/cp_matheight": "@items('For_each_mat')['h']",
+                      "item/cp_matlabel": "@items('For_each_mat')['label']",
+                      "item/cp_matnumber": "@items('For_each_mat')['num']",
+                      "item/cp_MatPlan@odata.bind": "@concat('/cp_matplans(', outputs('Mat_plan_id'), ')')",
+                      "item/cp_matwidth": "@items('For_each_mat')['w']",
+                      "item/cp_render": true,
+                      "item/cp_standardmat": true,
+                      "item/cp_xposition": "@items('For_each_mat')['x']",
+                      "item/cp_yposition": "@items('For_each_mat')['y']"
+                    },
+                    "authentication": {
+                      "type": "Raw",
+                      "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                    }
+                  }
+                }
+              },
+              "runAfter": {},
+              "expression": {
+                "equals": [
+                  "@contains(body('Existing_mat_labels'), items('For_each_mat')['label'])",
+                  false
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "dc8bf892-1434-4803-b966-00dd0ed7df4e"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Existing_mat_labels": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0b862e29-a900-4de0-954c-e24d35663470"
+          },
+          "type": "Foreach",
+          "runtimeConfiguration": {
+            "concurrency": {
+              "repetitions": 10
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
