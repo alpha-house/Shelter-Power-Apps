@@ -1,34 +1,40 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_commondataserviceforapps": {
-        "runtimeSource": "embedded",
-        "connection": {
-          "connectionReferenceLogicalName": "ahb_sharedcommondataserviceforapps_c4d89"
-        },
+      "shared_commondataserviceforapps-1": {
         "api": {
           "name": "shared_commondataserviceforapps"
-        }
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "cp_sharedcommondataserviceforapps_04f4e"
+        },
+        "runtimeSource": "embedded"
+      },
+      "shared_commondataserviceforapps-2": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "cp_sharedcommondataserviceforapps_fd4e4"
+        },
+        "runtimeSource": "embedded"
       }
     },
     "definition": {
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "$connections": {
-          "defaultValue": {},
-          "type": "Object"
-        },
         "$authentication": {
           "defaultValue": {},
           "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
         }
       },
       "triggers": {
         "manual": {
-          "metadata": {
-            "operationMetadataId": "0764a5c6-c47b-4553-8a13-131bb2ac2c75"
-          },
           "type": "Request",
           "kind": "Button",
           "inputs": {
@@ -45,27 +51,22 @@
               },
               "required": []
             }
+          },
+          "metadata": {
+            "operationMetadataId": "0764a5c6-c47b-4553-8a13-131bb2ac2c75"
           }
         }
       },
       "actions": {
         "Mat_plan_name": {
+          "type": "Compose",
+          "inputs": "@if(empty(coalesce(triggerBody()?['text'], '')), 'Floor Plan', triggerBody()?['text'])",
           "runAfter": {},
           "metadata": {
             "operationMetadataId": "c06a0cc6-25e9-4700-ba44-25742b8e8c32"
-          },
-          "type": "Compose",
-          "inputs": "@if(empty(coalesce(triggerBody()?['text'], '')), 'Floor Plan', triggerBody()?['text'])"
+          }
         },
         "Mat_configuration": {
-          "runAfter": {
-            "Mat_plan_name": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "b99019d6-3c31-4731-92aa-2970b75a7ae7"
-          },
           "type": "Compose",
           "inputs": [
             {
@@ -1238,9 +1239,30 @@
               "gender": "Male",
               "client": false
             }
-          ]
+          ],
+          "runAfter": {
+            "Mat_plan_name": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b99019d6-3c31-4731-92aa-2970b75a7ae7"
+          }
         },
         "Find_the_mat_plan": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cp_matplans",
+              "$select": "cp_matplanid,cp_matplan",
+              "$filter": "cp_matplan eq '@{outputs('Mat_plan_name')}'"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps-1"
+            }
+          },
           "runAfter": {
             "Mat_configuration": [
               "Succeeded"
@@ -1248,67 +1270,50 @@
           },
           "metadata": {
             "operationMetadataId": "bfde0212-88a9-4eaa-9bc6-c4a63ed6ceec"
-          },
-          "type": "OpenApiConnection",
-          "inputs": {
-            "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
-            "parameters": {
-              "entityName": "cp_matplans",
-              "$select": "cp_matplanid,cp_matplan",
-              "$filter": "cp_matplan eq '@{outputs('Mat_plan_name')}'"
-            },
-            "authentication": {
-              "type": "Raw",
-              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
-            }
           }
         },
         "Create_the_mat_plan_if_missing": {
-          "actions": {
-            "Create_mat_plan": {
-              "runAfter": {},
-              "metadata": {
-                "operationMetadataId": "e614acb5-da6f-4686-a2a1-eb2a23c6d056"
-              },
-              "type": "OpenApiConnection",
-              "inputs": {
-                "host": {
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "CreateRecord",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                },
-                "parameters": {
-                  "entityName": "cp_matplans",
-                  "item/cp_matplan": "@outputs('Mat_plan_name')"
-                },
-                "authentication": {
-                  "type": "Raw",
-                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
-                }
-              }
-            }
-          },
-          "runAfter": {
-            "Find_the_mat_plan": [
-              "Succeeded"
-            ]
-          },
+          "type": "If",
           "expression": {
             "equals": [
               "@length(outputs('Find_the_mat_plan')?['body/value'])",
               0
             ]
           },
+          "actions": {
+            "Create_mat_plan": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "cp_matplans",
+                  "item/cp_matplan": "@outputs('Mat_plan_name')"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "e614acb5-da6f-4686-a2a1-eb2a23c6d056"
+              }
+            }
+          },
+          "else": {
+            "actions": {}
+          },
+          "runAfter": {
+            "Find_the_mat_plan": [
+              "Succeeded"
+            ]
+          },
           "metadata": {
             "operationMetadataId": "51da9d46-1e87-42b1-a00e-66a6c6657652"
-          },
-          "type": "If"
+          }
         },
         "Mat_plan_id": {
+          "type": "Compose",
+          "inputs": "@coalesce(first(outputs('Find_the_mat_plan')?['body/value'])?['cp_matplanid'], outputs('Create_mat_plan')?['body/cp_matplanid'])",
           "runAfter": {
             "Create_the_mat_plan_if_missing": [
               "Succeeded"
@@ -1316,11 +1321,22 @@
           },
           "metadata": {
             "operationMetadataId": "38303348-67ed-40ee-a278-2ffe24a90608"
-          },
-          "type": "Compose",
-          "inputs": "@coalesce(first(outputs('Find_the_mat_plan')?['body/value'])?['cp_matplanid'], outputs('Create_mat_plan')?['body/cp_matplanid'])"
+          }
         },
         "List_existing_mats": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cp_mats",
+              "$select": "cp_matlabel",
+              "$filter": "_cp_matplan_value eq @{outputs('Mat_plan_id')}"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps-2"
+            }
+          },
           "runAfter": {
             "Mat_plan_id": [
               "Succeeded"
@@ -1328,26 +1344,14 @@
           },
           "metadata": {
             "operationMetadataId": "051b006f-c284-4e37-b397-15587cd70d88"
-          },
-          "type": "OpenApiConnection",
-          "inputs": {
-            "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
-            "parameters": {
-              "entityName": "cp_mats",
-              "$select": "cp_matlabel",
-              "$filter": "_cp_matplan_value eq @{outputs('Mat_plan_id')}"
-            },
-            "authentication": {
-              "type": "Raw",
-              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
-            }
           }
         },
         "Existing_mat_labels": {
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('List_existing_mats')?['body/value']",
+            "select": "@coalesce(item()?['cp_matlabel'], '')"
+          },
           "runAfter": {
             "List_existing_mats": [
               "Succeeded"
@@ -1355,30 +1359,24 @@
           },
           "metadata": {
             "operationMetadataId": "061bc3d5-9a5a-4a57-a322-fd1a497a26b9"
-          },
-          "type": "Select",
-          "inputs": {
-            "from": "@outputs('List_existing_mats')?['body/value']",
-            "select": "@coalesce(item()?['cp_matlabel'], '')"
           }
         },
         "For_each_mat": {
+          "type": "Foreach",
           "foreach": "@outputs('Mat_configuration')",
           "actions": {
             "Skip_if_the_mat_already_exists": {
+              "type": "If",
+              "expression": {
+                "equals": [
+                  "@contains(body('Existing_mat_labels'), items('For_each_mat')['label'])",
+                  false
+                ]
+              },
               "actions": {
                 "Create_mat": {
-                  "runAfter": {},
-                  "metadata": {
-                    "operationMetadataId": "4f3c2a8a-40f2-4160-8d92-46d0d0590510"
-                  },
                   "type": "OpenApiConnection",
                   "inputs": {
-                    "host": {
-                      "connectionName": "shared_commondataserviceforapps",
-                      "operationId": "CreateRecord",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                    },
                     "parameters": {
                       "entityName": "cp_mats",
                       "item/cp_clientmats": "@items('For_each_mat')['client']",
@@ -1395,24 +1393,23 @@
                       "item/cp_xposition": "@items('For_each_mat')['x']",
                       "item/cp_yposition": "@items('For_each_mat')['y']"
                     },
-                    "authentication": {
-                      "type": "Raw",
-                      "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "connectionName": "shared_commondataserviceforapps-1"
                     }
+                  },
+                  "metadata": {
+                    "operationMetadataId": "4f3c2a8a-40f2-4160-8d92-46d0d0590510"
                   }
                 }
               },
-              "runAfter": {},
-              "expression": {
-                "equals": [
-                  "@contains(body('Existing_mat_labels'), items('For_each_mat')['label'])",
-                  false
-                ]
+              "else": {
+                "actions": {}
               },
               "metadata": {
                 "operationMetadataId": "dc8bf892-1434-4803-b966-00dd0ed7df4e"
-              },
-              "type": "If"
+              }
             }
           },
           "runAfter": {
@@ -1420,19 +1417,18 @@
               "Succeeded"
             ]
           },
-          "metadata": {
-            "operationMetadataId": "0b862e29-a900-4de0-954c-e24d35663470"
-          },
-          "type": "Foreach",
           "runtimeConfiguration": {
             "concurrency": {
               "repetitions": 10
             }
+          },
+          "metadata": {
+            "operationMetadataId": "0b862e29-a900-4de0-954c-e24d35663470"
           }
         }
       }
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }

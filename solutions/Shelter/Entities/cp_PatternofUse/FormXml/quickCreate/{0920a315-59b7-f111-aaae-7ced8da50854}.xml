@@ -92,11 +92,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{0ea07f09-e65e-474a-8829-d7f87fa100bb}" labelid="{4192b68a-420e-4370-8c51-7fc29cd84ddd}">
+                      <cell id="{d615d3a5-5512-447a-bf9a-ca1257a6974a}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="Route of Administration" languagecode="1033" />
+                          <label description="Route of Adminstration" languagecode="1033" />
                         </labels>
-                        <control id="cp_routeofadministration" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_routeofadministration" />
+                        <control id="cr6ca_routeofadminstration" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cr6ca_routeofadminstration" disabled="false" />
                       </cell>
                     </row>
                   </rows>

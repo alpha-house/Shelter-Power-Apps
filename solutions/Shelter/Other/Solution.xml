@@ -1945,10 +1945,6 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
-        <Dependent type="29" displayName="create-and-set-initial-mat-configuration" id="{34ea3813-5ab7-f111-aaae-7ced8da50854}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
         <Dependent type="29" displayName="Shelter Breathing Rounds Reset" id="{77991899-5a80-f111-ab0f-7c1e5253346f}" />
       </MissingDependency>
       <MissingDependency>
@@ -1962,6 +1958,10 @@
       <MissingDependency>
         <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
         <Dependent type="29" displayName="Shelter Breathing Rounds Stats" id="{edec6698-5b80-f111-ab0f-7ced8da799f0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="cp_sharedcommondataserviceforapps_fd4e4" solution="Active" id.connectionreferencelogicalname="cp_sharedcommondataserviceforapps_fd4e4" />
+        <Dependent type="29" displayName="create-and-set-initial-mat-configuration" id="{34ea3813-5ab7-f111-aaae-7ced8da50854}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="connectionreference" displayName="cp_sharedsharepointonline_93f19" solution="Active" id.connectionreferencelogicalname="cp_sharedsharepointonline_93f19" />
