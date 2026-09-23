@@ -128,6 +128,7 @@
       <RootComponent type="61" schemaName="cp_shelter_javascript_code" behavior="0" />
       <RootComponent type="62" schemaName="cp_Shelter" behavior="0" />
       <RootComponent type="66" schemaName="cp_CpShelter.MatsOverlay" behavior="0" />
+      <RootComponent type="66" schemaName="cp_CpShelter.ServiceTransactions" behavior="0" />
       <RootComponent type="80" schemaName="cp_Shelter" behavior="0" />
       <RootComponent type="9" schemaName="ahb_applist" behavior="0" />
       <RootComponent type="9" schemaName="cp_checkinstatus" behavior="0" />
@@ -1850,10 +1851,6 @@
       <MissingDependency>
         <Required type="66" schemaName="cp_AlphaHouse.TurnawayAnalytics" displayName="cp_AlphaHouse.TurnawayAnalytics" solution="Active" />
         <Dependent type="26" schemaName="All Turnaways Dashboard" displayName="All Turnaways Dashboard" parentSchemaName="cp_assessment" parentDisplayName="Assessment" id="{a729acac-31ad-f111-aaac-6045bd60d54a}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="66" schemaName="cp_CpShelter.ServiceTransactions" displayName="cp_CpShelter.ServiceTransactions" solution="Active" />
-        <Dependent type="60" displayName="Shelter Client" parentDisplayName="Client" id="{785045ae-0d7b-f111-ab0f-7ced8da5852f}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2609.1007)">
