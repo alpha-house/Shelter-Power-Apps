@@ -175,37 +175,22 @@
                   <rows>
                     <row />
                     <row>
-                      <cell id="{b36b2f78-9a26-4dfd-8924-82ac6fa0dc9e}" locklevel="0" colspan="1" rowspan="1">
+                      <cell locklevel="0" id="{be81e5fe-df2a-4c73-b6e8-99a35841f48c}" rowspan="4" colspan="2" auto="false" showlabel="false">
                         <labels>
-                          <label description="Substances" languagecode="1033" />
+                          <label description="New SG control 1790174878697" languagecode="1033" />
                         </labels>
-                        <control id="cp_substances" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_substances" disabled="false">
+                        <control indicationOfSubgrid="true" id="Subgrid_new_2" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
                           <parameters>
-                            <DependentAttributeName>cp_sheltercheckin.cp_client</DependentAttributeName>
-                            <DependentAttributeType>contact</DependentAttributeType>
-                            <FilterRelationshipName>cp_patternofuse_Client_contact</FilterRelationshipName>
-                          </parameters>
-                        </control>
-                      </cell>
-                      <cell locklevel="0" id="{b176cfed-fdf6-43cb-993a-7b5aa3ee7ee1}">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell locklevel="0" id="{680adbe1-c547-45d9-a494-7eaf65f1ca03}" colspan="2" rowspan="1">
-                        <labels>
-                          <label description="Substances" languagecode="1033" />
-                        </labels>
-                        <control id="cp_substances" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_substances" uniqueid="{563b3f52-67b4-4cf8-8070-602f2c8a90a9}">
-                          <parameters>
-                            <DefaultViewId>{757922D6-32CA-4DE8-9A35-7C79F614D44F}</DefaultViewId>
-                            <AvailableViewIds>{757922D6-32CA-4DE8-9A35-7C79F614D44F},{070A7123-0EC1-4BF0-B501-33C54DA2A01A},{FB0FFA60-9896-4487-A9AE-FA42C56FCF7E}</AvailableViewIds>
-                            <DisableViewPicker>true</DisableViewPicker>
-                            <DependentAttributeName>cp_sheltercheckin.cp_client</DependentAttributeName>
-                            <DependentAttributeType>contact</DependentAttributeType>
-                            <FilterRelationshipName>cp_patternofuse_Client_contact</FilterRelationshipName>
+                            <RecordsPerPage>10</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>true</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>cp_patternofuse_ShelterCheckin_cp_sheltercheckin</RelationshipName>
+                            <TargetEntityType>cp_patternofuse</TargetEntityType>
+                            <ViewId>{2AE31A8B-57B7-F111-AAAE-7C1E5253FF0A}</ViewId>
+                            <ViewIds>{757922D6-32CA-4DE8-9A35-7C79F614D44F},{2AE31A8B-57B7-F111-AAAE-7C1E5253FF0A}</ViewIds>
                           </parameters>
                         </control>
                       </cell>
@@ -737,87 +722,6 @@
           <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
             <parameters>
               <value type="TwoOptions">cp_wakeupnotified</value>
-            </parameters>
-          </customControl>
-        </controlDescription>
-        <controlDescription forControl="{563b3f52-67b4-4cf8-8070-602f2c8a90a9}">
-          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
-            <parameters>
-              <datafieldname>cp_substances</datafieldname>
-            </parameters>
-          </customControl>
-          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
-            <parameters>
-              <datafieldname>cp_substances</datafieldname>
-            </parameters>
-          </customControl>
-          <customControl formFactor="0" name="MscrmControls.ModelForm.ModelFormControl">
-            <parameters>
-              <value>
-                <BindAttribute>cp_substances</BindAttribute>
-                <DefaultViewId>{757922D6-32CA-4DE8-9A35-7C79F614D44F}</DefaultViewId>
-                <FilterRelationshipName>cp_patternofuse_Client_contact</FilterRelationshipName>
-                <DependentAttributeName>cp_sheltercheckin.cp_client</DependentAttributeName>
-                <DependentAttributeType>contact</DependentAttributeType>
-                <AvailableViewIds>{757922D6-32CA-4DE8-9A35-7C79F614D44F},{070A7123-0EC1-4BF0-B501-33C54DA2A01A},{FB0FFA60-9896-4487-A9AE-FA42C56FCF7E}</AvailableViewIds>
-                <AllowFilterOff>false</AllowFilterOff>
-                <DisableQuickFind>false</DisableQuickFind>
-                <DisableViewPicker>true</DisableViewPicker>
-              </value>
-              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_patternofuse"&gt;c2da2042-56b7-f111-aaae-3833c5f7a0bf&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
-              <SaveMode type="Enum" static="true">0</SaveMode>
-              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
-              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
-              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
-              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
-              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
-              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
-            </parameters>
-          </customControl>
-          <customControl formFactor="2" name="MscrmControls.ModelForm.ModelFormControl">
-            <parameters>
-              <value>
-                <BindAttribute>cp_substances</BindAttribute>
-                <DefaultViewId>{757922D6-32CA-4DE8-9A35-7C79F614D44F}</DefaultViewId>
-                <FilterRelationshipName>cp_patternofuse_Client_contact</FilterRelationshipName>
-                <DependentAttributeName>cp_sheltercheckin.cp_client</DependentAttributeName>
-                <DependentAttributeType>contact</DependentAttributeType>
-                <AvailableViewIds>{757922D6-32CA-4DE8-9A35-7C79F614D44F},{070A7123-0EC1-4BF0-B501-33C54DA2A01A},{FB0FFA60-9896-4487-A9AE-FA42C56FCF7E}</AvailableViewIds>
-                <AllowFilterOff>false</AllowFilterOff>
-                <DisableQuickFind>false</DisableQuickFind>
-                <DisableViewPicker>true</DisableViewPicker>
-              </value>
-              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_patternofuse"&gt;c2da2042-56b7-f111-aaae-3833c5f7a0bf&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
-              <SaveMode type="Enum" static="true">0</SaveMode>
-              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
-              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
-              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
-              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
-              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
-              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
-            </parameters>
-          </customControl>
-          <customControl formFactor="1" name="MscrmControls.ModelForm.ModelFormControl">
-            <parameters>
-              <value>
-                <BindAttribute>cp_substances</BindAttribute>
-                <DefaultViewId>{757922D6-32CA-4DE8-9A35-7C79F614D44F}</DefaultViewId>
-                <FilterRelationshipName>cp_patternofuse_Client_contact</FilterRelationshipName>
-                <DependentAttributeName>cp_sheltercheckin.cp_client</DependentAttributeName>
-                <DependentAttributeType>contact</DependentAttributeType>
-                <AvailableViewIds>{757922D6-32CA-4DE8-9A35-7C79F614D44F},{070A7123-0EC1-4BF0-B501-33C54DA2A01A},{FB0FFA60-9896-4487-A9AE-FA42C56FCF7E}</AvailableViewIds>
-                <AllowFilterOff>false</AllowFilterOff>
-                <DisableQuickFind>false</DisableQuickFind>
-                <DisableViewPicker>true</DisableViewPicker>
-              </value>
-              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_patternofuse"&gt;c2da2042-56b7-f111-aaae-3833c5f7a0bf&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
-              <SaveMode type="Enum" static="true">0</SaveMode>
-              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
-              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
-              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
-              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
-              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
-              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
             </parameters>
           </customControl>
         </controlDescription>
