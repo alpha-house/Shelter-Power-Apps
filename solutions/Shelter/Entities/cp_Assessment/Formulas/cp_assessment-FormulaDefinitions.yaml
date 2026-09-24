@@ -1,2 +1,0 @@
-cp_age: =RoundDown(DateDiff(cp_dateofbirth, UTCToday()) / 365.25, 0)
-cp_fullname: =Concatenate(cp_firstname, " ", cp_lastname)

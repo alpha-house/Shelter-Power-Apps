@@ -27,7 +27,6 @@
         <SubArea Id="subarea_a562c1b2" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="cp_patternofuse" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="subarea_d70aa7d7" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="cp_exitinformation" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="subarea_34dafc5b" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="cp_shelterdetoxlist" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_61c440c2" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="cp_assessment" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
         <SubArea Id="subarea_4da1eeac" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="ahb_ahhelp" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
     </Area>

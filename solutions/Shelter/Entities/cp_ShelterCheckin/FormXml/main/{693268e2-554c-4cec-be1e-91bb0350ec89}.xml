@@ -175,24 +175,30 @@
                   <rows>
                     <row />
                     <row>
-                      <cell locklevel="0" id="{be81e5fe-df2a-4c73-b6e8-99a35841f48c}" rowspan="4" colspan="2" auto="false" showlabel="false">
+                      <cell id="{3d0c5947-b293-4461-9877-eb5785907641}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="New SG control 1790174878697" languagecode="1033" />
+                          <label description="substance 1" languagecode="1033" />
                         </labels>
-                        <control indicationOfSubgrid="true" id="Subgrid_new_2" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
-                          <parameters>
-                            <RecordsPerPage>10</RecordsPerPage>
-                            <AutoExpand>Fixed</AutoExpand>
-                            <EnableQuickFind>true</EnableQuickFind>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <EnableChartPicker>true</EnableChartPicker>
-                            <ChartGridMode>All</ChartGridMode>
-                            <RelationshipName>cp_patternofuse_ShelterCheckin_cp_sheltercheckin</RelationshipName>
-                            <TargetEntityType>cp_patternofuse</TargetEntityType>
-                            <ViewId>{2AE31A8B-57B7-F111-AAAE-7C1E5253FF0A}</ViewId>
-                            <ViewIds>{757922D6-32CA-4DE8-9A35-7C79F614D44F},{2AE31A8B-57B7-F111-AAAE-7C1E5253FF0A}</ViewIds>
-                          </parameters>
-                        </control>
+                        <control id="cp_substance1" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_substance1" disabled="false" />
+                      </cell>
+                      <cell id="{5d76b6d2-ba53-4f57-b0ea-322e67374120}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="substance 2" languagecode="1033" />
+                        </labels>
+                        <control id="cp_substance2" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_substance2" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8afd0189-be6d-4a84-8537-081af276a276}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Substance 3" languagecode="1033" />
+                        </labels>
+                        <control id="cp_substance3" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_substance3" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{799ddbb9-44ce-43ad-b140-2c69569c056c}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>

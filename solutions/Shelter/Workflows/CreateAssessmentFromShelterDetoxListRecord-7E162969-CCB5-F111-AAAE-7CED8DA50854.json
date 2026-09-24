@@ -2,14 +2,13 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps": {
-        "impersonation": {},
-        "runtimeSource": "embedded",
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
         "connection": {
           "connectionReferenceLogicalName": "cp_sharedcommondataserviceforapps_04f4e"
         },
-        "api": {
-          "name": "shared_commondataserviceforapps"
-        }
+        "runtimeSource": "embedded"
       }
     },
     "definition": {
@@ -38,15 +37,14 @@
             },
             "host": {
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "SubscribeWebhookTrigger"
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps"
             }
           }
         }
       },
       "actions": {
         "Has_a_client": {
-          "runAfter": {},
           "type": "If",
           "expression": {
             "not": {
@@ -58,7 +56,6 @@
           },
           "actions": {
             "Get_the_client": {
-              "runAfter": {},
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
@@ -67,132 +64,62 @@
                 },
                 "host": {
                   "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "GetItem"
+                  "operationId": "GetItem",
+                  "connectionName": "shared_commondataserviceforapps"
                 }
               }
             },
             "Create_the_assessment": {
-              "runAfter": {
-                "Get_the_client": [
-                  "Succeeded"
-                ]
-              },
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
                   "entityName": "cp_assessments",
-                  "item/cp_newclient": 121570001,
                   "item/cp_assessmentdateandtime": "@utcNow()",
-                  "item/cp_firstname": "@outputs('Get_the_client')?['body/firstname']",
-                  "item/cp_lastname": "@outputs('Get_the_client')?['body/lastname']",
                   "item/cp_dateofbirth": "@outputs('Get_the_client')?['body/cp_dateofbirth']",
+                  "item/cp_firstname": "@outputs('Get_the_client')?['body/firstname']",
                   "item/cp_gender": "@outputs('Get_the_client')?['body/cp_gender']",
+                  "item/cp_lastname": "@outputs('Get_the_client')?['body/lastname']",
+                  "item/cp_newclient": 121570001,
                   "item/cp_Client@odata.bind": "@concat('/contacts(', triggerOutputs()?['body/_cp_client_value'], ')')",
                   "item/cp_ShelterDetoxList@odata.bind": "@concat('/cp_shelterdetoxlists(', triggerOutputs()?['body/cp_shelterdetoxlistid'], ')')"
                 },
                 "host": {
                   "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "CreateRecord"
+                  "operationId": "CreateRecord",
+                  "connectionName": "shared_commondataserviceforapps"
                 }
+              },
+              "runAfter": {
+                "Get_the_client": [
+                  "Succeeded"
+                ]
               }
             },
             "Link_the_assessment_to_the_detox_list_record": {
-              "runAfter": {
-                "Create_the_assessment": [
-                  "Succeeded"
-                ]
-              },
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
                   "entityName": "cp_shelterdetoxlists",
                   "recordId": "@triggerOutputs()?['body/cp_shelterdetoxlistid']",
-                  "item/cp_DetoxAssessment@odata.bind": "@concat('/cp_assessments(', outputs('Create_the_assessment')?['body/cp_assessmentid'], ')')",
-                  "item/cp_createdetoxassessment": false
+                  "item/cp_createdetoxassessment": false,
+                  "item/cp_DetoxAssessment@odata.bind": "@concat('/cp_assessments(', outputs('Create_the_assessment')?['body/cp_assessmentid'], ')')"
                 },
                 "host": {
                   "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "UpdateOnlyRecord"
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps"
                 }
-              }
-            },
-            "Attach_the_check_ins_substances": {
+              },
               "runAfter": {
-                "Link_the_assessment_to_the_detox_list_record": [
+                "Create_the_assessment": [
                   "Succeeded"
                 ]
-              },
-              "type": "If",
-              "expression": {
-                "not": {
-                  "equals": [
-                    "@empty(triggerOutputs()?['body/_cp_sheltercheckin_value'])",
-                    true
-                  ]
-                }
-              },
-              "actions": {
-                "List_pattern_of_use_for_the_check_in": {
-                  "runAfter": {},
-                  "type": "OpenApiConnection",
-                  "inputs": {
-                    "parameters": {
-                      "entityName": "cp_patternofuses",
-                      "$select": "cp_patternofuseid,cp_nameofsubstance",
-                      "$filter": "_cp_sheltercheckin_value eq @{triggerOutputs()?['body/_cp_sheltercheckin_value']}"
-                    },
-                    "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                      "connectionName": "shared_commondataserviceforapps",
-                      "operationId": "ListRecords"
-                    }
-                  }
-                },
-                "For_each_pattern_of_use": {
-                  "runAfter": {
-                    "List_pattern_of_use_for_the_check_in": [
-                      "Succeeded"
-                    ]
-                  },
-                  "type": "Foreach",
-                  "foreach": "@outputs('List_pattern_of_use_for_the_check_in')?['body/value']",
-                  "runtimeConfiguration": {
-                    "concurrency": {
-                      "repetitions": 10
-                    }
-                  },
-                  "actions": {
-                    "Attach_pattern_of_use_to_the_assessment": {
-                      "runAfter": {},
-                      "type": "OpenApiConnection",
-                      "inputs": {
-                        "parameters": {
-                          "entityName": "cp_patternofuses",
-                          "recordId": "@items('For_each_pattern_of_use')?['cp_patternofuseid']",
-                          "item/cp_Assessment@odata.bind": "@concat('/cp_assessments(', outputs('Create_the_assessment')?['body/cp_assessmentid'], ')')"
-                        },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "connectionName": "shared_commondataserviceforapps",
-                          "operationId": "UpdateOnlyRecord"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "else": {
-                "actions": {}
               }
             }
           },
           "else": {
             "actions": {
               "Fail_no_client_on_the_detox_list_record": {
-                "runAfter": {},
                 "type": "Terminate",
                 "inputs": {
                   "runStatus": "Failed",
@@ -203,7 +130,8 @@
                 }
               }
             }
-          }
+          },
+          "runAfter": {}
         }
       }
     },

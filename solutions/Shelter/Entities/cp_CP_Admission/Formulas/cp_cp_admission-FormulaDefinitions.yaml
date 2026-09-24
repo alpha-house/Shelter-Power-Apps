@@ -1,4 +1,0 @@
-cp_ciwascore1: =cp_nauseavomiting07 + cp_agitation07 + cp_tactiledisturbances07 + cp_headache07 + cp_tremors07 + cp_paroxysmalsweats07 + cp_auditorydisturbances07 + cp_anxiety07 + cp_orientation04 + cp_visualdisturbances07
-cp_cowsscore1: =cp_restingpulserate04 + cp_pupilsize + cp_giupset05 + cp_anxietyorirritability + cp_sweating + cp_boneorjointaches04 + cp_tremorobservationofoutstretchedhands04 + cp_gooseflesh05 + cp_restlessness05 + cp_runnynose + cp_yawningobservationduringassessment04
-cp_dayssinceadmission: =If(!IsBlank(cp_actualdischargedate), 0, DateDiff(cp_admissiondate, Now(), TimeUnit.Days))
-cp_outofprovince: =Concatenate("a")
