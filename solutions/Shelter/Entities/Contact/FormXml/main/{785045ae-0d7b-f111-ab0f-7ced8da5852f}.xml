@@ -307,7 +307,7 @@
           <columns>
             <column width="100%">
               <sections>
-                <section name="tab_6_section_1" id="e04caeab-1e71-40fe-8097-2ab70bb0cc42" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="tab_6_section_1" id="e04caeab-1e71-40fe-8097-2ab70bb0cc42" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
                     <label description="New Section" languagecode="1033" />
                   </labels>
@@ -1005,74 +1005,44 @@
         <controlDescription forControl="{7c1f0a54-2b6e-4a3d-9f21-8c5d4e6b7a10}">
           <customControl formFactor="0" name="cp_CpShelter.ServiceTransactions">
             <parameters>
-              <data-set name="cp_servicetransaction">
+              <data-set name="stays">
                 <ViewId>{9988DE94-9514-F011-998A-6045BD6057D5}</ViewId>
                 <TargetEntityType>contact</TargetEntityType>
                 <IsUserView>false</IsUserView>
                 <EnableViewPicker>false</EnableViewPicker>
                 <RelationshipName />
                 <FilteredViewIds />
-                <cp_servicestartdate>cp_servicestartdate</cp_servicestartdate>
-                <cp_serviceenddate>cp_serviceenddate</cp_serviceenddate>
-                <cp_providerofservice>cp_providerofservice</cp_providerofservice>
-                <cp_serviceprovided>cp_serviceprovided</cp_serviceprovided>
-                <cp_servicetype>cp_servicetype</cp_servicetype>
-                <cp_sheltercheckin>cp_sheltercheckin</cp_sheltercheckin>
-                <cp_admission>cp_admission</cp_admission>
-                <cp_intake>cp_intake</cp_intake>
               </data-set>
-              <Title type="SingleLine.Text" static="true">Previous Services</Title>
+              <Title type="SingleLine.Text" static="true">Previous Stays</Title>
               <RowsPerPage type="Whole.None" static="true">10</RowsPerPage>
-              <AllowAdd type="TwoOptions" static="true">true</AllowAdd>
-              <AllowDelete type="TwoOptions" static="true">true</AllowDelete>
             </parameters>
           </customControl>
           <customControl formFactor="1" name="cp_CpShelter.ServiceTransactions">
             <parameters>
-              <data-set name="cp_servicetransaction">
+              <data-set name="stays">
                 <ViewId>{9988DE94-9514-F011-998A-6045BD6057D5}</ViewId>
                 <TargetEntityType>contact</TargetEntityType>
                 <IsUserView>false</IsUserView>
                 <EnableViewPicker>false</EnableViewPicker>
                 <RelationshipName />
                 <FilteredViewIds />
-                <cp_servicestartdate>cp_servicestartdate</cp_servicestartdate>
-                <cp_serviceenddate>cp_serviceenddate</cp_serviceenddate>
-                <cp_providerofservice>cp_providerofservice</cp_providerofservice>
-                <cp_serviceprovided>cp_serviceprovided</cp_serviceprovided>
-                <cp_servicetype>cp_servicetype</cp_servicetype>
-                <cp_sheltercheckin>cp_sheltercheckin</cp_sheltercheckin>
-                <cp_admission>cp_admission</cp_admission>
-                <cp_intake>cp_intake</cp_intake>
               </data-set>
-              <Title type="SingleLine.Text" static="true">Previous Services</Title>
+              <Title type="SingleLine.Text" static="true">Previous Stays</Title>
               <RowsPerPage type="Whole.None" static="true">10</RowsPerPage>
-              <AllowAdd type="TwoOptions" static="true">true</AllowAdd>
-              <AllowDelete type="TwoOptions" static="true">true</AllowDelete>
             </parameters>
           </customControl>
           <customControl formFactor="2" name="cp_CpShelter.ServiceTransactions">
             <parameters>
-              <data-set name="cp_servicetransaction">
+              <data-set name="stays">
                 <ViewId>{9988DE94-9514-F011-998A-6045BD6057D5}</ViewId>
                 <TargetEntityType>contact</TargetEntityType>
                 <IsUserView>false</IsUserView>
                 <EnableViewPicker>false</EnableViewPicker>
                 <RelationshipName />
                 <FilteredViewIds />
-                <cp_servicestartdate>cp_servicestartdate</cp_servicestartdate>
-                <cp_serviceenddate>cp_serviceenddate</cp_serviceenddate>
-                <cp_providerofservice>cp_providerofservice</cp_providerofservice>
-                <cp_serviceprovided>cp_serviceprovided</cp_serviceprovided>
-                <cp_servicetype>cp_servicetype</cp_servicetype>
-                <cp_sheltercheckin>cp_sheltercheckin</cp_sheltercheckin>
-                <cp_admission>cp_admission</cp_admission>
-                <cp_intake>cp_intake</cp_intake>
               </data-set>
-              <Title type="SingleLine.Text" static="true">Previous Services</Title>
+              <Title type="SingleLine.Text" static="true">Previous Stays</Title>
               <RowsPerPage type="Whole.None" static="true">10</RowsPerPage>
-              <AllowAdd type="TwoOptions" static="true">true</AllowAdd>
-              <AllowDelete type="TwoOptions" static="true">true</AllowDelete>
             </parameters>
           </customControl>
         </controlDescription>
